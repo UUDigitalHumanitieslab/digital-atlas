@@ -47,7 +47,10 @@ jobs:
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run all tests
       run: |
-        cat bootstrap_ci.txt | python bootstrap.py
+        yarn preinstall
+        yarn install-back
+        yarn install-func
+        yarn fyarn
         yarn
         yarn static-p
         find static
