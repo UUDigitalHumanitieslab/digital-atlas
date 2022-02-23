@@ -1,6 +1,6 @@
 # Digital Atlas
 
-[![Actions Status](https://github.com/UUDigitalHumanitieslab/digital_atlas/workflows/Unit%20tests/badge.svg)](https://github.com/UUDigitalHumanitieslab/digital_atlas/actions)
+[![Actions Status](https://github.com/UUDigitalHumanitieslab/digital-atlas/workflows/Unit%20tests/badge.svg)](https://github.com/UUDigitalHumanitieslab/digital-atlas/actions)
 
 The Digital ATLAS of postcolonial Europe visualizes the sites, archives, galleries, museums, monuments, organizations and events, collecting information on postcolonial intellectuals and the main migrant organizations/manifestations in Europe.
 
@@ -27,9 +27,9 @@ You need to install the following software:
 This project integrates three isolated subprojects, each inside its own subdirectory with its own code, package dependencies and tests:
 
  - **backend**: the server side web application based on [Django][3] and [DRF][4]
- 
+
  - **frontend**: the client side web application based on [Angular](https://angular.io)
- 
+
  - **functional-tests**: the functional test suite based on [Selenium][6] and [pytest][7]
 
 [3]: https://www.djangoproject.com

@@ -4,7 +4,7 @@
     "description": "The Digital ATLAS of postcolonial Europe visualizes the sites, archives, galleries, museums, monuments, organizations and events, collecting information on postcolonial intellectuals and the main migrant organizations/manifestations in Europe.",
     "author": "UU Digital Humanities Lab",
     "license": "BSD-3-Clause",
-    "repository": "github:UUDigitalHumanitieslab/digital_atlas",
+    "repository": "github:UUDigitalHumanitieslab/digital-atlas",
     "private": true,
     "scripts": {
         "front": "cd frontend && ",
