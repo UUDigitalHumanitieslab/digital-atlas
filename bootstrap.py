@@ -74,26 +74,17 @@ def main(argv):
         backpack = install_backend_packages()
         funcpack = install_functest_packages()
     frontpack = install_frontend_packages()
-    db, create_db = prepare_db()
-    migrate = superuser = False
-    if db and backpack:
-        migrate = run_migrations()
-        if migrate:
-            superuser = create_superuser()
     main_branch = track_main()
     gitflow = False
     if main_branch:
         gitflow = setup_gitflow()
-    if not all([gitflow, superuser, frontpack, funcpack, pip_tools]):
+    if not all([gitflow, frontpack, funcpack, pip_tools]):
         print('\nPlease read {} for information on failed commands.'.format(LOGFILE_NAME))
     print('\nAlmost ready to go! Just a couple more commands to run:')
     if not already_in_project: print(cd_into_project)
     if not venv: print(create_virtualenv)
     print(activate_venv)
     if not (pip_tools and backpack and frontpack and funcpack): print(install_all_packages)
-    if not db: print(create_db)
-    if not migrate: print(run_migrations)
-    if not superuser: print(create_superuser)
     if not main_branch: print(track_main)
     if not gitflow: print(setup_gitflow)
     print(yarn_start)
@@ -150,22 +141,6 @@ def adopt_virtualenv(env_path):
     # next line is a fix for https://bugs.python.org/issue22490
     os.environ.pop('__PYVENV_LAUNCHER__', None)
 
-
-def prepare_db():
-    default_cmd = 'psql'
-    psql_cmd = prompt('psql_command', default_cmd)
-    create_command = make_create_db_command(psql_cmd)
-    success = create_command()
-    return success, create_command
-
-
-def make_create_db_command(psql_cmd):
-    # psql does not properly indicate failure; it always exits with 0.
-    # Fortunately, it is one of the last commands.
-    return Command(
-        'Create the database',
-        psql_cmd + ' -f ' + op.join('backend', 'create_db.sql'),
-    )
 
 def merge_json(target, source):
     for key, value in source.items():
@@ -306,27 +281,6 @@ install_frontend_packages = Command(
 )
 
 install_all_packages = Command('Install all packages', ['yarn'])
-
-run_migrations = Command(
-    'Run the initial migrations',
-    ['yarn', 'django', 'migrate'],
-)
-
-# Github Actions sets "CI" environment variable
-if os.environ.get('CI'):
-    create_superuser = Command(
-        'Skip creating the superuser',
-        ['yarn', 'back', ':'], # ':' for no-op
-        stdout=None, # share stdout and stderr with this process
-        stderr=None,
-    )
-else:
-    create_superuser = Command(
-        'Create the superuser',
-        ['yarn', 'django', 'createsuperuser'],
-        stdout=None, # share stdout and stderr with this process
-        stderr=None,
-    )
 
 track_main = Command(
     'Create origin-tracking main branch',
