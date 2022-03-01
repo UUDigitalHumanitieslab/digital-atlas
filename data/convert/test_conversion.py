@@ -25,7 +25,9 @@ def check_table(table, result, target):
     assert len(results) == len(targets)
 
     for result_item, target_item in zip(results, targets):
-        assert result_item == target_item
+        assert result_item.keys() == target_item.keys()
+        for key in target_item:
+            assert result_item[key] == target_item[key]
 
 def test_data(convert_example):
     assert os.path.exists(EXAMPLE_OUT)
