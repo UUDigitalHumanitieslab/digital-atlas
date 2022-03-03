@@ -49,6 +49,7 @@ jobs:
       run: |
         yarn preinstall
         yarn install-back
+        yarn install-data
         yarn install-func
         yarn fyarn
         yarn
