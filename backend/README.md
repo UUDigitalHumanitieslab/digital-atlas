@@ -12,7 +12,6 @@ This is a server side web application based on [Django][1] and [Django REST fram
 
 You need to install the following software:
 
- - PostgreSQL >= 10, client, server and C libraries
  - Python >= 3.8, <= 3.10
  - virtualenv
  - WSGI-compatible webserver (deployment only)
@@ -42,14 +41,9 @@ Unittest modules live directly next to the module they belong to. Each directory
 
 ### Quickstart
 
-Create and activate a virtualenv. Ensure your working directory is the one that contains this README. Run the following commands as yourself (i.e., not in sudo mode nor with elevated privileges). You may need to [reconfigure PostgreSQL][5] and/or pass [additional arguments to `psql`][6] (in particular, your [own][7] PostgreSQL `dbname` and `username`) in order to be able to run the first command. You need to execute this sequence of commands only once after cloning the repository.
-
-[5]: https://www.postgresql.org/docs/10/auth-pg-hba-conf.html
-[6]: https://www.postgresql.org/docs/10/app-psql.html
-[7]: https://www.postgresql.org/docs/10/database-roles.html
+Create and activate a virtualenv. Ensure your working directory is the one that contains this README. Run the following commands as yourself (i.e., not in sudo mode nor with elevated privileges). You need to execute this sequence of commands only once after cloning the repository.
 
 ```console
-$ psql -f create_db.sql
 $ pip install pip-tools
 $ pip install -r requirements.txt
 ```
@@ -128,14 +122,6 @@ See also the [Django documentation][13].
 
 [12]: https://docs.python.org/3/library/os.html#os.urandom
 [13]: https://docs.djangoproject.com/en/1.11/ref/settings/
-
-
-### Creating the database
-
-You can follow the steps from `create_db.sql`, with two important differences:
-
- - The `createdb` permission is not needed in production, so you shouldn't include it.
- - The username, password and database name should be the same as the one in your settings overrides from the previous section.
 
 
 ### Configuring your webserver
