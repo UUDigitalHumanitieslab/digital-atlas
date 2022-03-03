@@ -1,7 +1,7 @@
 Django>=4.0.1,<5
 djangorestframework
 django-livereload-server
-django-revproxy>=0.10.0
+https://github.com/jazzband/django-revproxy@356ddd85713df0b484e74817cee709c109261495#egg=django-revproxy
 psycopg2 --no-binary psycopg2
 pytest
 pytest-django

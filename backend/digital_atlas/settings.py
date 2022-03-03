@@ -77,14 +77,6 @@ WSGI_APPLICATION = 'digital_atlas.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'digital_atlas',
-        'USER': 'digital_atlas',
-        'PASSWORD': 'digital_atlas',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
 }
 
 
