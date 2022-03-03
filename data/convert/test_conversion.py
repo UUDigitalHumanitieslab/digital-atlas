@@ -1,4 +1,3 @@
-from lib2to3.pytree import convert
 import pytest
 from convert.convert import convert_file
 import os
@@ -12,10 +11,10 @@ EXAMPLE_TARGET = 'example/example_target.json'
 def load_results():
     with open(EXAMPLE_OUT) as input:
         result = json.loads(input.read())
-    
+
     with open(EXAMPLE_TARGET) as input:
         target = json.loads(input.read())
-    
+
     return result, target
 
 def check_table(table, result, target):
