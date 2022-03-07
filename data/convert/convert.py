@@ -40,7 +40,7 @@ def parse_sheet(worksheet: Worksheet):
             return value.strip()
         
         if type(value) == datetime:
-            return value.strftime('%d-%m-%Y')
+            return value.strftime('%Y-%m-%d')
         
         if type(value) == int:
             if header in ['date', 'start_date', 'end_date']:
@@ -48,7 +48,7 @@ def parse_sheet(worksheet: Worksheet):
                     date = datetime(year = value, month=12, day=31)
                 else:
                     date = datetime(year=value, month=1, day=1)
-                return date.strftime('%d-%m-%Y')
+                return date.strftime('%Y-%m-%d')
             else:
                 return value
         
