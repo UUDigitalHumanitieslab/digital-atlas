@@ -1,4 +1,15 @@
-export type WorkCategory = 'Publication'|'Work/biography'|'Media/lectures'|'Other';
+export enum Categories {
+    Publication = 'Publication',
+    PersonalBiography = 'Personal/biography',
+    MediaLectures = 'Media/lectures',
+    Other = 'Other'
+}
+
+export type Category =
+    Categories.Publication |
+    Categories.PersonalBiography |
+    Categories.MediaLectures |
+    Categories.Other;
 
 export interface Location {
     name: string;
@@ -18,7 +29,7 @@ export interface Author {
 
 export interface Work {
     author: string;
-    category: WorkCategory;
+    category: Category;
     date?: Date;
     startDate?: Date;
     endDate?: Date;
@@ -31,12 +42,12 @@ export interface Work {
 export interface Legacy {
     authorNames: string[];
     about: string[];
-    category: WorkCategory;
+    category: Category;
     date?: Date;
     startDate?: Date;
     endDate?: Date;
     pictures?: string[];
-    where?: string;
+    where?: Location;
     title: string;
     description: string;
     url?: string;
@@ -44,12 +55,12 @@ export interface Legacy {
 
 export interface LifeEvent {
     author: string;
-    category: WorkCategory;
+    category: Category;
     date?: Date;
     startDate?: Date;
     endDate?: Date;
     pictures?: string[];
-    where?: string;
+    where?: Location;
     title: string;
     description: string;
 }

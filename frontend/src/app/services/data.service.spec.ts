@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { WorkCategory } from '../models/data';
+import { Categories, } from '../models/data';
 
 import { DataService } from './data.service';
 
@@ -98,7 +98,22 @@ describe('DataService', () => {
             }
         ];
         values.forEach(item => {
-            expect(service.parsePictures(item.input)).toEqual(item.expected);
+            expect(service.parseStringList(item.input)).toEqual(item.expected);
+        });
+    });
+
+    it('should parse work categories', () => {
+        const values = [
+            {
+                input: 'Personal/biography',
+                expected: Categories.PersonalBiography
+            }, {
+                input: 'not listed',
+                expected: Categories.Other,
+            }
+        ];
+        values.forEach(item => {
+            expect(service.parseCategory(item.input)).toEqual(item.expected);
         });
     });
 
@@ -165,7 +180,7 @@ describe('DataService', () => {
         const expected = [
             {
                 author: 'Frantz Fanon',
-                category: 'Publication' as WorkCategory,
+                category: Categories.Publication,
                 date: new Date('1948-01-01'),
                 startDate: undefined,
                 endDate: undefined,
@@ -176,5 +191,69 @@ describe('DataService', () => {
             }
         ];
         expect(service.parseWorks(input, locations)).toEqual(expected);
+    });
+
+    it ('should parse legacies', () => {
+        const input = [
+            {
+                author_names: 'Renate Zahar',
+                about: 'Frantz Fanon',
+                category: 'Publication',
+                date: '1969-01-01',
+                start_date: '',
+                end_date: '',
+                pictures: '',
+                where: '',
+                title: 'Renate Zahar, Frantz Fanon: Colonialism and Alienation (1969, trans. 1974, Monthly Review Press)',
+                description: '',
+                url: ''
+            },
+        ];
+        const expected = [
+            {
+                authorNames: ['Renate Zahar'],
+                about: ['Frantz Fanon'],
+                category: Categories.Publication,
+                date: new Date('1969-01-01'),
+                startDate: undefined,
+                endDate: undefined,
+                pictures: undefined,
+                where: undefined,
+                title: 'Renate Zahar, Frantz Fanon: Colonialism and Alienation (1969, trans. 1974, Monthly Review Press)',
+                description: '',
+                url: undefined
+            }
+        ];
+        expect(service.parseLegacies(input, locations)).toEqual(expected);
+    });
+
+    it ('should parse life events', () => {
+        const input = [
+            {
+                author: 'Frantz Fanon',
+                category: 'Personal/biography',
+                date: '1942-01-01',
+                start_date: '',
+                end_date: '',
+                pictures: '',
+                where: 'Dominica',
+                title: 'Resistance',
+                description: 'Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica'
+            }
+        ];
+        const expected = [
+            {
+                author: 'Frantz Fanon',
+                category: Categories.PersonalBiography,
+                date: new Date('1942-01-01'),
+                startDate: undefined,
+                endDate: undefined,
+                pictures: undefined,
+                where: locations[1],
+                title: 'Resistance',
+                description: 'Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica'
+            }
+        ];
+        expect(service.parseLifeEvents(input, locations)).toEqual(expected);
     });
 });
