@@ -9,8 +9,9 @@ export class DataService {
     constructor() { }
 
     parseData(data): void {
-        const authors = this.parseAuthors(data.authors);
-        const works = this.parseWorks(data.works);
+        const locations = data.locations as Location[];
+        const authors = this.parseAuthors(data.authors, locations);
+        const works = this.parseWorks(data.works, locations);
         console.log(works[0]);
     }
 
@@ -40,21 +41,27 @@ export class DataService {
         }
     }
 
+    // LOCATION MATCH-UP
+
+    findLocation(name: string, locations: Location[]): Location {
+        return locations.find(location => location.name === name);
+    }
+
     // TABLE PARSER FUNCTIONS
 
-    parseAuthors(authorData: any[]): Author[] {
+    parseAuthors(authorData: any[], locations: Location[]): Author[] {
         return authorData.map(item => ({
             name: item.name,
             description: item.description,
             dateOfBirth: this.parseDate(item.date_of_birth),
-            placeOfBirth: item.place_of_birth,
+            placeOfBirth: this.findLocation(item.place_of_birth, locations),
             dateOfDeath: this.parseDate(item.date_of_death),
-            placeOfDeath: this.parseOptionalString(item.place_of_death),
+            placeOfDeath: this.findLocation(item.place_of_death, locations),
             pictures: this.parsePictures(item.pictures)
         }));
     }
 
-    parseWorks(workData: any[]): Work[] {
+    parseWorks(workData: any[], locations: Location[]): Work[] {
         return workData.map(item => ({
             author: item.author_name,
             category: item.category,
@@ -64,7 +71,7 @@ export class DataService {
             title: item.title,
             description: item.description,
             pictures: this.parsePictures(item.pictures),
-            where: item.where,
+            where: this.findLocation(item.where, locations),
         }));
     }
 }

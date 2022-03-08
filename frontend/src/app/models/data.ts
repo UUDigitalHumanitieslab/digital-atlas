@@ -1,11 +1,17 @@
 export type WorkCategory = 'Publication'|'Work/biography'|'Media/lectures'|'Other';
 
+export interface Location {
+    name: string;
+    lat: number;
+    long: number;
+}
+
 export interface Author {
     name: string;
     pictures?: string[];
-    placeOfBirth: string;
+    placeOfBirth: Location;
     dateOfBirth: Date;
-    placeOfDeath?: string;
+    placeOfDeath?: Location;
     dateOfDeath?: Date;
     description: string;
 }
@@ -17,7 +23,7 @@ export interface Work {
     startDate?: Date;
     endDate?: Date;
     pictures?: string[];
-    where?: string;
+    where?: Location;
     title: string;
     description: string;
 }
@@ -48,11 +54,6 @@ export interface LifeEvent {
     description: string;
 }
 
-export interface Location {
-    name: string;
-    lat: number;
-    long: number;
-}
 
 export interface Picture {
     name: string;

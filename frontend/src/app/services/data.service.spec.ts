@@ -3,6 +3,44 @@ import { WorkCategory } from '../models/data';
 
 import { DataService } from './data.service';
 
+const locations = [
+    {
+        name: 'Fort-de-France, Martinique',
+        lat: 14.60426,
+        long: -61.066971
+    },
+    {
+        name: 'Dominica',
+        lat: 15.414999,
+        long: -61.370975
+    },
+    {
+        name: 'Colmar, France',
+        lat: 48.08062,
+        long: 7.35995
+    },
+    {
+        name: 'Paris',
+        lat: 48.856613,
+        long: 2.352222
+    },
+    {
+        name: 'London',
+        lat: 51.507351,
+        long: -0.127758
+    },
+    {
+        name: 'Kingston, Jamaica',
+        lat: 17.9712148,
+        long: -76.7928128
+    },
+    {
+        name: 'Merton College',
+        lat: 51.3936101,
+        long: -0.2051129
+    }
+];
+
 describe('DataService', () => {
     let service: DataService;
 
@@ -64,6 +102,26 @@ describe('DataService', () => {
         });
     });
 
+    it('should match locations', () => {
+        const values = [
+            {
+                input: 'Paris',
+                expected: locations[3]
+            },
+            {
+                input: 'Parisss',
+                expected: undefined
+            },
+            {
+                input: '',
+                expected: undefined
+            },
+        ];
+        values.forEach(item => {
+            expect(service.findLocation(item.input, locations)).toEqual(item.expected);
+        });
+    });
+
     it('should parse authors', () => {
         const input = [
             {
@@ -80,14 +138,14 @@ describe('DataService', () => {
             {
                 name: 'Frantz Fanon',
                 pictures: ['Frantz Fanon at press conference'],
-                placeOfBirth: 'Fort-de-France, Martinique',
+                placeOfBirth: locations[0],
                 dateOfBirth: new Date('1925-06-20'),
                 placeOfDeath: undefined,
                 dateOfDeath: undefined,
                 description: '',
             }
         ];
-        expect(service.parseAuthors(input)).toEqual(expected);
+        expect(service.parseAuthors(input, locations)).toEqual(expected);
     });
 
     it ('should parse works', () => {
@@ -112,11 +170,11 @@ describe('DataService', () => {
                 startDate: undefined,
                 endDate: undefined,
                 pictures: undefined,
-                where: 'Paris',
+                where: locations[3],
                 title: '',
                 description: 'Capécia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corrêa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997.'
             }
         ];
-        expect(service.parseWorks(input)).toEqual(expected);
+        expect(service.parseWorks(input, locations)).toEqual(expected);
     });
 });
