@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'da-home',
@@ -6,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    hooray: string;
 
-    constructor() { }
+    constructor(private dataService: DataService) { }
 
     ngOnInit(): void {
+        this.dataService.loadDataFile().then(data => {
+            this.dataService.parseData(data);
+        });
     }
 
 }

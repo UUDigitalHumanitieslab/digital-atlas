@@ -1,4 +1,4 @@
-export type WorkCategory = 'Work/biography'|'Media/lectures'|'Other';
+export type WorkCategory = 'Publication'|'Work/biography'|'Media/lectures'|'Other';
 
 export interface Author {
     name: string;
@@ -18,6 +18,7 @@ export interface Work {
     endDate?: Date;
     pictures?: string[];
     where?: string;
+    title: string;
     description: string;
 }
 
