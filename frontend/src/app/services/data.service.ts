@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Author, Work, Location, Legacy, LifeEvent, Categories, Category } from '../models/data';
+import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Picture, CollectedData } from '../models/data';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DataService {
+    private dataPath = '/assets/data/data.json';
 
     constructor() { }
 
-    parseData(data): void {
+    parseData(data): CollectedData {
+        // pictures and locations can be imported as-is
         const locations = data.locations as Location[];
+        const pictures = data.pictures as Picture[];
+
+        // tables which require some transformations / data validation
         const authors = this.parseAuthors(data.authors, locations);
-        const works = this.parseWorks(data.works, locations);
+        const works = this.parseWorks(data.works, locations, authors);
+        const legacies = this.parseLegacies(data.legacy, locations, authors);
+        const lifeEvents = this.parseLifeEvents(data.events, locations, authors);
+
+        return {
+            locations, pictures, authors, works, legacies, lifeEvents
+        };
     }
 
     loadDataFile(): Promise<any> {
-        return fetch('/assets/data/data.json').then(response => {
+        return fetch(this.dataPath).then(response => {
             return response.json();
         });
     }
@@ -47,17 +58,28 @@ export class DataService {
         return Categories.Other;
     }
 
-    // LOCATION MATCH-UP
+    // LINKED DATA LOOKUPS
+
+    private matchNames(a: string, b: string): boolean {
+        const process = (name: string) => name.trim().toLowerCase();
+        return process(a) === process(b);
+    }
 
     findLocation(name: string, locations: Location[]): Location {
-        return locations.find(location => location.name === name);
+        return locations.find(location => this.matchNames(location.name, name));
+    }
+
+    findAuthor(name: string, authors: Author[]): Author {
+        return authors.find(author => this.matchNames(author.name, name)) || authors[0];
+
     }
 
     // TABLE PARSER FUNCTIONS
 
     parseAuthors(authorData: any[], locations: Location[]): Author[] {
-        return authorData.map(item => ({
+        return authorData.map((item, index) => ({
             name: item.name,
+            id: index,
             description: item.description,
             dateOfBirth: this.parseDate(item.date_of_birth),
             placeOfBirth: this.findLocation(item.place_of_birth, locations),
@@ -67,47 +89,59 @@ export class DataService {
         }));
     }
 
-    parseWorks(workData: any[], locations: Location[]): Work[] {
-        return workData.map(item => ({
-            author: item.author_name,
-            category: this.parseCategory(item.category),
-            date: this.parseDate(item.date),
-            startDate: this.parseDate(item.start_date),
-            endDate: this.parseDate(item.end_date),
-            title: item.title,
-            description: item.description,
-            pictures: this.parseStringList(item.pictures),
-            where: this.findLocation(item.where, locations),
-        }));
+    parseWorks(workData: any[], locations: Location[], authors: Author[]): Work[] {
+        return workData.map(item => {
+            const author = this.findAuthor(item.author_name, authors);
+            return {
+                author: author.name,
+                authorId: author.id,
+                category: this.parseCategory(item.category),
+                date: this.parseDate(item.date),
+                startDate: this.parseDate(item.start_date),
+                endDate: this.parseDate(item.end_date),
+                title: item.title,
+                description: item.description,
+                pictures: this.parseStringList(item.pictures),
+                where: this.findLocation(item.where, locations),
+            };
+        });
     }
 
-    parseLegacies(legacyData: any[], locations: Location[]): Legacy[] {
-        return legacyData.map(item => ({
-            authorNames: this.parseStringList(item.author_names),
-            about: this.parseStringList(item.about),
-            category: this.parseCategory(item.category),
-            date: this.parseDate(item.date),
-            startDate: this.parseDate(item.start_date),
-            endDate: this.parseDate(item.end_date),
-            pictures: this.parseStringList(item.pictures),
-            where: this.findLocation(item.where, locations),
-            title: item.title,
-            description: item.description,
-            url: this.parseOptionalString(item.url),
-        }));
+    parseLegacies(legacyData: any[], locations: Location[], authors: Author[]): Legacy[] {
+        return legacyData.map(item => {
+            const aboutAuthors = this.parseStringList(item.about).map(name => this.findAuthor(name, authors));
+            return {
+                authorNames: this.parseStringList(item.author_names),
+                about: aboutAuthors.map(author => author.name),
+                aboutIds: aboutAuthors.map(author => author.id),
+                category: this.parseCategory(item.category),
+                date: this.parseDate(item.date),
+                startDate: this.parseDate(item.start_date),
+                endDate: this.parseDate(item.end_date),
+                pictures: this.parseStringList(item.pictures),
+                where: this.findLocation(item.where, locations),
+                title: item.title,
+                description: item.description,
+                url: this.parseOptionalString(item.url),
+            };
+        });
     }
 
-    parseLifeEvents(lifeEventData: any[], locations: Location[]): LifeEvent[] {
-        return lifeEventData.map(item => ({
-            author: item.author,
-            category: this.parseCategory(item.category),
-            date: this.parseDate(item.date),
-            startDate: this.parseDate(item.start_date),
-            endDate: this.parseDate(item.end_date),
-            pictures: this.parseStringList(item.pictures),
-            where: this.findLocation(item.where, locations),
-            title: item.title,
-            description: item.description,
-        }));
+    parseLifeEvents(lifeEventData: any[], locations: Location[], authors: Author[]): LifeEvent[] {
+        return lifeEventData.map(item => {
+            const author = this.findAuthor(item.author, authors);
+            return {
+                author: author.name,
+                authorId: author.id,
+                category: this.parseCategory(item.category),
+                date: this.parseDate(item.date),
+                startDate: this.parseDate(item.start_date),
+                endDate: this.parseDate(item.end_date),
+                pictures: this.parseStringList(item.pictures),
+                where: this.findLocation(item.where, locations),
+                title: item.title,
+                description: item.description,
+            };
+        });
     }
 }

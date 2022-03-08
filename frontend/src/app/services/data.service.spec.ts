@@ -41,6 +41,28 @@ const locations = [
     }
 ];
 
+const authors = [
+    {
+        name: 'Frantz Fanon',
+        id: 0,
+        pictures: ['Frantz Fanon at press conference'],
+        placeOfBirth: locations[0],
+        dateOfBirth: new Date('1925-06-20'),
+        placeOfDeath: undefined,
+        dateOfDeath: undefined,
+        description: '',
+    }, {
+        name: 'Stuart Hall',
+        id: 1,
+        pictures: ['Stuart Hall at desk', 'Stuart Hall standing'],
+        placeOfBirth: locations[5],
+        dateOfBirth: new Date('1932-02-03'),
+        placeOfDeath: locations[4],
+        dateOfDeath: new Date('2014-02-10'),
+        description: '',
+    }
+];
+
 describe('DataService', () => {
     let service: DataService;
 
@@ -84,7 +106,7 @@ describe('DataService', () => {
         });
     });
 
-    it('should parse pictures', () => {
+    it('should parse picture lists', () => {
         const values = [
             {
                 input: 'Frantz Fanon at press conference',
@@ -122,18 +144,37 @@ describe('DataService', () => {
             {
                 input: 'Paris',
                 expected: locations[3]
-            },
-            {
-                input: 'Parisss',
+            }, {
+                input: 'london ',
+                expected: locations[4]
+            }, {
+                input: 'nonsense',
                 expected: undefined
-            },
-            {
+            }, {
                 input: '',
                 expected: undefined
             },
         ];
         values.forEach(item => {
             expect(service.findLocation(item.input, locations)).toEqual(item.expected);
+        });
+    });
+
+    it('should match authors', () => {
+        const values = [
+            {
+                input: 'Frantz Fanon',
+                expected: authors[0]
+            }, {
+                input: 'Stuart Hall',
+                expected: authors[1]
+            }, {
+                input: ' stuart hall',
+                expected: authors[1],
+            }
+        ];
+        values.forEach(item => {
+            expect(service.findAuthor(item.input, authors)).toEqual(item.expected);
         });
     });
 
@@ -147,19 +188,17 @@ describe('DataService', () => {
                 place_of_death: '',
                 date_of_death: '',
                 description: ''
+            }, {
+                name: 'Stuart Hall',
+                pictures: 'Stuart Hall at desk, Stuart Hall standing',
+                place_of_birth: 'Kingston, Jamaica',
+                date_of_birth: '1932-02-03',
+                place_of_death: 'London',
+                date_of_death: '2014-02-10',
+                description: ''
             }
         ];
-        const expected = [
-            {
-                name: 'Frantz Fanon',
-                pictures: ['Frantz Fanon at press conference'],
-                placeOfBirth: locations[0],
-                dateOfBirth: new Date('1925-06-20'),
-                placeOfDeath: undefined,
-                dateOfDeath: undefined,
-                description: '',
-            }
-        ];
+        const expected = authors;
         expect(service.parseAuthors(input, locations)).toEqual(expected);
     });
 
@@ -180,6 +219,7 @@ describe('DataService', () => {
         const expected = [
             {
                 author: 'Frantz Fanon',
+                authorId: 0,
                 category: Categories.Publication,
                 date: new Date('1948-01-01'),
                 startDate: undefined,
@@ -190,7 +230,7 @@ describe('DataService', () => {
                 description: 'Capécia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corrêa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997.'
             }
         ];
-        expect(service.parseWorks(input, locations)).toEqual(expected);
+        expect(service.parseWorks(input, locations, authors)).toEqual(expected);
     });
 
     it ('should parse legacies', () => {
@@ -213,6 +253,7 @@ describe('DataService', () => {
             {
                 authorNames: ['Renate Zahar'],
                 about: ['Frantz Fanon'],
+                aboutIds: [0],
                 category: Categories.Publication,
                 date: new Date('1969-01-01'),
                 startDate: undefined,
@@ -224,7 +265,7 @@ describe('DataService', () => {
                 url: undefined
             }
         ];
-        expect(service.parseLegacies(input, locations)).toEqual(expected);
+        expect(service.parseLegacies(input, locations, authors)).toEqual(expected);
     });
 
     it ('should parse life events', () => {
@@ -244,6 +285,7 @@ describe('DataService', () => {
         const expected = [
             {
                 author: 'Frantz Fanon',
+                authorId: 0,
                 category: Categories.PersonalBiography,
                 date: new Date('1942-01-01'),
                 startDate: undefined,
@@ -254,6 +296,6 @@ describe('DataService', () => {
                 description: 'Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica'
             }
         ];
-        expect(service.parseLifeEvents(input, locations)).toEqual(expected);
+        expect(service.parseLifeEvents(input, locations, authors)).toEqual(expected);
     });
 });

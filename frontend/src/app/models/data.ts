@@ -19,6 +19,7 @@ export interface Location {
 
 export interface Author {
     name: string;
+    id: number;
     pictures?: string[];
     placeOfBirth: Location;
     dateOfBirth: Date;
@@ -29,6 +30,7 @@ export interface Author {
 
 export interface Work {
     author: string;
+    authorId: number;
     category: Category;
     date?: Date;
     startDate?: Date;
@@ -42,6 +44,7 @@ export interface Work {
 export interface Legacy {
     authorNames: string[];
     about: string[];
+    aboutIds: number[];
     category: Category;
     date?: Date;
     startDate?: Date;
@@ -55,6 +58,7 @@ export interface Legacy {
 
 export interface LifeEvent {
     author: string;
+    authorId: number;
     category: Category;
     date?: Date;
     startDate?: Date;
@@ -73,4 +77,13 @@ export interface Picture {
     license: string;
     url: string;
     description: string;
+}
+
+export interface CollectedData {
+    locations: Location[];
+    pictures: Picture[];
+    authors: Author[];
+    works: Work[];
+    legacies: Legacy[];
+    lifeEvents: LifeEvent[];
 }
