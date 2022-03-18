@@ -7,7 +7,20 @@ import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Pictur
 export class DataService {
     private dataPath = '/assets/data/data.json';
 
+    data: CollectedData;
+
     constructor() { }
+
+    getData(): Promise<CollectedData> {
+        return new Promise<CollectedData>((resolve) => {
+            if (this.data === undefined) {
+                this.loadDataFile().then(result => {
+                    this.data = this.parseData(result);
+                });
+            }
+            resolve(this.data);
+        });
+    }
 
     parseData(data): CollectedData {
         // pictures and locations can be imported as-is

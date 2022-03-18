@@ -8,12 +8,9 @@ import { DataService } from '../services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(private dataService: DataService) { }
+    constructor() { }
 
     ngOnInit(): void {
-        this.dataService.loadDataFile().then(data => {
-            this.dataService.parseData(data);
-        });
     }
 
 }
