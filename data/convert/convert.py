@@ -8,7 +8,7 @@ from openpyxl.worksheet.worksheet import Worksheet
 months = ["January", "February", "March", "April", "May",
           "June", "July", "August", "October", "November", "December"]
 month_regex = re.compile('^(' + '|'.join(months) + "), (\\d{4})$")
-day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\d{4})$")
+day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\\d{4})$")
 
 def convert_file(in_path, out_path):
     data = parse_input(in_path)
@@ -134,7 +134,7 @@ def format_value(value, header):
         # floats are used for for lat/long coordinates
         return value
 
-    if header in ['date', 'start_date', 'end_date']:
+    if header in ['date', 'date_of_birth', 'date_of_death', 'start_date', 'end_date']:
         return format_date(value)
 
     if type(value) == str:
