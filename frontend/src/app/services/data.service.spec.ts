@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Categories, } from '../models/data';
+import { Categories, PartialDate, } from '../models/data';
 
 import { DataService } from './data.service';
 
@@ -47,7 +47,7 @@ const authors = [
         id: 0,
         pictures: ['Frantz Fanon at press conference'],
         placeOfBirth: locations[0],
-        dateOfBirth: new Date('1925-06-20'),
+        dateOfBirth: new PartialDate('1925-06-20'),
         placeOfDeath: undefined,
         dateOfDeath: undefined,
         description: '',
@@ -56,9 +56,9 @@ const authors = [
         id: 1,
         pictures: ['Stuart Hall at desk', 'Stuart Hall standing'],
         placeOfBirth: locations[5],
-        dateOfBirth: new Date('1932-02-03'),
+        dateOfBirth: new PartialDate('1932-02-03'),
         placeOfDeath: locations[4],
-        dateOfDeath: new Date('2014-02-10'),
+        dateOfDeath: new PartialDate('2014-02-10'),
         description: '',
     }
 ];
@@ -79,7 +79,7 @@ describe('DataService', () => {
         const values = [
             {
                 input: '2022-01-01',
-                expected: new Date('2022-01-01'),
+                expected: new PartialDate('2022-01-01'),
             }, {
                 input: '',
                 expected: undefined
@@ -221,7 +221,7 @@ describe('DataService', () => {
                 author: 'Frantz Fanon',
                 authorId: 0,
                 category: Categories.Publication,
-                date: new Date('1948-01-01'),
+                date: new PartialDate('1948-01-01'),
                 startDate: undefined,
                 endDate: undefined,
                 pictures: undefined,
@@ -255,7 +255,7 @@ describe('DataService', () => {
                 about: ['Frantz Fanon'],
                 aboutIds: [0],
                 category: Categories.Publication,
-                date: new Date('1969-01-01'),
+                date: new PartialDate('1969-01-01'),
                 startDate: undefined,
                 endDate: undefined,
                 pictures: undefined,
@@ -287,7 +287,7 @@ describe('DataService', () => {
                 author: 'Frantz Fanon',
                 authorId: 0,
                 category: Categories.PersonalBiography,
-                date: new Date('1942-01-01'),
+                date: new PartialDate('1942-01-01'),
                 startDate: undefined,
                 endDate: undefined,
                 pictures: undefined,

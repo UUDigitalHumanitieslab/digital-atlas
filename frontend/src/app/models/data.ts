@@ -17,14 +17,35 @@ export interface Location {
     long: number;
 }
 
+export class PartialDate {
+    year: number;
+    month?: number;
+    day?: number;
+
+    constructor(value: string) {
+        const parts = value.split('-');
+        switch (parts.length) {
+            case 3:
+                this.day = parseInt(parts[2]);
+            /* falls through */
+            case 2:
+                this.month = parseInt(parts[1]);
+            /* falls through */
+            case 1:
+                this.year = parseInt(parts[0]);
+                break;
+        }
+    }
+}
+
 export interface Author {
     name: string;
     id: number;
     pictures?: string[];
     placeOfBirth: Location;
-    dateOfBirth: Date;
+    dateOfBirth: PartialDate;
     placeOfDeath?: Location;
-    dateOfDeath?: Date;
+    dateOfDeath?: PartialDate;
     description: string;
 }
 
@@ -32,9 +53,9 @@ export interface Work {
     author: string;
     authorId: number;
     category: Category;
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
+    date?: PartialDate;
+    startDate?: PartialDate;
+    endDate?: PartialDate;
     pictures?: string[];
     where?: Location;
     title: string;
@@ -46,9 +67,9 @@ export interface Legacy {
     about: string[];
     aboutIds: number[];
     category: Category;
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
+    date?: PartialDate;
+    startDate?: PartialDate;
+    endDate?: PartialDate;
     pictures?: string[];
     where?: Location;
     title: string;
@@ -60,9 +81,9 @@ export interface LifeEvent {
     author: string;
     authorId: number;
     category: Category;
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
+    date?: PartialDate;
+    startDate?: PartialDate;
+    endDate?: PartialDate;
     pictures?: string[];
     where?: Location;
     title: string;

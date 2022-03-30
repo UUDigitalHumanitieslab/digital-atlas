@@ -10,6 +10,7 @@ months = ["January", "February", "March", "April", "May",
 month_regex = re.compile('^(' + '|'.join(months) + "), (\\d{4})$")
 day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\\d{4})$")
 
+
 def convert_file(in_path, out_path):
     data = parse_input(in_path)
 
@@ -28,6 +29,7 @@ def parse_input(in_path):
     check_relations(data)
     return data
 
+
 def check_relations(data):
     print("Checking authors:")
     for author in data['authors']:
@@ -42,12 +44,13 @@ def check_relations(data):
     print("Checking legacy:")
     for legacy in data['legacy']:
         check_dependency(data, 'authors', legacy['about'])
-        check_dependency(data, 'locations',legacy['where'])
+        check_dependency(data, 'locations', legacy['where'])
 
     print("Checking events:")
     for event in data['events']:
         check_dependency(data, 'authors', event['author'])
         check_dependency(data, 'locations', event['where'])
+
 
 def check_dependency(data, sheet, name):
     if name is None:
@@ -57,6 +60,7 @@ def check_dependency(data, sheet, name):
             return
 
     print(f"! {name} does not exist in {sheet}")
+
 
 def parse_sheet(worksheet: Worksheet):
     header_row = next(worksheet.rows)
@@ -74,13 +78,13 @@ def parse_sheet(worksheet: Worksheet):
         }
 
     headers = [format_header(cell.value)
-               for cell in filter(
-        lambda cell: cell.value is not None,
-        header_row)]
+               for cell in filter(lambda cell: cell.value is not None,
+                                  header_row)]
 
     data = [format_row(row) for row in list(worksheet.rows)[1:]]
 
     return list(skip_empty(data))
+
 
 def skip_empty(data: List[Dict[str, Any]]):
     for item in data:
@@ -88,7 +92,7 @@ def skip_empty(data: List[Dict[str, Any]]):
             if value is not None:
                 yield item
                 break
-        
+
 
 def format_date(value):
     """"
@@ -117,7 +121,10 @@ def format_date(value):
         match = day_regex.search(value)
         if match:
             month, day, year = match.groups()
-            date = datetime(year=int(year), month=int(months.index(month) + 1), day=int(day))
+            date = datetime(
+                year=int(year),
+                month=int(months.index(month) + 1),
+                day=int(day))
         else:
             date = datetime.fromisoformat(value)
 
@@ -125,6 +132,7 @@ def format_date(value):
         return date.strftime('%Y-%m-%d')
 
     raise Exception("Unsupported type " + str(type(value)))
+
 
 def format_value(value, header):
     if value is None:
@@ -145,4 +153,3 @@ def format_value(value, header):
         return value
 
     return ''
-
