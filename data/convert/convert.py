@@ -7,8 +7,8 @@ from openpyxl.worksheet.worksheet import Worksheet
 
 months = ["January", "February", "March", "April", "May",
           "June", "July", "August", "October", "November", "December"]
-month_regex = re.compile('^(' + '|'.join(months) + "), (\d{4})$")
-day_regex = re.compile('^(' + '|'.join(months) + ") (\d{1,2}), (\d{4})$")
+month_regex = re.compile('^(' + '|'.join(months) + "), (\\d{4})$")
+day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\d{4})$")
 
 def convert_file(in_path, out_path):
     data = parse_input(in_path)
