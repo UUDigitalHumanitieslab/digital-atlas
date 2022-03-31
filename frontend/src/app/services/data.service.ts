@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Picture, CollectedData } from '../models/data';
+import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Picture, CollectedData, PartialDate } from '../models/data';
 
 @Injectable({
     providedIn: 'root'
@@ -52,9 +52,9 @@ export class DataService {
         }
     }
 
-    parseDate(input?: string): Date {
+    parseDate(input?: string): PartialDate {
         if (input && input.length) {
-            return new Date(input);
+            return new PartialDate(input);
         }
     }
 

@@ -1,5 +1,6 @@
 from convert.convert import convert_file
 import sys
+from os import path
 
 arguments = sys.argv
 
@@ -9,7 +10,7 @@ if len(arguments) >= 2:
         if len(arguments) > 2:
             out_file = arguments[2]
         else:
-            out_file = in_file[:-5] + '.json'
+            out_file = path.join(path.dirname(__file__), '..', '..', 'frontend', 'src', 'assets', 'data', 'data.json')
         print('converting', in_file, 'to', out_file, '...')
         convert_file(in_file, out_file)
     else:

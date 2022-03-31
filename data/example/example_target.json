@@ -5,9 +5,9 @@
             "pictures": "Frantz Fanon at press conference",
             "place_of_birth": "Fort-de-France, Martinique",
             "date_of_birth": "1925-06-20",
-            "place_of_death": "",
-            "date_of_death": "",
-            "description": ""
+            "place_of_death": null,
+            "date_of_death": null,
+            "description": null
         },
         {
             "name": "Stuart Hall",
@@ -16,30 +16,30 @@
             "date_of_birth": "1932-02-03",
             "place_of_death": "London",
             "date_of_death": "2014-02-10",
-            "description": ""
+            "description": null
         }
     ],
     "works": [
         {
             "author_name": "Frantz Fanon",
             "category": "Publication",
-            "date": "1948-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1948",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "Paris",
-            "title": "",
+            "title": null,
             "description": "Capécia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corrêa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997."
         },
         {
             "author_name": "Stuart Hall",
             "category": "Publication",
-            "date": "1957-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
-            "where": "",
-            "title": "",
+            "date": "1957",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
+            "where": null,
+            "title": null,
             "description": "‘The New Conservatism and the Old’, Universities & Left Review, vol. 1, no. 1 (Spring 1957), 21–4."
         }
     ],
@@ -48,52 +48,52 @@
             "author_names": "Renate Zahar",
             "about": "Frantz Fanon",
             "category": "Publication",
-            "date": "1969-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
-            "where": "",
+            "date": "1969",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
+            "where": null,
             "title": "Renate Zahar, Frantz Fanon: Colonialism and Alienation (1969, trans. 1974, Monthly Review Press)",
-            "description": "",
-            "url": ""
+            "description": null,
+            "url": null
         },
         {
             "author_names": "David Caute",
             "about": "Frantz Fanon",
             "category": "Publication",
-            "date": "1970-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1970",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "London",
             "title": "David Caute, Frantz Fanon (1970, London: Wm. Collins and Co.)",
-            "description": "",
-            "url": ""
+            "description": null,
+            "url": null
         },
         {
             "author_names": "CLR James",
             "about": "Stuart Hall",
             "category": "Media/lectures",
-            "date": "1986-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
-            "where": "",
+            "date": "1986",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
+            "where": null,
             "title": "In Conversation with Stuart Hall: C.L.R. James",
-            "description": "",
+            "description": null,
             "url": "https://www.youtube.com/watch?v=_Gf0KUxgZfI"
         },
         {
             "author_names": "Family",
             "about": "Stuart Hall",
             "category": "Other",
-            "date": "",
-            "start_date": "2015-01-01",
-            "end_date": "",
-            "pictures": "",
-            "where": "",
+            "date": null,
+            "start_date": "2015",
+            "end_date": null,
+            "pictures": null,
+            "where": null,
             "title": "Stuart Hall Foundation",
-            "description": "",
+            "description": null,
             "url": "https://www.stuarthallfoundation.org/"
         }
     ],
@@ -101,10 +101,10 @@
         {
             "author": "Frantz Fanon",
             "category": "Personal/biography",
-            "date": "1942-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1942",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "Dominica",
             "title": "Resistance",
             "description": "Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica"
@@ -112,10 +112,10 @@
         {
             "author": "Frantz Fanon",
             "category": "Personal/biography",
-            "date": "1943-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1943",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "Colmar, France",
             "title": "Wounded in Colmar",
             "description": "Wounded in Colmar, France, received Croix de guerre. Fanon and fellow Afro-Caribbean soldiers were sent to Toulon (Provence) , and after that to Normandy to await repatriation."
@@ -123,10 +123,10 @@
         {
             "author": "Frant Fanon",
             "category": "Personal/biography",
-            "date": "1945-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1945",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "Fort-de-France, Martinique",
             "title": "Return to Campaign",
             "description": "Returned to Martinique, and worked for the parliamentary campaign of his friend and mentor Aimé Césaire and completed his baccalaureate."
@@ -134,10 +134,10 @@
         {
             "author": "Frant Fanon",
             "category": "Personal/biography",
-            "date": "1945-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1945",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "France",
             "title": "Study in France",
             "description": "After this he left to France to study medicine and psychiatry in Lyon until 1950. Wrote three plays during these years."
@@ -145,23 +145,23 @@
         {
             "author": "Stuart Hall",
             "category": "Personal/biography",
-            "date": "1951-01-01",
-            "start_date": "",
-            "end_date": "",
-            "pictures": "",
+            "date": "1951",
+            "start_date": null,
+            "end_date": null,
+            "pictures": null,
             "where": "Merton College",
-            "title": "",
-            "description": ""
+            "title": null,
+            "description": null
         },
         {
             "author": "Stuart Hall",
             "category": "Personal/biography",
-            "date": "",
-            "start_date": "1957-01-01",
-            "end_date": "1959-12-31",
-            "pictures": "",
-            "where": "",
-            "title": "",
+            "date": null,
+            "start_date": "1957",
+            "end_date": "1959",
+            "pictures": null,
+            "where": null,
+            "title": null,
             "description": "One of the founders and editor of Universities and Left Review 1957-1959"
         }
     ],
@@ -209,7 +209,7 @@
             "author": "The Open University",
             "license": "CC BY-NC-ND 2.0",
             "url": "https://www.flickr.com/photos/the-open-university/15152882374/in/album-72157648758042767/",
-            "description": ""
+            "description": null
         },
         {
             "name": "Stuart Hall standing",
@@ -217,7 +217,7 @@
             "author": "The Open University",
             "license": "CC BY-NC-ND 2.0",
             "url": "https://www.flickr.com/photos/the-open-university/15587398348/in/album-72157648758042767/",
-            "description": ""
+            "description": null
         },
         {
             "name": "Frantz Fanon at press conference",
