@@ -13,10 +13,10 @@ export class MenuComponent implements OnInit {
 
     constructor(private ngZone: NgZone) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
-    toggleBurger() {
+    toggleBurger(): void {
         if (!this.burgerActive) {
             // make it active to make it visible (add a class to
             // override it being hidden for smaller screens)

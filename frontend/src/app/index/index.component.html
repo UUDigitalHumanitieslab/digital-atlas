@@ -1,0 +1,16 @@
+<div class="columns is-multiline is-centered is-gapless" *ngIf="authors">
+    <div class="column is-4" *ngFor="let author of authors">
+        <div class="card is-radiusless is-{{author.color}}" [routerLink]="['/intellectual', author.id]">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{author.name}}
+                </p>
+            </header>
+            <div class="card-image">
+                <figure class="image is-square">
+                    <img src="https://bulma.io/images/placeholders/320x480.png" alt="" class="is-radiusless">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>

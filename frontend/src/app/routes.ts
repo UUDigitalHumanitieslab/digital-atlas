@@ -1,15 +1,20 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { IndexComponent } from './index/index.component';
+import { IntellectualComponent } from './intellectual/intellectual.component';
 
 const routes: Routes = [
     {
-        path: 'home',
-        component: HomeComponent,
+        path: 'index',
+        component: IndexComponent,
+    },
+    {
+        path: 'intellectual/:id',
+        component: IntellectualComponent,
     },
     {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/index',
         pathMatch: 'full'
     }
 ];

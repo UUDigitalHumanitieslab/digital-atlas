@@ -58,3 +58,4 @@ jobs:
         yarn start-back-p &
         chromedriver --version
         yarn test
+        yarn front ng lint

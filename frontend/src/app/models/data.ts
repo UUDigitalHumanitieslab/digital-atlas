@@ -26,13 +26,13 @@ export class PartialDate {
         const parts = value.split('-');
         switch (parts.length) {
             case 3:
-                this.day = parseInt(parts[2]);
+                this.day = parseInt(parts[2], 10);
             /* falls through */
             case 2:
-                this.month = parseInt(parts[1]);
+                this.month = parseInt(parts[1], 10);
             /* falls through */
             case 1:
-                this.year = parseInt(parts[0]);
+                this.year = parseInt(parts[0], 10);
                 break;
         }
     }
@@ -47,6 +47,7 @@ export interface Author {
     placeOfDeath?: Location;
     dateOfDeath?: PartialDate;
     description: string;
+    color: string;
 }
 
 export interface Work {

@@ -7,22 +7,21 @@ import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Pictur
 export class DataService {
     private dataPath = '/assets/data/data.json';
 
-    data: CollectedData;
+    private data: CollectedData;
 
     constructor() { }
 
     getData(): Promise<CollectedData> {
-        return new Promise<CollectedData>((resolve) => {
+        return new Promise<CollectedData>(async (resolve) => {
             if (this.data === undefined) {
-                this.loadDataFile().then(result => {
-                    this.data = this.parseData(result);
-                });
+                const result = await this.loadDataFile()
+                this.data = this.parseData(result);
             }
             resolve(this.data);
         });
     }
 
-    parseData(data): CollectedData {
+    parseData(data: any): CollectedData {
         // pictures and locations can be imported as-is
         const locations = data.locations as Location[];
         const pictures = data.pictures as Picture[];
@@ -46,7 +45,7 @@ export class DataService {
 
     //  FIELD PARSER FUNCTION
 
-    parseOptionalString(input?: string): string|undefined {
+    parseOptionalString(input?: string): string | undefined {
         if (input && input.length) {
             return input;
         }
@@ -84,7 +83,10 @@ export class DataService {
 
     findAuthor(name: string, authors: Author[]): Author {
         return authors.find(author => this.matchNames(author.name, name)) || authors[0];
+    }
 
+    findAuthorById(id: number, authors: Author[]): Author {
+        return authors.find(author => author.id == id);
     }
 
     // TABLE PARSER FUNCTIONS
@@ -98,7 +100,8 @@ export class DataService {
             placeOfBirth: this.findLocation(item.place_of_birth, locations),
             dateOfDeath: this.parseDate(item.date_of_death),
             placeOfDeath: this.findLocation(item.place_of_death, locations),
-            pictures: this.parseStringList(item.pictures)
+            pictures: this.parseStringList(item.pictures),
+            color: item.color
         }));
     }
 

@@ -7,7 +7,8 @@
             "date_of_birth": "1925-06-20",
             "place_of_death": null,
             "date_of_death": null,
-            "description": null
+            "description": null,
+            "color": "red"
         },
         {
             "name": "Stuart Hall",
@@ -16,7 +17,8 @@
             "date_of_birth": "1932-02-03",
             "place_of_death": "London",
             "date_of_death": "2014-02-10",
-            "description": null
+            "description": null,
+            "color": "blue"
         }
     ],
     "works": [
@@ -169,7 +171,7 @@
         {
             "name": "Fort-de-France, Martinique",
             "lat": 14.60426,
-            "long":-61.066971
+            "long": -61.066971
         },
         {
             "name": "Dominica",
