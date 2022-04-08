@@ -5,6 +5,7 @@ import { Legacy, LifeEvent, PartialDate, Work } from '../models/data';
     providedIn: 'root'
 })
 export class DatesService {
+    months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     constructor() { }
 
@@ -44,14 +45,15 @@ export class DatesService {
 
     /**
      * Turn a partial date into a nice string for user interface.
-     * TODO: improve formatting.
      */
     formatPartialDate(date: PartialDate): string {
         if (date.day && date.month) {
-            return `${date.day}-${date.month}-${date.year}`;
+            const month = this.months[date.month];
+            return `${date.day} ${month} ${date.year}`;
         }
         if (date.month) {
-            return `${date.month}-${date.year}`;
+            const month = this.months[date.month];
+            return `${month} ${date.year}`;
         }
         return `${date.year}`;
     }

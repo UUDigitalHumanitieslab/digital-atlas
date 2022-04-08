@@ -158,7 +158,7 @@ export class TimelineComponent implements OnInit {
             row.push({
                 startYear: prevYear + 1,
                 endYear: event.startYear - 1,
-                span: event.startYear - prevYear,
+                span: (event.startYear - 1) - prevYear,
             });
         }
 
