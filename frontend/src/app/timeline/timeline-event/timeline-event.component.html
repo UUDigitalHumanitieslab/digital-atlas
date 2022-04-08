@@ -1,3 +1,5 @@
 <div class="timeline-event has-text-centered" [attr.title]="event.data.title">
-    {{event.author}}
+    <span class="icon">
+        <fa-icon [icon]="icons[event.type]"></fa-icon>
+    </span>
 </div>
