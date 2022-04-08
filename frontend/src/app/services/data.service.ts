@@ -16,9 +16,11 @@ export class DataService {
             if (this.data === undefined) {
                 this.loadDataFile().then(result => {
                     this.data = this.parseData(result);
+                    resolve(this.data);
                 });
+            } else {
+                resolve(this.data);
             }
-            resolve(this.data);
         });
     }
 

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
     {
@@ -11,6 +12,10 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
+    },
+    {
+        path: 'timeline',
+        component: TimelineComponent
     }
 ];
 

@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { MapComponent } from './map/map.component';
         FooterComponent,
         MenuComponent,
         HomeComponent,
-        MapComponent
+        MapComponent,
+        TimelineComponent,
     ],
     imports: [
         AppRoutingModule,
