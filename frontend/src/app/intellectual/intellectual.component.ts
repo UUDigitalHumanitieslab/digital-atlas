@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Author } from '../models/data';
+import { Author, LifeEvent } from '../models/data';
 import { DataService } from '../services/data.service';
+import { DatesService } from '../services/dates.service';
 
 @Component({
     selector: 'da-intellectual',
@@ -11,23 +12,30 @@ import { DataService } from '../services/data.service';
 })
 export class IntellectualComponent implements OnInit, OnDestroy {
     author: Author;
+    events: (LifeEvent & { formattedDate: string })[];
     subscription = new Subscription();
 
-    constructor(private route: ActivatedRoute, private dataService: DataService) { }
+    constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService) { }
 
     ngOnInit(): void {
         this.subscription.add(
             this.route.params.subscribe(params =>
-                this.loadAuthor(params.id)));
+                this.loadData(params.id)));
     }
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }
 
-    private async loadAuthor(id: number) {
+    private async loadData(id: number) {
         console.log(id);
-        this.author = this.dataService.findAuthorById(id, (await this.dataService.getData()).authors);
+        const data = await this.dataService.getData();
+        this.author = this.dataService.findAuthorById(id, data.authors);
+        this.events = this.dataService.findByAuthor(this.author.id, data.lifeEvents).map(
+            event => ({
+                ...event,
+                formattedDate: this.datesService.formatEventDate(event)
+            }));
     }
 
 }

@@ -92,6 +92,10 @@ export class DataService {
         return authors.find(author => author.id == id);
     }
 
+    findByAuthor<T extends LifeEvent | Work>(authorId: number, items: T[]): T[] {
+        return items.filter(item => item.authorId == authorId);
+    }
+
     // TABLE PARSER FUNCTIONS
 
     parseAuthors(authorData: any[], locations: Location[]): Author[] {
