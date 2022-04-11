@@ -11,11 +11,3 @@ export type TimelineEvent = {
     type: EventType,
     data: LifeEvent|Work|Legacy,
 };
-
-export type TimelineCell = {
-    span: number,
-    startYear: number,
-    endYear: number,
-    event?: TimelineEvent,
-};
-

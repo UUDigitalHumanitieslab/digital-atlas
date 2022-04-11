@@ -3,7 +3,7 @@ import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
 import { DatesService } from '../services/dates.service';
-import { EventType, TimelineCell, TimelineEvent } from '../models/timeline';
+import { EventType, TimelineEvent } from '../models/timeline';
 
 
 @Component({
@@ -15,8 +15,7 @@ export class TimelineComponent implements OnInit {
     data: CollectedData;
     authors: Author[];
     events: TimelineEvent[];
-    eventsByRow: TimelineEvent[][];
-    tableRows: TimelineCell[][];
+    eventColumns: { [year: number]: TimelineEvent}[];
     minYear: number;
     maxYear: number;
     timeRange: number[];
@@ -31,12 +30,12 @@ export class TimelineComponent implements OnInit {
         this.data = data;
         this.authors = this.data.authors;
         this.events = this.getEvents(this.data);
-        this.eventsByRow = this.eventRows(this.events);
+        const eventsByColumn = this.makeEventColumns(_.shuffle(this.events));
+        this.eventColumns = this.indexColumnsByYear(eventsByColumn);
         const timeDomain = this.getTimeDomain(this.events);
         this.minYear = timeDomain[0];
         this.maxYear = timeDomain[1];
         this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
-        this.tableRows = this.eventsByRow.map(row => this.makeTableRow(row));
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -92,19 +91,19 @@ export class TimelineComponent implements OnInit {
     }
 
     /**
-     * converts a list of events into a list of rows, where each row
+     * splits a list of events into columns, where each column
      * has no overlap in dates
      */
-    eventRows(events: TimelineEvent[]): TimelineEvent[][] {
+     makeEventColumns(events: TimelineEvent[]): TimelineEvent[][] {
         const allRows = _.reduce(events, this.addEventToRows.bind(this), []);
         const sortedRows = allRows.map(row => _.sortBy(row, event => event.startYear));
         return sortedRows;
     }
 
     /**
-     * adds a new event to a list of rows. The event is added to an
-     * existing row if this can be done without overlapping dates,
-     * otherwise a new row is added.
+     * adds a new event to a list of columns. The event is added to an
+     * existing column if this can be done without overlapping dates,
+     * otherwise a new column is added.
      */
     addEventToRows(rows: TimelineEvent[][], event: TimelineEvent): TimelineEvent[][] {
         const rowWithSpace = _.find(_.shuffle(rows), row => !this.hasDateOverlap(event, row));
@@ -122,6 +121,12 @@ export class TimelineComponent implements OnInit {
         );
     }
 
+    indexColumnsByYear(columns: TimelineEvent[][]): { [year: number]: TimelineEvent}[] {
+        return _.map(columns, events =>
+            _.indexBy(events, event => event.startYear)
+        );
+    }
+
     getTimeDomain(events: TimelineEvent[]): [number, number] {
         const minYear = _.min(events.map(event => event.startYear));
         const maxYear = _.max(events.map(event => event.endYear));
@@ -135,44 +140,15 @@ export class TimelineComponent implements OnInit {
         return [];
     }
 
-    makeTableRow(row: TimelineEvent[]): TimelineCell[] {
-        const cells = _.reduce(row, this.addEventToCells.bind(this), []);
-
-        // add final filler cell if needed
-        const prevYear = this.lastYearInCells(cells, this.minYear);
-        if (prevYear < this.maxYear) {
-            cells.push({
-                startYear: prevYear + 1,
-                endYear: this.maxYear,
-                span:  this.maxYear - prevYear,
-            });
+    getRowSpan(column: { [year: number]: TimelineEvent}, year: number): number {
+        const event = column[year];
+        if (event) {
+            return 1 + event.endYear - event.startYear;
         }
-
-        return cells;
+        return 1;
     }
 
-    addEventToCells(row: TimelineCell[], event: TimelineEvent): TimelineCell[] {
-        const prevYear = this.lastYearInCells(row, this.minYear);
-
-        if (prevYear + 1 < event.startYear) {
-            row.push({
-                startYear: prevYear + 1,
-                endYear: event.startYear - 1,
-                span: (event.startYear - 1) - prevYear,
-            });
-        }
-
-        row.push({
-            startYear: event.startYear,
-            endYear: event.endYear,
-            span: 1 + event.endYear - event.startYear,
-            event
-        });
-
-        return row;
-    }
-
-    lastYearInCells(cells: TimelineCell[], minYear: number): number {
-        return cells.length ? _.last(cells).endYear : minYear;
+    showYear(year: number): boolean {
+        return year % 5 === 0;
     }
 }

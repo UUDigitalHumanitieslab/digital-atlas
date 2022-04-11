@@ -1,7 +1,16 @@
+@import '~bulma/bulma';
+
 .timeline-body {
     overflow-x: auto;
 }
 
-.table td {
-    border: none;
+.table {
+    td, th {
+        border-bottom: none;
+    }
+
+    th.table-left-header {
+        border-right: 2px solid $grey-lighter;
+        text-align: right;
+    }
 }
