@@ -1,0 +1,18 @@
+<div class="timeline-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let year of timeRange">
+                    {{year % 5 == 0 ? year : ''}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of tableRows">
+                <td *ngFor="let cell of row" [attr.colspan]="cell.span">
+                    <da-timeline-event *ngIf="cell.event" [event]="cell.event"></da-timeline-event>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

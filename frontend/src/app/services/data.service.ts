@@ -14,10 +14,13 @@ export class DataService {
     getData(): Promise<CollectedData> {
         return new Promise<CollectedData>(async (resolve) => {
             if (this.data === undefined) {
-                const result = await this.loadDataFile()
-                this.data = this.parseData(result);
+                this.loadDataFile().then(result => {
+                    this.data = this.parseData(result);
+                    resolve(this.data);
+                });
+            } else {
+                resolve(this.data);
             }
-            resolve(this.data);
         });
     }
 
