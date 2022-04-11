@@ -13,7 +13,6 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { TimelineEventComponent } from './timeline/timeline-event/timeline-event.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +22,6 @@ import { TimelineEventComponent } from './timeline/timeline-event/timeline-event
         HomeComponent,
         MapComponent,
         TimelineComponent,
-        TimelineEventComponent,
     ],
     imports: [
         AppRoutingModule,

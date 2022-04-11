@@ -1,16 +1,26 @@
 @import '~bulma/bulma';
 
-.timeline-body {
-    overflow-x: auto;
+
+div.timeline-scale {
+    border-right: 2px solid $grey-lighter;
+
+    div.timeline-tick {
+        text-align: right;
+        font-weight: bold;
+    }
 }
 
-.table {
-    td, th {
-        border-bottom: none;
-    }
+.timeline-event-container {
+    padding: 2px 0px;
 
-    th.table-left-header {
-        border-right: 2px solid $grey-lighter;
-        text-align: right;
+    .timeline-event {
+        background-color: $grey-lighter;
+        height: 100%;
+        width: 100%;
+        border-radius: 0.5em;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

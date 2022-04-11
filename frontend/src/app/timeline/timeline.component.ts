@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
 import { DatesService } from '../services/dates.service';
-import { EventType, TimelineEvent } from '../models/timeline';
+import { EventType, TimelineEvent, TimelineTile } from '../models/timeline';
+import { faBook, faLandmark, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -11,31 +12,46 @@ import { EventType, TimelineEvent } from '../models/timeline';
     templateUrl: './timeline.component.html',
     styleUrls: ['./timeline.component.scss']
 })
-export class TimelineComponent implements OnInit {
+export class TimelineComponent implements OnInit, OnChanges {
     data: CollectedData;
-    authors: Author[];
+    @Input() authors: Author[];
     events: TimelineEvent[];
-    eventColumns: { [year: number]: TimelineEvent}[];
+    eventsByColumn: TimelineEvent[][];
+    columns: TimelineTile[][];
     minYear: number;
     maxYear: number;
     timeRange: number[];
 
+    icons = {
+        'life event': faUser,
+        work: faBook,
+        legacy: faLandmark
+    };
+
+    tickHeight = 2.5;
+
     constructor(private dataService: DataService, private datesService: DatesService) { }
 
     ngOnInit(): void {
-        this.dataService.getData().then(data => this.storeData(data));
+        this.dataService.getData().then(data => {
+            this.data = data;
+            this.authors = this.data.authors; // included to make the timeline work as stand-alone during development
+            this.processData();
+        });
     }
 
-    storeData(data: CollectedData): void {
-        this.data = data;
-        this.authors = this.data.authors;
-        this.events = this.getEvents(this.data);
-        const eventsByColumn = this.makeEventColumns(_.shuffle(this.events));
-        this.eventColumns = this.indexColumnsByYear(eventsByColumn);
+    ngOnChanges(changes: SimpleChanges): void {
+        this.processData();
+    }
+
+    processData(): void {
+        this.events = this.filterAuthors(this.getEvents(this.data));
+        this.eventsByColumn = this.splitEventsIntoColumns(_.shuffle(this.events));
         const timeDomain = this.getTimeDomain(this.events);
         this.minYear = timeDomain[0];
         this.maxYear = timeDomain[1];
         this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
+        this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -44,6 +60,13 @@ export class TimelineComponent implements OnInit {
         const legacies = this.convertLegacies(data.legacies);
 
         return _.flatten([lifeEvents, works, legacies]);
+    }
+
+    filterAuthors(events: TimelineEvent[]): TimelineEvent[] {
+        const ids = this.authors.map(author => author.id);
+        return events.filter(event =>
+            ids.includes(event.authorId)
+        );
     }
 
     convertLifeEvents(lifeEvents: LifeEvent[]): TimelineEvent[] {
@@ -94,8 +117,8 @@ export class TimelineComponent implements OnInit {
      * splits a list of events into columns, where each column
      * has no overlap in dates
      */
-     makeEventColumns(events: TimelineEvent[]): TimelineEvent[][] {
-        const allRows = _.reduce(events, this.addEventToRows.bind(this), []);
+     private splitEventsIntoColumns(events: TimelineEvent[]): TimelineEvent[][] {
+        const allRows = _.reduce(events, this.addEventToColumns.bind(this), []);
         const sortedRows = allRows.map(row => _.sortBy(row, event => event.startYear));
         return sortedRows;
     }
@@ -105,7 +128,7 @@ export class TimelineComponent implements OnInit {
      * existing column if this can be done without overlapping dates,
      * otherwise a new column is added.
      */
-    addEventToRows(rows: TimelineEvent[][], event: TimelineEvent): TimelineEvent[][] {
+    private addEventToColumns(rows: TimelineEvent[][], event: TimelineEvent): TimelineEvent[][] {
         const rowWithSpace = _.find(_.shuffle(rows), row => !this.hasDateOverlap(event, row));
         if (rowWithSpace) {
             rowWithSpace.push(event);
@@ -115,15 +138,9 @@ export class TimelineComponent implements OnInit {
         return rows;
     }
 
-    hasDateOverlap(event: TimelineEvent, row: TimelineEvent[]): boolean {
+    private hasDateOverlap(event: TimelineEvent, row: TimelineEvent[]): boolean {
         return _.any(row, element =>
             !(event.startYear > element.endYear || event.endYear < element.startYear)
-        );
-    }
-
-    indexColumnsByYear(columns: TimelineEvent[][]): { [year: number]: TimelineEvent}[] {
-        return _.map(columns, events =>
-            _.indexBy(events, event => event.startYear)
         );
     }
 
@@ -140,15 +157,57 @@ export class TimelineComponent implements OnInit {
         return [];
     }
 
-    getRowSpan(column: { [year: number]: TimelineEvent}, year: number): number {
-        const event = column[year];
-        if (event) {
-            return 1 + event.endYear - event.startYear;
+    private makeTimelineColumn(columnEvents: TimelineEvent[]): TimelineTile[] {
+        const tiles = _.reduce(columnEvents, this.addEventToTiles.bind(this), []);
+
+        // add final filler cell if needed
+        const prevYear = this.lastYearInTiles(tiles, this.minYear);
+        if (prevYear < this.maxYear) {
+            tiles.push({
+                startYear: prevYear + 1,
+                endYear: this.maxYear,
+                span:  this.maxYear - prevYear,
+            });
         }
-        return 1;
+
+        return tiles;
+    }
+
+    private addEventToTiles(tiles: TimelineTile[], event: TimelineEvent): TimelineTile[] {
+        const prevYear = this.lastYearInTiles(tiles, this.minYear);
+
+        if (prevYear + 1 < event.startYear) {
+            tiles.push({
+                startYear: prevYear + 1,
+                endYear: event.startYear - 1,
+                span: (event.startYear - 1) - prevYear,
+            });
+        }
+
+        tiles.push({
+            startYear: event.startYear,
+            endYear: event.endYear,
+            span: 1 + event.endYear - event.startYear,
+            event
+        });
+
+        return tiles;
+    }
+
+    private lastYearInTiles(tiles: TimelineTile[], minYear: number): number {
+        return tiles.length ? _.last(tiles).endYear : minYear - 1;
     }
 
     showYear(year: number): boolean {
         return year % 5 === 0;
+    }
+
+    getIcon(event: TimelineEvent): any {
+        return this.icons[event.type];
+    }
+
+    getHeight(start: number, end: number): number {
+        const duration = 1 + end - start;
+        return this.tickHeight * duration;
     }
 }
