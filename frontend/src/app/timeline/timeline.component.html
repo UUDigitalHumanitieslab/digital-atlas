@@ -1,18 +1,20 @@
 <div class="timeline-body">
-    <table class="table">
-        <thead>
-            <tr>
-                <th *ngFor="let year of timeRange">
-                    {{year % 5 == 0 ? year : ''}}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let row of tableRows">
-                <td *ngFor="let cell of row" [attr.colspan]="cell.span">
-                    <da-timeline-event *ngIf="cell.event" [event]="cell.event"></da-timeline-event>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="columns is-mobile">
+        <div class="column is-narrow timeline-scale">
+            <div class="timeline-tick" *ngFor="let year of timeRange"
+                [style.height.em]="tickHeight">
+                {{showYear(year) ? year : '·'}}
+            </div>
+        </div>
+        <div class="column" *ngFor="let col of columns">
+            <div class="timeline-event-container" *ngFor="let tile of col"
+            [style.height.em]="getHeight(tile.startYear, tile.endYear)">
+                <div class="timeline-event" *ngIf="tile.event">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

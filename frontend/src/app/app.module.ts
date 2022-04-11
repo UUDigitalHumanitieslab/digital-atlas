@@ -15,7 +15,6 @@ import { MapComponent } from './map/map.component';
 import { IndexComponent } from './index/index.component';
 import { IntellectualComponent } from './intellectual/intellectual.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { TimelineEventComponent } from './timeline/timeline-event/timeline-event.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +26,6 @@ import { TimelineEventComponent } from './timeline/timeline-event/timeline-event
         IndexComponent,
         IntellectualComponent,
         TimelineComponent,
-        TimelineEventComponent,
     ],
     imports: [
         AppRoutingModule,
