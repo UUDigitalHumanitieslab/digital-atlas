@@ -28,7 +28,6 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     }
 
     private async loadData(id: number) {
-        console.log(id);
         const data = await this.dataService.getData();
         this.author = this.dataService.findAuthorById(id, data.authors);
         this.events = this.dataService.findByAuthor(this.author.id, data.lifeEvents).map(

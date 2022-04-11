@@ -33,15 +33,15 @@ export class TimelineComponent implements OnInit, OnChanges {
     constructor(private dataService: DataService, private datesService: DatesService) { }
 
     ngOnInit(): void {
-        this.dataService.getData().then(data => {
-            this.data = data;
-            this.authors = this.data.authors; // included to make the timeline work as stand-alone during development
-            this.processData();
-        });
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.processData();
+        if (this.authors) {
+            this.dataService.getData().then(data => {
+                this.data = data;
+                this.processData();
+            });
+        }
     }
 
     processData(): void {
