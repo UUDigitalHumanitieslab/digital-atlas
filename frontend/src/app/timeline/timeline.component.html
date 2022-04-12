@@ -9,7 +9,7 @@
         <div class="column" *ngFor="let col of columns">
             <div class="timeline-event-container" *ngFor="let tile of col"
             [style.height.em]="getHeight(tile.startYear, tile.endYear)">
-                <div class="timeline-event" *ngIf="tile.event">
+                <div class="timeline-event is-{{getColor(tile.event)}}" *ngIf="tile.event">
                     <span class="icon is-medium">
                         <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
                     </span>

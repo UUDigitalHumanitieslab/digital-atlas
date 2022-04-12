@@ -5,7 +5,6 @@ import { Legacy, LifeEvent, PartialDate, Work } from '../models/data';
     providedIn: 'root'
 })
 export class DatesService {
-    months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     constructor() { }
 

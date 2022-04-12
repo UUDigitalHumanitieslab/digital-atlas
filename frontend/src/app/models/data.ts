@@ -37,7 +37,7 @@ export class PartialDate {
         }
     }
 
-    toString() {
+    toString(): string {
         if (this.day !== undefined) {
             return `${this.monthName()} ${this.day}, ${this.year}`;
         } else if (this.month !== undefined) {
@@ -46,7 +46,7 @@ export class PartialDate {
         return `${this.year}`;
     }
 
-    monthName() {
+    monthName(): string {
         return {
             1: 'January',
             2: 'February',

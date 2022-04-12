@@ -210,4 +210,9 @@ export class TimelineComponent implements OnInit, OnChanges {
         const duration = 1 + end - start;
         return this.tickHeight * duration;
     }
+
+    getColor(event: TimelineEvent) {
+        const author = this.data.authors.find(auth => auth.id === event.authorId);
+        return author.color;
+    }
 }

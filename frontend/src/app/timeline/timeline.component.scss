@@ -1,5 +1,5 @@
 @import '~bulma/bulma';
-
+@import "../../colors";
 
 div.timeline-scale {
     border-right: 2px solid $grey-lighter;
@@ -13,14 +13,17 @@ div.timeline-scale {
 .timeline-event-container {
     padding: 2px 0px;
 
-    .timeline-event {
-        background-color: $grey-lighter;
-        height: 100%;
-        width: 100%;
-        border-radius: 0.5em;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    @each $name, $color in $colors {
+        .timeline-event.is-#{$name} {
+            background-color: $color;
+            color: findColorInvert($color);
+            height: 100%;
+            width: 100%;
+            border-radius: 0.5em;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

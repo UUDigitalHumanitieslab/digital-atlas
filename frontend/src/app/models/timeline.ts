@@ -1,4 +1,4 @@
-import { Legacy, LifeEvent, Work } from "./data";
+import { Author, Legacy, LifeEvent, Work } from "./data";
 
 export type EventType = 'life event'|'work'|'legacy';
 
