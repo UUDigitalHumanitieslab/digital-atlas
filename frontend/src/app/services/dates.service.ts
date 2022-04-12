@@ -30,31 +30,16 @@ export class DatesService {
 
     formatEventDate(event: LifeEvent|Work|Legacy): string {
         if (event.date) {
-            return this.formatPartialDate(event.date);
+            return event.date.toString();
         }
         if (event.startDate && event.endDate) {
-            return `${this.formatPartialDate(event.startDate)} to ${this.formatPartialDate(event.endDate)}`;
+            return `${event.startDate.toString()} to ${event.endDate.toString()}`;
         }
         if (event.startDate) {
-            return `since ${this.formatPartialDate(event.startDate)}`;
+            return `since ${event.startDate.toString()}`;
         }
         if (event.endDate) {
-            return `until ${this.formatPartialDate(event.endDate)}`;
+            return `until ${event.endDate.toString()}`;
         }
-    }
-
-    /**
-     * Turn a partial date into a nice string for user interface.
-     */
-    formatPartialDate(date: PartialDate): string {
-        if (date.day && date.month) {
-            const month = this.months[date.month];
-            return `${date.day} ${month} ${date.year}`;
-        }
-        if (date.month) {
-            const month = this.months[date.month];
-            return `${month} ${date.year}`;
-        }
-        return `${date.year}`;
     }
 }
