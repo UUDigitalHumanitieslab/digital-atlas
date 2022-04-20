@@ -30,10 +30,13 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.1",
         "@ngrx/effects": "^10.1.1",
         "@ngrx/store": "^10.1.1",
+        "@types/d3": "^7.1.0",
         "bulma": "^0.9.1",
+        "d3": "^7.4.4",
         "primeicons": "^4.1.0",
         "primeng": "^11.0.0",
         "rxjs": "~6.6.0",
+        "topojson": "^3.0.2",
         "tslib": "^2.0.0",
         "zone.js": "~0.11.3"
     },
