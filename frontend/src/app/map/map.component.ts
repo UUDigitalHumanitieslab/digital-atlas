@@ -1,10 +1,8 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { CollectedData, Location } from '../models/data';
-import { DataService } from '../services/data.service';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as _ from 'underscore';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 const width = 962;

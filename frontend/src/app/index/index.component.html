@@ -1,6 +1,6 @@
 <div class="section">
 <div class="container">
-<div class="columns is-multiline is-centered is-gapless" *ngIf="authors">
+<div class="columns is-multiline is-centered" *ngIf="authors">
     <div class="column is-4" *ngFor="let author of authors">
         <div class="card is-radiusless is-{{author.color}}" [routerLink]="['/intellectual', author.id]">
             <header class="card-header">
