@@ -69,27 +69,6 @@ export class MapComponent implements OnInit, OnChanges {
             .enter().append('path')
             .attr('name', (d: any) => d.properties.name)
             .attr('id', (d: any) => d.id)
-            // .attr('class', (d: any) => {
-            //     const info = countryInformation[d.id];
-            //     if (!info) {
-            //         return 'country unknown';
-            //     } else {
-            //         let type;
-            //         switch (info.type) {
-            //             case 'Ja':
-            //                 type = 'yes';
-            //                 break;
-            //             case 'Nee':
-            //                 type = 'no';
-            //                 break;
-            //             default:
-            //                 type = 'partial';
-            //                 break;
-            //         }
-            //         return `country ${type}`;
-            //     }
-            // })
-            // .on('click', (d) => d && countryInformation[d.id] && showCountry(countryInformation[d.id], $description))
             .attr('d', path);
 
         this.svg = svg;
