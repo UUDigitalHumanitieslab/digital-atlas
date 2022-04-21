@@ -48,13 +48,16 @@ export class MapComponent implements OnInit, OnChanges {
         const world = await d3.json<any>(worldPath);
 
         const projection = d3.geoMercator()
-            .scale(150)
-            .translate([width / 2, height / 1.5]);
+            .scale(500)
+            .translate([width / 2, height / 0.65]);
 
         const svg = d3.select(this.target.nativeElement)
             .attr('width', '100%')
             .attr('height', `${(height / width) * 100}vw`)
-            .attr('viewBox', `0 0 ${width} ${height}`);
+            .attr('viewBox', `0 0 ${width} ${height}`)
+            .attr('fill', '#aaa')
+            .attr('stroke', 'white')
+        ;
 
         const path = d3.geoPath()
             .projection(projection);
@@ -105,18 +108,10 @@ export class MapComponent implements OnInit, OnChanges {
             .append('circle')
             .attr('cx', (d) => this.projection([d.long, d.lat])[0])
             .attr('cy', (d) => this.projection([d.long, d.lat])[1])
-            .attr('r', 2)
-            .attr('fill', 'red');
+            .attr('r', 5)
+            .attr('fill', 'red')
+            .attr('stroke-width', 0)
+        ;
     }
 
-    handleLocation(location: Location): void {
-        const index = this.locations.indexOf(location);
-        if (index >= 0) {
-            this.locations.splice(index, 1);
-        } else {
-            this.locations.push(location);
-        }
-
-        this.drawPoints(this.locations);
-    }
 }
