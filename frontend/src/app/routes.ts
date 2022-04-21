@@ -15,10 +15,6 @@ const routes: Routes = [
         component: IntellectualComponent,
     },
     {
-        path: 'timeline',
-        component: TimelineComponent
-    },
-    {
         path: 'map',
         component: MapContainerComponent
     },

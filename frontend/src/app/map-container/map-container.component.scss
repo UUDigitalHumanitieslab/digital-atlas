@@ -1,0 +1,15 @@
+.filter-menu {
+    background-color: white;
+    position: absolute;
+    min-width: 25%;
+    margin: 1em;   
+}
+
+.filter-menu.is-collapsed {
+    .panel-heading {
+        border-radius: 6px;
+    }
+    .panel-block {
+        display: none;
+    }
+}

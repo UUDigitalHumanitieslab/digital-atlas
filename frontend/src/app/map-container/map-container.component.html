@@ -1,1 +1,16 @@
+<div class="panel filter-menu" [ngClass]="{'is-collapsed': hideFilterMenu}">
+    <p class="panel-heading is-clickable" (click)="hideFilterMenu = !hideFilterMenu">
+        <span>Filter events</span>
+    </p>
+    <div class="panel-block">
+        Filter authors
+    </div>
+    <div class="panel-block">
+        Filter event type
+    </div>
+    <div class="panel-block">
+        Filter time period
+    </div>
+</div>
+
 <da-map></da-map>
