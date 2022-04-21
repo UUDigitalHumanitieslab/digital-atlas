@@ -1,16 +1,52 @@
-<div class="panel filter-menu" [ngClass]="{'is-collapsed': hideFilterMenu}">
+<div class="panel filter-menu" [ngClass]="{'is-collapsed': hideFilterMenu}" *ngIf="data">
     <p class="panel-heading is-clickable" (click)="hideFilterMenu = !hideFilterMenu">
         <span>Filter events</span>
     </p>
     <div class="panel-block">
-        Filter authors
+        <div class="field">
+            <label class="label">
+                Intellectual
+            </label>
+            <div class="control">
+                <div *ngFor="let author of data.authors" class="field-checkbox">
+                    <p-checkbox name="author-selection" value="author.id" [value]="author" [inputId]="author.id"
+                        [(ngModel)]="selectedAuthors" (onChange)="updateFilteredData()"></p-checkbox>
+                    <label [for]="author.id">{{author.name}}</label>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="panel-block">
-        Filter event type
+        <div class="field">
+            <label class="label">
+                Type of event
+            </label>
+            <div class="control">
+                <div *ngFor="let category of categories" class="field-checkbox">
+                    <p-checkbox name="category-selection" value="category" [value]="category" [inputId]="category"
+                        [(ngModel)]="selectedCategories"  (onChange)="updateFilteredData()"></p-checkbox>
+                    <label [for]="category">{{category}}</label>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="panel-block">
-        Filter time period
+        <div class="field">
+            <label class="label">
+                Year
+            </label>
+            <div class="control">
+                <p-slider [range]="true" [min]="minYear" [max]="maxYear"
+                [(ngModel)]="selectedDateRange" (onSlideEnd)="updateFilteredData()"></p-slider>
+            </div>
+        </div>
+        
+        <div class="columns">
+            <div class="column">{{selectedDateRange[0]}}</div>
+            <div class="column" style="text-align:center">-</div>
+            <div class="column" style="text-align: right;">{{selectedDateRange[1]}}</div>
+        </div>
     </div>
 </div>
 
-<da-map></da-map>
+<da-map [data]="filteredData"></da-map>

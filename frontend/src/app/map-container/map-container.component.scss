@@ -2,7 +2,11 @@
     background-color: white;
     position: absolute;
     min-width: 25%;
-    margin: 1em;   
+    margin: 1em;
+
+    .panel-block {
+        display: block;
+    }
 }
 
 .filter-menu.is-collapsed {
@@ -13,3 +17,8 @@
         display: none;
     }
 }
+
+.field-checkbox > label {
+    margin-left: .5rem;
+    line-height: 1;
+  }

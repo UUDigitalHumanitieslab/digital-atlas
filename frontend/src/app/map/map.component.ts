@@ -1,8 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CollectedData } from '../models/data';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { CollectedData, Location } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
+import * as _ from 'underscore';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 const width = 962;
@@ -13,22 +15,33 @@ const height = 550;
     templateUrl: './map.component.html',
     styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnChanges {
     private svg: any;
     private projection: d3.GeoProjection;
+    private mapReady: Promise<void>;
 
-    data: CollectedData;
+    @Input() data: CollectedData;
     locations: Location[] = [];
     points: any = undefined;
 
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
-    constructor(private dataService: DataService) { }
+    constructor() { }
 
-    async ngOnInit(): Promise<void> {
-        this.dataService.getData().then(data => this.data = data);
-        await this.drawMap();
+    ngOnInit(): void {
+        this.mapReady = this.drawMap();
+    }
+
+    async ngOnChanges(changes: SimpleChanges): Promise<void> {
+        if (this.data) {
+            await this.mapReady;
+
+            const allEvents = _.flatten([this.data.lifeEvents, this.data.works, this.data.legacies]);
+            const eventsWithLocation = allEvents.filter(event => event.where);
+            this.locations = eventsWithLocation.map(event => event.where);
+            this.drawPoints(this.locations);
+        }
     }
 
     private async drawMap(): Promise<void> {
