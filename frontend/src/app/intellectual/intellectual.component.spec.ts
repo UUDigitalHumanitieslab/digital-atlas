@@ -8,7 +8,7 @@ describe('IntellectualComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IntellectualComponent ]
+      declarations: [ IntellectualComponent ],
     })
     .compileComponents();
   });

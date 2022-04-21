@@ -18,7 +18,7 @@ export class MapContainerComponent implements OnInit {
     data: CollectedData;
     filteredData: CollectedData;
 
-    categories = ['Life event', 'Work', 'Legacy'];
+    categories = ['Life', 'Work', 'Legacy'];
     minYear: number;
     maxYear: number;
 
@@ -65,7 +65,7 @@ export class MapContainerComponent implements OnInit {
             const authorIds = this.selectedAuthors.map(author => author.id);
 
             let lifeEvents: LifeEvent[];
-            if (this.selectedCategories.includes('Life event')) {
+            if (this.selectedCategories.includes('Life')) {
                 lifeEvents = this.data.lifeEvents.filter(event =>
                     authorIds.includes(event.authorId)
                     &&

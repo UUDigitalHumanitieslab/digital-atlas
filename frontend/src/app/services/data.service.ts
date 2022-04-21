@@ -81,7 +81,9 @@ export class DataService {
     }
 
     findLocation(name: string, locations: Location[]): Location {
-        return locations.find(location => this.matchNames(location.name, name));
+        if (name) {
+            return locations.find(location => this.matchNames(location.name, name));
+        }
     }
 
     findAuthor(name: string, authors: Author[]): Author {

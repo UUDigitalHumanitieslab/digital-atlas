@@ -123,7 +123,7 @@
             "description": "Wounded in Colmar, France, received Croix de guerre. Fanon and fellow Afro-Caribbean soldiers were sent to Toulon (Provence) , and after that to Normandy to await repatriation."
         },
         {
-            "author": "Frant Fanon",
+            "author": "Frantz Fanon",
             "category": "Personal/biography",
             "date": "1945",
             "start_date": null,
@@ -134,7 +134,7 @@
             "description": "Returned to Martinique, and worked for the parliamentary campaign of his friend and mentor Aimé Césaire and completed his baccalaureate."
         },
         {
-            "author": "Frant Fanon",
+            "author": "Frantz Fanon",
             "category": "Personal/biography",
             "date": "1945",
             "start_date": null,
@@ -202,6 +202,11 @@
             "name": "Merton College",
             "lat": 51.3936101,
             "long": -0.2051129
+        },
+        {
+            "name": "France",
+            "lat": 46.1390475,
+            "long": -2.4347331
         }
     ],
     "pictures": [

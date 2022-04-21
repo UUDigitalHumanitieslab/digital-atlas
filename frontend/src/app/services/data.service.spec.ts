@@ -51,6 +51,7 @@ const authors = [
         placeOfDeath: undefined,
         dateOfDeath: undefined,
         description: '',
+        color: 'red',
     }, {
         name: 'Stuart Hall',
         id: 1,
@@ -60,6 +61,7 @@ const authors = [
         placeOfDeath: locations[4],
         dateOfDeath: new PartialDate('2014-02-10'),
         description: '',
+        color: 'blue',
     }
 ];
 
@@ -187,7 +189,8 @@ describe('DataService', () => {
                 date_of_birth: '1925-06-20',
                 place_of_death: '',
                 date_of_death: '',
-                description: ''
+                description: '',
+                color: 'red',
             }, {
                 name: 'Stuart Hall',
                 pictures: 'Stuart Hall at desk, Stuart Hall standing',
@@ -195,7 +198,8 @@ describe('DataService', () => {
                 date_of_birth: '1932-02-03',
                 place_of_death: 'London',
                 date_of_death: '2014-02-10',
-                description: ''
+                description: '',
+                color: 'blue',
             }
         ];
         const expected = authors;
