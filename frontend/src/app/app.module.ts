@@ -15,6 +15,7 @@ import { MapComponent } from './map/map.component';
 import { IndexComponent } from './index/index.component';
 import { IntellectualComponent } from './intellectual/intellectual.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { MapContainerComponent } from './map-container/map-container.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { TimelineComponent } from './timeline/timeline.component';
         IndexComponent,
         IntellectualComponent,
         TimelineComponent,
+        MapContainerComponent,
     ],
     imports: [
         AppRoutingModule,

@@ -16,6 +16,9 @@
 
         <div id="navbarBasicExample" class="navbar-menu" [ngClass]="{'is-active': burgerActive}" [@slideInOut]="burgerShow">
             <div class="navbar-start">
+                <a [routerLink]="['/map']" routerLinkActive="is-active" class="navbar-item" i18n>
+                    Map
+                </a>
                 <a [routerLink]="['/index']" routerLinkActive="is-active" class="navbar-item" i18n>
                     Intellectuals
                 </a>
