@@ -1,4 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+
+import { BehaviorSubject } from 'rxjs';
+
+import { MapComponent } from '../map/map.component';
+import { DataService } from '../services/data.service';
+import { DatesService } from '../services/dates.service';
+import { TimelineComponent } from '../timeline/timeline.component';
 
 import { IntellectualComponent } from './intellectual.component';
 
@@ -8,9 +16,18 @@ describe('IntellectualComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IntellectualComponent ],
+      declarations: [IntellectualComponent, TimelineComponent, MapComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: new BehaviorSubject({ id: 1 })
+          }
+        },
+        DataService,
+        DatesService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
