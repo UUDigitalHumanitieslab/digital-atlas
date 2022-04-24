@@ -40,6 +40,8 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+src/colors.scss
+src/colors.ts
 
 # System Files
 .DS_Store

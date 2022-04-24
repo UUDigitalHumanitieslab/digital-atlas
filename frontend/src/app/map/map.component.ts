@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { CollectedData, Location } from '../models/data';
+import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
+import { colors } from '../../colors';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as _ from 'underscore';
@@ -19,7 +20,6 @@ export class MapComponent implements OnInit, OnChanges {
     private mapReady: Promise<void>;
 
     @Input() data: CollectedData;
-    locations: Location[] = [];
     points: any = undefined;
 
     @ViewChild('target')
@@ -35,11 +35,24 @@ export class MapComponent implements OnInit, OnChanges {
         if (this.data) {
             await this.mapReady;
 
-            const allEvents = _.flatten([this.data.lifeEvents, this.data.works, this.data.legacies]);
+            const allEvents = _.flatten([
+                this.data.lifeEvents.map(event => ({ where: event.where, color: this.determineColor(event) })),
+                this.data.works.map(work => ({ where: work.where, color: this.determineColor(work) })),
+                this.data.legacies.map(legacy => ({ where: legacy.where, color: this.determineLegacyColor(legacy) }))]);
             const eventsWithLocation = allEvents.filter(event => event.where);
-            this.locations = eventsWithLocation.map(event => event.where);
-            this.drawPoints(this.locations);
+            this.drawPoints(eventsWithLocation);
         }
+    }
+
+    private determineColor(event: LifeEvent | Work) {
+        const author = this.data.authors.find(author => author.id == event.authorId)
+        return author.color;
+    }
+
+    private determineLegacyColor(legacy: Legacy) {
+        // TODO: about multiple??
+        const author = this.data.authors.find(author => author.id == legacy.aboutIds[0])
+        return author.color;
     }
 
     private async drawMap(): Promise<void> {
@@ -55,7 +68,7 @@ export class MapComponent implements OnInit, OnChanges {
             .attr('viewBox', `0 0 ${width} ${height}`)
             .attr('fill', '#aaa')
             .attr('stroke', 'white')
-        ;
+            ;
 
         const path = d3.geoPath()
             .projection(projection);
@@ -75,7 +88,7 @@ export class MapComponent implements OnInit, OnChanges {
         this.projection = projection;
     }
 
-    private async drawPoints(locations: Location[]): Promise<any> {
+    private async drawPoints(locations: { where: Location, color: string }[]): Promise<any> {
         if (this.points) {
             this.points.remove();
         }
@@ -83,12 +96,11 @@ export class MapComponent implements OnInit, OnChanges {
             .data(locations)
             .enter()
             .append('circle')
-            .attr('cx', (d) => this.projection([d.long, d.lat])[0])
-            .attr('cy', (d) => this.projection([d.long, d.lat])[1])
+            .attr('cx', (d: { where: Location }) => this.projection([d.where.long, d.where.lat])[0])
+            .attr('cy', (d: { where: Location }) => this.projection([d.where.long, d.where.lat])[1])
             .attr('r', 5)
-            .attr('fill', 'red')
-            .attr('stroke-width', 0)
-        ;
+            .attr('fill', (d: { color: string }) => colors[d.color])
+            .attr('stroke-width', 0);
     }
 
 }
