@@ -44,14 +44,14 @@ export class MapComponent implements OnInit, OnChanges {
         }
     }
 
-    private determineColor(event: LifeEvent | Work) {
-        const author = this.data.authors.find(author => author.id == event.authorId)
+    private determineColor(event: LifeEvent | Work): string {
+        const author = this.data.authors.find(candidate => candidate.id === event.authorId);
         return author.color;
     }
 
-    private determineLegacyColor(legacy: Legacy) {
+    private determineLegacyColor(legacy: Legacy): string {
         // TODO: about multiple??
-        const author = this.data.authors.find(author => author.id == legacy.aboutIds[0])
+        const author = this.data.authors.find(candidate => candidate.id === legacy.aboutIds[0]);
         return author.color;
     }
 

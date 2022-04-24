@@ -5,10 +5,10 @@ let sassContent = '$colors: (\n';
 let tsContent = 'export const colors = {\n';
 for (let color of Object.keys(colors)) {
     sassContent += `  "${color}": ${colors[color]},\n`;
-    tsContent += `    ${color}: "${colors[color]}",\n`;
+    tsContent += `    ${color}: '${colors[color]}',\n`;
 }
 sassContent += ');\n';
-tsContent += '};\n'
+tsContent += '};\n';
 
 
 fs.writeFile('colors.scss', sassContent, err => {
