@@ -20,7 +20,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.subscription.add(
             this.route.params.subscribe(params =>
-                this.loadData(params.id)));
+                this.loadData(parseInt(params.id, 10))));
     }
 
     ngOnDestroy(): void {
