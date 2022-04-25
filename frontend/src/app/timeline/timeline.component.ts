@@ -1,10 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
 import { DatesService } from '../services/dates.service';
 import { EventType, TimelineEvent, TimelineTile } from '../models/timeline';
 import { faBook, faLandmark, faUser } from '@fortawesome/free-solid-svg-icons';
+import { VisualService } from '../services/visual.service';
 
 
 @Component({
@@ -30,7 +31,9 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     tickHeight = 2.5;
 
-    constructor(private dataService: DataService, private datesService: DatesService) { }
+    @Output() eventSelect = new EventEmitter<{event: LifeEvent|Work|Legacy, y: number}>();
+
+    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) { }
 
     ngOnInit(): void {
     }
@@ -212,7 +215,13 @@ export class TimelineComponent implements OnInit, OnChanges {
     }
 
     getColor(event: TimelineEvent): string {
-        const author = this.data.authors.find(auth => auth.id === event.authorId);
-        return author.color;
+        return this.visualService.getColor(event.data, this.data);
+    }
+
+    selectEvent(event: TimelineEvent): void {
+        const y = (event.startYear - this.minYear) * this.tickHeight;
+        this.eventSelect.emit({
+            event: event.data, y,
+        });
     }
 }

@@ -24,7 +24,7 @@ export class VisualService {
             }
         }
 
-        return 'no-color';
+        return 'blank';
     }
 
       /**

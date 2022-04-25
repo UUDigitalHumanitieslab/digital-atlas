@@ -24,11 +24,12 @@
         </div>
 
         <div class="column">
-            <da-timeline [authors]="[author]"></da-timeline>
+            <da-timeline [authors]="[author]" (eventSelect)="onEventSelect($event)"></da-timeline>
         </div>
         <div class="column">
-            <div class="block" *ngFor="let event of events">
-                <da-event-card [event]="event" [data]="data"></da-event-card>
+            <div [style.height.em]="selectedEventPosition"></div>
+            <div class="block" *ngIf="selectedEvent">
+                <da-event-card [event]="selectedEvent" [data]="data"></da-event-card>
             </div>
         </div>
     </div>

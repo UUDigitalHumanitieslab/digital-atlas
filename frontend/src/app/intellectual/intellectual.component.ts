@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Author, CollectedData, LifeEvent } from '../models/data';
+import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
+import { TimelineEvent } from '../models/timeline';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
 import { VisualService } from '../services/visual.service';
@@ -17,6 +18,9 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     events: (LifeEvent & { formattedDate: string })[];
     picture: string;
     subscription = new Subscription();
+
+    selectedEvent: LifeEvent|Work|Legacy;
+    selectedEventPosition: number;
 
     constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService,
         private visualService: VisualService) { }
@@ -42,4 +46,9 @@ export class IntellectualComponent implements OnInit, OnDestroy {
             }));
     }
 
+    onEventSelect(event: {event: LifeEvent|Work|Legacy, y: number}): void {
+        console.log(event);
+        this.selectedEvent = event.event;
+        this.selectedEventPosition = event.y;
+    }
 }
