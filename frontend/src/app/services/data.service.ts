@@ -11,6 +11,23 @@ export class DataService {
 
     constructor() { }
 
+    /**
+     * get the picture for an author
+     */
+    getPicture(data: CollectedData, author: Author): string {
+        if (author.pictures && author.pictures.length) {
+            const pictureName = author.pictures[0];
+            const picture = data.pictures.find(pic => pic.name === pictureName);
+
+            if (picture) {
+                return `/assets/img/${picture.filename}`;
+            }
+        }
+    }
+
+    /**
+     * load all data
+     */
     getData(): Promise<CollectedData> {
         return new Promise<CollectedData>(async (resolve) => {
             if (this.data === undefined) {

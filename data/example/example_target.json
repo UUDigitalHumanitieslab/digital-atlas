@@ -2,7 +2,7 @@
     "authors": [
         {
             "name": "Frantz Fanon",
-            "pictures": "Frantz Fanon at press conference",
+            "pictures": "Frantz Fanon",
             "place_of_birth": "Fort-de-France, Martinique",
             "date_of_birth": "1925-06-20",
             "place_of_death": null,
@@ -12,7 +12,7 @@
         },
         {
             "name": "Stuart Hall",
-            "pictures": "Stuart Hall at desk, Stuart Hall standing",
+            "pictures": "Stuart Hall",
             "place_of_birth": "Kingston, Jamaica",
             "date_of_birth": "1932-02-03",
             "place_of_death": "London",
@@ -233,6 +233,22 @@
             "license": "Public Domain",
             "url": "https://commons.wikimedia.org/wiki/File:02_Frantz-Fanon-lors-dune-conférence-de-presse-du-Congrès-des-écrivains-à-Tunis-1959.jpg",
             "description": "Frantz Fanon at a press conference of writers in Tunis, 1959."
+        },
+        {
+            "name": "Stuart Hall", 
+            "filename": "Stuart Hall.jpeg", 
+            "author": "Unknown", 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Frantz Fanon", 
+            "filename": "Frantz Fanon.png", 
+            "author": "Unknown", 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
         }
     ]
 }

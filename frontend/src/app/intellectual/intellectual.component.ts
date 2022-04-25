@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Author, LifeEvent } from '../models/data';
+import { Author, CollectedData, LifeEvent } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
 
@@ -13,6 +13,7 @@ import { DatesService } from '../services/dates.service';
 export class IntellectualComponent implements OnInit, OnDestroy {
     author: Author;
     events: (LifeEvent & { formattedDate: string })[];
+    picture: string;
     subscription = new Subscription();
 
     constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService) { }
@@ -30,6 +31,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     private async loadData(id: number): Promise<void> {
         const data = await this.dataService.getData();
         this.author = this.dataService.findAuthorById(id, data.authors);
+        this.picture = this.dataService.getPicture(data, this.author);
         this.events = this.dataService.findByAuthor(this.author.id, data.lifeEvents).map(
             event => ({
                 ...event,

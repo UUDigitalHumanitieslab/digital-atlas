@@ -10,9 +10,9 @@
                             {{author.name}}
                         </p>
                     </header>
-                    <div class="card-image">
-                        <figure class="image is-square">
-                            <img src="https://bulma.io/images/placeholders/320x480.png" alt="" class="is-radiusless">
+                    <div class="card-image" *ngIf="picture">
+                        <figure class="image">
+                            <img [src]="picture" alt="" class="is-radiusless">
                         </figure>
                     </div>
                 </div>
