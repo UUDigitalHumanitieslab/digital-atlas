@@ -233,6 +233,22 @@
             "license": "Public Domain", 
             "url": "https://commons.wikimedia.org/wiki/File:02_Frantz-Fanon-lors-dune-conf\u00e9rence-de-presse-du-Congr\u00e8s-des-\u00e9crivains-\u00e0-Tunis-1959.jpg", 
             "description": "Frantz Fanon at a press conference of writers in Tunis, 1959."
+        }, 
+        {
+            "name": "Stuart Hall", 
+            "filename": "Stuart Hall.jpeg", 
+            "author": "Unknown", 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Frantz Fanon", 
+            "filename": "Frantz Fanon.png", 
+            "author": "Unknown", 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
         }
     ]
 }
