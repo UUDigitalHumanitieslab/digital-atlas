@@ -27,32 +27,9 @@
             <da-timeline [authors]="[author]"></da-timeline>
         </div>
         <div class="column">
-            <ng-container *ngFor="let event of events">
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            {{event.title}}
-                            <span class="tag">
-                                {{event.category}}
-                            </span>
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <div class="content">
-                            {{event.description}}
-                        </div>
-                    </div>
-                    <footer class="card-footer">
-                        <span class="card-footer-item">
-                            {{event.formattedDate}}
-                        </span>
-                        <span class="card-footer-item">
-                            {{event.where?.name}}
-                        </span>
-                    </footer>
-                </div>
-                <br />
-            </ng-container>
+            <div class="block" *ngFor="let event of events">
+                <da-event-card [event]="event" [data]="data"></da-event-card>
+            </div>
         </div>
     </div>
 </ng-container>

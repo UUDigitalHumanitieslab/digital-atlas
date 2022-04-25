@@ -1,0 +1,25 @@
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            {{event.title || '...'}}
+        </p>
+    </header>
+    <div class="card-image" *ngIf="picture">
+        <figure class="image">
+            <img [src]="picture" alt="" class="is-radiusless">
+        </figure>
+    </div>
+    <div class="card-content">
+        <div class="content">
+            <p>{{event.description}}</p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <span class="card-footer-item">
+            {{formattedDate}}
+        </span>
+        <span class="card-footer-item">
+            {{event.where?.name}}
+        </span>
+    </div>
+</div>

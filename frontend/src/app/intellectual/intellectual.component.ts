@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Author, CollectedData, LifeEvent } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
+import { PictureService } from '../services/picture.service';
 
 @Component({
     selector: 'da-intellectual',
@@ -11,12 +12,14 @@ import { DatesService } from '../services/dates.service';
     styleUrls: ['./intellectual.component.scss']
 })
 export class IntellectualComponent implements OnInit, OnDestroy {
+    data: CollectedData;
     author: Author;
     events: (LifeEvent & { formattedDate: string })[];
     picture: string;
     subscription = new Subscription();
 
-    constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService) { }
+    constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService,
+        private pictureService: PictureService) { }
 
     ngOnInit(): void {
         this.subscription.add(
@@ -29,10 +32,10 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     }
 
     private async loadData(id: number): Promise<void> {
-        const data = await this.dataService.getData();
-        this.author = this.dataService.findAuthorById(id, data.authors);
-        this.picture = this.dataService.getPicture(data, this.author);
-        this.events = this.dataService.findByAuthor(this.author.id, data.lifeEvents).map(
+        this.data = await this.dataService.getData();
+        this.author = this.dataService.findAuthorById(id, this.data.authors);
+        this.picture = this.pictureService.getPicture(this.author, this.data);
+        this.events = this.dataService.findByAuthor(this.author.id, this.data.lifeEvents).map(
             event => ({
                 ...event,
                 formattedDate: this.datesService.formatEventDate(event)

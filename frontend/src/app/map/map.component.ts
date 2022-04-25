@@ -25,6 +25,8 @@ export class MapComponent implements OnInit, OnChanges {
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
+    selectedEvent: LifeEvent|Work|Legacy;
+
     constructor() { }
 
     ngOnInit(): void {
@@ -36,9 +38,9 @@ export class MapComponent implements OnInit, OnChanges {
             await this.mapReady;
 
             const allEvents = _.flatten([
-                this.data.lifeEvents.map(event => ({ where: event.where, color: this.determineColor(event) })),
-                this.data.works.map(work => ({ where: work.where, color: this.determineColor(work) })),
-                this.data.legacies.map(legacy => ({ where: legacy.where, color: this.determineLegacyColor(legacy) }))]);
+                this.data.lifeEvents.map(event => ({ where: event.where, color: this.determineColor(event), event })),
+                this.data.works.map(work => ({ where: work.where, color: this.determineColor(work), event: work })),
+                this.data.legacies.map(legacy => ({ where: legacy.where, color: this.determineLegacyColor(legacy), event: legacy }))]);
             const eventsWithLocation = allEvents.filter(event => event.where);
             this.drawPoints(eventsWithLocation);
         }
@@ -80,13 +82,14 @@ export class MapComponent implements OnInit, OnChanges {
             .enter().append('path')
             .attr('name', (d: any) => d.properties.name)
             .attr('id', (d: any) => d.id)
-            .attr('d', path);
+            .attr('d', path)
+            .on('click', this.hideEventCard.bind(this));
 
         this.svg = svg;
         this.projection = projection;
     }
 
-    private async drawPoints(locations: { where: Location, color: string }[]): Promise<any> {
+    private async drawPoints(locations: { where: Location, color: string, event: LifeEvent|Work|Legacy }[]): Promise<any> {
         if (this.points) {
             this.points.remove();
         }
@@ -98,7 +101,16 @@ export class MapComponent implements OnInit, OnChanges {
             .attr('cy', (d: { where: Location }) => this.projection([d.where.long, d.where.lat])[1])
             .attr('r', 5)
             .attr('fill', (d: { color: string }) => colors[d.color])
-            .attr('stroke-width', 0);
+            .attr('stroke-width', 0)
+            .on('click', this.showEventCard.bind(this));
+    }
+
+    showEventCard(clickEvent, obj): void {
+        this.selectedEvent = obj;
+    }
+
+    hideEventCard(): void {
+        this.selectedEvent = undefined;
     }
 
 }
