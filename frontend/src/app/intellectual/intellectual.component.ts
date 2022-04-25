@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Author, CollectedData, LifeEvent } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
-import { PictureService } from '../services/picture.service';
+import { VisualService } from '../services/visual.service';
 
 @Component({
     selector: 'da-intellectual',
@@ -19,7 +19,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     subscription = new Subscription();
 
     constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService,
-        private pictureService: PictureService) { }
+        private visualService: VisualService) { }
 
     ngOnInit(): void {
         this.subscription.add(
@@ -34,7 +34,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     private async loadData(id: number): Promise<void> {
         this.data = await this.dataService.getData();
         this.author = this.dataService.findAuthorById(id, this.data.authors);
-        this.picture = this.pictureService.getPicture(this.author, this.data);
+        this.picture = this.visualService.getPicture(this.author, this.data);
         this.events = this.dataService.findByAuthor(this.author.id, this.data.lifeEvents).map(
             event => ({
                 ...event,

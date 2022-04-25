@@ -4,6 +4,7 @@ import { colors } from '../../colors';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as _ from 'underscore';
+import { VisualService } from '../services/visual.service';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 const width = 962;
@@ -27,7 +28,7 @@ export class MapComponent implements OnInit, OnChanges {
 
     selectedEvent: LifeEvent|Work|Legacy;
 
-    constructor() { }
+    constructor(private visualService: VisualService) { }
 
     ngOnInit(): void {
         this.mapReady = this.drawMap();
@@ -37,24 +38,24 @@ export class MapComponent implements OnInit, OnChanges {
         if (this.data) {
             await this.mapReady;
 
+
             const allEvents = _.flatten([
-                this.data.lifeEvents.map(event => ({ where: event.where, color: this.determineColor(event), event })),
-                this.data.works.map(work => ({ where: work.where, color: this.determineColor(work), event: work })),
-                this.data.legacies.map(legacy => ({ where: legacy.where, color: this.determineLegacyColor(legacy), event: legacy }))]);
+                _.map(this.data.lifeEvents, this.locationFromEvent, this),
+                _.map(this.data.works, this.locationFromEvent, this),
+                _.map(this.data.legacies, this.locationFromEvent, this)
+            ]);
             const eventsWithLocation = allEvents.filter(event => event.where);
             this.drawPoints(eventsWithLocation);
         }
     }
 
-    private determineColor(event: LifeEvent | Work): string {
-        const author = this.data.authors.find(candidate => candidate.id === event.authorId);
-        return author.color;
-    }
-
-    private determineLegacyColor(legacy: Legacy): string {
-        // TODO: about multiple??
-        const author = this.data.authors.find(candidate => candidate.id === legacy.aboutIds[0]);
-        return author.color;
+    private locationFromEvent(event: LifeEvent|Work|Legacy):
+        {where: Location, color: string, event: LifeEvent|Work|Legacy} {
+        return {
+            where: event.where,
+            color: this.visualService.getColor(event, this.data),
+            event,
+        };
     }
 
     private async drawMap(): Promise<void> {
@@ -106,7 +107,7 @@ export class MapComponent implements OnInit, OnChanges {
     }
 
     showEventCard(clickEvent, obj): void {
-        this.selectedEvent = obj;
+        this.selectedEvent = obj.event;
     }
 
     hideEventCard(): void {

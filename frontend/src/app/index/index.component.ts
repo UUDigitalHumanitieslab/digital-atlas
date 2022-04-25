@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as _ from 'underscore';
 import { Author, CollectedData } from '../models/data';
 import { DataService } from '../services/data.service';
-import { PictureService } from '../services/picture.service';
+import { VisualService } from '../services/visual.service';
 
 @Component({
     selector: 'da-index',
@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit {
 
     pictures: {[name: string]: string}
 
-    constructor(private dataService: DataService, private pictureService: PictureService) { }
+    constructor(private dataService: DataService, private visualService: VisualService) { }
 
     async ngOnInit(): Promise<void> {
         const data = await this.dataService.getData();
@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit {
     getPictures(data: CollectedData, authors: Author[]): {[name: string]: string} {
         const pictures = {};
         authors.forEach(author => {
-            const picture = this.pictureService.getPicture(author, data);
+            const picture = this.visualService.getPicture(author, data);
             pictures[author.name] = picture;
         });
         return pictures;

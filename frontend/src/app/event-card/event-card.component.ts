@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DatesService } from '../services/dates.service';
-import { PictureService } from '../services/picture.service';
+import { VisualService } from '../services/visual.service';
 
 @Component({
     selector: 'da-event-card',
@@ -15,8 +15,9 @@ export class EventCardComponent implements OnInit, OnChanges {
     authors: Author[];
     picture: string;
     formattedDate: string;
+    color: string;
 
-    constructor(private datesService: DatesService, private pictureService: PictureService) { }
+    constructor(private datesService: DatesService, private visualService: VisualService) { }
 
     ngOnInit(): void {
     }
@@ -25,14 +26,8 @@ export class EventCardComponent implements OnInit, OnChanges {
         if (this.event && this.data) {
             this.formattedDate = this.datesService.formatEventDate(this.event);
 
-            this.picture = this.pictureService.getPicture(this.event, this.data);
-
-            let authorIds: number[];
-            if ((this.event as LifeEvent | Work).authorId) {
-                authorIds = [(this.event as LifeEvent | Work).authorId];
-            } else {
-                authorIds = (this.event as Legacy).aboutIds;
-            }
+            this.picture = this.visualService.getPicture(this.event, this.data);
+            this.color = this.visualService.getColor(this.event, this.data);
         }
 
     }

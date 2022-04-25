@@ -4,5 +4,6 @@
     "green": "#48c774",
     "yellow": "#ffdd57",
     "purple": "#845baa",
-    "pink": "#eb9dd0"
+    "pink": "#eb9dd0",
+    "no-color": "#eee"
 }
