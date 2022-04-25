@@ -66,8 +66,6 @@ export class MapComponent implements OnInit, OnChanges {
             .attr('width', '100%')
             .attr('height', `${(height / width) * 100}vw`)
             .attr('viewBox', `0 0 ${width} ${height}`)
-            .attr('fill', '#aaa')
-            .attr('stroke', 'white')
             ;
 
         const path = d3.geoPath()
