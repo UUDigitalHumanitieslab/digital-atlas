@@ -19,6 +19,86 @@
             "date_of_death": "2014-02-10", 
             "description": null, 
             "color": "blue"
+        }, 
+        {
+            "name": "Antonio Gramsci", 
+            "pictures": "Antonio Gramsci", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-04", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "yellow"
+        }, 
+        {
+            "name": "Assia Djebar", 
+            "pictures": "Assia Djebar", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-05", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "cyan"
+        }, 
+        {
+            "name": "E\u0301tienne Balibar", 
+            "pictures": "E\u0301tienne Balibar", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-06", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "purple"
+        }, 
+        {
+            "name": "Fatima Al-Tayeb", 
+            "pictures": "Fatima Al-Tayeb", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-07", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "green"
+        }, 
+        {
+            "name": "Gloria Wekker", 
+            "pictures": "Gloria Wekker", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-08", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "umber"
+        }, 
+        {
+            "name": "Paul Gilroy", 
+            "pictures": "Paul Gilroy", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-09", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "sienna"
+        }, 
+        {
+            "name": "Sara Ahmed", 
+            "pictures": "Sara Ahmed", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-10", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "bordeaux"
+        }, 
+        {
+            "name": "Zygmunt Bauman", 
+            "pictures": "Zygmunt Bauman", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-11", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "emerald"
         }
     ], 
     "works": [
@@ -246,6 +326,70 @@
             "name": "Frantz Fanon", 
             "filename": "Frantz Fanon.png", 
             "author": "Unknown", 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Antonio Gramsci", 
+            "filename": "Antonio Gramsci.jpeg", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Assia Djebar", 
+            "filename": "Assia Djebar.jpeg", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "E\u0301tienne Balibar", 
+            "filename": "E\u0301tienne Balibar.jpeg", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Fatima Al-Tayeb", 
+            "filename": "Fatima Al-Tayeb.jpeg", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Gloria Wekker", 
+            "filename": "Gloria Wekker.png", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Paul Gilroy", 
+            "filename": "Paul Gilroy.jpeg", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Sara Ahmed", 
+            "filename": "Sara Ahmed.webp", 
+            "author": null, 
+            "license": "Unknown", 
+            "url": "Unknown", 
+            "description": null
+        }, 
+        {
+            "name": "Zygmunt Bauman", 
+            "filename": "Zygmunt Bauman.jpeg", 
+            "author": null, 
             "license": "Unknown", 
             "url": "Unknown", 
             "description": null

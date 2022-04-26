@@ -1,9 +1,16 @@
 {
-    "red": "#ff3860",
-    "blue": "#3273dc",
-    "green": "#48c774",
-    "yellow": "#ffdd57",
-    "purple": "#845baa",
-    "pink": "#eb9dd0",
+    "red": "#BB371A",
+    "blue": "#125D98",
+    "green": "#5AA469",
+    "yellow": "#FBD46D",
+    "purple": "#693C72",
+    "cyan": "#16697A",
+    "umber": "#8E3200",
+    "sienna": "#91684A",
+    "turquoise": "#0E918C",
+    "emerald": "#158467",
+    "orange": "#D97642",
+    "bordeaux": "#A9294F",
+    "pink": "#D35D6E",
     "blank": "#eee"
 }
