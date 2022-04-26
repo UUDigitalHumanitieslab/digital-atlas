@@ -1,7 +1,7 @@
 <div class="section">
 <div class="container">
 <div class="columns is-multiline is-centered" *ngIf="authors">
-    <div class="column is-4" *ngFor="let author of authors">
+    <div class="column is-one-fifth" *ngFor="let author of authors">
         <div class="card is-radiusless is-{{author.color}}" [routerLink]="['/intellectual', author.id]">
             <header class="card-header">
                 <p class="card-header-title">
@@ -9,7 +9,7 @@
                 </p>
             </header>
             <div class="card-image" *ngIf="pictures[author.name]">
-                <figure class="image">
+                <figure class="image is-square">
                     <img [src]="pictures[author.name]" alt="" class="is-radiusless">
                 </figure>
             </div>
