@@ -63,7 +63,7 @@ export class MapComponent implements OnInit, OnChanges {
 
         const projection = d3.geoMercator()
             .scale(500)
-            .translate([width / 2, height / 0.65]);
+            .translate([width / 2.5, height / 0.65]);
 
         const svg = d3.select(this.target.nativeElement)
             .attr('width', '100%')

@@ -13,7 +13,7 @@ import { DatesService } from '../services/dates.service';
 export class MapContainerComponent implements OnInit {
     faFilter = faFilter;
 
-    hideFilterMenu = false;
+    hideFilterMenu = true;
 
     data: CollectedData;
     filteredData: CollectedData;
