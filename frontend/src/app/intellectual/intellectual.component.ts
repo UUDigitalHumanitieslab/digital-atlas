@@ -39,15 +39,9 @@ export class IntellectualComponent implements OnInit, OnDestroy {
         this.data = await this.dataService.getData();
         this.author = this.dataService.findAuthorById(id, this.data.authors);
         this.picture = this.visualService.getPicture(this.author, this.data);
-        this.events = this.dataService.findByAuthor(this.author.id, this.data.lifeEvents).map(
-            event => ({
-                ...event,
-                formattedDate: this.datesService.formatEventDate(event)
-            }));
     }
 
     onEventSelect(event: {event: LifeEvent|Work|Legacy, y: number}): void {
-        console.log(event);
         this.selectedEvent = event.event;
         this.selectedEventPosition = event.y;
     }
