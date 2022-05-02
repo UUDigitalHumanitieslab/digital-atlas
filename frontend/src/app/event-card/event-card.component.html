@@ -2,7 +2,7 @@
     <p class="panel-heading">
         {{event.title || '...'}}
     </p>
-    <div class="panel-block" *ngFor="let author of authors">
+    <div class="panel-block author-link is-clickable" *ngFor="let author of authors" [routerLink]="['/intellectual', author.id]">
         <div class="column author-name has-text-right">
             {{author.name}}
         </div>
