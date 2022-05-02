@@ -17,12 +17,12 @@
             <img [src]="picture" alt="" class="is-radiusless">
         </figure>
     </div>
-    <div class="panel-block">
+    <div class="panel-block" *ngIf="event.description">
         <div class="content">
             <p>{{event.description}}</p>
         </div>
     </div>
-    <p class="panel-block">
+    <p class="panel-block" *ngIf="formattedDate">
         <span class="panel-icon">
             <fa-icon [icon]="faCalendar"></fa-icon>
         </span>
