@@ -1,15 +1,24 @@
 {
     "authors": [
         {
-            "name": "Frantz Fanon", 
-            "pictures": "Frantz Fanon", 
-            "place_of_birth": "Fort-de-France, Martinique", 
-            "date_of_birth": "1925-06-20", 
+            "name": "Antonio Gramsci", 
+            "pictures": "Antonio Gramsci", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-04", 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "red"
-        }, 
+        },
+        {
+            "name": "Edward Said",
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-04", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "lightblue"
+        },
         {
             "name": "Stuart Hall", 
             "pictures": "Stuart Hall", 
@@ -18,17 +27,27 @@
             "place_of_death": "London", 
             "date_of_death": "2014-02-10", 
             "description": null, 
-            "color": "blue"
-        }, 
+            "color": "pine"
+        },
         {
-            "name": "Antonio Gramsci", 
-            "pictures": "Antonio Gramsci", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-04", 
+            "name": "Frantz Fanon", 
+            "pictures": "Frantz Fanon", 
+            "place_of_birth": "Fort-de-France, Martinique", 
+            "date_of_birth": "1925-06-20", 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "yellow"
+        },
+        {
+            "name": "Zygmunt Bauman", 
+            "pictures": "Zygmunt Bauman", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-11", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "greengray"
         }, 
         {
             "name": "Assia Djebar", 
@@ -38,8 +57,8 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "cyan"
-        }, 
+            "color": "terra"
+        },
         {
             "name": "E\u0301tienne Balibar", 
             "pictures": "E\u0301tienne Balibar", 
@@ -48,17 +67,7 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "purple"
-        }, 
-        {
-            "name": "Fatima Al-Tayeb", 
-            "pictures": "Fatima Al-Tayeb", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-07", 
-            "place_of_death": null, 
-            "date_of_death": null, 
-            "description": null, 
-            "color": "green"
+            "color": "blue"
         }, 
         {
             "name": "Gloria Wekker", 
@@ -68,8 +77,8 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "umber"
-        }, 
+            "color": "purple"
+        },
         {
             "name": "Paul Gilroy", 
             "pictures": "Paul Gilroy", 
@@ -78,8 +87,8 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "sienna"
-        }, 
+            "color": "okra"
+        },
         {
             "name": "Sara Ahmed", 
             "pictures": "Sara Ahmed", 
@@ -88,17 +97,27 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "bordeaux"
-        }, 
+            "color": "green"
+        },
         {
-            "name": "Zygmunt Bauman", 
-            "pictures": "Zygmunt Bauman", 
+            "name": "Fatima Al-Tayeb", 
+            "pictures": "Fatima Al-Tayeb", 
             "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-11", 
+            "date_of_birth": "1932-02-07", 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "emerald"
+            "color": "olive"
+        }, 
+        {
+            "name": "Johny Pitts", 
+            "pictures": "", 
+            "place_of_birth": "Kingston, Jamaica", 
+            "date_of_birth": "1932-02-07", 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "aquamarine"
         }
     ], 
     "works": [
