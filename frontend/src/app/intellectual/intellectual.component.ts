@@ -22,8 +22,12 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     selectedEvent: LifeEvent|Work|Legacy;
     selectedEventPosition: number;
 
+    icons: any;
+
     constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService,
-        private visualService: VisualService) { }
+                private visualService: VisualService) {
+        this.icons = this.visualService.icons;
+    }
 
     ngOnInit(): void {
         this.subscription.add(

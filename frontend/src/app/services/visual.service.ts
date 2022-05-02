@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { faBook, faLandmark, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 
@@ -6,6 +7,11 @@ import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
     providedIn: 'root'
 })
 export class VisualService {
+    icons = {
+        'life event': faUser,
+        work: faBook,
+        legacy: faLandmark
+    };
 
     constructor() { }
 

@@ -22,18 +22,17 @@ export class TimelineComponent implements OnInit, OnChanges {
     minYear: number;
     maxYear: number;
     timeRange: number[];
+    selectedEvent: TimelineEvent;
 
-    icons = {
-        'life event': faUser,
-        work: faBook,
-        legacy: faLandmark
-    };
+    icons: any;
 
     tickHeight = 2.5;
 
     @Output() eventSelect = new EventEmitter<{event: LifeEvent|Work|Legacy, y: number}>();
 
-    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) { }
+    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
+        this.icons = this.visualService.icons;
+    }
 
     ngOnInit(): void {
     }
@@ -219,6 +218,9 @@ export class TimelineComponent implements OnInit, OnChanges {
     }
 
     selectEvent(event: TimelineEvent): void {
+        this.selectedEvent = event;
+
+        // emit event an location
         const y = (event.startYear - this.minYear) * this.tickHeight;
         this.eventSelect.emit({
             event: event.data, y,

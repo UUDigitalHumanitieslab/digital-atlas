@@ -9,12 +9,12 @@
         <div class="column" *ngFor="let col of columns">
             <div class="timeline-event-container" *ngFor="let tile of col"
             [style.height.em]="getHeight(tile.startYear, tile.endYear)">
-                <div *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
-                    (click)=selectEvent(tile.event)>
+                <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
+                    (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent">
                     <span class="icon is-medium">
                         <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
                     </span>
-                </div>
+                </button>
             </div>
         </div>
     </div>
