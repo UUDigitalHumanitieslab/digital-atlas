@@ -29,7 +29,7 @@
         <div class="column">
             <div [style.height.em]="selectedEventPosition"></div>
             <div class="block" *ngIf="selectedEvent">
-                <da-event-card [event]="selectedEvent" [data]="data"></da-event-card>
+                <da-event-card [event]="selectedEvent" [data]="data" [includeAuthor]="false"></da-event-card>
             </div>
         </div>
     </div>

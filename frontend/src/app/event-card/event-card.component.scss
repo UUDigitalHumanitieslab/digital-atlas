@@ -1,13 +1,39 @@
 @import "../../colors";
 @import "~bulma/sass/utilities/_all";
 
-@each $name, $color in $colors {
-    .card.is-#{$name} {
-        .card-header {
-            background: $color;
+.panel {
+    background-color: $light;
+}
 
-            .card-header-title {
-                color: findColorInvert($color);
+@each $name, $color in $colors {
+    .panel.is-#{$name} {
+        .panel-heading {
+            background: $color;
+            color: findColorInvert($color);
+        }
+    }
+}
+
+.panel-block > .column {
+    padding: 0px;
+
+    &.author-name {
+        padding-right: 12px;
+        font-weight: bold;
+    }
+}
+
+.image {
+    width: 32px;
+    height: 32px;
+    padding-top: 0px;
+
+    img {
+        object-fit: cover;
+
+        @each $name, $color in $colors {
+            &.is-#{$name} {
+                border: 2px solid $color;
             }
         }
     }

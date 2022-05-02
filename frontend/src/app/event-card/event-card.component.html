@@ -1,25 +1,37 @@
-<div class="card is-{{color}}">
-    <header class="card-header">
-        <p class="card-header-title">
-            {{event.title || '...'}}
-        </p>
-    </header>
-    <div class="card-image" *ngIf="picture">
+<div class="panel is-{{color}}">
+    <p class="panel-heading">
+        {{event.title || '...'}}
+    </p>
+    <div class="panel-block" *ngFor="let author of authors">
+        <div class="column author-name has-text-right">
+            {{author.name}}
+        </div>
+        <div class="column is-narrow">
+            <figure class="image is-square is-32x32 author-image" *ngIf="getPicture(author)">
+                <img class="is-rounded is-{{author.color}}" [src]="getPicture(author)">
+            </figure>
+        </div>
+    </div>
+    <div class="panel-block" *ngIf="picture">
         <figure class="image">
             <img [src]="picture" alt="" class="is-radiusless">
         </figure>
     </div>
-    <div class="card-content">
+    <div class="panel-block">
         <div class="content">
             <p>{{event.description}}</p>
         </div>
     </div>
-    <div class="card-footer">
-        <span class="card-footer-item">
-            {{formattedDate}}
+    <p class="panel-block">
+        <span class="panel-icon">
+            <fa-icon [icon]="faCalendar"></fa-icon>
         </span>
-        <span class="card-footer-item">
-            {{event.where?.name}}
+        {{formattedDate}}
+    </p>
+    <p class="panel-block" *ngIf="event.where">
+        <span class="panel-icon">
+            <fa-icon [icon]="faMapMarker"></fa-icon>
         </span>
-    </div>
+        {{event.where?.name}}
+    </p>
 </div>
