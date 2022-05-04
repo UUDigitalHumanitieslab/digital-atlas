@@ -10,9 +10,9 @@
                             {{author.name}}
                         </p>
                     </header>
-                    <div class="card-image">
-                        <figure class="image is-square">
-                            <img src="https://bulma.io/images/placeholders/320x480.png" alt="" class="is-radiusless">
+                    <div class="card-image" *ngIf="picture">
+                        <figure class="image">
+                            <img [src]="picture" alt="" class="is-radiusless">
                         </figure>
                     </div>
                 </div>
@@ -24,35 +24,34 @@
         </div>
 
         <div class="column">
-            <da-timeline [authors]="[author]"></da-timeline>
-        </div>
-        <div class="column">
-            <ng-container *ngFor="let event of events">
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            {{event.title}}
-                            <span class="tag">
-                                {{event.category}}
-                            </span>
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <div class="content">
-                            {{event.description}}
-                        </div>
-                    </div>
-                    <footer class="card-footer">
-                        <span class="card-footer-item">
-                            {{event.formattedDate}}
-                        </span>
-                        <span class="card-footer-item">
-                            {{event.where?.name}}
-                        </span>
-                    </footer>
+            <div class="block">
+                <h2 class="subtitle is-3 mb-1">Timeline</h2>
+                <p class="has-text-grey">
+                    <span class="icon">
+                        <fa-icon [icon]="icons['life event']"></fa-icon>
+                    </span>
+                    life event
+                    <span class="icon">
+                        <fa-icon [icon]="icons['work']"></fa-icon>
+                    </span>
+                    work
+                    <span class="icon">
+                        <fa-icon [icon]="icons['legacy']"></fa-icon>
+                    </span>
+                    legacy
+                </p>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <da-timeline [authors]="[author]" (eventSelect)="onEventSelect($event)"></da-timeline>
                 </div>
-                <br />
-            </ng-container>
+                <div class="column">
+                    <div [style.height.em]="selectedEventPosition"></div>
+                    <div class="block" *ngIf="selectedEvent">
+                        <da-event-card [event]="selectedEvent" [includeAuthor]="false"></da-event-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </ng-container>

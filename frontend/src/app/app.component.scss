@@ -1,3 +1,5 @@
+@import '../styles.scss';
+
 // make sure the footer is always at the bottom of the page
 .app {
     display: flex;
@@ -6,5 +8,6 @@
 
     .main-content {
         flex: 1;
+        background-color: $light;
     }
 }

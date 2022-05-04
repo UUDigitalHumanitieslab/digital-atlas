@@ -11,6 +11,9 @@ export class DataService {
 
     constructor() { }
 
+    /**
+     * load all data
+     */
     getData(): Promise<CollectedData> {
         return new Promise<CollectedData>(async (resolve) => {
             if (this.data === undefined) {

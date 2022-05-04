@@ -1,4 +1,4 @@
-<div class="panel filter-menu" [ngClass]="{'is-collapsed': hideFilterMenu}" *ngIf="data">
+<div class="panel filter-menu is-dark" [ngClass]="{'is-collapsed': hideFilterMenu}" *ngIf="data">
     <p class="panel-heading is-clickable" (click)="hideFilterMenu = !hideFilterMenu">
         <span>Filter events</span>
     </p>
@@ -8,11 +8,9 @@
                 Intellectual
             </label>
             <div class="control">
-                <div *ngFor="let author of data.authors" class="field-checkbox">
-                    <p-checkbox name="author-selection" value="author.id" [value]="author" [inputId]="author.id"
-                        [(ngModel)]="selectedAuthors" (onChange)="updateFilteredData()"></p-checkbox>
-                    <label [for]="author.id">{{author.name}}</label>
-                </div>
+                <da-checkboxes [options]="data.authors" [labelKey]="'name'" [colorKey]="'color'"
+                    (selection)="this.selectedAuthors = $event; this.updateFilteredData()">
+                </da-checkboxes>
             </div>
         </div>
     </div>
@@ -22,11 +20,9 @@
                 Type of event
             </label>
             <div class="control">
-                <div *ngFor="let category of categories" class="field-checkbox">
-                    <p-checkbox name="category-selection" value="category" [value]="category" [inputId]="category"
-                        [(ngModel)]="selectedCategories"  (onChange)="updateFilteredData()"></p-checkbox>
-                    <label [for]="category">{{category}}</label>
-                </div>
+                <da-checkboxes [options]="categories" 
+                    (selection)="this.selectedCategories = $event; this.updateFilteredData()">
+                </da-checkboxes>
             </div>
         </div>
     </div>

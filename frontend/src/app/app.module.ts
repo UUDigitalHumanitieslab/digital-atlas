@@ -20,6 +20,8 @@ import { IndexComponent } from './index/index.component';
 import { IntellectualComponent } from './intellectual/intellectual.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { MapContainerComponent } from './map-container/map-container.component';
+import { EventCardComponent } from './event-card/event-card.component';
+import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +34,8 @@ import { MapContainerComponent } from './map-container/map-container.component';
         IntellectualComponent,
         TimelineComponent,
         MapContainerComponent,
+        EventCardComponent,
+        CheckboxesComponent,
     ],
     imports: [
         AppRoutingModule,

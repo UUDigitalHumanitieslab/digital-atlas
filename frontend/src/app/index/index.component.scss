@@ -1,6 +1,12 @@
 @import "../../colors";
 @import '~bulma/sass/utilities/_all';
 
+.image {
+    img {
+        object-fit: cover;
+    }
+}
+
 @each $name, $color in $colors {
     .card.is-#{$name} {
         cursor: pointer;

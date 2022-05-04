@@ -4,6 +4,7 @@ import { colors } from '../../colors';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as _ from 'underscore';
+import { VisualService } from '../services/visual.service';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 const width = 962;
@@ -25,7 +26,9 @@ export class MapComponent implements OnInit, OnChanges {
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
-    constructor() { }
+    selectedEvent: LifeEvent|Work|Legacy;
+
+    constructor(private visualService: VisualService) { }
 
     ngOnInit(): void {
         this.mapReady = this.drawMap();
@@ -35,24 +38,24 @@ export class MapComponent implements OnInit, OnChanges {
         if (this.data) {
             await this.mapReady;
 
+
             const allEvents = _.flatten([
-                this.data.lifeEvents.map(event => ({ where: event.where, color: this.determineColor(event) })),
-                this.data.works.map(work => ({ where: work.where, color: this.determineColor(work) })),
-                this.data.legacies.map(legacy => ({ where: legacy.where, color: this.determineLegacyColor(legacy) }))]);
+                _.map(this.data.lifeEvents, this.locationFromEvent, this),
+                _.map(this.data.works, this.locationFromEvent, this),
+                _.map(this.data.legacies, this.locationFromEvent, this)
+            ]);
             const eventsWithLocation = allEvents.filter(event => event.where);
             this.drawPoints(eventsWithLocation);
         }
     }
 
-    private determineColor(event: LifeEvent | Work): string {
-        const author = this.data.authors.find(candidate => candidate.id === event.authorId);
-        return author.color;
-    }
-
-    private determineLegacyColor(legacy: Legacy): string {
-        // TODO: about multiple??
-        const author = this.data.authors.find(candidate => candidate.id === legacy.aboutIds[0]);
-        return author.color;
+    private locationFromEvent(event: LifeEvent|Work|Legacy):
+        {where: Location, color: string, event: LifeEvent|Work|Legacy} {
+        return {
+            where: event.where,
+            color: this.visualService.getColor(event, this.data),
+            event,
+        };
     }
 
     private async drawMap(): Promise<void> {
@@ -60,7 +63,7 @@ export class MapComponent implements OnInit, OnChanges {
 
         const projection = d3.geoMercator()
             .scale(500)
-            .translate([width / 2, height / 0.65]);
+            .translate([width / 2.5, height / 0.65]);
 
         const svg = d3.select(this.target.nativeElement)
             .attr('width', '100%')
@@ -80,13 +83,14 @@ export class MapComponent implements OnInit, OnChanges {
             .enter().append('path')
             .attr('name', (d: any) => d.properties.name)
             .attr('id', (d: any) => d.id)
-            .attr('d', path);
+            .attr('d', path)
+            .on('click', this.hideEventCard.bind(this));
 
         this.svg = svg;
         this.projection = projection;
     }
 
-    private async drawPoints(locations: { where: Location, color: string }[]): Promise<any> {
+    private async drawPoints(locations: { where: Location, color: string, event: LifeEvent|Work|Legacy }[]): Promise<any> {
         if (this.points) {
             this.points.remove();
         }
@@ -98,7 +102,16 @@ export class MapComponent implements OnInit, OnChanges {
             .attr('cy', (d: { where: Location }) => this.projection([d.where.long, d.where.lat])[1])
             .attr('r', 5)
             .attr('fill', (d: { color: string }) => colors[d.color])
-            .attr('stroke-width', 0);
+            .attr('stroke-width', 0)
+            .on('click', this.showEventCard.bind(this));
+    }
+
+    showEventCard(clickEvent, obj): void {
+        this.selectedEvent = obj.event;
+    }
+
+    hideEventCard(): void {
+        this.selectedEvent = undefined;
     }
 
 }

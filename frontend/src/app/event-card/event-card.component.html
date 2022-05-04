@@ -1,0 +1,37 @@
+<div class="panel is-{{color}}">
+    <p class="panel-heading">
+        {{event.title || '...'}}
+    </p>
+    <div class="panel-block author-link is-clickable" *ngFor="let author of authors" [routerLink]="['/intellectual', author.id]">
+        <div class="column author-name has-text-right">
+            {{author.name}}
+        </div>
+        <div class="column is-narrow">
+            <figure class="image is-square is-32x32 author-image" *ngIf="getPicture(author)">
+                <img class="is-rounded is-{{author.color}}" [src]="getPicture(author)">
+            </figure>
+        </div>
+    </div>
+    <div class="panel-block" *ngIf="picture">
+        <figure class="image">
+            <img [src]="picture" alt="" class="is-radiusless">
+        </figure>
+    </div>
+    <div class="panel-block" *ngIf="event.description">
+        <div class="content">
+            <p>{{event.description}}</p>
+        </div>
+    </div>
+    <p class="panel-block" *ngIf="formattedDate">
+        <span class="panel-icon">
+            <fa-icon [icon]="faCalendar"></fa-icon>
+        </span>
+        {{formattedDate}}
+    </p>
+    <p class="panel-block" *ngIf="event.where">
+        <span class="panel-icon">
+            <fa-icon [icon]="faMapMarker"></fa-icon>
+        </span>
+        {{event.where?.name}}
+    </p>
+</div>

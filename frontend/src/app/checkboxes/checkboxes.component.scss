@@ -1,0 +1,30 @@
+@import '../../styles.scss';
+@import "../../colors";
+
+p {
+    margin-bottom: 0.5em;
+}
+
+.checkbox-box {
+    background-color: $light;
+    border-radius: 2px;
+
+    &:not(.checked) {
+        fa-icon {
+            visibility: hidden;
+        }    
+    }
+
+    &.checked {
+        background-color: $dark;
+        color: $light;   
+    }
+}
+
+@each $name, $color in $colors {
+    .checkbox.is-#{$name} {
+        .checkbox-box.checked {
+            background-color: $color;
+        }
+    }
+}
