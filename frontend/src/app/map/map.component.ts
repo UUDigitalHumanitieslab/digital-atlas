@@ -1,9 +1,10 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
-import { colors } from '../../colors';
+import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as _ from 'underscore';
+import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
+import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
@@ -40,11 +41,13 @@ type PointLocation = {
     templateUrl: './map.component.html',
     styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, OnChanges {
+export class MapComponent implements OnInit, OnDestroy, OnChanges {
     private svg: any;
     private projection: d3.GeoProjection;
     private zoom: d3.ZoomBehavior<Element, unknown>;
     private mapReady: Promise<void>;
+    private height: number;
+    private subscription: Subscription;
 
     zoomFactor = 1;
 
@@ -57,10 +60,19 @@ export class MapComponent implements OnInit, OnChanges {
     selectedEvent: LifeEvent | Work | Legacy;
     pointLocations: PointLocation[];
 
-    constructor(private visualService: VisualService) { }
+    constructor(private visualService: VisualService) {
+        this.subscription = new Subscription().add(
+            this.visualService.getMainHeight().subscribe(height => {
+                this.height = height;
+                this.mapReady = this.drawMap();
+            }));
+    }
 
     ngOnInit(): void {
-        this.mapReady = this.drawMap();
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     async ngOnChanges(changes: SimpleChanges): Promise<void> {
@@ -94,7 +106,7 @@ export class MapComponent implements OnInit, OnChanges {
         const svg = d3.select(this.target.nativeElement)
             .attr('width', '100%')
             // warning! this reads the current height outside of this component
-            .attr('height', document.getElementsByClassName('main-content')[0].clientHeight)
+            .attr('height', this.height)
             .attr('viewBox', `0 0 ${width} ${height}`);
 
         const path = d3.geoPath()
@@ -168,12 +180,12 @@ export class MapComponent implements OnInit, OnChanges {
             .on('click', this.showEventCard.bind(this));
     }
 
-    showEventCard(clickEvent, obj: { event: MapComponent['selectedEvent']}): void {
+    showEventCard(clickEvent, obj: { event: MapComponent['selectedEvent'] }): void {
         this.selectedEvent = obj.event;
         const [x, y] = this.projection([
             obj.event.where.long,
             obj.event.where.lat]);
-        
+
         this.svg.transition()
             .duration(750)
             .call(this.zoom.translateTo, x, y);
