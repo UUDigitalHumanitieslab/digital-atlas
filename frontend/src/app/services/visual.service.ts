@@ -46,8 +46,8 @@ export class VisualService {
     }
 
     /**
-   * get the picture for an author or event
-   */
+     * get the picture for an author or event
+     */
     getPicture(subject: Author | LifeEvent | Work | Legacy, data: CollectedData): string {
         if (subject.pictures && subject.pictures.length) {
             const pictureName = subject.pictures[0];

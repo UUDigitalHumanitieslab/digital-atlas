@@ -10,8 +10,8 @@ import { VisualService } from '../services/visual.service';
 const worldPath = '/assets/data/world-atlas-110m.json';
 
 const circleRadius = 5;
-const width = 962;
-const height = 550;
+const mapWidth = 962;
+const mapHeight = 550;
 const scaleExtent: [number, number] = [0.27, 3.5];
 const coords = {
     topLeft: {
@@ -28,7 +28,7 @@ const coords = {
         long: 0,
         lat: 55
     }
-}
+};
 
 type PointLocation = {
     where: Location,
@@ -107,7 +107,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .attr('width', '100%')
             // warning! this reads the current height outside of this component
             .attr('height', this.height)
-            .attr('viewBox', `0 0 ${width} ${height}`);
+            .attr('viewBox', `0 0 ${mapWidth} ${mapHeight}`);
 
         const path = d3.geoPath()
             .projection(projection);
@@ -134,9 +134,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.zoom.translateTo(this.svg, x, y);
     }
 
-    private setZoom() {
+    private setZoom(): void {
         const self = this;
-        function handleZoom(e: any) {
+        function handleZoom(e: any): void {
             d3.select('svg g')
                 .attr('transform', e.transform);
 
