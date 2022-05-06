@@ -4,7 +4,6 @@ import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
 import { DatesService } from '../services/dates.service';
 import { EventType, TimelineEvent, TimelineTile } from '../models/timeline';
-import { faBook, faLandmark, faUser } from '@fortawesome/free-solid-svg-icons';
 import { VisualService } from '../services/visual.service';
 
 
@@ -24,7 +23,7 @@ export class TimelineComponent implements OnInit, OnChanges {
     timeRange: number[];
     selectedEvent: TimelineEvent;
 
-    icons: any;
+    icons: VisualService['icons'];
 
     tickHeight = 2.5;
 

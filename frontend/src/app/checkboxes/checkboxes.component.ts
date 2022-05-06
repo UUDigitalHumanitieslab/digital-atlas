@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { faCheck, } from '@fortawesome/free-solid-svg-icons';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { faCheck, IconDefinition, } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
+
+const defaultIcon = faCheck;
 
 @Component({
     selector: 'da-checkboxes',
@@ -11,18 +13,20 @@ export class CheckboxesComponent implements OnChanges {
     @Input() options: any[];
     @Input() labelKey: string;
     @Input() colorKey: string;
+    @Input() icons: IconDefinition[];
 
     @Output() selection = new EventEmitter<any[]>();
 
     selectedIndices: { [index: number]: boolean };
 
-    faCheck = faCheck;
+    iconList: IconDefinition[];
 
     constructor() { }
 
     ngOnChanges(changes: SimpleChanges): void {
         this.selectedIndices = {};
         this.indices.forEach(index => this.selectedIndices[index] = true);
+        this.icons = this.indices.map((value, index) => this.icons ? this.icons[index] : defaultIcon);
         this.emitSelection();
     }
 
@@ -32,7 +36,7 @@ export class CheckboxesComponent implements OnChanges {
     }
 
     toggleItem(index): void {
-        this.selectedIndices[index]  = !this.selectedIndices[index];
+        this.selectedIndices[index] = !this.selectedIndices[index];
         this.emitSelection();
     }
 
