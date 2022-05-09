@@ -2,30 +2,33 @@
     "authors": [
         {
             "name": "Stuart Hall", 
-            "pictures": "Toevoegen", 
+            "pictures": null, 
             "place_of_birth": "Kingston, Jamaica", 
             "date_of_birth": "1932-02-03", 
             "place_of_death": "London, UK", 
             "date_of_death": "2014-02-10", 
-            "description": "Toevoegen"
+            "description": "Toevoegen", 
+            "color": "pine"
         }, 
         {
             "name": "Frantz Fanon", 
-            "pictures": "Toevoegen", 
+            "pictures": null, 
             "place_of_birth": "Fort-de-France, Martinique", 
             "date_of_birth": "1925-07-20", 
             "place_of_death": "Bethesda, MD, USA", 
             "date_of_death": "1961-12-06", 
-            "description": "Toevoegen"
+            "description": "Toevoegen", 
+            "color": "yellow"
         }, 
         {
             "name": "Antonio Gramsci", 
-            "pictures": "Toevoegen", 
+            "pictures": null, 
             "place_of_birth": "Ales, Sardinia, Italy", 
             "date_of_birth": "1891-01-22", 
             "place_of_death": "Rome, Italy", 
             "date_of_death": "1937-04-27", 
-            "description": "Antonio Gramsci is one of the most important Marxist thinkers of the twentieth century. He founded the Italian Communist Party in 1921. His most famous work is The Prison Notebooks, a collection of writings, unpublished during his lifetime, which he compiled while imprisoned by the fascist regime. This wide-ranging work showcases Gramsci\u2019s unique political thought and his influential interpretations of history, culture, literature and politics have shaped Marxism ever since they were collected and published after World War II."
+            "description": "Antonio Gramsci is one of the most important Marxist thinkers of the twentieth century. He founded the Italian Communist Party in 1921. His most famous work is The Prison Notebooks, a collection of writings, unpublished during his lifetime, which he compiled while imprisoned by the fascist regime. This wide-ranging work showcases Gramsci\u2019s unique political thought and his influential interpretations of history, culture, literature and politics have shaped Marxism ever since they were collected and published after World War II.", 
+            "color": "red"
         }, 
         {
             "name": "Assia Djebar", 
@@ -34,7 +37,88 @@
             "date_of_birth": "1936-06-30", 
             "place_of_death": "Paris, France", 
             "date_of_death": "2015-02-06", 
-            "description": "Assia Djebar is an Algerian writer who gives voice to women silenced by society and the colonial gaze. She paints a picture of generations both in dialogue and in conflict also thanks to elements of autobiographical memoirs. Later in her writing, she started to reflect on the Amazigh component of Algeria, such as in the novel Vaste est la prison."
+            "description": "Assia Djebar is an Algerian writer who gives voice to women silenced by society and the colonial gaze. She paints a picture of generations both in dialogue and in conflict also thanks to elements of autobiographical memoirs. Later in her writing, she started to reflect on the Amazigh component of Algeria, such as in the novel Vaste est la prison.", 
+            "color": "terra"
+        }, 
+        {
+            "name": "Edward Said", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "lightblue"
+        }, 
+        {
+            "name": "Zygmunt Bauman", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "greengray"
+        }, 
+        {
+            "name": "\u00c9tienne Balibar", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "blue"
+        }, 
+        {
+            "name": "Gloria Wekker", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "purple"
+        }, 
+        {
+            "name": "Paul Gilroy", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "okra"
+        }, 
+        {
+            "name": "Sara Ahmed", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "green"
+        }, 
+        {
+            "name": "Fatima Al-Tayeb", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "olive"
+        }, 
+        {
+            "name": "Johnny Pitts", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
+            "place_of_death": null, 
+            "date_of_death": null, 
+            "description": null, 
+            "color": "aquamarine"
         }
     ], 
     "pictures": [], 
