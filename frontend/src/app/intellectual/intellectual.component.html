@@ -19,7 +19,25 @@
             </div>
 
             <div class="block has-text-grey is-italic is-small" *ngIf="picture">
-                © Photograph by {{picture.author}} ({{picture.license}})
+                © photograph by {{picture.author}} ({{picture.license}})
+            </div>
+
+            <div class="block has-text-centered" *ngIf="author.dateOfBirth || author.placeOfBirth">
+                <div class="heading">born</div>
+                <span *ngIf="author.dateOfBirth">{{author.dateOfBirth}} </span>
+                <span *ngIf="author.dateOfBirth && author.placeOfBirth">‒ </span>
+                <span *ngIf="author.placeOfBirth">{{author.placeOfBirth.name}}</span>
+            </div>
+
+            <div class="block has-text-centered" *ngIf="author.dateOfDeath">
+                <div class="heading">died</div>
+                <span *ngIf="author.dateOfDeath">{{author.dateOfDeath}} </span>
+                <span *ngIf="author.dateOfDeath && author.placeOfDeath">‒ </span>
+                <span *ngIf="author.placeOfDeath">{{author.placeOfDeath.name}}</span>
+            </div>
+
+            <div class="block has-text-justified" *ngIf="author.description">
+                {{author.description}}
             </div>
         </div>
 
