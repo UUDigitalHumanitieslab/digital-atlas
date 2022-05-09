@@ -26,7 +26,6 @@ export class CheckboxesComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         this.selectedIndices = {};
         this.indices.forEach(index => this.selectedIndices[index] = true);
-        this.icons = this.indices.map((value, index) => this.icons ? this.icons[index] : defaultIcon);
         this.emitSelection();
     }
 
@@ -55,6 +54,14 @@ export class CheckboxesComponent implements OnChanges {
             return item[this.colorKey];
         } else {
             return 'no-color';
+        }
+    }
+
+    icon(index): any {
+        if (this.icons) {
+            return this.icons[index];
+        } else {
+            return defaultIcon;
         }
     }
 

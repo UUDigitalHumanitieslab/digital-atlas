@@ -1,7 +1,7 @@
 <p *ngFor="let i of indices">
     <label class="checkbox" class="is-clickable is-{{color(i)}}" (click)="toggleItem(i)">
         <span class="icon checkbox-box" [ngClass]="{'checked': selectedIndices[i]}">
-            <fa-icon [icon]="icons[i]"></fa-icon>
+            <fa-icon [icon]="icon(i)"></fa-icon>
         </span>
         {{label(i)}}
     </label>
