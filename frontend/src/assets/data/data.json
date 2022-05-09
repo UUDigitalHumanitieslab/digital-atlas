@@ -2,7 +2,7 @@
     "authors": [
         {
             "name": "Stuart Hall", 
-            "pictures": null, 
+            "pictures": "Stuart Hall", 
             "place_of_birth": "Kingston, Jamaica", 
             "date_of_birth": "1932-02-03", 
             "place_of_death": "London, UK", 
@@ -121,7 +121,16 @@
             "color": "aquamarine"
         }
     ], 
-    "pictures": [], 
+    "pictures": [
+        {
+            "name": "Stuart Hall", 
+            "filename": "Stuart Hall.jpeg", 
+            "author": null, 
+            "license": null, 
+            "url": null, 
+            "description": null
+        }
+    ], 
     "works": [
         {
             "author_name": "Stuart Hall", 
