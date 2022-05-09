@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit {
     getPictures(data: CollectedData, authors: Author[]): {[name: string]: string} {
         const pictures = {};
         authors.forEach(author => {
-            const picture = this.visualService.getPicture(author, data);
+            const picture = this.visualService.getPictureSource(author, data);
             pictures[author.name] = picture;
         });
         return pictures;

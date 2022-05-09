@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { faBook, faLandmark, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
-import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
+import { Author, CollectedData, Legacy, LifeEvent, Picture, Work } from '../models/data';
 
 @Injectable({
     providedIn: 'root'
@@ -33,18 +33,27 @@ export class VisualService {
         return 'blank';
     }
 
-      /**
+    /**
      * get the picture for an author or event
      */
-       getPicture(subject: Author|LifeEvent|Work|Legacy, data: CollectedData): string {
+    getPicture(subject: Author|LifeEvent|Work|Legacy, data: CollectedData): Picture {
         if (subject.pictures && subject.pictures.length) {
             const pictureName = subject.pictures[0];
-            return this.pictureSource(pictureName, data);
+            const picture = this.pictureObject(pictureName, data);
+            return picture;
         }
     }
 
-    private pictureSource(pictureName: string, data: CollectedData): string {
-        const picture = data.pictures.find(pic => pic.name === pictureName);
+    getPictureSource(subject: Author|LifeEvent|Work|Legacy, data: CollectedData): string {
+        const picture = this.getPicture(subject, data);
+        return this.pictureSource(picture);
+    }
+
+    private pictureObject(pictureName: string, data: CollectedData): Picture {
+        return data.pictures.find(pic => pic.name === pictureName);
+    }
+
+    pictureSource(picture?: Picture): string {
         if (picture) {
             return `/assets/img/${picture.filename}`;
         }

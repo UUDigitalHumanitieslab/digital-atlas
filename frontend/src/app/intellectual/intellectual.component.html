@@ -10,16 +10,16 @@
                             {{author.name}}
                         </p>
                     </header>
-                    <div class="card-image" *ngIf="picture">
+                    <div class="card-image" *ngIf="pictureFile">
                         <figure class="image">
-                            <img [src]="picture" alt="" class="is-radiusless">
+                            <img [src]="pictureFile" alt="" class="is-radiusless">
                         </figure>
                     </div>
                 </div>
             </div>
-            
-            <div class="block">
-                More content here?
+
+            <div class="block has-text-grey is-italic is-small" *ngIf="picture">
+                © Photograph by {{picture.author}} ({{picture.license}})
             </div>
         </div>
 
