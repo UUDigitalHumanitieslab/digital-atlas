@@ -103,7 +103,7 @@ export class MapComponent implements OnInit, OnChanges {
             .attr('r', 5)
             .attr('fill', (d: { color: string }) => colors[d.color])
             .attr('stroke-width', 0)
-            .on('click', this.showEventCard.bind(this));
+            .on('mouseover', this.showEventCard.bind(this));
     }
 
     showEventCard(clickEvent, obj): void {
