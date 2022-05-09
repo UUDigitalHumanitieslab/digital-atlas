@@ -10,6 +10,7 @@ months = ["January", "February", "March", "April", "May",
 month_regex = re.compile('^(' + '|'.join(months) + "), (\\d{4})$")
 day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\\d{4})$")
 
+numeric_date_regex = r'(\d{1,2})[-/](\d{1,2})[-/](\d{4})'
 
 def convert_file(in_path, out_path):
     data = parse_input(in_path)
@@ -112,21 +113,30 @@ def format_date(value):
         value = value.strip()
         if not value:
             return None
+        if value == 'Toevoegen': # used as temporary filler
+            return None
 
-        match = month_regex.search(value)
+        match = re.search(numeric_date_regex, value)
         if match:
-            month, year = match.groups()
-            return f"{year}-{months.index(month) + 1}"
-
-        match = day_regex.search(value)
-        if match:
-            month, day, year = match.groups()
+            day, month, year = match.groups()
             date = datetime(
                 year=int(year),
-                month=int(months.index(month) + 1),
-                day=int(day))
+                month=int(month),
+                day=int(day)
+            )
         else:
-            date = datetime.fromisoformat(value)
+            match = month_regex.search(value)
+            if match:
+                month, year = match.groups()
+                return f"{year}-{months.index(month) + 1}"
+
+            match = day_regex.search(value)
+            if match:
+                month, day, year = match.groups()
+                date = datetime(
+                    year=int(year),
+                    month=int(months.index(month) + 1),
+                    day=int(day))
 
     if date is not None:
         return date.strftime('%Y-%m-%d')
@@ -138,9 +148,13 @@ def format_value(value, header):
     if value is None:
         return None
 
-    if header in ['lat', 'long'] and type(value) == float:
-        # floats are used for for lat/long coordinates
-        return value
+    if header in ['lat', 'long']:
+        if type(value) == float:
+            # floats are used for for lat/long coordinates
+            return value
+        if type(value) == str:
+            stripped = value.strip('() ') # remove whitespace and parentheses
+            return float(stripped)
 
     if header in ['date', 'date_of_birth', 'date_of_death', 'start_date', 'end_date']:
         return format_date(value)
