@@ -12,7 +12,7 @@ import { VisualService } from '../services/visual.service';
 export class IndexComponent implements OnInit {
     authors: CollectedData['authors'];
 
-    pictures: {[name: string]: string}
+    pictures: { [name: string]: string };
 
     constructor(private dataService: DataService, private visualService: VisualService) { }
 
