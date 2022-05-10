@@ -33,10 +33,16 @@ const coords = {
     }
 };
 
+type MixedEvent = {
+    type: 'mixed',
+    events: (LifeEvent | Work | Legacy)[]
+    where: Location
+};
+
 type PointLocation = {
     where: Location,
     color: string,
-    event: LifeEvent | Work | Legacy
+    event: LifeEvent | Work | Legacy | MixedEvent
 };
 
 
@@ -67,6 +73,8 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     target: ElementRef<SVGElement>;
 
     selectedEvent: LifeEvent | Work | Legacy;
+
+    allPoints: PointLocation[];
     pointLocations: PointLocation[];
 
     constructor(private visualService: VisualService) {
@@ -96,19 +104,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
                 _.map(this.data.works, this.locationFromEvent, this),
                 _.map(this.data.legacies, this.locationFromEvent, this)
             ]);
-            this.pointLocations = allEvents.filter(event => event.where);
-
-            this.pointLocations.forEach(event1 =>
-                this.pointLocations.forEach(event2 => {
-                    if (event1 !== event2) {
-                        const overlap = this.eventsOverlap(event1, event2);
-                        if (overlap) {
-                            console.log(event1.event.where.name, event2.event.where.name, overlap);
-                        }
-                    }
-
-                })
-            );
+            this.allPoints = allEvents.filter(event => event.where);
+            this.pointLocations = this.collapseOverlappingPoints(this.allPoints);
+            console.log(this.pointLocations);
 
             this.drawPoints();
         }
@@ -122,24 +120,81 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         };
     }
 
+    /** take an array of points and merge all overlapping ones */
+    private collapseOverlappingPoints(points: PointLocation[]): PointLocation[] {
+        const combinePoints = (existingPoints: PointLocation[], newPoint: PointLocation) => {
+            const overlapIndex = _.findIndex(existingPoints, point => this.pointsOverlap(point, newPoint));
+            if (overlapIndex !== -1) {
+                const merged = this.mergePoints(existingPoints[overlapIndex], newPoint);
+                existingPoints[overlapIndex] = merged;
+                return existingPoints;
+            } else {
+                existingPoints.push(newPoint);
+                return existingPoints;
+            }
+        };
+
+        return _.reduce(points, combinePoints, []);
+    }
+
+
+    /** merge two points into one with a mixed event */
+    private mergePoints(point1: PointLocation, point2: PointLocation): PointLocation {
+        const color = point1.color === point2.color ? point1.color : 'blank';
+        const event = this.mergeEvents(point1, point2);
+
+        return {
+            where: event.where,
+            color,
+            event,
+        };
+    }
+
+    /** create a mixed event from two points */
+    private mergeEvents(point1: PointLocation, point2: PointLocation): MixedEvent {
+        const events1 = (point1.event as MixedEvent).events || [point1.event as LifeEvent|Work|Legacy];
+        const events2 = (point2.event as MixedEvent).events || [point2.event as LifeEvent|Work|Legacy];
+        const where = this.mergeLocation(point1, point2);
+
+        return {
+            type: 'mixed',
+            events: events1.concat(events2),
+            where,
+        };
+    }
+
+    private mergeLocation(point1: PointLocation, point2: PointLocation): Location {
+        const lat = (point1.where.lat + point2.where.lat) / 2;
+        const long = (point1.where.long + point2.where.long) / 2;
+        const name = `${point1.where.name}; ${point2.where.name}`;
+
+        return { name, lat, long };
+    }
+
     /** whether two points overlap on the map */
-    private eventsOverlap(event1: PointLocation, event2: PointLocation): boolean {
+    private pointsOverlap(point1: PointLocation, point2: PointLocation): boolean {
         // same location: always overlap
-        if (event1.where.name === event2.where.name) {
+        if (point1.where.name === point2.where.name) {
             return true;
         }
 
-        const position1 = this.projection([event1.where.long, event1.where.lat]);
-        const position2 = this.projection([event2.where.long, event2.where.lat]);
+        const distance = this.eventsDistance(point1, point2);
+        const threshold = 10;
+
+        return distance < threshold;
+    }
+
+    /** distance between points on map */
+    private eventsDistance(point1: PointLocation, point2: PointLocation): number {
+        const position1 = this.projection([point1.where.long, point1.where.lat]);
+        const position2 = this.projection([point2.where.long, point2.where.lat]);
 
         const deltaX = Math.abs(position1[0] - position2[0]);
         const deltaY = Math.abs(position1[1] - position2[1]);
         const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
 
-        console.log(event1.where.name, event2.where.name, distance);
-
-
-        return false;
+        const scaledDistance = distance * this.zoomFactor;
+        return scaledDistance;
     }
 
     private async drawMap(): Promise<void> {
@@ -190,10 +245,12 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             d3.select('svg g')
                 .attr('transform', e.transform);
 
-            // update size of points
+            // update points overlap and size
             this.zoomFactor = e.transform.k;
-            d3.select('svg g').selectAll('use')
-                .attr('transform', (d: PointLocation) => this.pointTransform(d.where));
+
+            this.pointLocations = this.collapseOverlappingPoints(this.allPoints);
+            this.drawPoints();
+
         };
 
         const topLeft = this.projection([
@@ -232,6 +289,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     showEventCard(clickEvent: Event, obj: { event: MapComponent['selectedEvent'] }): void {
         this.selectedEvent = obj.event;
+
         const [x, y] = this.projection([
             obj.event.where.long,
             obj.event.where.lat]);
