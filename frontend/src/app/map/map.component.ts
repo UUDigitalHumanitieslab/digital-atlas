@@ -132,8 +132,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .enter().append('path')
             .attr('name', (d: any) => d.properties.name)
             .attr('id', (d: any) => d.id)
-            .attr('d', path)
-            .on('click', this.hideEventCard.bind(this));
+            .attr('d', path);
 
         this.svg = svg;
         this.projection = projection;
@@ -194,6 +193,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
             .on('mouseover', this.showEventCard.bind(this))
+            .on('mouseleave', this.hideEventCard.bind(this))
             .on('click', this.moveToPoint.bind(this));
     }
 
