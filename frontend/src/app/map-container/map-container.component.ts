@@ -4,6 +4,7 @@ import * as _ from 'underscore';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
+import { VisualService } from '../services/visual.service';
 
 @Component({
     selector: 'da-map-container',
@@ -26,7 +27,14 @@ export class MapContainerComponent implements OnInit {
     selectedAuthors: Author[] = [];
     selectedDateRange: number[] = [];
 
-    constructor(private dataService: DataService, private datesService: DatesService) { }
+    eventIcons: VisualService['icons'][keyof VisualService['icons']][];
+
+    constructor(private dataService: DataService, private datesService: DatesService, visualService: VisualService) {
+        this.eventIcons = [
+            visualService.icons['life event'],
+            visualService.icons.work,
+            visualService.icons.legacy];
+    }
 
     ngOnInit(): void {
         this.dataService.getData().then(data => this.onDataLoaded(data));
@@ -50,7 +58,7 @@ export class MapContainerComponent implements OnInit {
         return minmax;
     }
 
-    minMaxDate(range: [number, number], event: LifeEvent|Work|Legacy): [number, number] {
+    minMaxDate(range: [number, number], event: LifeEvent | Work | Legacy): [number, number] {
         const eventStart = this.datesService.getStartYear(event);
         const minYear = _.min([eventStart, range[0]]);
 
