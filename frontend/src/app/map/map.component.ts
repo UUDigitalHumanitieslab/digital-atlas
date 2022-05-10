@@ -193,11 +193,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .attr('y', -256)
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
-            .on('mouseover', this.showEventCard.bind(this));;
+            .on('mouseover', this.showEventCard.bind(this))
+            .on('click', this.moveToPoint.bind(this));
     }
 
-    showEventCard(clickEvent: Event, obj: { event: MapComponent['selectedEvent'] }): void {
-        this.selectedEvent = obj.event;
+    moveToPoint(event: Event, obj: PointLocation): void {
         const [x, y] = this.projection([
             obj.event.where.long,
             obj.event.where.lat]);
@@ -205,6 +205,10 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.svg.transition()
             .duration(750)
             .call(this.zoom.translateTo, x, y);
+    }
+
+    showEventCard(event: Event, obj: PointLocation): void {
+        this.selectedEvent = obj.event;
     }
 
     hideEventCard(): void {
