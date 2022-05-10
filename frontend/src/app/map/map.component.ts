@@ -287,8 +287,12 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .on('click', this.showEventCard.bind(this));
     }
 
-    showEventCard(clickEvent: Event, obj: { event: MapComponent['selectedEvent'] }): void {
-        this.selectedEvent = obj.event;
+    showEventCard(clickEvent: Event, obj: { event: LifeEvent|Work|Legacy|MixedEvent }): void {
+        if (obj.event.type === 'mixed') {
+            this.selectedEvent = undefined;
+        } else {
+            this.selectedEvent = obj.event;
+        }
 
         const [x, y] = this.projection([
             obj.event.where.long,
