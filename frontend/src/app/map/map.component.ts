@@ -16,6 +16,7 @@ const circleRadius = 5;
 const mapWidth = 962;
 const mapHeight = 550;
 const scaleExtent: [number, number] = [0.27, 3.5];
+const overlapThreshold = 15;
 const coords = {
     topLeft: {
         long: -160,
@@ -179,9 +180,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         }
 
         const distance = this.eventsDistance(point1, point2);
-        const threshold = 10;
-
-        return distance < threshold;
+        return distance < overlapThreshold;
     }
 
     /** distance between points on map */
