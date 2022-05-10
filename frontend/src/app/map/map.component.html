@@ -1,4 +1,15 @@
 <div *ngIf="selectedEvent" class="event-card-container">
     <da-event-card [event]="selectedEvent"></da-event-card>
 </div>
-<svg #target fill="#ded9c4" stroke="#CEAB93"></svg>
+<ng-container *ngFor="let icon of iconList">
+    <fa-icon [icon]="icon" [symbol]="icon.iconName + '_figure'"></fa-icon>
+    <svg viewBox="0 0 512 512" style="display:none">
+        <symbol [attr.id]="icon.iconName">
+            <circle cx="256" cy="256" r="256" fill="rgba(230,230,230,0.8)"></circle>
+            <use [attr.href]="'#' + icon.iconName + '_figure'" transform="translate(-24, 65) scale(0.6)" />
+        </symbol>
+    </svg>
+</ng-container>
+
+<svg #target fill="#ded9c4" stroke="#CEAB93">
+</svg>
