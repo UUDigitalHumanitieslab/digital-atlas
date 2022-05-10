@@ -10,6 +10,8 @@ const worldPath = '/assets/data/world-atlas-110m.json';
 const width = 962;
 const height = 550;
 
+type mapPoint = {where: Location, color: string, event: LifeEvent|Work|Legacy};
+
 @Component({
     selector: 'da-map',
     templateUrl: './map.component.html',
@@ -45,17 +47,29 @@ export class MapComponent implements OnInit, OnChanges {
                 _.map(this.data.legacies, this.locationFromEvent, this)
             ]);
             const eventsWithLocation = allEvents.filter(event => event.where);
+
+            eventsWithLocation.forEach(event1 =>
+                eventsWithLocation.forEach(event2 => {
+                    const overlap = this.eventsOverlap(event1, event2);
+                    console.log(event1.event.where.name, event2.event.where.name, overlap);
+                })
+            );
+
             this.drawPoints(eventsWithLocation);
         }
     }
 
-    private locationFromEvent(event: LifeEvent|Work|Legacy):
-        {where: Location, color: string, event: LifeEvent|Work|Legacy} {
+    private locationFromEvent(event: LifeEvent|Work|Legacy): mapPoint {
         return {
             where: event.where,
             color: this.visualService.getColor(event, this.data),
             event,
         };
+    }
+
+    /** whether two points overlap on the map */
+    private eventsOverlap(event1: mapPoint, event2: mapPoint): boolean {
+        return true;
     }
 
     private async drawMap(): Promise<void> {
