@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Categories, PartialDate, } from '../models/data';
+import { Categories, Legacy, LifeEvent, PartialDate, Work } from '../models/data';
 
 import { DataService } from './data.service';
 
@@ -206,7 +206,7 @@ describe('DataService', () => {
         expect(service.parseAuthors(input, locations)).toEqual(expected);
     });
 
-    it ('should parse works', () => {
+    it('should parse works', () => {
         const input = [
             {
                 author_name: 'Frantz Fanon',
@@ -231,13 +231,14 @@ describe('DataService', () => {
                 pictures: undefined,
                 where: locations[3],
                 title: '',
-                description: 'Capécia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corrêa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997.'
-            }
+                description: 'Capécia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corrêa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997.',
+                type: 'work'
+            } as Work
         ];
         expect(service.parseWorks(input, locations, authors)).toEqual(expected);
     });
 
-    it ('should parse legacies', () => {
+    it('should parse legacies', () => {
         const input = [
             {
                 author_names: 'Renate Zahar',
@@ -266,13 +267,14 @@ describe('DataService', () => {
                 where: undefined,
                 title: 'Renate Zahar, Frantz Fanon: Colonialism and Alienation (1969, trans. 1974, Monthly Review Press)',
                 description: '',
-                url: undefined
-            }
+                url: undefined,
+                type: 'legacy'
+            } as Legacy
         ];
         expect(service.parseLegacies(input, locations, authors)).toEqual(expected);
     });
 
-    it ('should parse life events', () => {
+    it('should parse life events', () => {
         const input = [
             {
                 author: 'Frantz Fanon',
@@ -297,8 +299,9 @@ describe('DataService', () => {
                 pictures: undefined,
                 where: locations[1],
                 title: 'Resistance',
-                description: 'Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica'
-            }
+                description: 'Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica',
+                type: 'life event'
+            } as LifeEvent
         ];
         expect(service.parseLifeEvents(input, locations, authors)).toEqual(expected);
     });

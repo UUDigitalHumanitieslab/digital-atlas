@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as _ from 'underscore';
+
+import { faSquare } from '@fortawesome/free-solid-svg-icons';
+
 import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
 import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
@@ -49,6 +52,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     private height: number;
     private subscription: Subscription;
 
+    faSquare = faSquare;
+
+    icons: VisualService['icons'];
+    iconList: VisualService['icons'][keyof VisualService['icons']][];
+
     zoomFactor = 1;
 
     @Input() data: CollectedData;
@@ -61,6 +69,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     pointLocations: PointLocation[];
 
     constructor(private visualService: VisualService) {
+        this.icons = visualService.icons;
+        this.iconList = Object.values(visualService.icons);
+
         this.subscription = new Subscription().add(
             this.visualService.getMainHeight().subscribe(height => {
                 this.height = height;
@@ -134,17 +145,22 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.zoom.translateTo(this.svg, x, y);
     }
 
+    private pointTransform(location: Location): string {
+        const [x, y] = this.projection([location.long, location.lat]);
+        const scale = 0.05 * (1 / this.zoomFactor);
+        return `translate(${x}, ${y}) scale(${scale})`;
+    }
+
     private setZoom(): void {
-        const self = this;
-        function handleZoom(e: any): void {
+        const handleZoom = (e: any) => {
             d3.select('svg g')
                 .attr('transform', e.transform);
 
             // update size of points
-            self.zoomFactor = e.transform.k;
-            d3.select('svg g').selectAll('circle')
-                .attr('r', circleRadius / self.zoomFactor);
-        }
+            this.zoomFactor = e.transform.k;
+            d3.select('svg g').selectAll('use')
+                .attr('transform', (d: PointLocation) => this.pointTransform(d.where));
+        };
 
         const topLeft = this.projection([
             coords.topLeft.long,
@@ -168,19 +184,19 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         if (this.points) {
             this.points.remove();
         }
-        this.points = this.svg.select('g').selectAll('circle')
+        this.points = this.svg.select('g').selectAll('use')
             .data(this.pointLocations)
             .enter()
-            .append('circle')
-            .attr('cx', (d: { where: Location }) => this.projection([d.where.long, d.where.lat])[0])
-            .attr('cy', (d: { where: Location }) => this.projection([d.where.long, d.where.lat])[1])
-            .attr('r', circleRadius / this.zoomFactor)
-            .attr('fill', (d: { color: string }) => colors[d.color])
-            .attr('stroke-width', 0)
+            .append('use')
+            .attr('href', (d: PointLocation) => '#' + this.icons[d.event.type].iconName)
+            .attr('x', -256)
+            .attr('y', -256)
+            .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
+            .attr('color', (d: PointLocation) => colors[d.color])
             .on('click', this.showEventCard.bind(this));
     }
 
-    showEventCard(clickEvent, obj: { event: MapComponent['selectedEvent'] }): void {
+    showEventCard(clickEvent: Event, obj: { event: MapComponent['selectedEvent'] }): void {
         this.selectedEvent = obj.event;
         const [x, y] = this.projection([
             obj.event.where.long,

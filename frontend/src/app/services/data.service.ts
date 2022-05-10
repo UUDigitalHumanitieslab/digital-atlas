@@ -131,6 +131,7 @@ export class DataService {
                 description: item.description,
                 pictures: this.parseStringList(item.pictures),
                 where: this.findLocation(item.where, locations),
+                type: 'work'
             };
         });
     }
@@ -151,6 +152,7 @@ export class DataService {
                 title: item.title,
                 description: item.description,
                 url: this.parseOptionalString(item.url),
+                type: 'legacy'
             };
         });
     }
@@ -169,6 +171,7 @@ export class DataService {
                 where: this.findLocation(item.where, locations),
                 title: item.title,
                 description: item.description,
+                type: 'life event'
             };
         });
     }
