@@ -87,6 +87,7 @@ export interface Work {
     where?: Location;
     title: string;
     description: string;
+    type: 'work';
 }
 
 export interface Legacy {
@@ -102,6 +103,7 @@ export interface Legacy {
     title: string;
     description: string;
     url?: string;
+    type: 'legacy';
 }
 
 export interface LifeEvent {
@@ -115,8 +117,8 @@ export interface LifeEvent {
     where?: Location;
     title: string;
     description: string;
+    type: 'life event';
 }
-
 
 export interface Picture {
     name: string;

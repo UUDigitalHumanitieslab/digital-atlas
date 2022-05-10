@@ -1,6 +1,8 @@
 import { Legacy, LifeEvent, Work } from './data';
 
-export type EventType = 'life event' | 'work' | 'legacy';
+type TimelineData = LifeEvent | Work | Legacy;
+
+export type EventType = TimelineData['type'];
 
 export type TimelineEvent = {
     startYear: number,
@@ -9,7 +11,7 @@ export type TimelineEvent = {
     authorId: number,
     author: string,
     type: EventType,
-    data: LifeEvent | Work | Legacy,
+    data: TimelineData,
 };
 
 /** element in the timeline layout - either the container for an event or empty filling */
