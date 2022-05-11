@@ -10,7 +10,8 @@ months = ["January", "February", "March", "April", "May",
 month_regex = re.compile('^(' + '|'.join(months) + "), (\\d{4})$")
 day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\\d{4})$")
 
-numeric_date_regex = r'(\d{1,2})[-/](\d{1,2})[-/](\d{4})'
+# support year-month-day and day-month-year
+numeric_date_regex = r'(\d{1,4})[-/](\d{1,2})[-/](\d{1,4})'
 
 def convert_file(in_path, out_path):
     data = parse_input(in_path)
@@ -118,7 +119,11 @@ def format_date(value):
 
         match = re.search(numeric_date_regex, value)
         if match:
-            day, month, year = match.groups()
+            parts = match.groups()
+            if int(parts[0]) > 31:
+                year, month, day = parts
+            else:
+                day, month, year = parts
             date = datetime(
                 year=int(year),
                 month=int(month),
