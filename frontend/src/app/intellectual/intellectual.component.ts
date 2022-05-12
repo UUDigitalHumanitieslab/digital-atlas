@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
+import { Author, CollectedData, Legacy, LifeEvent, Picture, Work } from '../models/data';
 import { TimelineEvent } from '../models/timeline';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
@@ -16,7 +16,8 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     data: CollectedData;
     author: Author;
     events: (LifeEvent & { formattedDate: string })[];
-    picture: string;
+    pictureFile: string;
+    picture: Picture;
     subscription = new Subscription();
 
     selectedEvent: LifeEvent|Work|Legacy;
@@ -43,6 +44,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
         this.data = await this.dataService.getData();
         this.author = this.dataService.findAuthorById(id, this.data.authors);
         this.picture = this.visualService.getPicture(this.author, this.data);
+        this.pictureFile = this.visualService.pictureSource(this.picture);
     }
 
     onEventSelect(event: {event: LifeEvent|Work|Legacy, y: number}): void {
