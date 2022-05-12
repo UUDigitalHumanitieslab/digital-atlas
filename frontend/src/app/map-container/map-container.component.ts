@@ -29,7 +29,9 @@ export class MapContainerComponent implements OnInit {
 
     eventIcons: VisualService['icons'][keyof VisualService['icons']][];
 
-    constructor(private dataService: DataService, private datesService: DatesService, visualService: VisualService) {
+    pictures: { [authorId: number]: string };
+
+    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
         this.eventIcons = [
             visualService.icons['life event'],
             visualService.icons.work,
@@ -45,6 +47,7 @@ export class MapContainerComponent implements OnInit {
         const dateRange = this.dateRange(this.data);
         this.minYear = dateRange[0];
         this.maxYear = dateRange[1];
+        this.pictures = this.getPictures(this.data);
 
         this.selectedCategories = this.categories;
         this.selectedAuthors = data.authors;
@@ -66,6 +69,13 @@ export class MapContainerComponent implements OnInit {
         const maxYear = _.max([eventEnd, range[1]]);
 
         return [minYear, maxYear];
+    }
+
+    getPictures(data: CollectedData): { [authorId: number]: string } {
+        const authors = data.authors;
+        const authorsById = _.indexBy(authors, author => author.id);
+        const picturesById = _.mapObject(authorsById, author => this.visualService.getPictureSource(author, data));
+        return picturesById;
     }
 
     updateFilteredData(): void {
