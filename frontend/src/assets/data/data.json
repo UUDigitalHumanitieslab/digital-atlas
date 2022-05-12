@@ -1,69 +1,70 @@
 {
     "authors": [
         {
-            "name": "Antonio Gramsci", 
-            "pictures": "Antonio Gramsci", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-04", 
-            "place_of_death": null, 
-            "date_of_death": null, 
-            "description": null, 
-            "color": "red"
-        },
-        {
-            "name": "Edward Said",
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-04", 
-            "place_of_death": null, 
-            "date_of_death": null, 
-            "description": null, 
-            "color": "lightblue"
-        },
-        {
             "name": "Stuart Hall", 
             "pictures": "Stuart Hall", 
             "place_of_birth": "Kingston, Jamaica", 
             "date_of_birth": "1932-02-03", 
-            "place_of_death": "London", 
+            "place_of_death": "London, UK", 
             "date_of_death": "2014-02-10", 
-            "description": null, 
+            "description": "Toevoegen", 
             "color": "pine"
-        },
+        }, 
         {
             "name": "Frantz Fanon", 
-            "pictures": "Frantz Fanon", 
+            "pictures": null, 
             "place_of_birth": "Fort-de-France, Martinique", 
-            "date_of_birth": "1925-06-20", 
+            "date_of_birth": "1925-07-20", 
+            "place_of_death": "Bethesda, MD, USA", 
+            "date_of_death": "1961-12-06", 
+            "description": "Toevoegen", 
+            "color": "yellow"
+        }, 
+        {
+            "name": "Antonio Gramsci", 
+            "pictures": null, 
+            "place_of_birth": "Ales, Sardinia, Italy", 
+            "date_of_birth": "1891-01-22", 
+            "place_of_death": "Rome, Italy", 
+            "date_of_death": "1937-04-27", 
+            "description": "Antonio Gramsci is one of the most important Marxist thinkers of the twentieth century. He founded the Italian Communist Party in 1921. His most famous work is The Prison Notebooks, a collection of writings, unpublished during his lifetime, which he compiled while imprisoned by the fascist regime. This wide-ranging work showcases Gramsci\u2019s unique political thought and his influential interpretations of history, culture, literature and politics have shaped Marxism ever since they were collected and published after World War II.", 
+            "color": "red"
+        }, 
+        {
+            "name": "Assia Djebar", 
+            "pictures": null, 
+            "place_of_birth": "Cherchell, Algeria", 
+            "date_of_birth": "1936-06-30", 
+            "place_of_death": "Paris, France", 
+            "date_of_death": "2015-02-06", 
+            "description": "Assia Djebar is an Algerian writer who gives voice to women silenced by society and the colonial gaze. She paints a picture of generations both in dialogue and in conflict also thanks to elements of autobiographical memoirs. Later in her writing, she started to reflect on the Amazigh component of Algeria, such as in the novel Vaste est la prison.", 
+            "color": "terra"
+        }, 
+        {
+            "name": "Edward Said", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "yellow"
-        },
+            "color": "lightblue"
+        }, 
         {
             "name": "Zygmunt Bauman", 
-            "pictures": "Zygmunt Bauman", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-11", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "greengray"
         }, 
         {
-            "name": "Assia Djebar", 
-            "pictures": "Assia Djebar", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-05", 
-            "place_of_death": null, 
-            "date_of_death": null, 
-            "description": null, 
-            "color": "terra"
-        },
-        {
-            "name": "E\u0301tienne Balibar", 
-            "pictures": "E\u0301tienne Balibar", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-06", 
+            "name": "\u00c9tienne Balibar", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
@@ -71,177 +72,1202 @@
         }, 
         {
             "name": "Gloria Wekker", 
-            "pictures": "Gloria Wekker", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-08", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "purple"
-        },
+        }, 
         {
             "name": "Paul Gilroy", 
-            "pictures": "Paul Gilroy", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-09", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "okra"
-        },
+        }, 
         {
             "name": "Sara Ahmed", 
-            "pictures": "Sara Ahmed", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-10", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "green"
-        },
+        }, 
         {
             "name": "Fatima Al-Tayeb", 
-            "pictures": "Fatima Al-Tayeb", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-07", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "olive"
         }, 
         {
-            "name": "Johny Pitts", 
-            "pictures": "", 
-            "place_of_birth": "Kingston, Jamaica", 
-            "date_of_birth": "1932-02-07", 
+            "name": "Johnny Pitts", 
+            "pictures": null, 
+            "place_of_birth": null, 
+            "date_of_birth": null, 
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
             "color": "aquamarine"
         }
     ], 
+    "pictures": [
+        {
+            "name": "Stuart Hall", 
+            "filename": "Stuart Hall.jpeg", 
+            "author": null, 
+            "license": null, 
+            "url": null, 
+            "description": null
+        }
+    ], 
     "works": [
         {
-            "author_name": "Frantz Fanon", 
+            "author_name": "Stuart Hall", 
             "category": "Publication", 
-            "date": "1948", 
+            "date": "1973", 
             "start_date": null, 
             "end_date": null, 
             "pictures": null, 
-            "where": "Paris", 
-            "title": null, 
-            "description": "Cap\u00e9cia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corr\u00eaa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997."
+            "where": "Birmingham, UK", 
+            "title": "\"Encoding and Decoding in the Media Discourse\"", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/interview", 
+            "date": null, 
+            "start_date": "1983", 
+            "end_date": "1985", 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"In Conversation with Stuart Hall: C.L.R. James\"", 
+            "description": "C. L. R. James in conversation with Stuart Hall, produced originally for Channel\u00a04. Directed by Mike Dibb.", 
+            "url": "https://www.youtube.com/watch?v=_Gf0KUxgZfI"
         }, 
         {
             "author_name": "Stuart Hall", 
             "category": "Publication", 
-            "date": "1957", 
+            "date": "1989", 
             "start_date": null, 
             "end_date": null, 
             "pictures": null, 
-            "where": null, 
-            "title": null, 
-            "description": "\u2018The New Conservatism and the Old\u2019, Universities & Left Review, vol. 1, no. 1 (Spring 1957), 21\u20134."
+            "where": "London, UK", 
+            "title": "\"Cultural Identity and Cinematic Representation\"", 
+            "description": "\u201cBoth the new \u2018Caribbean cinema\u2019, which has now joined the company of the other \u2018Third Cinemas\u2019, and the emerging cinemas of Afro-Caribbean blacks in the \u2018diasporas\u2019 of the West, put the issue of cultural identity in question. Who is this emergent, new subject of the cinema? From where does it speak? The practices of representation always implicate the positions from which we speak or write \u2013 the positions of enunciation. What recent theories of enunciation suggest is that, though we speak, to say \u2018in our own name\u2019, of ourselves and from our own experience, nevertheless who speaks, and the subject who is spoken of, are never exactly in the same place. Identity is not as transparent or unproblematic as we think. Perhaps, instead of thinking of identity as an already accomplished historical fact, which the new cinematic discourses then represent, we should think, instead, of identity as a \u2018production\u2019, which is never complete, always in process, and always constituted within, not outside, representation. But this view problematizes the very authority and authenticity to which the term, \u2018cultural identity\u2019, lays claim. In this paper, then, I seek to open a dialogue, an investigation, on the subject of cultural identity and cinematic representation.\u201d", 
+            "url": "https://www.jstor.org/stable/44111666"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "1992", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"New Ethnicities\" In James Donald and Ali Rattansi (eds). \u2018Race\u2019, Culture and Difference", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "1994", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Cultural Identity and Diaspora\" In Patrick Williams and Laura Chrisman (eds). Colonial Discourse and Post-Colonial Theory A Reader [Originally published as: \"Cultural Identity and Cinematic Representation\"]", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "1996", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Gramsci\u2019s Relevance for the Study of Race and Ethnicity\" In David Morley and Kwan-Hsing Chen (eds). Stuart Hall: Critical Dialogues in Cultural Studies", 
+            "description": "\"The aim of this collection of essays is to facilitate \u2018a more sophisticated examination of the hitherto poorly elucidated phenomen of racism and to examine the adequacy of the theoretical formulations, paradigms and interpretive schemes in the social and human sciences\u2026with respect to intolerance and racism and in relation to the complexity of problems they pose.\u2019 This general rubric enables me to situate more precisely the kind of contribution which a study of Gramsci\u2019s work can make to the larger enterprise. In my view, Gramsci\u2019s work does not offer a general social science which can be applied to the analysis of social phenomena across a wide comparative range of historical societies. His potential contribution is more limited. It remains, for all that, of seminal importance. His work is, precisely, of a \u2018sophisticating\u2019 kind. He works, broadly, within the marxist paradigm. However, he has extensively revised, renovated and sophisticated many aspects of that theoretical framework to make it more relevant to contemporary social relations in the twentieth century. His work therefore has a direct bearing on the question of the \u2018adequacy\u2019 of existing social theories, since it is precisely in the direction of \u2018complexifying existing theories and problems\u2019 that his most important theoretical contribution is to be found. These points require further clarification before a substantive r\u00e9sum\u00e9 and assessment of Gramsci\u2019s theoretical contribution can be offered.\"", 
+            "url": "https://doi.org/10.4324/9780203993262"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "1996", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"When Was The \"Post-Colonial\"? Thinking at the Limit\" In Iain Chambers and Lidia Curti (eds). The Post-Colonial Question: Common Skies, Divided Horizons", 
+            "description": "\u201cWhen was \u2018the post-colonial\u2019? What should be included and excluded from its frame? Where is the invisible line between it and its \u2018others\u2019 (colonialism, neo-colonialism, Third World, imperialism), in relation to whose termination it ceaselessly, but without final supersession, marks itself? The main purpose of this paper is to explore the interrogation marks which have begun to cluster thick and fast around the question of \u2018the post-colonial\u2019 and the notion of post-colonial times. If post-colonial time is the time after colonialism, and colonialism is defined in terms of the binary division between the colonisers and the colonized, why is post-colonial time also a time of \u2018difference? What sort of \u2018difference\u2019 is this and what are its implications for the forms of politics and for subject formation in this late-modern moment? These questions increasingly haunt the contested space in which the concept of the \u2018post-colonial\u2019 now operates and they cannot be satisfactorily explored until we know more about what the concept means and why it has become the bearer of such powerful unconscious investments \u2013 a sign of desire for some, and equally for others, a signifier of danger.\u201d", 
+            "url": "https://doi.org/10.4324/9780203138328"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "1997", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "(ed.) Representation: Cultural Representations and Signifying Practices", 
+            "description": "\"Representation\u2014the production of meaning through language, discourse and image\u2014occupies a central place in current studies on culture. This broad-ranging text offers treatment of how visual images, language and discourse work as \"systems of representation.\" Individual chapters explain a variety of approaches to representation, bringing to bear concepts from semiotic, discursive, psychoanalytic, anthropological, sociological, feminist, art-historical and Foucauldian models of representation. They explore representation as a signifying practice in a rich diversity of social contexts and institutional sites: the use of photography in the construction of national identity and culture; the poetics and politics of exhibiting other cultures in ethnographic museums; fantasies of \"the racialized other\" in popular media, film and image; the construction of masculine identities in discourses of consumer culture and advertising; and the gendering of narratives in television soap operas. This book provides illustrative examples with activities and selected readings, accessible but not simplified, offering a resource for teachers and students in cultural studies and related fields.\"", 
+            "url": "https://us.sagepub.com/en-us/nam/representation/book234567"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/lecture", 
+            "date": "1997", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "The Open University, Milton Keynes, UK", 
+            "title": "\"Representation & the Media\"", 
+            "description": "A lecture by Stuart Hall at the Open University. Produced and directed by Sut Jhally, and edited by Sanjay Talreja, Sut Jhally and Mary Patierno.", 
+            "url": "https://www.youtube.com/watch?v=HXdqV6cjHqs"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/interview", 
+            "date": "2001", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Stuart Hall: On Photography\"", 
+            "description": "\"Artist, activist and writer Sunil Gupta interviews Stuart Hall in his home in 2001, on the occasion of Hall being awarded an honorary degree by the University of the West Indies. Stuart Hall discusses the importance of the photography - Black British photography in particular - and his interest in the visual.\" Commissioned by Mark Sealy and roduced by Autograph ABP & OVA.", 
+            "url": "https://vimeo.com/51527926"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "2002", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"\u201cIn but not of Europe\u201d: Europe and its myths\"", 
+            "description": "Toevoegen", 
+            "url": "https://journals.lwbooks.co.uk/soundings/vol-2002-issue-22/abstract-6929/"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/lecture", 
+            "date": "2006", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "University of Massachussets, Amherst, MA, USA", 
+            "title": "\"The Origins of Cultural Studies\"", 
+            "description": "\"In this re-mastered lecture from 1989, Stuart Hall provides an extraordinarily clear summary of the origins of cultural studies. Hall discusses the founding of cultural studies at the University of Birmingham, the field's baseline concern with issues of symbolic representation and power, and how cultural studies ultimately gained an institutional foothold at the \"frontiers of intellectual and academic life by testing the fine line between intellectual rigor and social relevance.\" An excellent introduction to Hall's work, and to the broader social, political, and economic concerns that have shaped cultural studies.\" Produced and edited by Sut Jhally", 
+            "url": "https://shop.mediaed.org/the-origins-of-cultural-studies-p158.aspx"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/interview", 
+            "date": "2006", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Stuart Hall on Cosmopolitanism\"", 
+            "description": "Pnina Werbner in conversation with Stuart Hall. Filmed and edited by Haim Bresheeth.", 
+            "url": "https://www.youtube.com/watch?v=zcaGhyYvMl0"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/lecture", 
+            "date": "2007", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "University of the West Indies, Mona, Jamaica", 
+            "title": "\"Through the Prism of an Intellectual Life\"", 
+            "description": "\"In one of Stuart Hall's most famous lectures, Hall speaks with dazzling precision about the responsibilities of intellectuals in the face of undemocratic structures of power, injustice, racism, and inequality.\" Directed by Sut Jhally.", 
+            "url": "https://www.youtube.com/watch?v=JclSCsg_YoQ"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "2008", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Cosmopolitanism, Globalisation and Diaspora: In conversation with Pnina Werbner\" In Pnina Webner (ed.) Anthropology and the New Cosmopolitanism", 
+            "description": "Toevoegen", 
+            "url": "https://doi.org/10.4324/9781003084617"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Publication", 
+            "date": "2009", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"At Home and Not at Home: in conversation with Les Back\"", 
+            "description": "\u201cThe opening of Rivington Place, new home of the Institute of International Visual Arts\u2019 (inIVA) and Autograph ABP (Association of Black Photographers) in east London is landmark not only for the black arts movement in Britain, it is also a testament to Stuart Hall\u2019s enduring contribution and relevance to its intellectual and political life. As chair of both inIVA and Autograph ABP, Stuart played an integral role in realizing this vision of a publcia space dedicated to creativity and diversity. The \u00a33 million building, designed by architect David Adjaye, offers a place to exhibit art but it also provides a home for idea, thought and reflection upon the relevance of difference to the visual arts. A few weeks after its doors were opened officially, Rivington Place hosted the launch of Paul Gilroy\u2019s Black Britain: A Photographic History (2007). The book, planned initially to be a collaboration with Stuart Hall, portrays and documents the position or black people within British society through photographs drawn from the Getty Collection. Stuart\u2019s health prevented him from playing a full role in its completion, but he contributed a preface and at the launch he discussed the project with Paul Gilroy in front of an audience gathered to celebrate its publication.\u201d", 
+            "url": "https://doi.org/10.1080/09502380902950963"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/interview", 
+            "date": "2009", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Personally Speaking: A Long Conversation with Stuart Hall\"", 
+            "description": "\"Stuart Hall is a foundational figure in the influential interdisciplinary field known as cultural studies. In this stimulating and eloquent four-hour interview, conducted by the literary journalist Maya Jaggi and directed by Mike Dibb, Hall reflects on his life and career, talking personally and in depth about the trajectory of his work and how it has intersected with broader political movements. In a conversatin both intimate and sweeping in scope, Hall describes his migration from Jamaice to England, his immersion in left-wing politics in London, the influence of Raymond Williams and E.P. Thompson on the evolution of his thought, and the context within which the early classic texts of cultural studies was written. Hall also shares his pessimism about the economic recession and his optimism about Barack Obama\u2019s victory. Future analysis of Hall\u2019s work, and of cultural studies in general, will be enriched by this fascinating and indispensible first-person account of his life and ideas.\"", 
+            "url": "https://shop.mediaed.org/personally-speaking-p123.aspx"
+        }, 
+        {
+            "author_name": "Stuart Hall", 
+            "category": "Media/other", 
+            "date": "2012", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"The Unfinished Conversation\"", 
+            "description": "\"The Unfinished Conversation 2012 is a three-screen video installation that explores the multi-layered and ever-evolving subject of identity through an exploration of the memories and archives of the acclaimed British cultural theorist and sociologist Stuart Hall (1932\u20132014). The film is narrated in a non-linear format and unfolds over three screens, bringing up a variety of disparate footage simultaneously. This process examines the nature of the visual as triggered across an individual\u2019s memory. Extracted images from news footage of the 1960s, alongside Hall\u2019s personal home videos and photographs, are presented to merge the past, present and future. Akomfrah weaves issues of cultural identity into the film using a wide range of reference, overlaying archive footage of Hall with a soundtrack made up of jazz and gospel music and readings from a wide range of authors, including William Blake, Charles Dickens, Virginia Woolf and Mervyn Peake.\" Directed by John Akomfrah.", 
+            "url": "https://www.tate.org.uk/art/artworks/akomfrah-the-unfinished-conversation-t14105"
+        }, 
+        {
+            "author_name": "Frantz Fanon", 
+            "category": "Publication", 
+            "date": "1952", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Seuil, France", 
+            "title": "\"Peau Noire, Masques Blancs,\" translated as \"Black Skin, White Masks\" in 2008 by Richard Philcox", 
+            "description": "\"Few modern voices have had as profound an impact on the black identity and critical race theory as Frantz Fanon\u2019s, and\u00a0Black Skin, White Masks\u00a0represents some of his most important work. Fanon\u2019s masterwork is now available in a new translation that updates its language for a new generation of readers. A major influence on civil rights, anti-colonial, and black consciousness movements internationally,\u00a0Black Skin, White Masks\u00a0is the unsurpassed study of the black psyche in a white world. Hailed for its scientific analysis and poetic grace when it was first published in 1952, the book remains a vital force today from one of the most important theorists of revolutionary struggle, colonialism, and racial difference in history.\"", 
+            "url": "https://groveatlantic.com/book/black-skin-white-masks/"
+        }, 
+        {
+            "author_name": "Frantz Fanon", 
+            "category": "Publication", 
+            "date": "1959", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "\"L\u2019an V de la R\u00e9volution Alg\u00e9rienne,\" translated as \"A Dying Colonialism\" in 1994 by Haakon Chevalier", 
+            "description": "\"Psychiatrist, humanist, revolutionary, Frantz Fanon was one of the great political analysts of our time, the author of such seminal works of modern revolutionary theory as\u00a0The Wretched of the Earth\u00a0and\u00a0Black Skin, White Masks. He has had a profound impact on civil rights, anti-colonialism, and black consciousness movements around the world. A Dying Colonialism\u00a0is Fanon\u2019s incisive and illuminating account of how, during the Algerian Revolution, the people of Algeria changed centuries-old cultural patterns and embraced certain ancient cultural practices long derided by their colonialist oppressors as \u201cprimitive,\u201d in order to destroy those oppressors. Fanon uses the fifth year of the Algerian Revolution as a point of departure for an explication of the inevitable dynamics of colonial oppression. This is a strong, lucid, and militant book; to read it is to understand why Fanon says that for the colonized, \u201chaving a gun is the only chance you still have of giving a meaning to your death.\u201d\" (Description by Grove Atlantic)", 
+            "url": "https://groveatlantic.com/book/a-dying-colonialism/"
+        }, 
+        {
+            "author_name": "Frantz Fanon", 
+            "category": "Media/lecture", 
+            "date": "1959", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "\"Reciprocal Bases of National Culture and the Fight for Freedom,\" reproduced from Wretched of the Earth at Congress of Black African Writers", 
+            "description": "\"Colonial domination, because it is total and tends to over-simplify, very soon manages to disrupt in spectacular fashion the cultural life of a conquered people. This cultural obliteration is made possible by the negation of national reality, by new legal relations introduced by the occupying power, by the banishment of the natives and their customs to outlying districts by colonial society, by expropriation, and by the systematic enslaving of men and women.\nThree years ago at our first congress I showed that, in the colonial situation, dynamism is replaced fairly quickly by a substantification of the attitudes of the colonising power. The area of culture is then marked off by fences and signposts. These are in fact so many defence mechanisms of the most elementary type, comparable for more than one good reason to the simple instinct for preservation. The interest of this period for us is that the oppressor does not manage to convince himself of the objective non-existence of the oppressed nation and its culture. Every effort is made to bring the colonised person to admit the inferiority of his culture which has been transformed into instinctive patterns of behaviour, to recognise the unreality of his \u2018nation\u2019, and, in the last extreme, the confused and imperfect character of his own biological structure.\"", 
+            "url": "https://www.marxists.org/subject/africa/fanon/national-culture.htm"
+        }, 
+        {
+            "author_name": "Frantz Fanon", 
+            "category": "Publication", 
+            "date": "1961", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "\"Les Damn\u00e9s de la Terre,\" translated as \"The Wretched of the Earth\" in 2005 by Richard Philcox", 
+            "description": "\"First published in 1961, and reissued in this sixtieth anniversary edition with a powerful new introduction by Cornel West, Frantz Fanon\u2019s The Wretched of the Earth is a masterful and timeless interrogation of race, colonialism, psychological trauma, and revolutionary struggle, and a continuing influence on movements from Black Lives Matter to decolonization. A landmark text for revolutionaries and activists, The Wretched of the Earth is an eternal touchstone for civil rights, anti-colonialism, psychiatric studies, and Black consciousness movements around the world. Alongside Cornel West\u2019s introduction, the book features critical essays by Jean-Paul Sartre and Homi K. Bhabha. This sixtieth anniversary edition of Fanon\u2019s most famous text stands proudly alongside such pillars of anti-colonialism and anti-racism as Edward Said\u2019s Orientalism and The Autobiography of Malcolm X.\" (Description by Grove Atlantic)", 
+            "url": "https://groveatlantic.com/book/the-wretched-of-the-earth/"
         }
     ], 
     "legacy": [
         {
-            "author_names": "Renate Zahar", 
-            "about": "Frantz Fanon", 
-            "category": "Publication", 
-            "date": "1969", 
-            "start_date": null, 
-            "end_date": null, 
-            "pictures": null, 
-            "where": null, 
-            "title": "Renate Zahar,\u00a0Frantz Fanon: Colonialism and Alienation\u00a0(1969, trans. 1974, Monthly Review Press)", 
-            "description": null, 
-            "url": null
-        }, 
-        {
-            "author_names": "David Caute", 
-            "about": "Frantz Fanon", 
-            "category": "Publication", 
-            "date": "1970", 
-            "start_date": null, 
-            "end_date": null, 
-            "pictures": null, 
-            "where": "London", 
-            "title": "David Caute,\u00a0Frantz Fanon\u00a0(1970, London: Wm. Collins and Co.)", 
-            "description": null, 
-            "url": null
-        }, 
-        {
-            "author_names": "CLR James", 
+            "author_names": "James Procter", 
             "about": "Stuart Hall", 
-            "category": "Media/lectures", 
+            "category": "Legacy/publication", 
+            "date": "2004", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Abingdon, UK", 
+            "title": "\"Stuart Hall\"", 
+            "description": "\"James Procter's introduction places Hall's work within its historical contexts, providing a clear guide to his key ideas and influences, as well as to his critics and his intellectual legacy.\nStuart Hall has been pivotal to the development of cultural studies during the past forty years. Whether as director of the Centre for Contemporary Cultural Studies, or as one of the leading public intellectuals of the postwar period, he has helped transform our understanding of culture as both a theoretical catagory and a political practice.\"", 
+            "url": "https://www.routledge.com/Stuart-Hall/Procter/p/book/9780415262675"
+        }, 
+        {
+            "author_names": "John Akomfrah", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/film", 
+            "date": "2013", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "UK", 
+            "title": "\"The Stuart Hall Project: Revolution, Politics, Culture and the New Left Experience\"", 
+            "description": "\"John Akomfrah\u2019s documentary following Jamaican-born intellectual Stuart Hall, exploring memory, identity and scholarly impulse. A founding figure of contemporary cultural studies \u2013 and one of the most inspiring voices of the post-war Left \u2013 Stuart Hall\u2019s resounding and ongoing influence on British intellectual life commenced soon after he emigrated from Jamaica in 1951. Combining extensive archival imagery \u2013 television excerpts, home movies, family photos \u2013 with specially filmed material and a personally mixed Miles Davis soundtrack, Akomfrah\u2019s filmmaking approach matches the agility of Hall\u2019s intellect, its intimate play with memory, identity and scholarly impulse traversing the changing historical landscape of the second half of the 20th century.\"", 
+            "url": "https://www2.bfi.org.uk/blu-rays-dvds/stuart-hall-project"
+        }, 
+        {
+            "author_names": "Roger Bromley", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/obituary", 
+            "date": "2013", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "UK", 
+            "title": "\"Public Intellectual, Immigrant, Activist: the Many Lives of Stuart Hall\"", 
+            "description": "\"In his latest column, Roger Bromley pays tribute to Stuart Hall, one of Britain's greatest living public intellectuals, on the occasion of the release of 'The Unfinished Conversation', an exhibition celebrating the enormous, enduring influence of Hall's work.\"", 
+            "url": "https://ceasefiremagazine.co.uk/public-intellectual-immigrant-activist-lives-stuart-hall/"
+        }, 
+        {
+            "author_names": "Family, friends and colleagues", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": "2015", 
+            "end_date": "2022", 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Stuart Hall Foundation", 
+            "description": "\"The Stuart Hall Foundation was established in 2015 by Professor Stuart Hall\u2019s family, friends and colleagues. The Foundation is committed to public education, addressing urgent questions of race and inequality in culture and society through talks and events, and building a growing network of Stuart Hall Foundation scholars and artists in residence.\nWe work collaboratively to forge creative partnerships in the spirit of Stuart Hall; thinking together and working towards a racially just and more equal future.\nWe strive to fulfil our commitments through two streams of activity:\n- Providing scholarships and creative opportunities for students and artists from disenfranchised and underrepresented backgrounds; building connections among them and with our partner institutions\n- Promoting critical thought and understanding through a public programme of events, workshops and conversations that foster an intergenerational creative exchange, enrich political debate, and create space for new ideas.\"", 
+            "url": "https://www.stuarthallfoundation.org/"
+        }, 
+        {
+            "author_names": "Jennifer Slack and Lawrence Grossberg", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/publication", 
+            "date": "2016", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Durham, NC, USA", 
+            "title": "\"Cultural Studies 1983: A Theoretical History\"", 
+            "description": "\"The publication of Cultural Studies 1983 is a touchstone event in the history of Cultural Studies and a testament to Stuart Hall's unparalleled contributions. The eight foundational lectures Hall delivered at the University of Illinois in 1983 introduced North American audiences to a thinker and discipline that would shift the course of critical scholarship. Unavailable until now, these lectures present Hall's original engagements with the theoretical positions that contributed to the formation of Cultural Studies. Throughout this personally guided tour of Cultural Studies' intellectual genealogy, Hall discusses the work of Richard Hoggart, Raymond Williams, and E. P. Thompson; the influence of structuralism; the limitations and possibilities of Marxist theory; and the importance of Althusser and Gramsci. Throughout these theoretical reflections, Hall insists that Cultural Studies aims to provide the means for political change.\"", 
+            "url": "https://www.dukeupress.edu/cultural-studies-1983"
+        }, 
+        {
+            "author_names": "Bill Schwarz", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/publication", 
+            "date": "2017", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Durham, NC, USA", 
+            "title": "\"Familiar Stranger: A Life Between Two Islands\"", 
+            "description": "\"\"Sometimes I feel myself to have been the last colonial.\" This, in his own words, is the extraordinary story of the life and career of Stuart Hall\u2014how his experiences shaped his intellectual, political, and theoretical work and how he became one of his age's brightest intellectual lights.\nGrowing up in a middle-class family in 1930s Kingston, Jamaica, still then a British colony, the young Stuart Hall found himself uncomfortable in his own home. He lived among Kingston's stiflingly respectable brown middle class, who, in their habits and ambitions, measured themselves against the white elite. As colonial rule was challenged, things began to change in Kingston and across the world. In 1951 a Rhodes scholarship took Hall across the Atlantic to Oxford University, where he met young Jamaicans from all walks of life, as well as writers and thinkers from across the Caribbean, including V. S. Naipaul and George Lamming. While at Oxford he met Raymond Williams, Charles Taylor, and other leading intellectuals, with whom he helped found the intellectual and political movement known as the New Left. With the emotional aftershock of colonialism still pulsing through him, Hall faced a new struggle: that of building a home, a life, and an identity in a postwar England so rife with racism that it could barely recognize his humanity.\nWith great insight, compassion, and wit, Hall tells the story of his early life, taking readers on a journey through the sights, smells, and streets of 1930s Kingston while reflecting on the thorny politics of 1950s and 1960s Britain. Full of passion and wisdom, Familiar Stranger is the intellectual memoir of one of our greatest minds.\"", 
+            "url": "https://www.dukeupress.edu/familiar-stranger"
+        }, 
+        {
+            "author_names": "Julian Henriques,\u00a0David Morley\u00a0and\u00a0Vana Goblot", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/publication", 
+            "date": "2017", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Stuart Hall: Conversations, Projects and Legacies\"", 
+            "description": "\"A contemporary look at one of the founding figures in the field of cultural studies.\nThis volume from Goldsmiths Press examines the career of the cultural studies pioneer Stuart Hall, investigating his influence and revealing lesser-known facets of his work. These essays evaluate the legacies of his particular brand of cultural studies and demonstrate how other scholars and activists have utilized his thinking in their own research. Throughout, Hall's colleagues and collaborators assess his theoretical and methodological standpoints, his commitment to the development of a flexible form of revisionist Marxism, and the contributions of his specific mode of analysis to public debates on Thatcherism, neoliberalism, and multiculturalism. In her contribution, Angela Davis argues that the model of politics, ideology, and race initially developed by Hall and his colleagues in England continues to resonate when applied to America's racialized policing. Other essays focus on Hall's contributions to contemporary political debate and questions of race, ethnicity, identity, migrancy, and diaspora, and discuss Hall's continuing involvement in issues of representation and aesthetics in the visual arts, particularly photography and film.\"", 
+            "url": "https://mitpress.mit.edu/books/stuart-hall"
+        }, 
+        {
+            "author_names": "David Morley", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/publication", 
+            "date": "2019", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Durham, NC, USA", 
+            "title": "\"Essential Essays Volume 1: Foundations of Cultural Studies\"", 
+            "description": "\"From his arrival in Britain in the 1950s and involvement in the New Left, to founding the field of cultural studies and examining race and identity in the 1990s and early 2000s, Stuart Hall has been central to shaping many of the cultural and political debates of our time. Essential Essays\u2014a landmark two-volume set\u2014brings together Stuart Hall's most influential and foundational works. Spanning the whole of his career, these volumes reflect the breadth and depth of his intellectual and political projects while demonstrating their continued vitality and importance.\nVolume 1: Foundations of Cultural Studies focuses on the first half of Hall's career, when he wrestled with questions of culture, class, representation, and politics. This volume's stand-out essays include his field-defining \u201cCultural Studies and Its Theoretical Legacies\"; the prescient \u201cThe Great Moving Right Show,\u201d which first identified the emergent mode of authoritarian populism in British politics; and \u201cEncoding and Decoding in the Television Discourse,\u201d one of his most influential pieces of media criticism. As a whole, Volume 1 provides a panoramic view of Hall's fundamental contributions to cultural studies.\"", 
+            "url": "https://www.dukeupress.edu/essential-essays-volume-1"
+        }, 
+        {
+            "author_names": "David Morley", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/publication", 
+            "date": "2019", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Durham, NC, USA", 
+            "title": "\"Essential Essays Volume 2: Identity and Diaspora\"", 
+            "description": "\"From his arrival in Britain in the 1950s and involvement in the New Left, to founding the field of cultural studies and examining race and identity in the 1990s and early 2000s, Stuart Hall has been central to shaping many of the cultural and political debates of our time. Essential Essays\u2014a landmark two-volume set\u2014brings together Stuart Hall's most influential and foundational works. Spanning the whole of his career, these volumes reflect the breadth and depth of his intellectual and political projects while demonstrating their continued vitality and importance.\nVolume 2: Identity and Diaspora draws from Hall's later essays, in which he investigated questions of colonialism, empire, and race. It opens with \u201cGramsci's Relevance for the Study of Race and Ethnicity,\u201d which frames the volume and finds Hall rethinking received notions of racial essentialism. In addition to essays on multiculturalism and globalization, black popular culture, and Western modernity's racial underpinnings, Volume 2 contains three interviews with Hall, in which he reflects on his life to theorize his identity as a colonial and diasporic subject.\"", 
+            "url": "https://www.dukeupress.edu/essential-essays-volume-2"
+        }, 
+        {
+            "author_names": "Ruth Wilson Gilmore and Paul Gilroy", 
+            "about": "Stuart Hall", 
+            "category": "Legacy/publication", 
+            "date": "2021", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Durham, NC, USA", 
+            "title": "\"Selected Writings on Race and Difference\"", 
+            "description": "\"In Selected Writings on Race and Difference, editors Paul Gilroy and Ruth Wilson Gilmore gather more than twenty essays by Stuart Hall that highlight his extensive and groundbreaking engagement with race, representation, identity, difference, and diaspora. Spanning the whole of his career, this collection includes classic theoretical essays such as \u201cThe Whites of Their Eyes\u201d (1981) and \u201cRace, the Floating Signifier\u201d (1997). It also features public lectures, political articles, and popular pieces that circulated in periodicals and newspapers, which demonstrate the breadth and depth of Hall's contribution to public discourses of race. Foregrounding how and why the analysis of race and difference should be concrete and not merely descriptive, this collection gives organizers and students of social theory ways to approach the interconnections of race with culture and consciousness, state and society, policing and freedom.\"", 
+            "url": "https://www.dukeupress.edu/selected-writings-on-race-and-difference"
+        }, 
+        {
+            "author_names": "Homi Bhabha", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
             "date": "1986", 
             "start_date": null, 
             "end_date": null, 
             "pictures": null, 
-            "where": null, 
-            "title": "In Conversation with Stuart Hall: C.L.R. James", 
-            "description": null, 
-            "url": "https://www.youtube.com/watch?v=_Gf0KUxgZfI"
+            "where": "London, UK", 
+            "title": "\u201cRemembering Fanon: Self, Psyche, and the Colonial Condition\" in Black Skin, White Masks, translated by Charles Lam Markmann and in \nColonial Discourse and Post-Colonial Theory by Patrick Williams, Laura Chrisman (eds.)", 
+            "description": "\"Remembering Fanon is a process of intense discovery and disorientation. Remembering is never a quiet act of introspection or retrospection. It is a painful re-membering, a putting together of the dismembered past to make sense of the trauma of the present. Fanon's work will not be possessed by political moment or movement, nor can it be easily placed in a seamless narrative of liberationist history. Fanon's demand for a psychoanalytic explanation emerges from the perverse reflections of 'civil virtue' in the alienating acts of colonial governance: the visibility of cultural 'mummification' in the colonizer's avowed ambition to civilize or modernize the native which results in 'archaic inert institutions under the oppressor's supervision like a caricature of formerly fertile institutions'. The familiar alignment of colonial subjects, Black/White, Self/Other, is disturbed with one brief pause and the traditional grounds of racial identity are dispersed, whenever they are found to rest in the narcissistic myths of Negritude or White cultural supremacy.\"", 
+            "url": "https://www.taylorfrancis.com/chapters/edit/10.4324/9781315656496-7/remembering-fanon-self-psyche-colonial-condition-homi-bhabha"
         }, 
         {
-            "author_names": "Family", 
-            "about": "Stuart Hall", 
-            "category": "Other", 
-            "date": null, 
-            "start_date": "2015", 
+            "author_names": "Henry Louis Gates", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "1991", 
+            "start_date": null, 
             "end_date": null, 
             "pictures": null, 
-            "where": null, 
-            "title": "Stuart Hall Foundation", 
-            "description": null, 
-            "url": "https://www.stuarthallfoundation.org/"
+            "where": "Chicago, USA", 
+            "title": "\"Critical Fanonism\u201d", 
+            "description": "\"One of the signal developments in contemporary criticism over the several years has been the ascendancy of the colonial paradigm. In conjunction with this new turn, Frantz Fanon has now been reinstated as a global theorist, and not simply by those engaged in Third World or subaltern studies. In a recent collection centered on British romanticism, Jerome McGann opens a discussion of William Blake and Ezra Pound with an extended invocation of Fanon. Donald Pease has used Fanon to open an attack on Stephen Greenblatt's reading of the Henriad and the interdisciplinary practices of the new historicism. And Fanon, and published interpretations of Fanon, have become regularly cited in the rereadings of the Renaissance that have emerged from places like Sussex, Essex, and Birmingham.\"", 
+            "url": "https://doi.org/10.1086/448592"
+        }, 
+        {
+            "author_names": "Denean T. Sharpley-Whiting", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "1998", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Lanham, MD, USA", 
+            "title": "\"Frantz Fanon: Conflicts and Feminisms\"", 
+            "description": "\"Conflicts and Feminisms represents a bold examination of previous feminist criticisms of Fanon and argues that Fanon's writings on women and resistance provide the formative kernels of a liberating praxis for women existing under colonial and neocolonial oppression. Sharpley-Whiting skillfully brings together approaches from a broad range of academic fields, including critical race theory, literary and cultural criticism, and psychoanalysis as she assesses the relevance of Fanon's theories of oppression to a feminist politics of resistance.\" (Description by AbeBooks)", 
+            "url": "https://www.abebooks.co.uk/9780847686391/Frantz-Fanon-Conflicts-Feminisms-Sharpley-Whiting-0847686396/plp"
+        }, 
+        {
+            "author_names": "Anthony Alessandrini", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2005", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "New York, NY, USA", 
+            "title": "\"Frantz Fanon: Critical Perspectives\"", 
+            "description": "\"Frantz Fanon was a fearless critic of colonialism and a key figure in Algeria's struggle for independence. Frantz Fanon: Critical Perspectives addresses Fanon's extraordinary, often contraversial writings, and examines the ways in which his work can shed light on contemporary issues in cultural politics. Embracing feminist theory, cultural studies and postcolonialism, Frantz Fanon: Critical Perspectives offers new directions for cultural and political thought in the postcolonial era.\"", 
+            "url": "https://www.taylorfrancis.com/books/edit/10.4324/9780203979501/frantz-fanon-anthony-alessandrini"
+        }, 
+        {
+            "author_names": "Hamid Dabashi", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2011", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Brown Skin, White Masks\"", 
+            "description": "\"In this unprecedented study, Hamid Dabashi provides a critical examination of the role that immigrant \u201ccomprador intellectuals\u201d play in facilitating the global domination of American imperialism.\nIn his pioneering book about the relationship between race and colonialism, Black Skin, White Masks, Frantz Fanon explored the traumatic consequences of the sense of inferiority that colonized people felt, and how this often led them to identify with the ideology of the colonial agency. Brown Skin, White Masks picks up where Frantz Fanon left off. Dabashi extends Fanon\u2019s insights as they apply to today\u2019s world.\nDabashi shows how intellectuals who migrate to the West are often used by the imperial powers to misrepresent their home countries. Just as many Iraqi exiles were used to justify the invasion of Iraq, Dabashi demonstrates that this is a common phenomenon, and examines why and how so many immigrant intellectuals help to sustain imperialism.\nThe book radically alters Edward Said\u2019s notion of the \u201cintellectual exile,\u201d in order to show the negative impact of intellectual migration. Dabashi examines the ideology of cultural superiority, and provides a passionate account of how these immigrant intellectuals \u2014 rootless compradors, and guns for hire \u2014 continue to betray any notion of home or country in order to manufacture consent for imperial projects.\"", 
+            "url": "http://hamiddabashi.com/brown-skin-white-masks/"
+        }, 
+        {
+            "author_names": "Achille Mbembe", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2013", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "\"Critique de la Raison N\u00e8gre\" translated as \"Critique of Black Reason\" in 2017 by Laurent Dubois", 
+            "description": "\"In Critique of Black Reason eminent critic Achille Mbembe offers a capacious genealogy of the category of Blackness\u2014from the Atlantic slave trade to the present\u2014to critically reevaluate history, racism, and the future of humanity. Mbembe teases out the intellectual consequences of the reality that Europe is no longer the world's center of gravity while mapping the relations among colonialism, slavery, and contemporary financial and extractive capital. Tracing the conjunction of Blackness with the biological fiction of race, he theorizes Black reason as the collection of discourses and practices that equated Blackness with the nonhuman in order to uphold forms of oppression. Mbembe powerfully argues that this equation of Blackness with the nonhuman will serve as the template for all new forms of exclusion. With Critique of Black Reason, Mbembe offers nothing less than a map of the world as it has been constituted through colonialism and racial thinking while providing the first glimpses of a more just future.\"", 
+            "url": "https://www.dukeupress.edu/critique-of-black-reason"
+        }, 
+        {
+            "author_names": "Pramod K. Nayar", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2013", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Frantz Fanon\"", 
+            "description": "\"Frantz Fanon has established a position as a leading anticolonial thinker, through key texts such as Black Skin, White Masks and The Wretched of the Earth. He has influenced the work of thinkers from Edward Said and Homi Bhabha to Paul Gilroy, but his complex work is often misinterpreted as an apology for violence.\nThis clear, student-friendly guidebook considers Fanon\u2019s key texts and theories, looking at:\n-Postcolonial theory\u2019s appropriation of psychoanalysis\n-Anxieties around cultural nationalisms and the rise of native consciousness\n-Postcoloniality\u2019s relationship with violence and separatism\n-New humanism and ideas of community.\nIntroducing the work of this controversial theorist, Pramod K. Nayar also offers alternative readings, charting Fanon\u2019s influence on postcolonial studies, literary criticism and cultural studies.\"", 
+            "url": "https://www.taylorfrancis.com/books/mono/10.4324/9780203073186/frantz-fanon-pramod-nayar"
+        }, 
+        {
+            "author_names": "Neelam Srivastava", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2015", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Abingdon, UK", 
+            "title": "\"Frantz Fanon in Italy: Or, Historicizing Fanon\"", 
+            "description": "\"This introduction to the special issue on \u2018Frantz Fanon in Italy\u2019 provides an overview of Fanon's influence on Italian intellectual and political life, with special focus on the significant impact his writings had on the renovation of the Italian Left in the 1960s, as well as highlighting the continuities between Italian anti-fascism and anticolonialism. Fanon's Italian reception is interesting for postcolonial scholars in that it differs from the Anglo-American tradition of Fanonian scholarship, and reveals a \u2018pre-postcolonial\u2019 Fanon, prior to his revival through the \u2018symptomatic readings\u2019 of Homi Bhabha, Stuart Hall and other theorists in the 1980s. I also discuss the editorial history of Fanon's publication in Italian; Italy was the first country after France in which Fanon's work appeared, and Giovanni Pirelli's 1971 edition of Fanon's writings, Opere scelte, is possibly the only anthology that presents a selection of essays culled from Fanon's different texts. The Italian Fanon, then, not only offers us an interpretation of the thinker that is specific to Italy, but also serves to historicize his impact in relation to the intellectual and political developments of his time.\"", 
+            "url": "https://doi.org/10.1080/1369801X.2014.991419"
+        }, 
+        {
+            "author_names": "Christopher J. Lee", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2015", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Athens, OH, USA", 
+            "title": "\"Frantz Fanon: Toward a Revolutionary Humanism\"", 
+            "description": "\"Psychiatrist, philosopher, and revolutionary, Frantz Fanon is one of the most important intellectuals of the twentieth century. He presented powerful critiques of racism, colonialism, and nationalism in his classic books, Black Skin, White Masks (1952) and The Wretched of the Earth (1961). This biography reintroduces Fanon for a new generation of readers, revisiting these enduring themes while also arguing for those less appreciated\u2014namely, his anti-Manichean sensibility and his personal ethic of radical empathy, both of which underpinned his utopian vision of a new humanism. Written with clarity and passion, Christopher J. Lee\u2019s account ultimately argues for the pragmatic idealism of Frantz Fanon and his continued importance today.\"", 
+            "url": "https://www.ohioswallow.com/book/Frantz+Fanon"
+        }, 
+        {
+            "author_names": "Achille Mbembe", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2016", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "\"Politiques de l\u2019Inimiti\u00e9\" translated as \"Necropolitics\" in 2019 by Steven Corcoran", 
+            "description": "\"In Necropolitics Achille Mbembe, a leader in the new wave of francophone critical theory, theorizes the genealogy of the contemporary world, a world plagued by ever-increasing inequality, militarization, enmity, and terror as well as by a resurgence of racist, fascist, and nationalist forces determined to exclude and kill. He outlines how democracy has begun to embrace its dark side---what he calls its \u201cnocturnal body\u201d---which is based on the desires, fears, affects, relations, and violence that drove colonialism. This shift has hollowed out democracy, thereby eroding the very values, rights, and freedoms liberal democracy routinely celebrates. As a result, war has become the sacrament of our times in a conception of sovereignty that operates by annihilating all those considered enemies of the state. Despite his dire diagnosis, Mbembe draws on post-Foucauldian debates on biopolitics, war, and race as well as Fanon's notion of care as a shared vulnerability to explore how new conceptions of the human that transcend humanism might come to pass. These new conceptions would allow us to encounter the Other not as a thing to exclude but as a person with whom to build a more just world.\"", 
+            "url": "https://www.dukeupress.edu/necropolitics"
+        }, 
+        {
+            "author_names": "Nigel C. Gibson", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2017", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Boston, MA, USA", 
+            "title": "\"Fanon: The Postcolonial Imagination\"", 
+            "description": "\"Frantz Fanon was a French psychiatrist turned Algerian revolutionary of Martinican origin, and one of the most important and controversial thinkers of the postwar period. A veritable \u201cintellect on fire,\u201d Fanon was a radical thinker with original theories on race, revolution, violence, identity and agency.\nThis book is an excellent introduction to the ideas and legacy of Fanon. Gibson explores him as a truly complex character in the context of his time and beyond. He argues that for Fanon, theory has a practical task to help change the world. Thus Fanon\u2019s \u201cuntidy dialectic,\u201d Gibson contends, is a philosophy of liberation that includes cultural and historical issues and visions of a future society. In a profoundly political sense, Gibson asks us to reevaluate Fanon\u2019s contribution as a critic of modernity and reassess in a new light notions of consciousness, humanism, and social change.\nThis is a fascinating study that will interest undergraduates and above in postcolonial studies, literary theory, cultural studies, sociology, politics, and social and political theory, as well as general readers.\"", 
+            "url": "https://www.politybooks.com/bookdetail?book_slug=fanon-the-postcolonial-imagination--9780745622606"
+        }, 
+        {
+            "author_names": "Gillo Pontecorvo", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/film", 
+            "date": "1966", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Milan, Italy", 
+            "title": "\"The Battle of Algiers\" based on first chapter of Fanon's \"The Wretched of the Earth\"", 
+            "description": "\"Italian-Algerian historical war film co-written and directed by Gillo Pontecorvo and starring Jean Martin and Saadi Yacef. It is based on events by rebels during the Algerian War (1954\u20131962) against the French government in North Africa; the most prominent being the titular Battle of Algiers, the capital of Algeria. It was shot on location and the film's score was composed by Ennio Morricone. The film was shot in a Roberto Rossellini-inspired newsreel style: in black and white with documentary-type editing to add to its sense of historical authenticity, with mostly non-professional actors who had lived through the real battle. It is often associated with Italian neorealist cinema.\"", 
+            "url": "https://archive.org/details/TheBattleOfAlgiers1966"
+        }, 
+        {
+            "author_names": "Isaac Julien", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/film", 
+            "date": "1996", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "San Francisco, CA, USA", 
+            "title": "\"Frantz Fanon: Black Skin White Mask\"", 
+            "description": "\"Explores the life and work of the psychoanalytic theorist and activist Frantz Fanon who was born in Martinique, educated in Paris and worked in Algeria. Examines Fanon's theories of identity and race, and traces his involvement in the anti-colonial struggle in Algeria and throughout the world.\"", 
+            "url": "https://www.imdb.com/title/tt0116357/"
+        }, 
+        {
+            "author_names": "G\u00f6ran Olsson", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/publication", 
+            "date": "2014", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"Concerning Violence: nNne Scenes from the Anti-Imperialistic Self-Defense\" based on Fanon's \"Concerning Violence\"", 
+            "description": "\"Narrated by Ms Lauryn Hill, Concerning Violence is both an archive-driven documentary covering the most daring moments in the struggle for liberation in the Third World, as well as an exploration into the mechanisms of decolonization through text from Frantz Fanon's The Wretched of the Earth. Fanon's landmark book, written over 50 years ago, is still a major tool for understanding and illuminating the neocolonialism happening today, as well as the violence and reactions against it.\"", 
+            "url": "https://www.worldcat.org/title/concerning-violence-nine-scenes-from-the-anti-imperialistic-self-defense/oclc/977274371"
+        }, 
+        {
+            "author_names": "Achille Mbembe", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/lecture", 
+            "date": "2010", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Colgate University, Hamilton, NY, USA", 
+            "title": "\"Achille Mbembe: Reading Fanon in the 21st Century\"", 
+            "description": "\"Achille Mbembe is one of the world's leading critical theorists. His work on power, violence, and subjectivity has shaped and challenged contemporary scholarship on the postcolonial in Africa and beyond.\nBorn in Cameroon, Mbembe obtained a PhD in history from the Sorbonne, and a political science degree at the Institut d'Etudes Politiques de Paris (IEP). He is the author of \"On the Postcolony\" and the essay \"Necropolitics\", and founder of the Johannesburg Theory Workshop. He is currently a visiting professor of romance studies at Duke University.\nThe unique erudition and theoretical impact of Professor Mbembe's work on contemporary political practices and dramaturgies ensure his stature as one of today's most compelling scholarly voices.\"", 
+            "url": "https://www.youtube.com/watch?v=VYXlHRez9Ao"
+        }, 
+        {
+            "author_names": "Ato Quayson", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/lecture", 
+            "date": "2020", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Stanford University, Stanford, CA, USA", 
+            "title": "\"Frantz Fanon, Black Skin, White Masks and the Black Bodily Schema\"", 
+            "description": "\"In this episode I will be drawing primarily on Frantz Fanon\u2019s essay \u201cThe Fact of Blackness\u201d from Black Skin, White Masks to discuss what he describes as the disruption of the black bodily schema within colonial relations. As I shall show, Fanon has a particular set of dramaturgic devices within his prose that establish his essayistic persona as some form of tragic character but distinct from what we find in Aristotle\u2019s Poetics. The implications of his description will then be used to illuminate aspects of Shakespeare\u2019s Othello from last week, and also to look forward to Tayeb Salih\u2019s Season of Migration to the North next week.\"", 
+            "url": "https://www.youtube.com/watch?v=Hqiao-2nTMM"
+        }, 
+        {
+            "author_names": "Mireille Fanon-Mendes France", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": "2007", 
+            "end_date": "2022", 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "Fondation Frantz Fanon", 
+            "description": "\"The Frantz Fanon Foundation, an open and networked structure, takes on its meaning in this series of questions but also from the question posed by events and the reading of the world: what is happening, today, to the work? of Fanon, what about his presence and what he thought of the construction of a \u201cnew humanity\u201d, of a plural universal? This Foundation positioned in networks (Antilles, United States, / Latin America, France-Europe, Middle East, West Africa and East Africa, Asia), working in a transversal way, must ensure the presence of the work from and from Fanon today and in the world.\nThe peculiarity of Fanon's thought, through the different fields that he himself invested, is to have linked together places that seemed geographically distant from each other (France, the Caribbean, the Maghreb, sub-Saharan Africa) or institutionally (the psychiatric hospital and the political scene). This transversal work in networks should serve to connect places and to confront his thought with the experiences, problems and problematics of the present and to show their topicality, because one of the dimensions of Fanon's thought is its \u201cglobality. \u00bb\"", 
+            "url": "http://fondation-frantzfanon.com/"
+        }, 
+        {
+            "author_names": "Toevoegen", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": null, 
+            "end_date": "2022", 
+            "pictures": null, 
+            "where": "Turin, Italy", 
+            "title": "Associazione Fanon", 
+            "description": "Toevoegen", 
+            "url": "https://associazionefanon.it/"
+        }, 
+        {
+            "author_names": "Ananya Usharani Ravishankar, Annaliese Pedro, Divina Lama, Esther Appiah, Mariyanne Soulemanne and William Rubin", 
+            "about": "Frantz Fanon", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": null, 
+            "end_date": "2022", 
+            "pictures": null, 
+            "where": "Trinity College, Hartford, CT, USA", 
+            "title": "Caribbean Anti-Colonial Thought Archive Project  - Frantz Fanon", 
+            "description": "\"Frantz Omar Fanon (1925\u20131961) was one of the most important writers in black Atlantic theory in an age of anti-colonial liberation struggle. His work drew on a wide array of poetry, psychology, philosophy, and political theory, and its influence across the global South has been wide, deep, and enduring. In his lifetime, he published two key original works: Black Skin, White Masks (Peau noire, masques blancs) in 1952 and The Wretched of the Earth (Les damn\u00e9s de la terre) in 1961. Collections of essays, A Dying Colonialism (L\u2019an V de la r\u00e9volution Alg\u00e9rienne 1959) and Toward the African Revolution (Pour la revolution Africaine), posthumously published in 1964, round out a portrait of a radical thinker in motion, moving from the Caribbean to Europe to North Africa to sub-Saharan Africa and transforming his thinking at each stop. \nFanon engaged the fundamental issues of his day: language, affect, sexuality, gender, race and racism, religion, social formation, time, and many others. His impact was immediate upon arrival in Algeria, where in 1953 he was appointed to a position in psychiatry at Bilda-Joinville Hospital. His participation in the Algerian revolutionary struggle shifted his thinking from theorizations of blackness to a wider, more ambitious theory of colonialism, anti-colonial struggle, and visions for a postcolonial culture and society.\"", 
+            "url": "https://caribbeananti-colonialthoughtarchive.domains.trincoll.edu/frantz-fanon/"
+        }, 
+        {
+            "author_names": "Perry Anderson", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1977", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "\"The Antinomies of Antonio Gramsci\"", 
+            "description": "\"Today, no marxist thinker after the classical epoch is so universally respected in the West as Antonio Gramsci. Nor is any term so freely or diversely invoked on the Left as that of hegemony, to which he gave currency. Gramsci\u2019s reputation, still local and marginal outside his native Italy in the early sixties, has a decade later become a world-wide fame. The homage due to his enterprise in prison is now\u2014 thirty years after the first publication of his notebooks\u2014finally and fully being paid. Lack of knowledge, or paucity of discussion, have ceased to be obstacles to the diffusion of his thought. In principle every revolutionary socialist, not only in the West\u2014if especially in the West\u2014can henceforward benefit from Gramsci\u2019s patrimony. Yet at the same time, the spread of Gramsci\u2019s renown has not to date been accompanied by any corresponding depth of enquiry into his work. The very range of the appeals now made to his authority, from the most contrasted sectors of the Left, suggests the limits of close study or comprehension of his ideas. The price of so ecumenical an admiration is necessarily ambiguity: multiple and incompatible interpretations of the themes of the Prison Notebooks.\"", 
+            "url": "https://newleftreview.org/issues/i100/articles/perry-anderson-the-antinomies-of-antonio-gramsci"
+        }, 
+        {
+            "author_names": "Alvaro Bianchi", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2020", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Leiden, Netherlands", 
+            "title": "O Laborat\u00f3rio de Gramsci: Filosofia, Hist\u00f3ria e Pol\u00edtica translated as Gramsci\u2019s Laboratory: Philosophy, History, and Politics", 
+            "description": "\"The purpose of Gramsci\u2019s Laboratory is to interpret the relationship between philosophy and politics in Gramsci\u2019s Quaderni del carcere. A milestone in contemporary Brazilian Gramsci reception, the book argues that in Gramsci\u2019s work the unity of theory and practice is unfolded theoretically through the unity of philosophy, history and politics.\nBianchi argues that this unity was developed in the research project that Gramsci carried out in prison, and was thus a product of the \u2018determination in the last instance\u2019 of politics itself. His book demonstrates that a correct understanding of this unity requires us to recognise that history and philosophy are constitutive elements of the political field from which they claim to keep their distance.\"", 
+            "url": "https://brill.com/view/title/26626?language=en"
+        }, 
+        {
+            "author_names": "Francesca Antonini, Aaron Bernstein, Lorenzo Fusaro, and Robert Jackson (eds.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2020", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Leiden, Netherlands", 
+            "title": "Revisiting Gramsci\u2019s Notebooks", 
+            "description": "\"Revisiting Gramsci\u2019s Notebooks offers a rich collection of historical, philosophical, and political studies addressing the thought of Antonio Gramsci, one of the most significant intellects of the twentieth century. Based on thorough analyses of Gramsci\u2019s texts, these interdisciplinary investigations engage with ongoing debates in different fields of study. They are exciting evidence of the enduring capacity of Gramsci\u2019s thought to generate and nurture innovative inquiries across diverse themes.\nGathering scholars from different continents, the volume represents a global network of Gramscian thinkers from early-career researchers to experienced scholars. Combining rigorous explication of the past with a strategic analysis of the present, these studies mobilise underexplored resources from the Gramscian toolbox to confront the actuality of our \u2018great and terrible\u2019 world.\"", 
+            "url": "https://brill.com/view/title/34213?language=en"
+        }, 
+        {
+            "author_names": "Davide Cadeddu (ed.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2020", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Leiden, Netherlands", 
+            "title": "A companion to Antonio Gramsci: essays on history and time, theories of history, politics and historiography", 
+            "description": "\"In A Companion to Antonio Gramsci some of the most important Italian scholars of Gramsci\u2019s thought realize an intellectual account of the Gramscian historiography. The volume is organized into five parts. In the first, an updated reconstruction of his biographical events is offered. The second part provides three different perspectives permitting an analysis of the ideas and theories of history which emerge from Gramsci\u2019s writings. In the third section as well as the fourth section, the most explicitly political themes are considered. Finally, in the last part the timelines of twentieth century historiography in Italy are traced and a picture is painted of the reasons for the development of the principal problems surrounding the international literary output on Gramsci.\"", 
+            "url": "https://brill.com/view/title/57173"
+        }, 
+        {
+            "author_names": "Kate Crehan", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2016", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Durham, NC, USA", 
+            "title": "Gramsci\u2019s Common Sense: Inequality and Its Narratives", 
+            "description": "\"Acknowledged as one of the classics of twentieth-century Marxism, Antonio Gramsci's Prison Notebooks contains a rich and nuanced theorization of class that provides insights that extend far beyond economic inequality. In Gramsci's Common Sense Kate Crehan offers new ways to understand the many forms that structural inequality can take, including in regards to race, gender, sexual orientation, and religion. Presupposing no previous knowledge of Gramsci on the part of the reader, she introduces the Prison Notebooks and provides an overview of Gramsci\u2019s notions of subalternity, intellectuals, and common sense, putting them in relation to the work of thinkers such as Bourdieu, Arendt, Spivak, and Said. In the case studies of the Tea Party and Occupy Wall Street movements, Crehan theorizes the complex relationships between the experience of inequality, exploitation, and oppression, as well as the construction of political narratives. Gramsci's Common Sense is an accessible and concise introduction to a key Marxist thinker whose works illuminate the increasing inequality in the twenty-first century.\"", 
+            "url": "https://www.dukeupress.edu/gramscis-common-sense"
+        }, 
+        {
+            "author_names": "John Davis (ed.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2014", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Gramsci and Italy\u2019s Passive Revolution", 
+            "description": "\"Antonio Gramsci used the term \u2018passive revolution\u2019 to describe the limitations and weaknesses of the 19th century bourgeois state in Italy which permitted economic development whilst thwarting social and political progress. This detailed study consists of seven essays each exploring a different theme of the economic and social basis of the Liberal state, providing a broad understanding of the background against the emergence of Italian fascism and present a number of debates and controversies amongst Italian historians. By critical discussion of Gramsci\u2019s reading of modern Italian history, the essays present an analysis of the structure and development of social and economic relations in the formation of the Liberal state, illustrating the transition from liberalism to fascism.\"", 
+            "url": "https://www.taylorfrancis.com/books/mono/10.4324/9781315794440/gramsci-rle-gramsci-john-davis"
+        }, 
+        {
+            "author_names": "Michele Filippini", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2016", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Using Gramsci: A New Approach", 
+            "description": "\"Thought of as one of the world's greatest political theorists, Antonio Gramsci's writings push readers to interpret and change the world. In Using Gramsci, Michele Filippini enlarges upon his seminal works, disentangling it from the prevailing orthodoxy in Gramscian analysis.\nThe book explores his work on ideology, the individual, collective organisms, crisis and temporality, in addition to the more traditional areas of his thought, such as hegemony and civil society. Through this close examination, the use value of Gramscian theoretical instruments to a broad range of disciplines, including, political science, education, language, cultural studies, postcolonial studies, anthropology and geography, becomes apparent. Filippini's approach explicates and emphasises the importance of one of the most popular and enduring Marxist figures.\"", 
+            "url": "https://www.plutobooks.com/9780745335681/using-gramsci/"
+        }, 
+        {
+            "author_names": "Giuseppe Fiori", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1966", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "Vita di Antonio Gramsci translated as Life of a Revolutionary in 1990 by Tom Nairn", 
+            "description": "\"Antonio Gramsci was born in Sardinia in 1891, became the leader of the Italian Communist Party in his early thirties, was arrested by Mussolini\u2019s police in 1927, and remained imprisoned until shortly before his death ten years later. The posthumous publication of his Prison Notebooks established him as a major thinker whose influence continues to increase.\nFiori\u2019s biography enlarges upon the facts of Gramsci\u2019s life through personal accounts, and through Gramsci\u2019s own writings to relatives and friends. In relating Gramsci\u2019s growth as a political leader and theorist to his private experience, it offers acute insights into his involvement in the factory councils movement. It examines his relationship with political opponents, including Mussolini, and with his comrades within the Communist Party before and during Gramsci\u2019s imprisonment. It is an approach which seeks to explicate, as well as underscore, the substantial achievement of one of the most important figures in western Marxism.\n\"", 
+            "url": "https://www.versobooks.com/books/688-antonio-gramsci"
+        }, 
+        {
+            "author_names": "Joseph Francese (ed.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2009", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "New York, NY, USA", 
+            "title": "Perspectives on Gramsci: Politics, Culture and Social Theory", 
+            "description": "\"Antonio Gramsci is widely known today for his profound impact on social and political thought, critical theory and literary methodology. This volume brings together twelve eminent scholars from humanities and social sciences to demonstrate the importance and relevance of Gramsci to their respective fields of inquiry. They bring into focus a number of central issues raised in Gramsci\u2019s Prison Notebooks and in such other writings as his Prison Letters including: hegemony, common sense, civil society, subaltern studies, cultural analysis, media and film studies, postcolonial studies, international relations, linguistics, cultural anthropology, and historiography.\nThe book makes an important, and up-to-date, contribution to the many academic debates and disciplines which utilize Gramsci\u2019s writings for theoretical support; the essays are highly representative of the most advanced contemporary work on Gramsci. Contributors include: Michael Denning \u2013 highly respected in the field of cultural studies; Stephen Gill \u2013 an eminent figure in international relations; Epifanio San Juan, Jr. \u2013 a major writer in post-colonial theory; Joseph Buttigieg \u2014translator of Gramsci\u2019s Prison Notebooks \u2014 ; Stanley Aronowitz, a distinguished sociologist, Marcia Landy \u2014 an important scholar of film studies; and Frank Rosengarten \u2014 editor of Gramsci\u2019s Prison Letters.\nThis book will be of interest to students and scholars of political philosophy, economics, film and media studies, sociology, education, literature, post-colonial studies, anthropology, subaltern studies, cultural studies, linguistics and international relations.\"", 
+            "url": "https://www.routledge.com/Perspectives-on-Gramsci-Politics-culture-and-social-theory-1st-Edition/Francese/p/book/9780415485272"
+        }, 
+        {
+            "author_names": "Marcus E. Green (ed.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2011", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Rethinking Gramsci", 
+            "description": "\"This edited volume provides a coherent and comprehensive assessment of Antonio Gramsci's significant contribution to the fields of political and cultural theory. It contains seminal contributions from a broad range of important political and cultural theorists from around the world and explains the origins, development and context for Gramsci's thought as well as analysing his continued relevance and influence to contemporary debates.\nIt demonstrates the multidisciplinary nature of Gramscian thought to produce new insights into the intersection of economic, political, cultural, and social processes, and to create a vital resource for readers across the disciplines of political theory, cultural studies, political economy, philosophy, and subaltern studies.\"", 
+            "url": "https://www.routledge.com/Rethinking-Gramsci/Green/p/book/9780415820554"
+        }, 
+        {
+            "author_names": "Eric Hobsbawm", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1977", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Toevoegen", 
+            "title": "\u201cGramsci and Political Theory\u201d", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_names": "George Hoare and Nathan Sperber", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2015", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "An Introduction to Antonio Gramsci: His Life, Thought and Legacy", 
+            "description": "\"This is a concise introduction to the life and work of the Italian militant and political thinker, Antonio Gramsci. As head of the Italian Communist Party in the 1920s, Gramsci was arrested and condemned to 20 years' imprisonment by Mussolini's fascist regime. It was during this imprisonment that Gramsci wrote his famous Prison Notebooks \u2013 over 2,000 pages of profound and influential reflections on history, culture, politics, philosophy and revolution.\nAn Introduction to Antonio Gramsci retraces the trajectory of Gramsci's life, before examining his conceptions of culture, politics and philosophy. Gramsci's writings are then interpreted through the lens of his most famous concept, that of 'hegemony'; Gramsci's thought is then extended and applied to 'think through' contemporary problems to illustrate his distinctive historical methodology. The book concludes with a valuable examination of Gramsci's legacy today and useful tips for further reading.\nGeorge Hoare and Nathan Sperber make Gramsci accessible for students of history, politics and philosophy keen to understand this seminal figure in 20th-century intellectual history.\"", 
+            "url": "https://www.bloomsbury.com/us/introduction-to-antonio-gramsci-9781472572783/"
+        }, 
+        {
+            "author_names": "Peter Ives", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2004", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Language and Hegemony in Gramsci", 
+            "description": "\"Language and Hegemony in Gramsci introduces Gramsci\u2019s social and political thought through his writings on language. It shows how his focus on language illuminates his central ideas such as hegemony, organic and traditional intellectuals, passive revolution, civil society and subalternity. Peter Ives explores Gramsci\u2019s concern with language from his university studies in linguistics to his last prison notebook. Hegemony has been seen as Gramsci\u2019s most important contribution, but without knowledge of its linguistic roots, it is often misunderstood.\nThis book places Gramsci\u2019s ideas within the linguistically influenced social theory of the twentieth century. It summarizes some of the major ideas of Ferdinand de Saussure, Ludwig Wittgenstein, language philosophy and post-structuralism in relation to Gramsci\u2019s position. By paying great attention to the linguistic underpinnings of Gramsci's Marxism, Language and Hegemony in Gramsci shows how his theorization of power, language and politics address issues raised by post-modernism and the work of Michel Foucault, Jacques Derrida, Chantal Mouffe, and Ernesto Laclau.\"", 
+            "url": "https://www.plutobooks.com/9780745316659/language-and-hegemony-in-gramsci/"
+        }, 
+        {
+            "author_names": "Carl Levy", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1999", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Gramsci and the Anarchists", 
+            "description": "\"This is the first work in English to deal comprehensively with Italian anarchism from the beginning of the century to the rise of fascism. It reconstructs the development of anarchist and syndicalist ideas and programmes and charts their relations with Gramsci and the Turin- based Ordine Nuovo group. The book places these developments within the general context of little known links connecting Italian anarchists and syndicalists to sympathizers in Britain, France, Germany and Russia. The analysis of 'libertarian' politics in Italy is accompanied by a detailed and fascinating reconstruction of the social base of Italian anarchism that challenges the assumptions of much of the political sociology of the European Left. Developing a hitherto unexplored but important aspect of Gramsci's political ideas and strategies, this book contributes to our understanding of one of the central Marxist thinkers and activists of the twentieth century and to one of the critical moments in the history of the European Left. In bringing new life and understanding to an important chapter in contemporary Italian history, this book is likely to become a standard text on this pivotal thinker.\"", 
+            "url": "https://www.bloomsbury.com/uk/gramsci-and-the-anarchists-9781859739846/"
+        }, 
+        {
+            "author_names": "Massimo Modonesi", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2013", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Subalternity, Antagonism, Autonomy: Constructing the Political Subject", 
+            "description": "\"In this bold and innovative book, Massimo Modonesi weaves together theory and political practice by relating the concepts of subalternity, antagonism and autonomy to contemporary movements in Latin America and elsewhere.\nIn a sophisticated account, Modonesi reconstructs the debates between Marxist authors and schools of thought in order to sketch out informed strategies of resistance. He reviews the works of Gramsci, Negri, Castoriadis and Lefort, and engages with the arguments made by E. P. Thompson, Spivak, Laclau and Mouffe.\nSubalternity, Antagonism, Autonomy firmly roots key theoretical arguments from a range of critical thinkers within specific political movements in order to recover these concepts as analytical instruments which can help to guide contemporary struggles.\"", 
+            "url": "https://www.plutobooks.com/9780745334059/subalternity-antagonism-autonomy/"
+        }, 
+        {
+            "author_names": "Raymond Williams", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1975", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Oxford University, Oxford, UK", 
+            "title": "The Country and the City", 
+            "description": "\"As a brilliant survey of English literature in terms of changing attitudes towards country and city, Williams' highly-acclaimed study reveals the shifting images and associations between these two traditional poles of life throughout the major developmental periods of English culture.\"", 
+            "url": "https://global.oup.com/academic/product/the-country-and-the-city-9780195198102?cc=us&lang=en&#"
+        }, 
+        {
+            "author_names": "Timothy Brennan", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2006", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Columbia University, New York, USA", 
+            "title": "Wars of Position: The Cultural Politics of Left and Right", 
+            "description": "\"Taking stock of contemporary social, cultural, and political currents, Timothy Brennan explores key turning points in the recent history of American intellectual life. He contends that a certain social-democratic vision of politics has been banished from public discussion, leading to an unlikely convergence of the political right and the academic left and a deadening of critical opposition. Brennan challenges the conventional view that affiliations based on political belief, claims upon the state, or the public interest have been rendered obsolete by the march of events in the years before and after Reagan. Instead, he lays out a new path for a future infused with a sense of intellectual and political possibility.\nIn highlighting the shift in America's intellectual culture, Brennan makes the case for seeing belief as an identity. As much as race or ethnicity, political belief, Brennan argues, is itself an identity-one that remains unrecognized and without legal protections while possessing its own distinctive culture. Brennan also champions the idea of cosmopolitanism and critiques those theorists who relegate the left to the status of postcolonial \"other.\"\nWars of Position documents how alternative views were chased from the public stage by strategic acts of censorship, including within supposedly dissident wings of the humanities. He explores how the humanities entered the cultural and political mainstream and settled into an awkward secular religion of the \"middle way.\" In a series of interrelated chapters, Brennan considers narratives of the fall of the Berlin Wall and the Clinton impeachment; reexamines Salman Rushdie's pre-fatwa writing to illuminate its radical social leanings; presents a startling new interpretation of Edward Said; looks at the fatal reception of Antonio Gramsci within postcolonial history and criticism; and offers a stinging critique of Hardt and Negri's Empire and the influence of Italian radicalism on contemporary cultural theory. Throughout the work, Brennan also draws on and critiques the ideas and influence of Heidegger, Lyotard, Kristeva, and other influential theorists.\"", 
+            "url": "https://cup.columbia.edu/book/wars-of-position/9780231137317"
+        }, 
+        {
+            "author_names": "John Chalcraft and Yaseen Noorani (eds.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2007", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Counterhegemony in the Colony and Postcolony", 
+            "description": "\"This volume offers an unusual, interdisciplinary collaboration of scholars working on the major regions of the global South. The authors probe important episodes of resistance in the colony and postcolony for the light they shed on the vexed notion of counterhegemony, enriching our notion of resistance and pointing to new directions for research.\"", 
+            "url": "https://link.springer.com/book/10.1057/9780230592162#toc"
+        }, 
+        {
+            "author_names": "Partha Chatterjee", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1986", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Nationalist Thought and the Colonial World: A Derivative Discourse?", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_names": "Ranajit Guha", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1983", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "New Delhi, India", 
+            "title": "Elementary Aspects of Peasant Insurgency in Colonial India", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_names": "Ranajit Guha", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1998", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Cambridge, MA, USA", 
+            "title": "Dominance without Hegemony: History and Power in Colonial India", 
+            "description": "\"What is colonialism and what is a colonial state? Ranajit Guha points out that the colonial state in South Asia was fundamentally different from the metropolitan bourgeois state which sired it. The metropolitan state was hegemonic in character, and its claim to dominance was based on a power relation in which persuasion outweighed coercion. Conversely, the colonial state was non-hegemonic, and in its structure of dominance coercion was paramount. Indeed, the originality of the South Asian colonial state lay precisely in this difference: a historical paradox, it was an autocracy set up and sustained in the East by the foremost democracy of the Western world. It was not possible for that non-hegemonic state to assimilate the civil society of the colonized to itself. Thus the colonial state, as Guha defines it in this closely argued work, was a paradox\u2014a dominance without hegemony.\nDominance without hegemony had a nationalist aspect as well. This arose from a structural split between the elite and subaltern domains of politics, and the consequent failure of the Indian bourgeoisie to integrate vast areas of the life and consciousness of the people into an alternative hegemony. That predicament is discussed in terms of the nationalist project of anticipating power by mobilizing the masses and producing an alternative historiography. In both endeavors the elite claimed to speak for the people constituted as a nation and sought to challenge the pretensions of an alien regime to represent the colonized. A rivalry between an aspirant to power and its incumbent, this was in essence a contest for hegemony.\"", 
+            "url": "https://www.hup.harvard.edu/catalog.php?isbn=9780674214835"
+        }, 
+        {
+            "author_names": "Ranajit Guha", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2011", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "\u201cGramsci in India: Homage to a Teacher\u201d", 
+            "description": "\"In this paper (first delivered at the Gramsci Foundation in Rome in 2007), the distinguished Indian historian Ranajit Guha pays homage to the influence of Gramsci's writings in India and in particular of the development of Subaltern Studies. His paper traces the impact of Gramsci's ideas \u2013 in particular the notion of hegemony \u2013 on those writing about South Asian history since the early 1960s, and the ways in which they made possible a fuller understanding of how the dichotomies between its elite and subaltern streams limited the ability of the leaders of the Indian nationalist movement to mobilize its popular base.\"", 
+            "url": "https://doi.org/10.1080/1354571X.2011.542989"
+        }, 
+        {
+            "author_names": "V.G. Kiernan and Harvey J. Kaye", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1995", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "New York, NY, USA", 
+            "title": "\u201cAntonio Gramsci and the Other Continents\u201d", 
+            "description": "\"In a letter from prison in 1927 Antonio Gramsci wrote that his mind was in a state of frozen calm, like Nansen\u2019s ship drifting imprisoned for months in the polar ice. With a thirst for information extending to the other continents, and hence to Europe\u2019s relations with them, it would scarcely have been possible for Gramsci not to be drawn to the subject of imperialism. In his brief years of active politics Gramsci never missed an occasion to draw parallels between the exploited peasantry at home and the colonial peoples abroad; and he identified colonialism, for instance in a speech in the Chamber of Deputies in 1925, with export of capital. In examining the Risorgimento, Gramsci was acutely conscious of the gulf between northern and southern Italy, a dichotomy akin, as he said, to that of town and countryside. Gramsci\u2019s underlying aim was to reach an understanding of what Japanese intellectuals stood for.\"", 
+            "url": "https://www.taylorfrancis.com/chapters/mono/10.4324/9781315811604-8/antonio-gramsci-continents-kiernan-harvey-kaye"
+        }, 
+        {
+            "author_names": "Rosalind C. Morris (ed.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2010", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Columbia University, New York, USA", 
+            "title": "Can the Subaltern Speak?: Reflections on the History of an Idea", 
+            "description": "\"Gayatri Chakravorty Spivak's original essay \"Can the Subaltern Speak?\" transformed the analysis of colonialism through an eloquent and uncompromising argument that affirmed the contemporary relevance of Marxism while using deconstructionist methods to explore the international division of labor and capitalism's \"worlding\" of the world. Spivak's essay hones in on the historical and ideological factors that obstruct the possibility of being heard for those who inhabit the periphery. It is a probing interrogation of what it means to have political subjectivity, to be able to access the state, and to suffer the burden of difference in a capitalist system that promises equality yet withholds it at every turn.\nSince its publication, \"Can the Subaltern Speak?\" has been cited, invoked, imitated, and critiqued. In these phenomenal essays, eight scholars take stock of the effects and response to Spivak's work. They begin by contextualizing the piece within the development of subaltern and postcolonial studies and the quest for human rights. Then, through the lens of Spivak's essay, they rethink historical problems of subalternity, voicing, and death. A final section situates \"Can the Subaltern Speak?\" within contemporary issues, particularly new international divisions of labor and the politics of silence among indigenous women of Guatemala and Mexico. In an afterword, Spivak herself considers her essay's past interpretations and future incarnations and the questions and histories that remain secreted in the original and revised versions of \"Can the Subaltern Speak?\"\u0097both of which are reprinted in this book.\"", 
+            "url": "https://cup.columbia.edu/book/can-the-subaltern-speak/9780231143851"
+        }, 
+        {
+            "author_names": "Jane Schneider (ed.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1998", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Oxford University, Oxford, UK", 
+            "title": "Italy\u2019s \u201cSouthern Question:\u201d Orientalism in One Country", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_names": "Gayatri Chakravorty Spivak", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "1988", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Chicago, USA", 
+            "title": "\u201cCan the Subaltern Speak?\u201d", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_names": "Neelam Srivastava and Baidik Bhattacharya (eds.)", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/publication", 
+            "date": "2012", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "The Postcolonial Gramsci", 
+            "description": "\"The importance of Antonio Gramsci\u2019s work for postcolonial studies can hardly be exaggerated, and in this volume, contributors situate Gramsci's work in the vast and complex oeuvre of postcolonial studies. Specifically, this book endeavors to reassess the impact on postcolonial studies of the central role assigned by Gramsci to culture and literature in the formation of a truly revolutionary idea of the national\u2014a notion that has profoundly shaped the thinking of both Frantz Fanon and Edward Said. Gramsci, as Iain Chambers has argued, has been instrumental in helping scholars rethink their understanding of historical, political, and cultural struggle by substituting the relationship between tradition and modernity with that of subaltern versus hegemonic parts of the world. Combining theoretical reflections and re-interpretations of Gramsci, the scholars in this collection present comparative geo-cultural perspectives on the meaning of the subaltern, passive revolution, hegemony, and the concept of national-popular culture in order to chart out a political map of the postcolonial through the central focus on Gramsci.\"", 
+            "url": "https://www.routledge.com/The-Postcolonial-Gramsci/Srivastava-Bhattacharya/p/book/9780415748148"
+        }, 
+        {
+            "author_names": "Florestano Vancini", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/film", 
+            "date": "1973", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Italy", 
+            "title": "Il delitto Matteotti translated as The Assassination of Matteotti", 
+            "description": "\"A reconstitution of Giacomo Matteotti's assassination in 1924 focusing on Mussolini as the central figure in the murder of a top-ranking rival Socialist leader during the transitional period from constitutional government to outright dictatorship.\"", 
+            "url": "https://www.imdb.com/title/tt0069960/"
+        }, 
+        {
+            "author_names": "Lino Del Fra", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/film", 
+            "date": "1977", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Italy", 
+            "title": "Antonio Gramsci - I giorni del carcere", 
+            "description": "\"Antonio Gramsci, sentenced to twenty years in prison by the fascist tribunals, relives the stages of his political career and private life.\"", 
+            "url": "https://www.imdb.com/title/tt0075688/"
+        }, 
+        {
+            "author_names": "Raffaele Maiello", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/film", 
+            "date": "1981", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Italy", 
+            "title": "Vita di Antonio Gramsci", 
+            "description": "Toevoegen", 
+            "url": "https://www.imdb.com/title/tt0472428/"
+        }, 
+        {
+            "author_names": "Gabriele Morleo - cortometraggio", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/film", 
+            "date": "2005", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Italy", 
+            "title": "Gramsci, film in forma di rosa", 
+            "description": "Toevoegen", 
+            "url": "Toevoegen"
+        }, 
+        {
+            "author_names": "Emiliano Barbucci", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/film", 
+            "date": "2016", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Italy", 
+            "title": "Gramsci 44", 
+            "description": "\"Between 1926 and 1927, the Italian intellectual and Communist political figure Antonio Gramsci spent 44 days imprisoned on the island of Ustica, off the northern coast of Sicily. Together with his fellow prisoners, he founded a school. This unique institution was open to all, welcoming people of all ages and social backgrounds, even the illiterate. Ustica still remembers this revolutionary school. Ustica, remote and neglected, still waits patiently at the harbor, hoping that the boat from the mainland will come.\"", 
+            "url": "https://www.imdb.com/title/tt5132414/"
+        }, 
+        {
+            "author_names": "Daniele Maggioni, Maria Grazia Perria e Laura Perini", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/film", 
+            "date": "2017", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Italy", 
+            "title": "Nel mondo grande e terribile", 
+            "description": "Toevoegen", 
+            "url": "https://www.imdb.com/title/tt6902014/"
+        }, 
+        {
+            "author_names": "MIA", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": "1998", 
+            "end_date": "2022", 
+            "pictures": null, 
+            "where": "Online", 
+            "title": "\"Antonio Gramsci\"", 
+            "description": "\"The Marxists Internet Archive (MIA, http://www.marxists.org/) is an all-volunteer, non-profit public library, established in its present form in 1998 (see also the MIA history page for the archive's earlier history). (...) MIA contains the writings of around 850 authors representing a complete spectrum of political, philosophical, and scientific thought, generally spanning the past 200 years. MIA contains these writings in 80 different languages, comprising a total size of over 180,000 documents and 288 GB of data, all created through the work of volunteers around the world.\"", 
+            "url": "https://www.marxists.org/archive/gramsci/"
+        }, 
+        {
+            "author_names": "La Fondazione Gramsci", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": "1950", 
+            "end_date": "1950", 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "La Fondazione Gramsci", 
+            "description": "\"In 1950 la Fondazione Antonio Gramsci was established in Rome (renamed Istituto Gramsci in 1954) with the aim of collecting documentation relating to the work and thought of Antonio Gramsci and to boost research into the history of the Italian and international labor movement. The original core of the heritage was made up in particular of the books and magazines that belonged to Gramsci, to which the original manuscripts of the Prison Notebooks and Letters were added at the beginning of the 1960s, at the time of the establishment of the archive. La Fondazione Istituto Gramsci was born in 1982 and inherited the Institute's archival and library assets. Since 1994 the foundation has kept the entire historical archive of the Italian Communist Party, from the year of its constitution (1921) to the year of its dissolution (1991). Since May 2016 the new name is la Fondazione Gramsci.\"", 
+            "url": "https://www.fondazionegramsci.org/"
+        }, 
+        {
+            "author_names": "The International Gramsci Society (IGS).", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/other", 
+            "date": null, 
+            "start_date": "1989", 
+            "end_date": "1950", 
+            "pictures": null, 
+            "where": "Formia, Italy", 
+            "title": "The International Gramsci Society (IGS).", 
+            "description": "\"The International Gramsci Society was founded in October 1989 at the international conference \"Gramsci nel mondo\" held in Formia, Italy. The aim of the International Gramsci Society is to facilitate communication and the exchange of information among the very large number of individuals from all over the world who are interested in Antonio Gramsci's life and work and in the presence of his thought in contemporary culture.\"", 
+            "url": "http://www.internationalgramscisociety.org/"
+        }, 
+        {
+            "author_names": "Lorenzo Alfano", 
+            "about": "Antonio Gramsci", 
+            "category": "Legacy/obituary", 
+            "date": "2020", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Dagenham, UK", 
+            "title": "\"Remembering Antonio Gramsci\u201d", 
+            "description": "\"Antonio Gramsci died on this day in 1937. We remember his revolutionary life and his contributions to the struggle against capitalism.\"", 
+            "url": "https://tribunemag.co.uk/2020/04/remembering-antonio-gramsci"
         }
     ], 
     "events": [
         {
-            "author": "Frantz Fanon", 
+            "author": "Stuart Hall", 
             "category": "Personal/biography", 
-            "date": "1942", 
+            "date": "1932", 
             "start_date": null, 
             "end_date": null, 
             "pictures": null, 
-            "where": "Dominica", 
-            "title": "Resistance", 
-            "description": "Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica"
-        }, 
-        {
-            "author": "Frantz Fanon", 
-            "category": "Personal/biography", 
-            "date": "1943", 
-            "start_date": null, 
-            "end_date": null, 
-            "pictures": null, 
-            "where": "Colmar, France", 
-            "title": "Wounded in Colmar", 
-            "description": "Wounded in Colmar, France, received Croix de guerre. Fanon and fellow Afro-Caribbean soldiers were sent to Toulon (Provence) , and after that to Normandy to await repatriation."
-        }, 
-        {
-            "author": "Frantz Fanon", 
-            "category": "Personal/biography", 
-            "date": "1945", 
-            "start_date": null, 
-            "end_date": null, 
-            "pictures": null, 
-            "where": "Fort-de-France, Martinique", 
-            "title": "Return to Campaign", 
-            "description": "Returned to Martinique, and worked for the parliamentary campaign of his friend and mentor Aim\u00e9 C\u00e9saire and completed his baccalaureate."
-        }, 
-        {
-            "author": "Frantz Fanon", 
-            "category": "Personal/biography", 
-            "date": "1945", 
-            "start_date": null, 
-            "end_date": null, 
-            "pictures": null, 
-            "where": "France", 
-            "title": "Study in France", 
-            "description": "After this he left to France to study medicine and psychiatry in Lyon until 1950. Wrote three plays during these years."
+            "where": "Kingston, Jamaica", 
+            "title": "Date of birth", 
+            "description": "Hall was born in Kingston, Jamaica on February 3rd."
         }, 
         {
             "author": "Stuart Hall", 
@@ -250,168 +1276,871 @@
             "start_date": null, 
             "end_date": null, 
             "pictures": null, 
-            "where": "Merton College", 
-            "title": null, 
-            "description": null
+            "where": "Merton College, Oxford, UK", 
+            "title": "Move to the Oxford, UK", 
+            "description": "Hall moved to Oxford, UK and became Rhodes scholar at Merton College."
+        }, 
+        {
+            "author": "Stuart Hall", 
+            "category": "Personal/biography", 
+            "date": "1964", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Birmingham, UK", 
+            "title": "Move to Birmingham, UK", 
+            "description": "Hall moved to Birmingham, UK and joined the Birmingham Centre for Contemporary Cultural Studies."
         }, 
         {
             "author": "Stuart Hall", 
             "category": "Personal/biography", 
             "date": null, 
-            "start_date": "1957", 
-            "end_date": "1959", 
+            "start_date": "1979", 
+            "end_date": "1997", 
             "pictures": null, 
-            "where": null, 
-            "title": null, 
-            "description": "One of the founders and editor of Universities and Left Review 1957-1959"
+            "where": "London, UK", 
+            "title": "Move to London, UK", 
+            "description": "Hall left Birmingham for London and became Professor of Sociology at the Open University."
+        }, 
+        {
+            "author": "Stuart Hall", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1994", 
+            "end_date": "2008", 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Position Iniva and Autograph ABP", 
+            "description": "Hall became Chair at Iniva and Autograph ABP until 2008."
+        }, 
+        {
+            "author": "Stuart Hall", 
+            "category": "Personal/biography", 
+            "date": "2014", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "London, UK", 
+            "title": "Date of death", 
+            "description": "Hall died in London, UK on February 10th."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": "1925", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Fort-de-France, Martinique", 
+            "title": "Date of birth", 
+            "description": "Fanon was born in Fort-de-France, Martinique on July 20th."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": "1944", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Colmar, France", 
+            "title": "Wounded during military service", 
+            "description": "Fanon was wounded in Colmar, France, while fighting with the Free French Forces. He received a Croix de guerre. Fanon and fellow Afro-Caribbean soldiers were sent to Toulon (Provence) , and after that to Normandy to await repatriation."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": "1953", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Blida-Joinville Psychiatric Hospital, Blida, Algeria", 
+            "title": "Move to Blida, Algeria", 
+            "description": "Fanon moved to Algeria and became appointed chef de service in psychiatry at Blida-Joinville Hospital in Algeria."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1954", 
+            "end_date": "1956", 
+            "pictures": null, 
+            "where": "Algeria", 
+            "title": "Joining of the Front de Lib\u00e9ration Nationale", 
+            "description": "Fanon joined the Front de Lib\u00e9ration Nationale (FLN) during outbreak of the Algerian revolution in November 1954. He became responsible for treating the psychological distress of the French soldiers and officers who carried out torture in order to suppress anti-colonial resistance and responsible for treating Algerian torture victims."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": "1960", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Accra, Ghana; Conakry, Guinee; Addis Ababa, Ethiopia; Leopoldville (Kinshasa), Democratic Republic of the Congo; Cairo, Egypt;  Tripoli, Lebonon; Tunis, Tunesia", 
+            "title": "Appointed Ambassador to Ghana by Algeria\u2019s FLN-led Provisional Algerian Government (GPRA) and diagnosed with leukemia", 
+            "description": "Fanon was appointed Ambassador to\u00a0Ghana\u00a0by Algeria\u2019s FLN-led  Provisional Algerian Government (GPRA) and attended conferences in Accra, Conakry, Addis Ababa, Leopoldville, Cairo and Tripoli. In the same year, upon returning to Tunesia, Fanon was diagnosed with leukemia. He travelled to the Soviet-Union for treatment."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": "1960", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Tunis, Tunesia; Ghardimao, Algerian-Tunesian border; Rome, Italy; Bethesda, MD, USA", 
+            "title": "Return to Tunesia, and treatment in the US", 
+            "description": "Fanon returned to Tunesia and delivered lectures to the Arm\u00e9e de Lib\u00e9ration Nationale (ALN) officers at Ghardimao on the Algerian-Tunisian border and travelled to Rome for a three-day meeting with Jean-Paul Sartre. He later received treatment for his leukemia in the US."
+        }, 
+        {
+            "author": "Frantz Fanon", 
+            "category": "Personal/biography", 
+            "date": "1961", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Bethesda, MD, USA; Ain El-Kerma, Algeria", 
+            "title": "Date of death", 
+            "description": "Fanon died December 6, 1961 in Bethesda, Maryland, U.S. at a National Institutes of Health facility. He was later buried in  in the border village Ain El-Kerma, in El Taref Province, eastern Algeria."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1891", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Ales, Sardinia, Italy", 
+            "title": "Date of birth", 
+            "description": "Gramsci was born in Ales, Sardinia, Italy on January 22nd."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1900", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Ghilarza, Sardinia, Italy", 
+            "title": "Gramsci's father's prison sentence", 
+            "description": "When Gramsci was 9, Gramsci\u2019s father, a public official, was sentenced to five years of imprisonment having been accused of embezzlement and corruption. Gramsci\u2019s childhood was profoundly affected by this event, as the family was deprived of income, and his mother had to work non-stop to support them."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1900", 
+            "end_date": "1905", 
+            "pictures": null, 
+            "where": "Ghilarza, Sardinia, Italy", 
+            "title": "Started working at a young age", 
+            "description": "Gramsci started working at a young age, for 10 hours a day, to help contribute to the family\u2019s finances."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1911", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "University of Turin, Turin, Italy", 
+            "title": "Enrolled in University", 
+            "description": "After being awarded a highly competitive nation-wide scholarship for poor students from all over the new Kingdom of Italy, Gramsci enrolls in the Faculty of Letters and Philosophy at the University of Turin, with a course of study in Modern Philology, Italy. But the funds were not enough to support him and he suffered much deprivation and poverty. He met Palmiro Togliatti, future leader of the Italian Communist Party, at the University of Turin as well, and they formed a life-long political collaboration and friendship."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1915", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "University of Turin, Turin, Italy", 
+            "title": "Started working as a journalist and political activist", 
+            "description": "Gramsci completed his last exam at the University and then began a different career as a journalist and political activist. He was already a member of the Italian socialist party, which included Benito Mussolini."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1915", 
+            "end_date": "1916", 
+            "pictures": null, 
+            "where": "Turin, Italy", 
+            "title": "Position at socialist paper Il Grido del Popolo", 
+            "description": "Gramsci began working as a full-time journalist for the socialist paper Il Grido del Popolo (The Cry of the People) in Turin."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1917", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Turin, Italy", 
+            "title": "Wrote famous article", 
+            "description": "In the year of the Russian Revolution, which saw the establishment of a new communist form of government in Russia, Gramsci wrote a famous article in which he gave a wide-ranging interpretation of Marxism that was more historically attuned to reality than that of his contemporary Amadeo Bordiga."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1919", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Turin, Italy", 
+            "title": "Co-founds L\u2019Ordine Nuovo", 
+            "description": "In Turin, Gramsci co-founds L\u2019Ordine Nuovo, a publication that aimed to disseminate Marxist ideas and praxis in Italy. It became the vehicle of political debate around the possibilities for communist revolution and as per Gramsci\u2019s thought, it aimed to connect national revolutionary movements with international and global Marxism. It turned into a daily paper soon after its foundation."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1919", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Turin, Italy", 
+            "title": "Offered key theoretical inspiration for the Factory Councils", 
+            "description": "Gramsci offered the key theoretical inspiration for the Factory Councils, run by workmen, that took over several factories in northern Italy and were modelled on the Russian Soviets. The aim of the factory councils was to promote mass revolution and they gathered workers of all political stripes on the left, from anarchists to socialists. Their broad position was supported by the Third Communist International and by Lenin. But these ultimately failed to bring about the national insurrection that had led to the Russian Revolution. Gramsci was on the other side of the political debate that split the young Italian Marxist movement, and whose protagonists were Amadeo Bordiga and other socialists who did not agree with the broad church of the factory councils promoted by the Gramscian branch of the party. Gramsci subsequently acknowledged that Italy was probably not ready for revolution a that point in time."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1921", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Livorno, Italy", 
+            "title": "Founding of the Italian Communist Party", 
+            "description": "Gramsci was instrumental in founding the Italian Communist Party, known back then as Il Partito Comunista d\u2019Italia (the Communist Party of Italy)."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1922", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Moscow, Russia", 
+            "title": "Became Representative of the Italian Communist Party and met wife", 
+            "description": "Gramsci was sent to Moscow as the Representative of the Italian Communist Party. This experience was fundamental to the maturing of his political formation. He met his future wife, Giulia Schucht, and they had a child together. In 1922, Mussolini established the fascist regime in Italy and Italian Communist activists got more and more targeted. He was charged by Moscow to sew back together the factions in the Italian revolutionary movement."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1923", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Vienna, Austria", 
+            "title": "Travelled to Vienna", 
+            "description": "Gramsci travelled from Moscow to Vienna, having become the foremost Italian political leader in the Italian communist party."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1924", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "Return to Italy, elected as an MP", 
+            "description": "Gramsci returned to fascist Italy, where he had been elected an MP of the Italian Communist Party."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1926", 
+            "end_date": "1937", 
+            "pictures": null, 
+            "where": "Rome, Italy; Ustica, Sicily; Turi, Apulia", 
+            "title": "Banning of Italian Communist Party and imprisonment", 
+            "description": "The Italian Communist Party was banned by the fascist regime, and its main proponents went to exile in France. Gramsci continued to live in Rome. He was the main author of the Party\u2019s \u201cTheses of Lyon\u201d, supporting democratic unity within the party and developing an international strategy for the party. In that same year, Gramsci was imprisoned by the regime and sent to the Ara Coeli prison in Rome. He was then sent to be imprisoned in Ustica, an island off the coast of Sicily. He spent 44 days there. He began to serve a 20-year prison sentence in Turi, Apulia. At his trial, Gramsci\u2019s prosecutor famously said: \u201cWe must stop this brain from functioning for twenty years.\u201d He spent 11 years in prison."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1927", 
+            "end_date": "1933", 
+            "pictures": null, 
+            "where": "Rome, Italy; Ustica, Sicily; Turi, Apulia", 
+            "title": "Campaign to release Gramsci", 
+            "description": "Many prominent Italian and international intellectuals campaigned to release Gramsci from prison. In the meantime, his health deteriorated drastically."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1933", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Formia, Italy", 
+            "title": "Moved to a clinic", 
+            "description": "In 1933, Gramsci was moved from the prison at Turi to a clinic at Formia, but was still denied adequate medical attention."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1935", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "Moved to a clinic", 
+            "description": "Gramsci was moved to the Quisisana clinic in Rome due to ill-health."
+        }, 
+        {
+            "author": "Antonio Gramsci", 
+            "category": "Personal/biography", 
+            "date": "1937", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Rome, Italy", 
+            "title": "Due for release and date of death", 
+            "description": "Gramsci was due for release on 21 April 1937, but due to a combination of severe health conditions,\u00a0he died on April 27th, 1937, at the age of 46. His ashes are buried in the Cimitero acattolico (Non-Catholic Cemetery) in Rome."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1936", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Cherchell, Algeria", 
+            "title": "Date of birth", 
+            "description": "Djebar was born in Cherchell, Algeria on June 30th."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1942", 
+            "end_date": "1954", 
+            "pictures": null, 
+            "where": "Algiers, Algeria; Blida, Algeria; Paris, France", 
+            "title": "Enrolled in school", 
+            "description": "Djebar attends school in Algiers and Blida, and follows the \u201ckh\u00e2gne\u201d (two-year academic program in the French undergraduate system) in Paris in 1954."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1955", 
+            "end_date": "1956", 
+            "pictures": null, 
+            "where": "S\u00e9vres, France", 
+            "title": "Enters the \u00c9cole normale sup\u00e9rieure de jeunes filles", 
+            "description": "As the first Algerian woman, Djebar enters the \u00c9cole normale sup\u00e9rieure de jeunes filles in S\u00e9vres, France in 1955, where she specializes in history."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1956", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "S\u00e9vres, France", 
+            "title": "Participates in student strikes", 
+            "description": "Djebar participates in the student strikes against French repression in Algeria in 1956 and she is evicted from school."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1957", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Algiers, Algeria", 
+            "title": "Publishes first novel", 
+            "description": "Djebar publishes her first novel, La Soif\u00a0(\"The Thirst\")."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1959", 
+            "end_date": "1962", 
+            "pictures": null, 
+            "where": "University of Rabat, Rabat, Morocco", 
+            "title": "Starts to teach history", 
+            "description": "Djebar teaches history at the Faculty of Letters at the University of Rabat."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1959", 
+            "end_date": "1980", 
+            "pictures": null, 
+            "where": "University of Algiers, Algeria", 
+            "title": "Teaches literature and cinema", 
+            "description": "Djebar teaches literature and cinema at the University of Algiers."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "1997", 
+            "end_date": "2001", 
+            "pictures": null, 
+            "where": "Louisiana State University, Baton Rouge, USA", 
+            "title": "Becomes professor", 
+            "description": "Djebar becomes professor at Louisiana State University in Baton Rouge."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": null, 
+            "start_date": "2001", 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "New York University, NY, USA", 
+            "title": "New position", 
+            "description": "Djebar becomes professor at New York University where she holds the Silver Chair Professorship."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1978", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Algeria", 
+            "title": "Directs her first film", 
+            "description": "Djebar directed her first film, La Nouba des Femmes du Mont Chenoua."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "2005", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "Elected to the Acad\u00e9mie Fran\u00e7aise", 
+            "description": "Djebar is elected to the Acad\u00e9mie Fran\u00e7aise, the prestigious French institution."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1979", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Venice, Italy", 
+            "title": "Won the the International Critics' Prize", 
+            "description": "Djebar won the International Critics' Prize at the Venice Biennale, for La Nouba des Femmes du Mont Chenoua."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1996", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "University of Oklahoma, OK, USA", 
+            "title": "Won the Neustadt International Prize for Literature", 
+            "description": "Djebar won the Neustadt International Prize for Literature."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "2001", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "France", 
+            "title": "Becomes  Grand Officer of the Legion of Honour and and Commandeur des Arts et des Lettres", 
+            "description": "Djebar became Grand Officer of the Legion of Honour and and Commandeur des Arts et des Lettres."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1958", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Algiers, Algeria", 
+            "title": "Married", 
+            "description": "Djebar married the Algerian theatre man and resistance fighter Walid Garn (Ahmed Ould-Rouis)."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1975", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Algiers, Algeria", 
+            "title": "Divorced", 
+            "description": "Djebar divorces Walid Garn (Ahmed Ould-Rouis)."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1980", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "Married", 
+            "description": "Djebar married the writer and director Malek Alloula."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "2005", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "Divorced", 
+            "description": "Djebar divorces Malek Alloula."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1965", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Algeria", 
+            "title": "Adopts a son", 
+            "description": "Djebar adopts a son, Mohamed Garne."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "1966", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Algeria", 
+            "title": "Adopts a daughter", 
+            "description": "Djebar adops a daughter, Djalila."
+        }, 
+        {
+            "author": "Assia Djebar", 
+            "category": "Personal/biography", 
+            "date": "2015", 
+            "start_date": null, 
+            "end_date": null, 
+            "pictures": null, 
+            "where": "Paris, France", 
+            "title": "Date of death", 
+            "description": "Djebar died February 6th in Paris, France."
         }
     ], 
     "locations": [
         {
-            "name": "Fort-de-France, Martinique", 
-            "lat": 14.60426, 
-            "long": -61.066971
+            "name": "Abingdon, UK", 
+            "lat": 51.67326785719715, 
+            "long": -1.2878114635186644
         }, 
         {
-            "name": "Dominica", 
-            "lat": 15.414999, 
-            "long": -61.370975
+            "name": "Accra, Ghana", 
+            "lat": 5.682643765182447, 
+            "long": -0.17688281521410976
+        }, 
+        {
+            "name": "Addis Abab, Ethiopia", 
+            "lat": 9.130114639621313, 
+            "long": 38.76702855927234
+        }, 
+        {
+            "name": "Ain El-Kerma, Algeria", 
+            "lat": -35.7067266247513, 
+            "long": -0.9773588327066681
+        }, 
+        {
+            "name": "Ales, Sardinia, Italy", 
+            "lat": 39.792100913896256, 
+            "long": 8.810590123201886
+        }, 
+        {
+            "name": "Algeria", 
+            "lat": 28.358365722817272, 
+            "long": 2.493659902762144
+        }, 
+        {
+            "name": "Athens, OH, USA", 
+            "lat": 39.38583703782891, 
+            "long": -82.09196205494479
+        }, 
+        {
+            "name": "Bethesda, MD, USA", 
+            "lat": 39.0116332690096, 
+            "long": -77.09559180128203
+        }, 
+        {
+            "name": "Birmingham, UK", 
+            "lat": 52.49449850840885, 
+            "long": -1.8911052418700265
+        }, 
+        {
+            "name": "Blida-Joinville Psychiatric Hospital, Blida, Algeria", 
+            "lat": 36.48369345806518, 
+            "long": 2.7967257108072188
+        }, 
+        {
+            "name": "Boston, MA, USA", 
+            "lat": 42.49043538495916, 
+            "long": -71.05138470725826
+        }, 
+        {
+            "name": "Cairo, Egypt", 
+            "lat": 30.052716626183244, 
+            "long": 31.235146325346932
+        }, 
+        {
+            "name": "Chicago, USA", 
+            "lat": 42.11622880959963, 
+            "long": -87.7485043075004
+        }, 
+        {
+            "name": "Colgate University, Hamilton, NY, USA", 
+            "lat": 42.81935884994351, 
+            "long": -75.53686517366124
         }, 
         {
             "name": "Colmar, France", 
-            "lat": 48.08062, 
-            "long": 7.35995
+            "lat": 48.18413177948432, 
+            "long": 7.369853706842278
         }, 
         {
-            "name": "Paris", 
-            "lat": 48.856613, 
-            "long": 2.352222
+            "name": "Conakry, Guinee", 
+            "lat": 9.732076648793598, 
+            "long": -13.580956702800815
         }, 
         {
-            "name": "London", 
-            "lat": 51.507351, 
-            "long": -0.127758
+            "name": "Durham, NC, USA", 
+            "lat": 36.183450131662994, 
+            "long": -78.89669271480298
+        }, 
+        {
+            "name": "Formia, Italy", 
+            "lat": 41.28255124358748, 
+            "long": 13.604927833039797
+        }, 
+        {
+            "name": "Fort-de-France, Martinique", 
+            "lat": 14.678007881731343, 
+            "long": -61.059225625171656
+        }, 
+        {
+            "name": "Ghardimao, Algerian-Tunesian border", 
+            "lat": 36.450190193166776, 
+            "long": 8.437635417167632
+        }, 
+        {
+            "name": "Ghilarza, Sardinia, Italy", 
+            "lat": -40.1350551130068, 
+            "long": -8.83812789457147
         }, 
         {
             "name": "Kingston, Jamaica", 
-            "lat": 17.9712148, 
-            "long": -76.7928128
+            "lat": 18.015592539114145, 
+            "long": -76.78383969191862
         }, 
         {
-            "name": "Merton College", 
-            "lat": 51.3936101, 
-            "long": -0.2051129
+            "name": "Lanham, MD, USA", 
+            "lat": 38.96922972611934, 
+            "long": -76.86198821339843
         }, 
         {
-            "name": "France", 
-            "lat": 46.1390475, 
-            "long": -2.4347331
-        }
-    ], 
-    "pictures": [
-        {
-            "name": "Stuart Hall at desk", 
-            "filename": "stuarthall.jpg", 
-            "author": "The Open University", 
-            "license": "CC BY-NC-ND 2.0", 
-            "url": "https://www.flickr.com/photos/the-open-university/15152882374/in/album-72157648758042767/", 
-            "description": null
+            "name": "Leiden, Netherlands", 
+            "lat": 52.18690088690248, 
+            "long": 4.500828409865779
         }, 
         {
-            "name": "Stuart Hall standing", 
-            "filename": "stuarthall2.jpg", 
-            "author": "The Open University", 
-            "license": "CC BY-NC-ND 2.0", 
-            "url": "https://www.flickr.com/photos/the-open-university/15587398348/in/album-72157648758042767/", 
-            "description": null
+            "name": "Leopoldville (Kinshasa), Democratic Republic of the Congo", 
+            "lat": -4.24509459239348, 
+            "long": -15.2670539491147
         }, 
         {
-            "name": "Frantz Fanon at press conference", 
-            "filename": "frantzfanon.jpg", 
-            "author": "Unknown", 
-            "license": "Public Domain", 
-            "url": "https://commons.wikimedia.org/wiki/File:02_Frantz-Fanon-lors-dune-conf\u00e9rence-de-presse-du-Congr\u00e8s-des-\u00e9crivains-\u00e0-Tunis-1959.jpg", 
-            "description": "Frantz Fanon at a press conference of writers in Tunis, 1959."
+            "name": "Livorno, Italy", 
+            "lat": 43.62376664857694, 
+            "long": 10.310172821125645
         }, 
         {
-            "name": "Stuart Hall", 
-            "filename": "Stuart Hall.jpeg", 
-            "author": "Unknown", 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "London, UK", 
+            "lat": 51.529741850583136, 
+            "long": -0.12708302442714814
         }, 
         {
-            "name": "Frantz Fanon", 
-            "filename": "Frantz Fanon.png", 
-            "author": "Unknown", 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Merton College, Oxford, UK", 
+            "lat": 51.75128731317236, 
+            "long": -1.2507981156744097
         }, 
         {
-            "name": "Antonio Gramsci", 
-            "filename": "Antonio Gramsci.jpeg", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Milan, Italy", 
+            "lat": 45.545597089836, 
+            "long": 9.210197180118215
         }, 
         {
-            "name": "Assia Djebar", 
-            "filename": "Assia Djebar.jpeg", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Moscow, Russia", 
+            "lat": 56.47151530701587, 
+            "long": 37.71221879331665
         }, 
         {
-            "name": "E\u0301tienne Balibar", 
-            "filename": "E\u0301tienne Balibar.jpeg", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "New York, NY, USA", 
+            "lat": 41.19448139819086, 
+            "long": -73.99809748712235
         }, 
         {
-            "name": "Fatima Al-Tayeb", 
-            "filename": "Fatima Al-Tayeb.jpeg", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Oxford University, Oxford, UK", 
+            "lat": 51.80011387992488, 
+            "long": -1.268402430607383
         }, 
         {
-            "name": "Gloria Wekker", 
-            "filename": "Gloria Wekker.png", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Paris, France", 
+            "lat": 48.90029439167325, 
+            "long": 2.359069394712908
         }, 
         {
-            "name": "Paul Gilroy", 
-            "filename": "Paul Gilroy.jpeg", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Rome, Italy", 
+            "lat": 42.44028392249882, 
+            "long": 12.492950849079733
         }, 
         {
-            "name": "Sara Ahmed", 
-            "filename": "Sara Ahmed.webp", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "San Francisco, CA, USA", 
+            "lat": 37.82697186135382, 
+            "long": -122.421694088355
         }, 
         {
-            "name": "Zygmunt Bauman", 
-            "filename": "Zygmunt Bauman.jpeg", 
-            "author": null, 
-            "license": "Unknown", 
-            "url": "Unknown", 
-            "description": null
+            "name": "Seuil, France", 
+            "lat": 49.47895348997588, 
+            "long": 4.449870392486032
+        }, 
+        {
+            "name": "Stanford University, Stanford, CA, USA", 
+            "lat": 37.43550471004504, 
+            "long": -122.16963564715134
+        }, 
+        {
+            "name": "The Open University, Milton Keynes, UK", 
+            "lat": 52.025074715829, 
+            "long": -0.7081787733341693
+        }, 
+        {
+            "name": "Trinity College, Hartford, CT, USA", 
+            "lat": 41.74782997429653, 
+            "long": -72.69051023278261
+        }, 
+        {
+            "name": "Tripoli, Lebanon", 
+            "lat": 34.456501280691484, 
+            "long": 35.83663948822343
+        }, 
+        {
+            "name": "Tunis, Tunesia", 
+            "lat": 36.853506825119204, 
+            "long": 10.186255405198612
+        }, 
+        {
+            "name": "Turi, Apulia", 
+            "lat": 40.93489625162088, 
+            "long": 17.023871106885203
+        }, 
+        {
+            "name": "Turin, Italy", 
+            "lat": 45.14485207823543, 
+            "long": 7.687913293463557
+        }, 
+        {
+            "name": "UK", 
+            "lat": 55.0045745484131, 
+            "long": -2.432915848021519
+        }, 
+        {
+            "name": "University of Massachussets, Amherst, MA, USA", 
+            "lat": 42.38692619216043, 
+            "long": -72.53004077367522
+        }, 
+        {
+            "name": "University of the West Indies, Mona, Jamaica", 
+            "lat": 18.007156255199856, 
+            "long": -76.74657702379017
+        }, 
+        {
+            "name": "University of Turin, Turin, Italy", 
+            "lat": 45.0716768583834, 
+            "long": 7.68923817689976
+        }, 
+        {
+            "name": "Ustica, Sicily", 
+            "lat": 38.70468148087424, 
+            "long": 13.168822306616736
+        }, 
+        {
+            "name": "Vienna, Austria", 
+            "lat": 48.2844791384285, 
+            "long": 16.374687244345647
+        }, 
+        {
+            "name": "Columbia University, New York, USA", 
+            "lat": 40.8077141356607, 
+            "long": -73.96257270218008
+        }, 
+        {
+            "name": "New Delhi, India", 
+            "lat": 28.62737717167246, 
+            "long": 77.20966108945969
+        }, 
+        {
+            "name": "Cambridge, MA, USA", 
+            "lat": 42.40325069438751, 
+            "long": -71.11348262143935
+        }, 
+        {
+            "name": "Italy", 
+            "lat": 43.03846443333165, 
+            "long": 12.342063313781702
+        }, 
+        {
+            "name": "Cherchell, Algeria", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "Algiers, Algeria", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "S\u00e9vres, France", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "University of Rabat, Rabat, Morocco", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "University of Algiers, Algeria", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "Louisiana State University, Baton Rouge, USA", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "New York University, NY, USA", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "Venice, Italy", 
+            "lat": null, 
+            "long": null
+        }, 
+        {
+            "name": "University of Oklahoma, OK, USA", 
+            "lat": null, 
+            "long": null
         }
     ]
 }

@@ -10,7 +10,7 @@ From this directory, you can convert a file with
 python -m convert your-input-file.xlsx
 ```
 
-The output will be saved at `your-input-file.json` . You can also provide an output file:
+The output will be saved at `/frontend/src/assets/data/data.json`. You can also provide an output file:
 
 ```bash
 python -m convert your-input-file.xlsx your-output-file.json

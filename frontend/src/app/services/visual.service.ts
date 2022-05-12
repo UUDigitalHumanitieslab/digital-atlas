@@ -31,14 +31,14 @@ export class VisualService {
         if (_.has(event, 'authorId')) {
             const authorId = (event as { authorId: number }).authorId;
             const author = data.authors.find(candidate => candidate.id === authorId);
-            return author.color;
+            return author.color || 'blank';
         }
         if (_.has(event, 'aboutIds')) {
             const aboutIds = (event as { aboutIds: number[] }).aboutIds;
             if (aboutIds.length === 1) {
                 const authorId = aboutIds[0];
                 const author = data.authors.find(candidate => candidate.id === authorId);
-                return author.color;
+                return author.color || 'blank';
             }
         }
 
