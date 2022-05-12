@@ -1,9 +1,15 @@
 <div class="intellectual-list columns" *ngIf="data">
-    <div *ngFor="let author of data.authors" class="column is-{{author.color}}"
+    <div *ngFor="let author of data.authors" class="column is-{{author.color}} has-text-centered"
         [ngClass]="{'is-active': isActive(author)}">
 
-        <img *ngIf="pictures[author.id]" [src]="pictures[author.id]" alt="" class="is-radiusless">
-        <div *ngIf="!pictures[author.id]" class="has-text-centered">{{author.name}}</div>
+        <div class="author-image">
+            <img *ngIf="pictures[author.id]" [src]="pictures[author.id]" alt="" class="is-radiusless">
+            <div *ngIf="!pictures[author.id]">{{author.name}}</div>    
+        </div>
+ 
+        <div class="author-overlay">
+            <span class="icon"><fa-icon [icon]="isActive(author) ? icons.hide : icons.show"></fa-icon></span>
+        </div>
     </div>
 </div>
 

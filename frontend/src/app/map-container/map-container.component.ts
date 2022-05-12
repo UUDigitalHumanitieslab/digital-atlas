@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
@@ -28,6 +28,11 @@ export class MapContainerComponent implements OnInit {
     selectedDateRange: number[] = [];
 
     eventIcons: VisualService['icons'][keyof VisualService['icons']][];
+
+    icons = {
+        hide: faEyeSlash,
+        show: faEye,
+    };
 
     pictures: { [authorId: number]: string };
 
