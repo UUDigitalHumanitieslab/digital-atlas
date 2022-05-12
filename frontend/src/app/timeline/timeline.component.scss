@@ -1,6 +1,11 @@
 @use '~bulma/sass/utilities/_all' as bulma;
 @use "../../colors";
 
+.event-preview {
+    position: fixed;
+    z-index: 2;
+}
+
 div.timeline-scale {
     border-right: 2px solid bulma.$grey-lighter;
 

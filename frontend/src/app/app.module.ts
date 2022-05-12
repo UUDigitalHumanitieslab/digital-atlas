@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
 import {SliderModule} from 'primeng/slider';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
@@ -50,6 +51,7 @@ import { CheckboxesComponent } from './checkboxes/checkboxes.component';
         FormsModule,
         CheckboxModule,
         SliderModule,
+        OverlayPanelModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

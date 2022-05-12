@@ -1,3 +1,8 @@
+<div class="box event-preview" *ngIf="previewEvent"
+    [style.top.px]="mouseY - 20" [style.left.px]="mouseX + 20">
+    {{previewEvent.title}}
+</div>
+
 <div *ngIf="selectedEvent" class="event-card-container">
     <da-event-card [event]="selectedEvent"></da-event-card>
 </div>

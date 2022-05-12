@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
@@ -66,6 +66,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     target: ElementRef<SVGElement>;
 
     selectedEvent: LifeEvent | Work | Legacy;
+    previewEvent: LifeEvent | Work | Legacy;
+
+    mouseX: number;
+    mouseY: number;
+
     pointLocations: PointLocation[];
 
     constructor(private visualService: VisualService) {
@@ -193,9 +198,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .attr('y', -256)
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
-            .on('mouseover', this.showEventCard.bind(this))
-            .on('click', this.moveToPoint.bind(this));
+            .on('click', this.showEventCard.bind(this))
+            .on('mouseover', this.showEventPreview.bind(this))
+            .on('mouseleave', this.hideEventPreview.bind(this));
     }
+
 
     moveToPoint(event: Event, obj: PointLocation): void {
         const [x, y] = this.projection([
@@ -213,6 +220,19 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     hideEventCard(): void {
         this.selectedEvent = undefined;
+    }
+
+    showEventPreview(e: MouseEvent, obj: PointLocation): void {
+        this.previewEvent = obj.event;
+    }
+
+    @HostListener('mousemove', ['$event']) onMouseMove(event): void {
+        this.mouseX = event.clientX;
+        this.mouseY = event.clientY;
+    }
+
+    hideEventPreview(): void {
+        this.previewEvent = undefined;
     }
 
 }

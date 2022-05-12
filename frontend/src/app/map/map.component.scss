@@ -1,5 +1,11 @@
 $navbar-height: 3.25rem; // default height in Bulma
 
+.event-preview {
+    position: fixed;
+    z-index: 2;
+}
+
+
 .event-card-container {
     position: absolute;
     right: 0;
