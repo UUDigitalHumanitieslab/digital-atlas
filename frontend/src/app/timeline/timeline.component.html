@@ -8,7 +8,7 @@
         </div>
         <div class="column" *ngFor="let col of columns">
             <div class="timeline-event-container" *ngFor="let tile of col"
-            [style.height.em]="getHeight(tile.startYear, tile.endYear)">
+            [style.height.em]="getHeight(tile)">
                 <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
                     (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent">
                     <span class="icon is-medium">
