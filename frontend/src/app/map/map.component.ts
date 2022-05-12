@@ -42,6 +42,7 @@ type MixedEvent = {
 
 type PointLocation = {
     where: Location,
+    stackSize: number,
     color: string,
     event: LifeEvent | Work | Legacy | MixedEvent
 };
@@ -107,8 +108,6 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             ]);
             this.allPoints = allEvents.filter(event => event.where);
             this.pointLocations = this.collapseOverlappingPoints(this.allPoints);
-            console.log(this.pointLocations);
-
             this.drawPoints();
         }
     }
@@ -118,6 +117,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             where: event.where,
             color: this.visualService.getColor(event, this.data),
             event,
+            stackSize: 1,
         };
     }
 
@@ -143,9 +143,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     private mergePoints(point1: PointLocation, point2: PointLocation): PointLocation {
         const color = point1.color === point2.color ? point1.color : 'blank';
         const event = this.mergeEvents(point1, point2);
+        const stackSize = point1.stackSize + point2.stackSize;
 
         return {
             where: event.where,
+            stackSize,
             color,
             event,
         };
@@ -165,8 +167,10 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     private mergeLocation(point1: PointLocation, point2: PointLocation): Location {
-        const lat = (point1.where.lat + point2.where.lat) / 2;
-        const long = (point1.where.long + point2.where.long) / 2;
+        const weight1 = point1.stackSize;
+        const weight2 = point2.stackSize;
+        const lat = (point1.where.lat * weight1 + point2.where.lat * weight2) / (weight1 + weight2);
+        const long = (point1.where.long * weight1 + point2.where.long * weight2) / (weight1 + weight2);
         const name = `${point1.where.name}; ${point2.where.name}`;
 
         return { name, lat, long };
