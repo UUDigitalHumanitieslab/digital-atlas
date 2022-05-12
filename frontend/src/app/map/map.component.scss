@@ -1,3 +1,5 @@
+$navbar-height: 3.25rem; // default height in Bulma
+
 .event-card-container {
     position: absolute;
     right: 0;
@@ -8,7 +10,7 @@
 svg {
     background-color: #96c7c1;
     max-width: 100%;
-    max-height: 80vh;
+    min-height: calc(100vh - #{$navbar-height * 2});
 
     ::ng-deep use {
         cursor: pointer;
