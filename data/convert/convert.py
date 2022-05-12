@@ -1,4 +1,5 @@
 from datetime import datetime
+from tabnanny import check
 from typing import List, Dict, Any
 import re
 import json
@@ -7,6 +8,7 @@ from openpyxl.worksheet.worksheet import Worksheet
 
 months = ["January", "February", "March", "April", "May",
           "June", "July", "August", "October", "November", "December"]
+year_regex = r'^\d{4}$'
 month_regex = re.compile('^(' + '|'.join(months) + "), (\\d{4})$")
 day_regex = re.compile('^(' + '|'.join(months) + ") (\\d{1,2}), (\\d{4})$")
 
@@ -29,10 +31,12 @@ def parse_input(in_path):
     }
 
     check_relations(data)
+    check_dates(data)
     return data
 
 
 def check_relations(data):
+    print('\nCHECKING RELATIONS...')
     print("Checking authors:")
     for author in data['authors']:
         check_dependency(data, 'locations', author['place_of_birth'])
@@ -63,6 +67,30 @@ def check_dependency(data, sheet, name):
 
     print(f"! {name} does not exist in {sheet}")
 
+
+def check_dates(data):
+    "For events with start + end date, check that end > start"
+    print('\nCHECKING DATES...')
+    print('Checking works:')
+
+    for work in data['works']:
+        check_start_end_date(work)
+    for legacy in data['legacy']:
+        check_start_end_date(legacy)
+    for event in data['events']:
+        check_start_end_date(event)
+
+def check_start_end_date(item):
+    if 'start_date' in item and item['start_date'] and 'end_date' in item and item['end_date']:
+        start_date = format_date(item['start_date'])
+        end_date = format_date(item['end_date'])
+        start_year = int(start_date[:4])
+        end_year = int(end_date [:4])
+
+        if end_year < start_year:
+            title = item['title']
+            print(f'! End year {end_year} precedes start year {start_year} for "{title}"')
+    return
 
 def parse_sheet(worksheet: Worksheet):
     header_row = next(worksheet.rows)
@@ -130,6 +158,9 @@ def format_date(value):
                 day=int(day)
             )
         else:
+            if re.search(year_regex, value):
+                return value
+
             match = month_regex.search(value)
             if match:
                 month, year = match.groups()
