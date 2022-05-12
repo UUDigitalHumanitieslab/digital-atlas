@@ -126,4 +126,7 @@ export class MapContainerComponent implements OnInit {
         }
     }
 
+    isActive(author: Author): boolean {
+        return this.selectedAuthors.includes(author);
+    }
 }
