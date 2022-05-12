@@ -34,7 +34,7 @@ export class EventCardComponent implements OnInit, OnChanges {
 
             this.formattedDate = this.datesService.formatEventDate(this.event);
 
-            this.picture = this.visualService.getPicture(this.event, this.data);
+            this.picture = this.visualService.getPictureSource(this.event, this.data);
             this.color = this.visualService.getColor(this.event, this.data);
 
             if (this.includeAuthor) {
@@ -47,7 +47,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     }
 
     getPicture(author: Author): string {
-        return this.visualService.getPicture(author, this.data);
+        return this.visualService.getPictureSource(author, this.data);
     }
 
 }

@@ -53,6 +53,7 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.maxYear = timeDomain[1];
         this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
         this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
+        console.log(this.columns);
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -207,9 +208,8 @@ export class TimelineComponent implements OnInit, OnChanges {
         return this.icons[event.type];
     }
 
-    getHeight(start: number, end: number): number {
-        const duration = 1 + end - start;
-        return this.tickHeight * duration;
+    getHeight(tile: TimelineTile): number {
+        return this.tickHeight * tile.span;
     }
 
     getColor(event: TimelineEvent): string {
