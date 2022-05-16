@@ -1,6 +1,6 @@
-<div class="box event-preview" *ngIf="previewEvent"
+<div class="box event-preview" *ngIf="previewEventTitle"
     [style.top.px]="mouseY - 20" [style.left.px]="mouseX + 20">
-    {{previewEvent.title}}
+    {{previewEventTitle}}
 </div>
 
 <div *ngIf="selectedEvent" class="event-card-container">
