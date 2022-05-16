@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
@@ -9,6 +9,7 @@ import { faSquare } from '@fortawesome/free-solid-svg-icons';
 import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
 import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
+import { TimelineEvent } from '../models/timeline';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 
@@ -75,6 +76,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     target: ElementRef<SVGElement>;
 
     selectedEvent: LifeEvent | Work | Legacy;
+    previewEventTitle?: string;
+
+    mouseX: number;
+    mouseY: number;
+
 
     allPoints: PointLocation[];
     pointLocations: PointLocation[];
@@ -112,7 +118,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         }
     }
 
-    private locationFromEvent(event: LifeEvent|Work|Legacy): PointLocation {
+    private locationFromEvent(event: LifeEvent | Work | Legacy): PointLocation {
         return {
             where: event.where,
             color: this.visualService.getColor(event, this.data),
@@ -155,8 +161,8 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     /** create a mixed event from two points */
     private mergeEvents(point1: PointLocation, point2: PointLocation): MixedEvent {
-        const events1 = (point1.event as MixedEvent).events || [point1.event as LifeEvent|Work|Legacy];
-        const events2 = (point2.event as MixedEvent).events || [point2.event as LifeEvent|Work|Legacy];
+        const events1 = (point1.event as MixedEvent).events || [point1.event as LifeEvent | Work | Legacy];
+        const events2 = (point2.event as MixedEvent).events || [point2.event as LifeEvent | Work | Legacy];
         const where = this.mergeLocation(point1, point2);
 
         return {
@@ -287,27 +293,52 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .attr('y', -256)
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
-            .on('click', this.showEventCard.bind(this));
+            .on('click', this.showEventCard.bind(this))
+            .on('mouseover', this.showEventPreview.bind(this))
+            .on('mouseleave', this.hideEventPreview.bind(this));
     }
 
-    showEventCard(clickEvent: Event, obj: { event: LifeEvent|Work|Legacy|MixedEvent }): void {
+
+    moveToPoint(event: { where?: Location }): void {
+        if (event.where) {
+            const [x, y] = this.projection([
+                event.where.long,
+                event.where.lat]);
+
+            this.svg.transition()
+                .duration(750)
+                .call(this.zoom.translateTo, x, y);
+        }
+    }
+
+    showEventCard(clickEvent: Event, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
         if (obj.event.type === 'mixed') {
             this.selectedEvent = undefined;
         } else {
             this.selectedEvent = obj.event;
+            this.moveToPoint(obj.event);
         }
-
-        const [x, y] = this.projection([
-            obj.event.where.long,
-            obj.event.where.lat]);
-
-        this.svg.transition()
-            .duration(750)
-            .call(this.zoom.translateTo, x, y);
     }
 
     hideEventCard(): void {
         this.selectedEvent = undefined;
+    }
+
+    showEventPreview(e: MouseEvent, obj: PointLocation): void {
+        if (obj.event.type === 'mixed') {
+            this.previewEventTitle = `${obj.event.events.length} events`;
+        } else {
+            this.previewEventTitle = obj.event.title;
+        }
+    }
+
+    @HostListener('mousemove', ['$event']) onMouseMove(event): void {
+        this.mouseX = event.clientX;
+        this.mouseY = event.clientY;
+    }
+
+    hideEventPreview(): void {
+        this.previewEventTitle = undefined;
     }
 
 }

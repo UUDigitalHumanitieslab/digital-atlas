@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
@@ -27,6 +27,10 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     tickHeight = 2.5;
 
+    previewEvent: TimelineEvent;
+    mouseX: number;
+    mouseY: number;
+
     @Output() eventSelect = new EventEmitter<{event: LifeEvent|Work|Legacy, y: number}>();
 
     constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
@@ -53,7 +57,6 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.maxYear = timeDomain[1];
         this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
         this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
-        console.log(this.columns);
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -224,5 +227,18 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.eventSelect.emit({
             event: event.data, y,
         });
+    }
+
+    showEventPreview(timelineEvent: TimelineEvent): void {
+        this.previewEvent = timelineEvent;
+    }
+
+    @HostListener('mousemove', ['$event']) onMouseMove(event): void {
+        this.mouseX = event.clientX;
+        this.mouseY = event.clientY;
+    }
+
+    hideEventPreview(): void {
+        this.previewEvent = undefined;
     }
 }

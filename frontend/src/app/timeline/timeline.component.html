@@ -1,3 +1,8 @@
+<div class="box event-preview" *ngIf="previewEvent"
+    [style.top.px]="mouseY - 20" [style.left.px]="mouseX + 20">
+    {{previewEvent.data.title}}
+</div>
+
 <div class="timeline-body">
     <div class="columns is-mobile">
         <div class="column is-narrow timeline-scale">
@@ -10,7 +15,8 @@
             <div class="timeline-event-container" *ngFor="let tile of col"
             [style.height.em]="getHeight(tile)">
                 <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
-                    (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent">
+                    (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent"
+                    (mouseover)="showEventPreview(tile.event)" (mouseleave)="hideEventPreview()">
                     <span class="icon is-medium">
                         <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
                     </span>

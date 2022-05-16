@@ -1,6 +1,11 @@
 @use '~bulma/sass/utilities/_all' as bulma;
 @use "../../colors";
 
+.event-preview {
+    position: fixed;
+    z-index: 2;
+}
+
 div.timeline-scale {
     border-right: 2px solid bulma.$grey-lighter;
 
@@ -27,10 +32,6 @@ div.timeline-scale {
             }
 
             &:focus {
-                box-shadow: 0 0 0 0.125em transparentize($color: $color, $amount: 0.75);
-            }
-
-            &.is-active {
                 box-shadow: 0 0 0 0.125em transparentize($color: $color, $amount: 0.75);
             }
 
