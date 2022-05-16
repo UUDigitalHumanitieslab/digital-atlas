@@ -7,10 +7,14 @@ $navbar-height: 3.25rem; // default height in Bulma
 
 
 .event-card-container {
-    position: absolute;
-    right: 0;
-    margin: 1em;
-    width: 25%;
+    position: relative;
+
+    da-event-card {
+        position: absolute;
+        right: 0;
+        margin: 1em;
+        width: 25%;
+    }
 }
 
 svg {
