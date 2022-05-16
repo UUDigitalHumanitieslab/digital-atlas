@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
@@ -24,6 +24,8 @@ export class EventCardComponent implements OnInit, OnChanges {
     faCalendar = faCalendar;
     faMapMarker = faMapMarkerAlt;
 
+    @Output() ready = new EventEmitter<void>();
+
     constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) { }
 
     ngOnInit(): void {
@@ -47,6 +49,8 @@ export class EventCardComponent implements OnInit, OnChanges {
                 this.authors = [];
             }
         }
+
+        this.ready.emit();
     }
 
 
