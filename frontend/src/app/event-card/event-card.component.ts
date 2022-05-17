@@ -20,6 +20,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     formattedDate: string;
     color: string;
 
+    categoryIcon: any;
     faCalendar = faCalendar;
     faMapMarker = faMapMarkerAlt;
 
@@ -37,6 +38,8 @@ export class EventCardComponent implements OnInit, OnChanges {
             this.picture = this.visualService.getPictureSource(this.event, this.data);
             this.color = this.visualService.getColor(this.event, this.data);
 
+            this.categoryIcon = this.visualService.icons[this.event.type];
+
             if (this.includeAuthor) {
                 const authorIds = (this.event as Legacy).aboutIds || [(this.event as LifeEvent|Work).authorId];
                 this.authors = authorIds.map(id => this.data.authors.find(author => author.id === id));
@@ -45,6 +48,7 @@ export class EventCardComponent implements OnInit, OnChanges {
             }
         }
     }
+
 
     getPicture(author: Author): string {
         return this.visualService.getPictureSource(author, this.data);
