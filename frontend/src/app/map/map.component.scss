@@ -28,4 +28,10 @@ svg {
 }
 
 
-.stack-size { font: bold 256px sans-serif;}
+.stack-size {
+    font: bold 256px sans-serif;
+
+    &.is-small {
+        font-size: 170px;
+    }
+}

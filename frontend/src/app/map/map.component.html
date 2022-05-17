@@ -21,8 +21,8 @@
     <svg viewBox="0 0 512 512" style="display:none">
         <symbol [attr.id]="'stack_' + size">
             <circle cx="256" cy="256" r="256" fill="rgba(230,230,230,0.8)"></circle>
-            <text [attr.id]="'stack_' + size" class="stack-size"
-                x="256" y="350" text-anchor="middle">{{size}}</text>
+            <text [attr.id]="'stack_' + size" class="stack-size" [ngClass]="{'is-small': size > 100}"
+                x="256" [attr.y]="size > 100 ? 310 : 350" text-anchor="middle">{{size}}</text>
         </symbol>
     </svg>
 </ng-container>

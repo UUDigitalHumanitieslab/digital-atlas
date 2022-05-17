@@ -13,7 +13,6 @@ import { TimelineEvent } from '../models/timeline';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 
-const circleRadius = 5;
 const mapWidth = 962;
 const mapHeight = 550;
 const scaleExtent: [number, number] = [0.27, 3.5];
@@ -75,6 +74,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
+    unfoldedEvent: MixedEvent;
     selectedEvent: LifeEvent | Work | Legacy;
     previewEventTitle?: string;
 
@@ -245,7 +245,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     private pointTransform(location: Location): string {
         const [x, y] = this.projection([location.long, location.lat]);
-        const scale = 0.05 * (1 / this.zoomFactor);
+        return this.SVGTransform(x, y, this.zoomFactor);
+    }
+
+    private SVGTransform(x: number, y: number, zoomFactor: number): string {
+        const scale = 0.05 * (1 / zoomFactor);
         return `translate(${x}, ${y}) scale(${scale})`;
     }
 
@@ -294,7 +298,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
             .attr('fill', (d: PointLocation) => colors[d.color])
-            .on('click', this.showEventCard.bind(this))
+            .on('click', this.selectEvent.bind(this))
             .on('mouseover', this.showEventPreview.bind(this))
             .on('mouseleave', this.hideEventPreview.bind(this));
     }
@@ -320,12 +324,18 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         }
     }
 
-    showEventCard(clickEvent: Event, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
+    openMixedEvent(obj: MixedEvent): void {
+        this.unfoldedEvent = obj;
+    }
+
+    selectEvent(clickEvent: MouseEvent, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
+        this.moveToPoint(obj.event);
+
         if (obj.event.type === 'mixed') {
             this.selectedEvent = undefined;
+            this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
-            this.moveToPoint(obj.event);
         }
     }
 
