@@ -1,6 +1,6 @@
 <div class="intellectual-list columns" *ngIf="data">
     <div *ngFor="let author of data.authors" class="column is-{{author.color}} has-text-centered is-clickable"
-
+        [pTooltip]="tooltipMessage(author)" showDelay="600"
         [ngClass]="{'is-active': isActive(author)}"
         (click)="toggleAuthor(author)">
 
@@ -11,6 +11,10 @@
  
         <div class="author-overlay">
             <div>{{author.name}}</div>
+
+            <div *ngIf="!isActive(author)">
+                <span class="icon"><fa-icon [icon]="icons.hide"></fa-icon></span>
+            </div>
         </div>
     </div>
 </div>
