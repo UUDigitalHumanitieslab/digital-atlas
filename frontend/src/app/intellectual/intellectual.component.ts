@@ -55,8 +55,19 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     }
 
     scrollToEventCard(): void {
-        this.eventCard.nativeElement.scrollIntoView({
-            behavior: 'smooth',
-        });
+        const windowTop = window.scrollY;
+        const windowBottom = windowTop + window.innerHeight;
+
+        const cardTop = this.eventCard.nativeElement.offsetTop;
+        const cardBottom = cardTop +  this.eventCard.nativeElement.offsetHeight;
+
+        const cardFits = this.eventCard.nativeElement.offsetHeight <= window.innerHeight;
+
+        if (windowTop > cardTop || (cardFits && windowBottom < cardBottom)) {
+            window.scrollTo({
+                behavior: 'smooth',
+                top: cardTop,
+            });
+        }
     }
 }
