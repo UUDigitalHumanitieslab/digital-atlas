@@ -1,6 +1,8 @@
 <div class="intellectual-list columns" *ngIf="data">
-    <div *ngFor="let author of data.authors" class="column is-{{author.color}} has-text-centered"
-        [ngClass]="{'is-active': isActive(author)}">
+    <div *ngFor="let author of data.authors" class="column is-{{author.color}} has-text-centered is-clickable"
+
+        [ngClass]="{'is-active': isActive(author)}"
+        (click)="toggleAuthor(author)">
 
         <div class="author-image">
             <img *ngIf="pictures[author.id]" [src]="pictures[author.id]" alt="" class="is-radiusless">
@@ -8,7 +10,7 @@
         </div>
  
         <div class="author-overlay">
-            <span class="icon"><fa-icon [icon]="isActive(author) ? icons.hide : icons.show"></fa-icon></span>
+            <div>{{author.name}}</div>
         </div>
     </div>
 </div>
@@ -17,18 +19,6 @@
     <p class="panel-heading is-clickable" (click)="hideFilterMenu = !hideFilterMenu">
         <span>Filter events</span>
     </p>
-    <div class="panel-block">
-        <div class="field">
-            <label class="label">
-                Intellectual
-            </label>
-            <div class="control">
-                <da-checkboxes [options]="data.authors" [labelKey]="'name'" [colorKey]="'color'"
-                    (selection)="this.selectedAuthors = $event; this.updateFilteredData()">
-                </da-checkboxes>
-            </div>
-        </div>
-    </div>
     <div class="panel-block">
         <div class="field">
             <label class="label">

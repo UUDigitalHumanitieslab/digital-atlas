@@ -23,6 +23,8 @@ export class MapContainerComponent implements OnInit {
     minYear: number;
     maxYear: number;
 
+    authorSelections: { [index: number]: boolean };
+
     selectedCategories: string[] = [];
     selectedAuthors: Author[] = [];
     selectedDateRange: number[] = [];
@@ -54,8 +56,11 @@ export class MapContainerComponent implements OnInit {
         this.maxYear = dateRange[1];
         this.pictures = this.getPictures(this.data);
 
+        this.authorSelections = {};
+        this.data.authors.forEach(author => this.authorSelections[author.id] = true);
+        this.updateAuthorSelection();
+
         this.selectedCategories = this.categories;
-        this.selectedAuthors = data.authors;
         this.selectedDateRange = dateRange;
         this.updateFilteredData();
     }
@@ -131,7 +136,26 @@ export class MapContainerComponent implements OnInit {
         }
     }
 
+    toggleAuthor(author: Author): void {
+        this.authorSelections[author.id] = !this.authorSelections[author.id];
+        this.updateAuthorSelection();
+        this.updateFilteredData();
+    }
+
+    updateAuthorSelection(): void {
+        this.selectedAuthors = this.data.authors.filter(author =>
+            this.authorSelections[author.id]);
+    }
+
     isActive(author: Author): boolean {
         return this.selectedAuthors.includes(author);
+    }
+
+    tooltipMessage(author: Author): string {
+        if (this.isActive(author)) {
+            return `click to hide ${author.name} from the map`;
+        } else {
+            return `click to include ${author.name} in the map`;
+        }
     }
 }
