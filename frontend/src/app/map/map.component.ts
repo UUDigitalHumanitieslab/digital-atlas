@@ -288,14 +288,23 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .data(this.pointLocations)
             .enter()
             .append('use')
-            .attr('href', (d: PointLocation) => '#' + this.icons[d.event.type].iconName)
+            .attr('href', this.pointHref.bind(this))
             .attr('x', -256)
             .attr('y', -256)
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
+            .attr('fill', (d: PointLocation) => colors[d.color])
             .on('click', this.showEventCard.bind(this))
             .on('mouseover', this.showEventPreview.bind(this))
             .on('mouseleave', this.hideEventPreview.bind(this));
+    }
+
+    private pointHref(point: PointLocation): string {
+        if (point.stackSize > 1) {
+            return '#stack_' + point.stackSize;
+        } else {
+            return '#' + this.icons[point.event.type].iconName;
+        }
     }
 
 
@@ -341,4 +350,10 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.previewEventTitle = undefined;
     }
 
+    get stackSizes(): number[] {
+        if (this.pointLocations) {
+            return _.uniq(this.pointLocations.map(point => point.stackSize));
+        }
+        return [];
+    }
 }
