@@ -22,6 +22,12 @@
             <p>{{event.description}}</p>
         </div>
     </div>
+    <p class="panel-block" *ngIf="categoryIcon">
+        <span class="panel-icon">
+            <fa-icon [icon]="categoryIcon"></fa-icon>
+        </span>
+        {{event.type | titlecase}}
+    </p>
     <p class="panel-block" *ngIf="formattedDate">
         <span class="panel-icon">
             <fa-icon [icon]="faCalendar"></fa-icon>

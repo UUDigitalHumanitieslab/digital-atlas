@@ -1,15 +1,25 @@
 $navbar-height: 3.25rem; // default height in Bulma
 @import '../../variables';
 
+.event-preview {
+    position: fixed;
+    z-index: 2;
+}
+
+
 .event-card-container {
-    position: absolute;
-    right: 0;
-    margin: 1em;
-    width: 25%;
+    position: relative;
+
+    da-event-card {
+        position: absolute;
+        right: 0;
+        margin: 1em;
+        width: 25%;
+    }
 }
 
 svg {
-    background-color: #96c7c1;
+    background-color: #A0BCC2;
     max-width: 100%;
     min-height: calc(100vh - #{$navbar-height * 2} - #{$intellectual-list-height});
 

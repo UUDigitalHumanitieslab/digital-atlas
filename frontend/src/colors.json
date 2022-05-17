@@ -1,15 +1,15 @@
 {
     "red": "#AA3A3A",
-    "lightblue": "#A0BCC2",
-    "pine": "#417D7A",
-    "yellow": "#CDBE70",
+    "lightblue": "#346751",
+    "pine": "#E0BB20",
+    "yellow": "#EB5E0B",
     "greengray": "#9CADA4",
     "terra": "#C65F63",
     "blue": "#63AABC",
     "purple": "#84577C",
-    "okra": "#F89D13",
-    "green": "#519259",
+    "okra": "#2D3999",
+    "green": "#22EAAA",
     "olive": "#565D47",
     "aquamarine": "#54BAB9",
-    "blank": "#eee"
+    "blank": "#aaa"
 }
