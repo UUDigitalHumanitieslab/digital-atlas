@@ -212,7 +212,11 @@ export class TimelineComponent implements OnInit, OnChanges {
     }
 
     getHeight(tile: TimelineTile): number {
-        return this.tickHeight * tile.span;
+        if (tile.span) {
+            return this.tickHeight * tile.span;
+        } else {
+            return this.tickHeight * (1 + this.maxYear - this.minYear);
+        }
     }
 
     getColor(event: TimelineEvent): string {
@@ -223,7 +227,7 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.selectedEvent = event;
 
         // emit event an location
-        const y = (event.startYear - this.minYear) * this.tickHeight;
+        const y = (event.startYear - this.minYear) * this.tickHeight || 0;
         this.eventSelect.emit({
             event: event.data, y,
         });
