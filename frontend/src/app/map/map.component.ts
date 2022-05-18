@@ -13,7 +13,6 @@ import { TimelineEvent } from '../models/timeline';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 
-const circleRadius = 5;
 const mapWidth = 962;
 const mapHeight = 550;
 const scaleExtent: [number, number] = [0.27, 3.5];
@@ -55,7 +54,7 @@ type PointLocation = {
     styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, OnDestroy, OnChanges {
-    private svg: any;
+    private svg: d3.Selection<SVGElement, any, any, any>;
     private projection: d3.GeoProjection;
     private zoom: d3.ZoomBehavior<Element, unknown>;
     private mapReady: Promise<void>;
@@ -75,12 +74,15 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
+    unfoldedEvent: MixedEvent;
     selectedEvent: LifeEvent | Work | Legacy;
     previewEventTitle?: string;
 
     mouseX: number;
     mouseY: number;
 
+    // don't trigger mouseovers when automatically moving the card
+    moving = false;
 
     allPoints: PointLocation[];
     pointLocations: PointLocation[];
@@ -245,7 +247,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     private pointTransform(location: Location): string {
         const [x, y] = this.projection([location.long, location.lat]);
-        const scale = 0.05 * (1 / this.zoomFactor);
+        return this.SVGTransform(x, y, this.zoomFactor);
+    }
+
+    private SVGTransform(x: number, y: number, zoomFactor: number): string {
+        const scale = 0.05 * (1 / zoomFactor);
         return `translate(${x}, ${y}) scale(${scale})`;
     }
 
@@ -288,35 +294,57 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             .data(this.pointLocations)
             .enter()
             .append('use')
-            .attr('href', (d: PointLocation) => '#' + this.icons[d.event.type].iconName)
+            .attr('href', this.pointHref.bind(this))
             .attr('x', -256)
             .attr('y', -256)
             .attr('transform', (d: PointLocation) => this.pointTransform(d.where))
             .attr('color', (d: PointLocation) => colors[d.color])
-            .on('click', this.showEventCard.bind(this))
+            .attr('fill', (d: PointLocation) => colors[d.color])
+            .on('click', this.selectEvent.bind(this))
             .on('mouseover', this.showEventPreview.bind(this))
             .on('mouseleave', this.hideEventPreview.bind(this));
     }
 
+    private pointHref(point: PointLocation): string {
+        if (point.stackSize > 1) {
+            return '#stack_' + point.stackSize;
+        } else {
+            return '#' + this.icons[point.event.type].iconName;
+        }
+    }
 
-    moveToPoint(event: { where?: Location }): void {
+
+    async moveToPoint(event: { where?: Location }): Promise<void> {
         if (event.where) {
+            this.moving = true;
             const [x, y] = this.projection([
                 event.where.long,
                 event.where.lat]);
 
-            this.svg.transition()
+            this.hideEventPreview();
+
+            await this.svg.transition()
                 .duration(750)
-                .call(this.zoom.translateTo, x, y);
+                .call(this.zoom.translateTo, x, y)
+                .end();
+
+            this.moving = false;
+            this.hideEventPreview();
         }
     }
 
-    showEventCard(clickEvent: Event, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
+    openMixedEvent(obj: MixedEvent): void {
+        this.unfoldedEvent = obj;
+    }
+
+    selectEvent(clickEvent: MouseEvent, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
+        this.moveToPoint(obj.event);
+
         if (obj.event.type === 'mixed') {
             this.selectedEvent = undefined;
+            this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
-            this.moveToPoint(obj.event);
         }
     }
 
@@ -325,6 +353,10 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     showEventPreview(e: MouseEvent, obj: PointLocation): void {
+        if (this.moving) {
+            return;
+        }
+
         if (obj.event.type === 'mixed') {
             this.previewEventTitle = `${obj.event.events.length} events`;
         } else {
@@ -341,4 +373,10 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.previewEventTitle = undefined;
     }
 
+    get stackSizes(): number[] {
+        if (this.pointLocations) {
+            return _.uniq(this.pointLocations.map(point => point.stackSize));
+        }
+        return [];
+    }
 }
