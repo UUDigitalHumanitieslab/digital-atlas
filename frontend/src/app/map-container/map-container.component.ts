@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
@@ -23,13 +23,22 @@ export class MapContainerComponent implements OnInit {
     minYear: number;
     maxYear: number;
 
+    authorSelections: { [index: number]: boolean };
+
     selectedCategories: string[] = [];
     selectedAuthors: Author[] = [];
     selectedDateRange: number[] = [];
 
     eventIcons: VisualService['icons'][keyof VisualService['icons']][];
 
-    constructor(private dataService: DataService, private datesService: DatesService, visualService: VisualService) {
+    icons = {
+        hide: faEyeSlash,
+        show: faEye,
+    };
+
+    pictures: { [authorId: number]: string };
+
+    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
         this.eventIcons = [
             visualService.icons['life event'],
             visualService.icons.work,
@@ -45,9 +54,13 @@ export class MapContainerComponent implements OnInit {
         const dateRange = this.dateRange(this.data);
         this.minYear = dateRange[0];
         this.maxYear = dateRange[1];
+        this.pictures = this.getPictures(this.data);
+
+        this.authorSelections = {};
+        this.data.authors.forEach(author => this.authorSelections[author.id] = true);
+        this.updateAuthorSelection();
 
         this.selectedCategories = this.categories;
-        this.selectedAuthors = data.authors;
         this.selectedDateRange = dateRange;
         this.updateFilteredData();
     }
@@ -66,6 +79,13 @@ export class MapContainerComponent implements OnInit {
         const maxYear = _.max([eventEnd, range[1]]);
 
         return [minYear, maxYear];
+    }
+
+    getPictures(data: CollectedData): { [authorId: number]: string } {
+        const authors = data.authors;
+        const authorsById = _.indexBy(authors, author => author.id);
+        const picturesById = _.mapObject(authorsById, author => this.visualService.getPictureSource(author, data));
+        return picturesById;
     }
 
     updateFilteredData(): void {
@@ -116,4 +136,26 @@ export class MapContainerComponent implements OnInit {
         }
     }
 
+    toggleAuthor(author: Author): void {
+        this.authorSelections[author.id] = !this.authorSelections[author.id];
+        this.updateAuthorSelection();
+        this.updateFilteredData();
+    }
+
+    updateAuthorSelection(): void {
+        this.selectedAuthors = this.data.authors.filter(author =>
+            this.authorSelections[author.id]);
+    }
+
+    isActive(author: Author): boolean {
+        return this.selectedAuthors.includes(author);
+    }
+
+    tooltipMessage(author: Author): string {
+        if (this.isActive(author)) {
+            return `click to hide ${author.name} from the map`;
+        } else {
+            return `click to include ${author.name} in the map`;
+        }
+    }
 }
