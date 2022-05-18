@@ -54,7 +54,7 @@ type PointLocation = {
     styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, OnDestroy, OnChanges {
-    private svg: any;
+    private svg: d3.Selection<SVGElement, any, any, any>;
     private projection: d3.GeoProjection;
     private zoom: d3.ZoomBehavior<Element, unknown>;
     private mapReady: Promise<void>;
@@ -81,6 +81,8 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     mouseX: number;
     mouseY: number;
 
+    // don't trigger mouseovers when automatically moving the card
+    moving = false;
 
     allPoints: PointLocation[];
     pointLocations: PointLocation[];
@@ -312,15 +314,22 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
 
-    moveToPoint(event: { where?: Location }): void {
+    async moveToPoint(event: { where?: Location }): Promise<void> {
         if (event.where) {
+            this.moving = true;
             const [x, y] = this.projection([
                 event.where.long,
                 event.where.lat]);
 
-            this.svg.transition()
+            this.hideEventPreview();
+
+            await this.svg.transition()
                 .duration(750)
-                .call(this.zoom.translateTo, x, y);
+                .call(this.zoom.translateTo, x, y)
+                .end();
+
+            this.moving = false;
+            this.hideEventPreview();
         }
     }
 
@@ -344,6 +353,10 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     showEventPreview(e: MouseEvent, obj: PointLocation): void {
+        if (this.moving) {
+            return;
+        }
+
         if (obj.event.type === 'mixed') {
             this.previewEventTitle = `${obj.event.events.length} events`;
         } else {
