@@ -1,9 +1,15 @@
 @import '../../variables';
 
+.nwo-logo,
 .university-logo,
 .lab-logo {
     display: inline-block;
     height: 50px;
+}
+
+.nwo-logo {
+    height: 90px;
+    width: 53px;
 }
 
 .university-logo {
