@@ -23,6 +23,9 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { MapContainerComponent } from './map-container/map-container.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { CheckboxesComponent } from './checkboxes/checkboxes.component';
+import { AboutComponent } from './about/about.component';
+import { ContributorsComponent } from './about/contributors/contributors.component';
+import { PinComponent } from './about/pin/pin.component';
 
 @NgModule({
     declarations: [
@@ -37,6 +40,9 @@ import { CheckboxesComponent } from './checkboxes/checkboxes.component';
         MapContainerComponent,
         EventCardComponent,
         CheckboxesComponent,
+        AboutComponent,
+        ContributorsComponent,
+        PinComponent,
     ],
     imports: [
         AppRoutingModule,
