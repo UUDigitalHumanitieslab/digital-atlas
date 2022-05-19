@@ -51,9 +51,4 @@ export class DatesService {
         return startYear <= maxYear && endYear >= minYear;
     }
 
-    nextEvent(event: LifeEvent|Work|Legacy, context: (LifeEvent|Work|Legacy)[]): any {
-        const sortedEvents = _.sortBy(context, this.getStartYear);
-        const currentIndex = sortedEvents.findIndex(e => e == event);
-        return currentIndex;
-    }
 }
