@@ -6,6 +6,9 @@
 <div *ngIf="selectedEvent" class="event-card-container">
     <da-event-card [event]="selectedEvent"></da-event-card>
 </div>
+<div *ngIf="!selectedEvent && mergedEvents" class="event-card-container">
+    <da-event-card-selector [events]="mergedEvents.events"></da-event-card-selector>
+</div>
 
 <ng-container *ngFor="let icon of iconList">
     <fa-icon [icon]="icon" [symbol]="icon.iconName + '_figure'"></fa-icon>

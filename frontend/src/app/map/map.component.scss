@@ -10,11 +10,14 @@ $navbar-height: 3.25rem; // default height in Bulma
 .event-card-container {
     position: relative;
 
-    da-event-card {
+    da-event-card,
+    da-event-card-selector {
         position: absolute;
         right: 0;
         margin: 1em;
         width: 25%;
+        max-height: calc(100vh - #{$navbar-height * 2} - #{$intellectual-list-height} - 2em);
+        overflow: visible auto;
     }
 }
 

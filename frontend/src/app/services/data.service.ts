@@ -9,22 +9,22 @@ export class DataService {
 
     private data: CollectedData;
 
+    private promiseData: Promise<CollectedData>;
+
     constructor() { }
 
     /**
      * load all data
      */
     getData(): Promise<CollectedData> {
-        return new Promise<CollectedData>(async (resolve) => {
-            if (this.data === undefined) {
-                this.loadDataFile().then(result => {
-                    this.data = this.parseData(result);
-                    resolve(this.data);
-                });
-            } else {
-                resolve(this.data);
-            }
-        });
+        if (!this.promiseData) {
+            this.promiseData = new Promise<CollectedData>(async (resolve) => {
+                const result = await this.loadDataFile();
+                resolve(this.parseData(result));
+            });
+        }
+
+        return this.promiseData;
     }
 
     parseData(data: any): CollectedData {

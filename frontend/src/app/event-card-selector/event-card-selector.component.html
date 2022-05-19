@@ -1,0 +1,29 @@
+<ng-container *ngIf="authors">
+    <div class="panel is-{{author.info.color}}" *ngFor="let author of authors">
+        <div class="panel-block author-link is-clickable" [routerLink]="['/intellectual', author.info.id]">
+            <div class="column author-name has-text-right">
+                {{author.info.name}}
+            </div>
+            <div class="column is-narrow" *ngIf="author.picture">
+                <figure class="image is-square is-32x32 author-image">
+                    <img class="is-rounded" [src]="author.picture">
+                </figure>
+            </div>
+        </div>
+        <a class="panel-block" *ngFor="let event of author.events">
+            <span class="panel-icon">
+                <fa-icon [icon]="event.categoryIcon"></fa-icon>
+            </span>
+            <div class="columns event-item">
+                <div class="column">
+                    {{event.title}}
+                </div>
+                <div class="column is-narrow has-text-right">
+                    <span class="tag date-tag">
+                        {{event.date}}
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</ng-container>

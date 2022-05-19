@@ -2,13 +2,13 @@
     <p class="panel-heading">
         {{event.title || '...'}}
     </p>
-    <div class="panel-block author-link is-clickable" *ngFor="let author of authors" [routerLink]="['/intellectual', author.id]">
+    <div class="panel-block author-link is-clickable" *ngFor="let author of authors" [routerLink]="['/intellectual', author.info.id]">
         <div class="column author-name has-text-right">
-            {{author.name}}
+            {{author.info.name}}
         </div>
         <div class="column is-narrow">
-            <figure class="image is-square is-32x32 author-image" *ngIf="getPicture(author)">
-                <img class="is-rounded is-{{author.color}}" [src]="getPicture(author)">
+            <figure class="image is-square is-32x32 author-image" *ngIf="author.picture">
+                <img class="is-rounded is-{{author.color}}" [src]="author.picture">
             </figure>
         </div>
     </div>

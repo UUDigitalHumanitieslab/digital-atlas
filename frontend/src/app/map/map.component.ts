@@ -9,7 +9,6 @@ import { faSquare } from '@fortawesome/free-solid-svg-icons';
 import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
 import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
-import { TimelineEvent } from '../models/timeline';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 
@@ -34,7 +33,7 @@ const coords = {
     }
 };
 
-type MixedEvent = {
+type MergedEvents = {
     type: 'mixed',
     events: (LifeEvent | Work | Legacy)[]
     where: Location
@@ -44,7 +43,7 @@ type PointLocation = {
     where: Location,
     stackSize: number,
     color: string,
-    event: LifeEvent | Work | Legacy | MixedEvent
+    event: LifeEvent | Work | Legacy | MergedEvents
 };
 
 
@@ -74,7 +73,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
-    unfoldedEvent: MixedEvent;
+    mergedEvents: MergedEvents;
     selectedEvent: LifeEvent | Work | Legacy;
     previewEventTitle?: string;
 
@@ -162,9 +161,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     /** create a mixed event from two points */
-    private mergeEvents(point1: PointLocation, point2: PointLocation): MixedEvent {
-        const events1 = (point1.event as MixedEvent).events || [point1.event as LifeEvent | Work | Legacy];
-        const events2 = (point2.event as MixedEvent).events || [point2.event as LifeEvent | Work | Legacy];
+    private mergeEvents(point1: PointLocation, point2: PointLocation): MergedEvents {
+        const events1 = (point1.event as MergedEvents).events || [point1.event as LifeEvent | Work | Legacy];
+        const events2 = (point2.event as MergedEvents).events || [point2.event as LifeEvent | Work | Legacy];
         const where = this.mergeLocation(point1, point2);
 
         return {
@@ -333,11 +332,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         }
     }
 
-    openMixedEvent(obj: MixedEvent): void {
-        this.unfoldedEvent = obj;
+    openMixedEvent(events: MergedEvents): void {
+        this.mergedEvents = events;
     }
 
-    selectEvent(clickEvent: MouseEvent, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
+    selectEvent(clickEvent: MouseEvent, obj: { event: LifeEvent | Work | Legacy | MergedEvents }): void {
         this.moveToPoint(obj.event);
 
         if (obj.event.type === 'mixed') {
@@ -345,11 +344,13 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
+            this.mergedEvents = undefined;
         }
     }
 
     hideEventCard(): void {
         this.selectedEvent = undefined;
+        this.mergedEvents = undefined;
     }
 
     showEventPreview(e: MouseEvent, obj: PointLocation): void {
