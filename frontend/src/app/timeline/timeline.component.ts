@@ -217,7 +217,9 @@ export class TimelineComponent implements OnInit, OnChanges {
         let index = 0;
         _.range(this.minYear, this.maxYear).forEach(year =>
             this.columns.forEach(column => {
-                const tile = column.find(t => t.event && t.startYear === year);
+                const tile = column.find(t =>
+                    t.event && (t.startYear === year || (year === this.minYear && t.startYear === undefined))
+                );
                 if (tile) {
                     tile.event.index = index;
                     index += 1;
