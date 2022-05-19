@@ -63,6 +63,7 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.maxYear = timeDomain[1];
         this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
         this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
+        this.setEventIndices();
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -90,6 +91,7 @@ export class TimelineComponent implements OnInit, OnChanges {
                 authorId: event.authorId,
                 type: 'life event' as EventType,
                 data: event,
+                index: -1, // temporary index, will be set when we have figured out layout
             }
         ));
     }
@@ -104,6 +106,7 @@ export class TimelineComponent implements OnInit, OnChanges {
                 authorId: work.authorId,
                 type: 'work' as EventType,
                 data: work,
+                index: -1,
             }
         ));
     }
@@ -118,7 +121,8 @@ export class TimelineComponent implements OnInit, OnChanges {
                 author: legacy.about[index],
                 authorId: id,
                 type: 'legacy' as EventType,
-                data: legacy
+                data: legacy,
+                index: -1,
             }));
         });
         return _.flatten(legacyTimelineEvents);
@@ -209,6 +213,19 @@ export class TimelineComponent implements OnInit, OnChanges {
         return tiles.length ? _.last(tiles).endYear : minYear - 1;
     }
 
+    private setEventIndices(): void {
+        let index = 0;
+        _.range(this.minYear, this.maxYear).forEach(year =>
+            this.columns.forEach(column => {
+                const tile = column.find(t => t.event && t.startYear === year);
+                if (tile) {
+                    tile.event.index = index;
+                    index += 1;
+                }
+            })
+        );
+    }
+
     showYear(year: number): boolean {
         return year % 5 === 0;
     }
@@ -225,13 +242,17 @@ export class TimelineComponent implements OnInit, OnChanges {
         }
     }
 
+    getPosition(event: TimelineEvent): number {
+        return (event.startYear - this.minYear) * this.tickHeight || 0;
+    }
+
     getColor(event: TimelineEvent): string {
         return this.visualService.getColor(event.data, this.data);
     }
 
     selectEvent(event: TimelineEvent): void {
         this.selectedEvent = event;
-        this.selectedEventPosition = (event.startYear - this.minYear) * this.tickHeight || 0;
+        this.selectedEventPosition = this.getPosition(event);
     }
 
     showEventPreview(timelineEvent: TimelineEvent): void {
@@ -262,5 +283,13 @@ export class TimelineComponent implements OnInit, OnChanges {
                 top: cardTop,
             });
         }
+    }
+
+    jumpEvent(direction: 'previous'|'next'): void {
+        const index = this.selectedEvent.index;
+        const delta = direction === 'previous' ? - 1 : 1;
+        const newIndex = index + delta;
+        this.selectedEvent = this.events.find(event => event.index === newIndex);
+        this.selectedEventPosition = this.getPosition(this.selectedEvent);
     }
 }

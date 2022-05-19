@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
-import { faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
@@ -23,8 +23,14 @@ export class EventCardComponent implements OnInit, OnChanges {
     categoryIcon: any;
     faCalendar = faCalendar;
     faMapMarker = faMapMarkerAlt;
+    faArrowLeft = faArrowLeft;
+    faArrowRight = faArrowRight;
+
+    @Input() isFirst: boolean;
+    @Input() isLast: boolean;
 
     @Output() ready = new EventEmitter<void>();
+    @Output() jump = new EventEmitter<'previous'|'next'>();
 
     constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) { }
 
@@ -56,6 +62,10 @@ export class EventCardComponent implements OnInit, OnChanges {
 
     getPicture(author: Author): string {
         return this.visualService.getPictureSource(author, this.data);
+    }
+
+    triggerJump(direction: 'previous'|'next'): void {
+        this.jump.emit(direction);
     }
 
 }

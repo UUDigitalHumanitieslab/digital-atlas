@@ -35,6 +35,10 @@ div.timeline-scale {
                 box-shadow: 0 0 0 0.125em transparentize($color: $color, $amount: 0.75);
             }
 
+            &.is-active {
+                border: 2px solid darken($color, 10%);
+            }
+
         }
     }
 }
