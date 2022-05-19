@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Legacy, LifeEvent, PartialDate, Work } from '../models/data';
+import * as _ from 'underscore';
+import { CollectedData, Legacy, LifeEvent, PartialDate, Work } from '../models/data';
 
 @Injectable({
     providedIn: 'root'
