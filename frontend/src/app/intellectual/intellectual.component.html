@@ -59,19 +59,7 @@
                     legacy
                 </p>
             </div>
-            <div class="columns">
-                <div class="column">
-                    <da-timeline [authors]="[author]" (eventSelect)="onEventSelect($event)"></da-timeline>
-                </div>
-                <div class="column">
-                    <div [style.height.em]="selectedEventPosition"></div>
-                    <div class="block" *ngIf="selectedEvent"  #eventCard>
-                        <da-event-card [event]="selectedEvent" [includeAuthor]="false"
-                            (ready)="scrollToEventCard()">
-                        </da-event-card>
-                    </div>
-                </div>
-            </div>
+            <da-timeline [authors]="[author]" (eventSelect)="onEventSelect($event)"></da-timeline>
         </div>
     </div>
 </ng-container>

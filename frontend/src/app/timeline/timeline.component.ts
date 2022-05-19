@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
@@ -21,7 +21,9 @@ export class TimelineComponent implements OnInit, OnChanges {
     minYear: number;
     maxYear: number;
     timeRange: number[];
+
     selectedEvent: TimelineEvent;
+    selectedEventPosition: number;
 
     icons: VisualService['icons'];
 
@@ -30,6 +32,8 @@ export class TimelineComponent implements OnInit, OnChanges {
     previewEvent: TimelineEvent;
     mouseX: number;
     mouseY: number;
+
+    @ViewChild('eventCard') eventCard: ElementRef;
 
     @Output() eventSelect = new EventEmitter<{event: LifeEvent|Work|Legacy, y: number}>();
 
@@ -225,12 +229,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     selectEvent(event: TimelineEvent): void {
         this.selectedEvent = event;
-
-        // emit event an location
-        const y = (event.startYear - this.minYear) * this.tickHeight || 0;
-        this.eventSelect.emit({
-            event: event.data, y,
-        });
+        this.selectedEventPosition = (event.startYear - this.minYear) * this.tickHeight || 0;
     }
 
     showEventPreview(timelineEvent: TimelineEvent): void {
@@ -244,5 +243,22 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     hideEventPreview(): void {
         this.previewEvent = undefined;
+    }
+
+    scrollToEventCard(): void {
+        const windowTop = window.scrollY;
+        const windowBottom = windowTop + window.innerHeight;
+
+        const cardTop = this.eventCard.nativeElement.offsetTop;
+        const cardBottom = cardTop +  this.eventCard.nativeElement.offsetHeight;
+
+        const cardFits = this.eventCard.nativeElement.offsetHeight <= window.innerHeight;
+
+        if (windowTop > cardTop || (cardFits && windowBottom < cardBottom)) {
+            window.scrollTo({
+                behavior: 'smooth',
+                top: cardTop,
+            });
+        }
     }
 }

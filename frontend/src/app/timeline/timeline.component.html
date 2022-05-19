@@ -3,25 +3,38 @@
     {{previewEvent.data.title}}
 </div>
 
-<div class="timeline-body">
-    <div class="columns is-mobile">
-        <div class="column is-narrow timeline-scale">
-            <div class="timeline-tick" *ngFor="let year of timeRange"
-                [style.height.em]="tickHeight">
-                {{showYear(year) ? year : '·'}}
+<div class="columns is-mobile">
+    <div class="column">
+        <div class="timeline-body">
+            <div class="columns is-mobile">
+                <div class="column is-narrow timeline-scale">
+                    <div class="timeline-tick" *ngFor="let year of timeRange"
+                        [style.height.em]="tickHeight">
+                        {{showYear(year) ? year : '·'}}
+                    </div>
+                </div>
+                <div class="column" *ngFor="let col of columns">
+                    <div class="timeline-event-container" *ngFor="let tile of col"
+                    [style.height.em]="getHeight(tile)">
+                        <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
+                            (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent"
+                            (mouseover)="showEventPreview(tile.event)" (mouseleave)="hideEventPreview()">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
+                            </span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="column" *ngFor="let col of columns">
-            <div class="timeline-event-container" *ngFor="let tile of col"
-            [style.height.em]="getHeight(tile)">
-                <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
-                    (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent"
-                    (mouseover)="showEventPreview(tile.event)" (mouseleave)="hideEventPreview()">
-                    <span class="icon is-medium">
-                        <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
-                    </span>
-                </button>
-            </div>
+        
+    </div>
+    <div class="column">
+        <div [style.height.em]="selectedEventPosition"></div>
+        <div class="block" *ngIf="selectedEvent"  #eventCard>
+            <da-event-card [event]="selectedEvent.data" [includeAuthor]="false"
+                (ready)="scrollToEventCard()">
+            </da-event-card>
         </div>
     </div>
 </div>
