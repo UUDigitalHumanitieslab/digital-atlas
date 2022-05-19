@@ -119,7 +119,6 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             ]);
             const points = allEvents.filter(event => event.where);
             this.allPoints = this.setPointIndices(points);
-            console.log(this.allPoints);
             this.updatePoints();
         }
     }
@@ -400,7 +399,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         let index: number;
         if (this.selectedPoint.event.type === 'mixed') {
             const eventIndex = this.selectedPoint.event.events.findIndex(event =>
-                event.title === this.selectedEvent.title
+                _.isEqual(event, this.selectedEvent)
             );
             index = this.selectedPoint.indices[eventIndex];
         } else {
@@ -414,14 +413,13 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         let newEvent: LifeEvent|Work|Legacy;
 
         if (newPoint.event.type === 'mixed') {
-            const eventIndex = newPoint.indices.find(i => i === newIndex);
+            const eventIndex = newPoint.indices.findIndex(i => i === newIndex);
             newEvent = newPoint.event.events[eventIndex];
         } else {
             newEvent = newPoint.event;
         }
 
-        this.selectedPoint = newPoint;
-        this.selectEvent(null, this.selectedPoint);
+        this.selectEvent(null, newPoint);
         this.selectedEvent = newEvent;
     }
 
