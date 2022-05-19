@@ -26,6 +26,7 @@ import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { AboutComponent } from './about/about.component';
 import { ContributorsComponent } from './about/contributors/contributors.component';
 import { PinComponent } from './about/pin/pin.component';
+import { CompleteTimelineComponent } from './complete-timeline/complete-timeline.component';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import { PinComponent } from './about/pin/pin.component';
         AboutComponent,
         ContributorsComponent,
         PinComponent,
+        CompleteTimelineComponent,
     ],
     imports: [
         AppRoutingModule,

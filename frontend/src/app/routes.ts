@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContributorsComponent } from './about/contributors/contributors.component';
 import { PinComponent } from './about/pin/pin.component';
+import { CompleteTimelineComponent } from './complete-timeline/complete-timeline.component';
 
 import { IndexComponent } from './index/index.component';
 import { IntellectualComponent } from './intellectual/intellectual.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
     {
         path: 'map',
         component: MapContainerComponent
+    },
+    {
+        path: 'timeline',
+        component: CompleteTimelineComponent,
     },
     {
         path: 'about',

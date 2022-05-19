@@ -22,6 +22,8 @@ export class TimelineComponent implements OnInit, OnChanges {
     maxYear: number;
     timeRange: number[];
 
+    @Input() narrowCardColumn: boolean;
+
     selectedEvent: TimelineEvent;
     selectedEventPosition: number;
 
