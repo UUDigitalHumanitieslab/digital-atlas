@@ -65,8 +65,10 @@
                 </div>
                 <div class="column">
                     <div [style.height.em]="selectedEventPosition"></div>
-                    <div class="block" *ngIf="selectedEvent">
-                        <da-event-card [event]="selectedEvent" [includeAuthor]="false"></da-event-card>
+                    <div class="block" *ngIf="selectedEvent"  #eventCard>
+                        <da-event-card [event]="selectedEvent" [includeAuthor]="false"
+                            (ready)="scrollToEventCard()">
+                        </da-event-card>
                     </div>
                 </div>
             </div>

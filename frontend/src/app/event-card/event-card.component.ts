@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,6 +27,8 @@ export class EventCardComponent implements OnInit, OnChanges {
     faCalendar = faCalendar;
     faMapMarker = faMapMarkerAlt;
 
+    @Output() ready = new EventEmitter<void>();
+
     constructor(private dataService: DataService, private eventCardService: EventCardService, private visualService: VisualService) {
         this.data = this.dataService.getData();
     }
@@ -50,6 +52,8 @@ export class EventCardComponent implements OnInit, OnChanges {
                 picture: this.getPicture(author, data)
             }));
         }
+
+        this.ready.emit();
     }
 
 
