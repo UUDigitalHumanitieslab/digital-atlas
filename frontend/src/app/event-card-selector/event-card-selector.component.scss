@@ -6,27 +6,33 @@
 }
 
 @each $name, $color in $colors {
-    .panel.is-#{$name} {
+    $lighten: lighten($color, 20%);
 
+    .panel.is-#{$name} {
         .author-link {
             background: $color;
             color: findColorInvert($color);
+
+            &.is-clickable:hover {
+                background: $lighten;
+            }
         }
 
         .date-tag {
-            $lighten: lighten($color, 20%);
             background: $lighten;
             color: findColorInvert($lighten);
         }
     }
 }
 
-.panel-block.author-link {
-    border-radius: 6px 6px 0 0;
-
+.panel-block.is-clickable {
     &:hover {
         background-color: $grey-lightest;
     }
+}
+
+.panel-block.author-link {
+    border-radius: 6px 6px 0 0;
 
     .column {
         padding: 0px;
@@ -50,8 +56,7 @@
     img {
         object-fit: cover;
 
-        @each $name,
-        $color in $colors {
+        @each $name, $color in $colors {
             &.is-#{$name} {
                 border: 2px solid $color;
             }

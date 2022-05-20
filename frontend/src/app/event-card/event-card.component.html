@@ -1,8 +1,18 @@
 <div class="panel is-{{color}}" *ngIf="event">
-    <p class="panel-heading">
-        {{event.title || '...'}}
-    </p>
-    <div class="panel-block author-link is-clickable" *ngFor="let author of authors" [routerLink]="['/intellectual', author.info.id]">
+    <div class="panel-heading" [ngClass]="{'is-clickable': selected}" (click)="selected && goBack.next()">
+        <div class="columns">
+            <div class="column">
+                {{event.title || '...'}}
+            </div>
+            <div class="column is-narrow">
+                <span class="icon back-button" *ngIf="selected">
+                    <fa-icon [icon]="faEllipsisV"></fa-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-block author-link is-clickable" *ngFor="let author of authors"
+        [routerLink]="['/intellectual', author.info.id]">
         <div class="column author-name has-text-right">
             {{author.info.name}}
         </div>

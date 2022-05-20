@@ -14,6 +14,7 @@ export interface EventCard  {
     picture: string;
     categoryIcon: IconDefinition;
     authors: Author[];
+    info: LifeEvent | Work | Legacy;
 }
 
 @Injectable({
@@ -32,7 +33,8 @@ export class EventCardService {
             color: this.visualService.getColor(event, data),
             category: event.category,
             categoryIcon: this.visualService.icons[event.type],
-            authors: includeAuthors ? this.getAuthors(event, data) : []
+            authors: includeAuthors ? this.getAuthors(event, data) : [],
+            info: event
         };
     }
 

@@ -1,9 +1,16 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 import { Author, CollectedData, Legacy, LifeEvent, PartialDate, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import { EventCard, EventCardService } from '../services/event-card.service';
 import { VisualService } from '../services/visual.service';
+
+interface CardAuthor {
+    info: Author,
+    picture: string,
+    events: EventCard[],
+    show: boolean
+}
 
 @Component({
     selector: 'da-event-card-selector',
@@ -12,14 +19,13 @@ import { VisualService } from '../services/visual.service';
 })
 export class EventCardSelectorComponent implements OnChanges, OnInit {
     private data: Promise<CollectedData>;
-    authors: {
-        info: Author,
-        picture: string,
-        events: EventCard[],
-    }[] = [];
+    authors: CardAuthor[] = [];
 
     @Input()
     events: (LifeEvent | Work | Legacy)[];
+
+    @Output()
+    selected = new EventEmitter<LifeEvent | Work | Legacy>();
 
     constructor(private dataService: DataService, private visualService: VisualService, private eventCardService: EventCardService) {
         this.data = this.dataService.getData();
@@ -53,12 +59,19 @@ export class EventCardSelectorComponent implements OnChanges, OnInit {
                 update.push({
                     info: author,
                     picture: this.visualService.getPictureSource(author, data),
-                    events: groupedCards
+                    events: groupedCards,
+                    show: true
                 });
             }
         }
 
         this.authors = update;
+    }
+
+    toggleAuthor(author: CardAuthor) {
+        if (this.authors.length > 1) {
+            author.show = !author.show;
+        }
     }
 }
 

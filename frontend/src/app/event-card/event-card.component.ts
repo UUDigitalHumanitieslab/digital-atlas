@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
-import { faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faEllipsisV, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
@@ -15,8 +15,15 @@ import { VisualService } from '../services/visual.service';
 export class EventCardComponent implements OnInit, OnChanges {
     private data: Promise<CollectedData>;
 
+    /**
+     * Whether this was selected and it should be possible to go back to the
+     * same events at this location.
+     */
+    @Input() selected = false;
     @Input() event: LifeEvent | Work | Legacy;
     @Input() includeAuthor = true;
+
+    @Output() goBack = new EventEmitter<{}>();
 
     authors: { info: Author, picture: string }[];
     picture: string;
@@ -24,6 +31,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     color: string;
 
     categoryIcon: IconDefinition;
+    faEllipsisV = faEllipsisV;
     faCalendar = faCalendar;
     faMapMarker = faMapMarkerAlt;
 
