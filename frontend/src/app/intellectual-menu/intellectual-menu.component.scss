@@ -71,6 +71,10 @@ $inactive: $dark;
 
             .author-image {
                 opacity: 0.5;
+
+                img {
+                    filter: sepia(0.8) blur(5px) contrast(150%);
+                }
             }
         }
 

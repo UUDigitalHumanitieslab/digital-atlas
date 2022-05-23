@@ -1,4 +1,4 @@
-<div class="intellectual-list columns" *ngIf="data">
+<div class="intellectual-list columns is-mobile" *ngIf="data">
     <div *ngFor="let author of data.authors"
         class="column author-column is-{{author.color}} has-text-centered is-clickable"
         [pTooltip]="tooltipMessage(author)" showDelay="600" [ngClass]="{'is-active': isActive(author)}"

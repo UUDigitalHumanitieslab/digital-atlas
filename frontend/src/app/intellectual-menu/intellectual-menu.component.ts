@@ -6,7 +6,7 @@ import { Author, CollectedData } from '../models/data';
 import { DataService } from '../services/data.service';
 import { VisualService } from '../services/visual.service';
 
-const doubleClickTimeout = 1000;
+const doubleClickTimeout = 500;
 
 @Component({
     selector: 'da-intellectual-menu',
