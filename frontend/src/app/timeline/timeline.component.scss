@@ -46,15 +46,15 @@
 
     @each $name, $color in colors.$colors {
         .timeline-event.is-#{$name} {
-            background-color: $color;
-            color: bulma.findColorInvert($color);
-            border-color: $color;
+            color: $color;
+            background-color: rgba(220,220,220,0.8);
+            border: none;
             height: 100%;
             width: 100%;
             border-radius: 0.5em;
 
             &:hover {
-                background-color: lighten($color, 5%);
+                background-color: rgba(220,220,220);
             }
 
             &:focus {
@@ -62,7 +62,8 @@
             }
 
             &.is-active {
-                border: 2px solid darken($color, 10%);
+                background-color: $color;
+                color: bulma.findColorInvert($color);
             }
 
         }
