@@ -18,7 +18,7 @@
             "place_of_death": "Bethesda, MD, USA", 
             "date_of_death": "1961-12-06", 
             "description": "Frantz Fanon was psychiatrist, political activists and prominent social thinker born in Martinique. He is considered one of the most important anti-colonial thinkers who has inspired generation of activists and revolutionary movements.\nFanon\u2019s personal experience as a black intellectual is reflected in his multidisciplinary analysis of the effect of colonialism on racial consciousness. Integrating psychoanalysis, phenomenology, existentialism, and Negritude theory, Fanon articulated an expansive view of the psychosocial repercussions of colonialism on colonized people.", 
-            "color": "yellow"
+            "color": "orange"
         }, 
         {
             "name": "Zygmunt Bauman", 
@@ -38,7 +38,7 @@
             "place_of_death": "London, UK", 
             "date_of_death": "2014-02-10", 
             "description": "Stuart Hall was a Jamaican-British academic, Marxist, sociologist, cultural theorists and political activist. He was the founder of the Birmingham School of Cultural Studies and pioneer thinker on issues of identity, racism, ethnicity, diaspora, representation, hegemony and reception theory. He was also a very influential media presence in the British context and beyond. Stuart Hall is described as \"one of the most influential intellectuals of the last sixty years\"", 
-            "color": "pine"
+            "color": "yellow"
         }, 
         {
             "name": "Edward Said", 
@@ -48,7 +48,7 @@
             "place_of_death": null, 
             "date_of_death": "2003-09-25", 
             "description": null, 
-            "color": "lightblue"
+            "color": "green"
         }, 
         {
             "name": "Assia Djebar", 
@@ -58,7 +58,7 @@
             "place_of_death": "Paris, France", 
             "date_of_death": "2015-02-06", 
             "description": "Assia Djebar is an Algerian writer who gives voice to women silenced by society and the colonial gaze. She paints a picture of generations both in dialogue and in conflict also thanks to elements of autobiographical memoirs. Later in her writing, she started to reflect on the Amazigh component of Algeria, such as in the novel Vaste est la prison.", 
-            "color": "terra"
+            "color": "pink"
         }, 
         {
             "name": "\u00c9tienne Balibar", 
@@ -88,7 +88,7 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": "Paul Gilroy is currently the founding Director of Sarah Parker Remond Centre for the Study of Race and Racism at University College London. He is a sociologist and a cultural studies scholar with major contributions to his name in cultural studies, crititical race studies, sociology and African-American studies.", 
-            "color": "okra"
+            "color": "indigo"
         }, 
         {
             "name": "Fatima El-Tayeb", 
@@ -108,7 +108,7 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": "Working at the intersection of feminist, queer and race studies, Sarah Ahmed defines herself as a \u2018feminist killjoy\u2019. Her research blog, feministkilljoys.com, doubles as a companion to her book Living a Feminist Life (2017) and a way to reach a wider audience as a public intellectual after leaving academia.", 
-            "color": "green"
+            "color": "turquoise"
         }, 
         {
             "name": "Johny Pitts", 
@@ -118,7 +118,7 @@
             "place_of_death": null, 
             "date_of_death": null, 
             "description": null, 
-            "color": "aquamarine"
+            "color": "cyan"
         }
     ], 
     "pictures": [
