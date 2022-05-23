@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { faBook, faLandmark, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as _ from 'underscore';
+import { environment } from '../../environments/environment';
 import { Author, CollectedData, Legacy, LifeEvent, Picture, Work } from '../models/data';
 
 @Injectable({
@@ -29,13 +30,13 @@ export class VisualService {
     }
 
     getColor(event: LifeEvent | Work | Legacy, data: CollectedData): string {
-        if (_.has(event, 'authorId')) {
-            const authorId = (event as { authorId: number }).authorId;
+        if (event.type !== 'legacy') {
+            const authorId = event.authorId;
             const author = data.authors.find(candidate => candidate.id === authorId);
             return author.color || 'blank';
         }
-        if (_.has(event, 'aboutIds')) {
-            const aboutIds = (event as { aboutIds: number[] }).aboutIds;
+        else {
+            const aboutIds = event.aboutIds;
             if (aboutIds.length === 1) {
                 const authorId = aboutIds[0];
                 const author = data.authors.find(candidate => candidate.id === authorId);
@@ -49,7 +50,7 @@ export class VisualService {
     /**
      * get the picture for an author or event
      */
-    getPicture(subject: Author|LifeEvent|Work|Legacy, data: CollectedData): Picture {
+    getPicture(subject: Author | LifeEvent | Work | Legacy, data: CollectedData): Picture {
         if (subject.pictures && subject.pictures.length) {
             const pictureName = subject.pictures[0];
             const picture = this.pictureObject(pictureName, data);
@@ -57,7 +58,7 @@ export class VisualService {
         }
     }
 
-    getPictureSource(subject: Author|LifeEvent|Work|Legacy, data: CollectedData): string {
+    getPictureSource(subject: Author | LifeEvent | Work | Legacy, data: CollectedData): string {
         const picture = this.getPicture(subject, data);
         return this.pictureSource(picture);
     }
@@ -68,7 +69,7 @@ export class VisualService {
 
     pictureSource(picture?: Picture): string {
         if (picture) {
-            return `/assets/img/${picture.filename}`;
+            return environment.assets + `/img/${picture.filename}`;
         }
     }
 }

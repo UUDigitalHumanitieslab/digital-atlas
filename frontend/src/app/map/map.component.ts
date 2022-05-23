@@ -6,13 +6,13 @@ import * as _ from 'underscore';
 
 import { faSquare } from '@fortawesome/free-solid-svg-icons';
 
+import { environment } from '../../environments/environment';
 import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
 import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
-import { TimelineEvent } from '../models/timeline';
 import { DatesService } from '../services/dates.service';
 
-const worldPath = '/assets/data/world-atlas-110m.json';
+const worldPath = '/data/world-atlas-110m.json';
 
 const mapWidth = 962;
 const mapHeight = 550;
@@ -35,7 +35,7 @@ const coords = {
     }
 };
 
-type MixedEvent = {
+type MergedEvents = {
     type: 'mixed',
     events: (LifeEvent | Work | Legacy)[]
     where: Location
@@ -45,7 +45,7 @@ type PointLocation = {
     where: Location,
     stackSize: number,
     color: string,
-    event: LifeEvent | Work | Legacy | MixedEvent,
+    event: LifeEvent | Work | Legacy | MergedEvents,
     indices: number[],
 };
 
@@ -76,7 +76,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     @ViewChild('target')
     target: ElementRef<SVGElement>;
 
-    unfoldedEvent: MixedEvent;
+    mergedEvents: MergedEvents;
     selectedPoint: PointLocation;
     selectedEvent: LifeEvent | Work | Legacy;
     previewEventTitle?: string;
@@ -133,7 +133,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         };
     }
 
-    private setPointIndices(points: PointLocation []): PointLocation[] {
+    private setPointIndices(points: PointLocation[]): PointLocation[] {
         const sorted = _.sortBy(points,
             point => this.datesService.getStartYear(point.event as LifeEvent | Work | Legacy)
         );
@@ -178,9 +178,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     /** create a mixed event from two points */
-    private mergeEvents(point1: PointLocation, point2: PointLocation): MixedEvent {
-        const events1 = (point1.event as MixedEvent).events || [point1.event as LifeEvent | Work | Legacy];
-        const events2 = (point2.event as MixedEvent).events || [point2.event as LifeEvent | Work | Legacy];
+    private mergeEvents(point1: PointLocation, point2: PointLocation): MergedEvents {
+        const events1 = (point1.event as MergedEvents).events || [point1.event as LifeEvent | Work | Legacy];
+        const events2 = (point2.event as MergedEvents).events || [point2.event as LifeEvent | Work | Legacy];
         const where = this.mergeLocation(point1, point2);
 
         return {
@@ -225,7 +225,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     private async drawMap(): Promise<void> {
-        const world = await d3.json<any>(worldPath);
+        const world = await d3.json<any>(environment.assets + worldPath);
 
         const projection = d3.geoMercator()
             .scale(400);
@@ -326,10 +326,20 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     private pointHref(point: PointLocation): string {
-        if (point.stackSize > 1) {
-            return '#stack_' + point.stackSize;
-        } else {
-            return '#' + this.icons[point.event.type].iconName;
+        if (point.where.lat === this.selectedPoint?.where.lat &&
+            point.where.long === this.selectedPoint?.where.long) {
+            if (point.stackSize > 1) {
+                return '#stack_selected_' + point.stackSize;
+            } else {
+                return '#selected_' + this.icons[point.event.type].iconName;
+            }
+        }
+        else {
+            if (point.stackSize > 1) {
+                return '#stack_' + point.stackSize;
+            } else {
+                return '#' + this.icons[point.event.type].iconName;
+            }
         }
     }
 
@@ -353,11 +363,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         }
     }
 
-    openMixedEvent(obj: MixedEvent): void {
-        this.unfoldedEvent = obj;
+    openMixedEvent(obj: MergedEvents): void {
+        this.mergedEvents = obj;
     }
 
-    selectEvent(clickEvent: MouseEvent|null, obj: PointLocation): void {
+    selectEvent(clickEvent: MouseEvent, obj: PointLocation): void {
         this.moveToPoint(obj.event);
         this.selectedPoint = obj;
 
@@ -366,12 +376,14 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
+            this.mergedEvents = undefined;
         }
     }
 
     hideEventCard(): void {
         this.selectedPoint = undefined;
         this.selectedEvent = undefined;
+        this.mergedEvents = undefined;
     }
 
     showEventPreview(e: MouseEvent, obj: PointLocation): void {
@@ -395,7 +407,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.previewEventTitle = undefined;
     }
 
-    jumpEvent(direction: 'previous'|'next'): void {
+    jumpEvent(direction: 'previous' | 'next'): void {
         let index: number;
         if (this.selectedPoint.event.type === 'mixed') {
             const eventIndex = this.selectedPoint.event.events.findIndex(event =>
@@ -410,7 +422,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         const newIndex = index + delta;
 
         const newPoint = this.pointLocations.find(point => point.indices.includes(newIndex));
-        let newEvent: LifeEvent|Work|Legacy;
+        let newEvent: LifeEvent | Work | Legacy;
 
         if (newPoint.event.type === 'mixed') {
             const eventIndex = newPoint.indices.findIndex(i => i === newIndex);

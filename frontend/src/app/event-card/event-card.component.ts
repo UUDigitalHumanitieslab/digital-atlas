@@ -1,8 +1,10 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
-import { faArrowLeft, faArrowRight, faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
+import { faArrowLeft, faArrowRight, faCalendar, faEllipsisV, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
-import { DatesService } from '../services/dates.service';
+import { EventCardService } from '../services/event-card.service';
 import { VisualService } from '../services/visual.service';
 
 @Component({
@@ -11,16 +13,25 @@ import { VisualService } from '../services/visual.service';
     styleUrls: ['./event-card.component.scss']
 })
 export class EventCardComponent implements OnInit, OnChanges {
-    @Input() event: LifeEvent|Work|Legacy;
-    data: CollectedData;
+    private data: Promise<CollectedData>;
+
+    /**
+     * Whether this was selected and it should be possible to go back to the
+     * same events at this location.
+     */
+    @Input() selected = false;
+    @Input() event: LifeEvent | Work | Legacy;
     @Input() includeAuthor = true;
 
-    authors: Author[];
+    @Output() goBack = new EventEmitter<{}>();
+
+    authors: { info: Author, picture: string }[];
     picture: string;
     formattedDate: string;
     color: string;
 
-    categoryIcon: any;
+    categoryIcon: IconDefinition;
+    faEllipsisV = faEllipsisV;
     faCalendar = faCalendar;
     faMapMarker = faMapMarkerAlt;
     faArrowLeft = faArrowLeft;
@@ -32,36 +43,36 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Output() ready = new EventEmitter<void>();
     @Output() jump = new EventEmitter<'previous'|'next'>();
 
-    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) { }
+    constructor(private dataService: DataService, private eventCardService: EventCardService, private visualService: VisualService) {
+        this.data = this.dataService.getData();
+    }
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
     }
 
     async ngOnChanges(changes: SimpleChanges): Promise<void> {
         if (this.event) {
-            this.data = await this.dataService.getData();
+            const data = await this.data;
+            const card = this.eventCardService.get(this.event, data, this.includeAuthor);
 
-            this.formattedDate = this.datesService.formatEventDate(this.event);
+            this.formattedDate = card.date;
 
-            this.picture = this.visualService.getPictureSource(this.event, this.data);
-            this.color = this.visualService.getColor(this.event, this.data);
+            this.picture = card.picture;
+            this.color = card.color;
 
-            this.categoryIcon = this.visualService.icons[this.event.type];
-
-            if (this.includeAuthor) {
-                const authorIds = (this.event as Legacy).aboutIds || [(this.event as LifeEvent|Work).authorId];
-                this.authors = authorIds.map(id => this.data.authors.find(author => author.id === id));
-            } else {
-                this.authors = [];
-            }
+            this.categoryIcon = card.categoryIcon;
+            this.authors = card.authors.map(author => ({
+                info: author,
+                picture: this.getPicture(author, data)
+            }));
         }
 
         this.ready.emit();
     }
 
 
-    getPicture(author: Author): string {
-        return this.visualService.getPictureSource(author, this.data);
+    getPicture(author: Author, data: CollectedData): string {
+        return this.visualService.getPictureSource(author, data);
     }
 
     triggerJump(direction: 'previous'|'next'): void {

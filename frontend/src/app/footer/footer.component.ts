@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -8,6 +8,9 @@ import { environment } from '../../environments/environment';
 })
 export class FooterComponent implements OnInit {
     environment = environment;
+
+    @Input()
+    compact = false;
 
     constructor() { }
 

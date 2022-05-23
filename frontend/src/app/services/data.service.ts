@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'underscore';
+import { environment } from '../../environments/environment';
 import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Picture, CollectedData, PartialDate } from '../models/data';
 import { DatesService } from './dates.service';
 
@@ -7,9 +8,11 @@ import { DatesService } from './dates.service';
     providedIn: 'root'
 })
 export class DataService {
-    private dataPath = '/assets/data/data.json';
+    private dataPath = '/data/data.json';
 
     private data: CollectedData;
+
+    private promiseData: Promise<CollectedData>;
 
     constructor(private datesService: DatesService) { }
 
@@ -17,16 +20,14 @@ export class DataService {
      * load all data
      */
     getData(): Promise<CollectedData> {
-        return new Promise<CollectedData>(async (resolve) => {
-            if (this.data === undefined) {
-                this.loadDataFile().then(result => {
-                    this.data = this.parseData(result);
-                    resolve(this.data);
-                });
-            } else {
-                resolve(this.data);
-            }
-        });
+        if (!this.promiseData) {
+            this.promiseData = new Promise<CollectedData>(async (resolve) => {
+                const result = await this.loadDataFile();
+                resolve(this.parseData(result));
+            });
+        }
+
+        return this.promiseData;
     }
 
     filterData(data, authors: Author[], categories: string[], dateRange: number[]): CollectedData {
@@ -92,7 +93,7 @@ export class DataService {
     }
 
     loadDataFile(): Promise<any> {
-        return fetch(this.dataPath).then(response => {
+        return fetch(environment.assets + this.dataPath).then(response => {
             return response.json();
         });
     }

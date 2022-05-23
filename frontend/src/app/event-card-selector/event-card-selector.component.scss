@@ -1,0 +1,65 @@
+@import "../../colors";
+@import "~bulma/sass/utilities/_all";
+
+.panel {
+    background-color: $light;
+}
+
+@each $name, $color in $colors {
+    $lighten: lighten($color, 20%);
+
+    .panel.is-#{$name} {
+        .author-link {
+            background: $color;
+            color: findColorInvert($color);
+
+            &.is-clickable:hover {
+                background: $lighten;
+            }
+        }
+
+        .date-tag {
+            background: $lighten;
+            color: findColorInvert($lighten);
+        }
+    }
+}
+
+.panel-block.is-clickable {
+    &:hover {
+        background-color: $grey-lightest;
+    }
+}
+
+.panel-block.author-link {
+    border-radius: 6px 6px 0 0;
+
+    .column {
+        padding: 0px;
+
+        &.author-name {
+            padding-right: 12px;
+            font-weight: bold;
+        }
+    }
+}
+
+.event-item {
+    width: 100%;
+}
+
+.image {
+    width: 32px;
+    height: 32px;
+    padding-top: 0px;
+
+    img {
+        object-fit: cover;
+
+        @each $name, $color in $colors {
+            &.is-#{$name} {
+                border: 2px solid $color;
+            }
+        }
+    }
+}
