@@ -28,6 +28,7 @@ import { AboutComponent } from './about/about.component';
 import { ContributorsComponent } from './about/contributors/contributors.component';
 import { PinComponent } from './about/pin/pin.component';
 import { CompleteTimelineComponent } from './complete-timeline/complete-timeline.component';
+import { IntellectualMenuComponent } from './intellectual-menu/intellectual-menu.component';
 
 @NgModule({
     declarations: [
@@ -47,6 +48,7 @@ import { CompleteTimelineComponent } from './complete-timeline/complete-timeline
         ContributorsComponent,
         PinComponent,
         CompleteTimelineComponent,
+        IntellectualMenuComponent,
     ],
     imports: [
         AppRoutingModule,
