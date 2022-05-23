@@ -4,7 +4,7 @@
         <style>
             .cls-1 { fill: none; }
             .cls-2 { clip-path: url(#clip-path); }
-            .cls-3 { fill: #3273dc; }
+            .cls-3 { fill: #427b96; }
             .cls-4 { fill: #fff; }
         </style>
         <clipPath id="clip-path">

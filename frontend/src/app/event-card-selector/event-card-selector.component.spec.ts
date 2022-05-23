@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { MapComponent } from './map.component';
+import { EventCardSelectorComponent } from './event-card-selector.component';
 
-describe('MapComponent', () => {
-    let component: MapComponent;
-    let fixture: ComponentFixture<MapComponent>;
+describe('EventCardSelectorComponent', () => {
+    let component: EventCardSelectorComponent;
+    let fixture: ComponentFixture<EventCardSelectorComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [MapComponent],
+            declarations: [EventCardSelectorComponent],
             imports: [FontAwesomeModule]
         })
             .compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(MapComponent);
+        fixture = TestBed.createComponent(EventCardSelectorComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

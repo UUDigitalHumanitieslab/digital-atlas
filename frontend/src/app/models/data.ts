@@ -19,7 +19,11 @@ export interface Location {
 
 export class PartialDate {
     year: number;
+
+    // 1-based month
     month?: number;
+
+    // 1-based day of the month
     day?: number;
 
     constructor(value: string) {
@@ -34,6 +38,38 @@ export class PartialDate {
             case 1:
                 this.year = parseInt(parts[0], 10);
                 break;
+        }
+    }
+
+    static comparer(a?: PartialDate, b?: PartialDate): 0 | -1 | 1 {
+        if (!a && !b) {
+            return 0;
+        } else if (a && !b) {
+            // place empty dates last
+            return -1;
+        } else if (b && !a) {
+            return 1;
+        }
+        if (a.year < b.year) {
+            return -1;
+        } else if (a.year > b.year) {
+            return 1;
+        }
+
+        const [firstMonth, secondMonth] = [a.month || 1, b.month || 1];
+        if (firstMonth < secondMonth) {
+            return -1;
+        } else if (firstMonth > secondMonth) {
+            return 1;
+        }
+
+        const [firstDay, secondDay] = [a.day || 1, b.day || 1];
+        if (firstDay < secondDay) {
+            return -1;
+        } else if (firstDay > secondDay) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 
