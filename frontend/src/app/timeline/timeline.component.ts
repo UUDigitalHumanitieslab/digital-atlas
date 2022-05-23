@@ -57,7 +57,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     processData(): void {
         this.events = this.filterAuthors(this.getEvents(this.data));
-        this.eventsByColumn = this.splitEventsIntoColumns(_.shuffle(this.events));
+        this.eventsByColumn = this.splitEventsIntoColumns(this.events);
         const timeDomain = this.getTimeDomain(this.events);
         this.minYear = timeDomain[0];
         this.maxYear = timeDomain[1];
@@ -133,9 +133,9 @@ export class TimelineComponent implements OnInit, OnChanges {
      * has no overlap in dates
      */
      private splitEventsIntoColumns(events: TimelineEvent[]): TimelineEvent[][] {
-        const allRows = _.reduce(events, this.addEventToColumns.bind(this), []);
+        const allRows = _.reduce(_.shuffle(events), this.addEventToColumns.bind(this), []);
         const sortedRows = allRows.map(row => _.sortBy(row, event => event.startYear));
-        return sortedRows;
+        return _.shuffle(sortedRows);
     }
 
     /**
