@@ -278,6 +278,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
         const newPosition = _.max([0, eventTop - window.innerHeight / 3]);
 
+        this.hideEventPreview();
         window.scrollTo({
             behavior: 'smooth',
             top: newPosition,
