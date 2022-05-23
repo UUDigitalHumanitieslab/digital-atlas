@@ -57,7 +57,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     processData(): void {
         this.events = this.filterAuthors(this.getEvents(this.data));
-        this.eventsByColumn = this.splitEventsIntoColumns(_.shuffle(this.events));
+        this.eventsByColumn = this.splitEventsIntoColumns(this.events);
         const timeDomain = this.getTimeDomain(this.events);
         this.minYear = timeDomain[0];
         this.maxYear = timeDomain[1];
@@ -133,9 +133,9 @@ export class TimelineComponent implements OnInit, OnChanges {
      * has no overlap in dates
      */
      private splitEventsIntoColumns(events: TimelineEvent[]): TimelineEvent[][] {
-        const allRows = _.reduce(events, this.addEventToColumns.bind(this), []);
+        const allRows = _.reduce(_.shuffle(events), this.addEventToColumns.bind(this), []);
         const sortedRows = allRows.map(row => _.sortBy(row, event => event.startYear));
-        return sortedRows;
+        return _.shuffle(sortedRows);
     }
 
     /**
@@ -167,7 +167,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     setTimeRange(minYear, maxYear): number[] {
         if (minYear && maxYear) {
-            return _.range(this.minYear, this.maxYear);
+            return _.range(this.minYear, this.maxYear + 1);
         }
         return [];
     }
@@ -274,17 +274,15 @@ export class TimelineComponent implements OnInit, OnChanges {
         const windowTop = window.scrollY;
         const windowBottom = windowTop + window.innerHeight;
 
-        const cardTop = this.eventCard.nativeElement.offsetTop;
-        const cardBottom = cardTop +  this.eventCard.nativeElement.offsetHeight;
+        const eventTop = this.eventCard.nativeElement.offsetTop;
 
-        const cardFits = this.eventCard.nativeElement.offsetHeight <= window.innerHeight;
+        const newPosition = _.max([0, eventTop - window.innerHeight / 3]);
 
-        if (windowTop > cardTop || (cardFits && windowBottom < cardBottom)) {
-            window.scrollTo({
-                behavior: 'smooth',
-                top: cardTop,
-            });
-        }
+        this.hideEventPreview();
+        window.scrollTo({
+            behavior: 'smooth',
+            top: newPosition,
+        });
     }
 
     jumpEvent(direction: 'previous'|'next'): void {
