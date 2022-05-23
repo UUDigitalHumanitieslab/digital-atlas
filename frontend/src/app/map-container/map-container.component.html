@@ -1,38 +1,41 @@
 <da-intellectual-menu (selectedAuthors)="selectedAuthors = $event; updateFilteredData();"></da-intellectual-menu>
 
-<div class="panel filter-menu is-dark" [ngClass]="{'is-collapsed': hideFilterMenu}" *ngIf="data">
-    <p class="panel-heading is-clickable" (click)="hideFilterMenu = !hideFilterMenu">
-        <span>Filter events</span>
-    </p>
-    <div class="panel-block">
-        <div class="field">
-            <label class="label">
-                Type of event
-            </label>
-            <div class="control">
-                <da-checkboxes [options]="categories"
-                    [icons]="eventIcons"
-                    (selection)="selectedCategories = $event; updateFilteredData()">
-                </da-checkboxes>
-            </div>
+<div class="filter-menu" [ngClass]="{'is-collapsed': hideFilterMenu}" *ngIf="data">
+    <div class="columns">
+        <div class="column is-narrow prev-column">
+            <button class="button is-rounded is-dark" [ngClass]="{'is-invisible': !showPrevButton}" pTooltip="go to previous event" (click)="previous()">
+                <span class="icon">
+                    <fa-icon [icon]="faArrowLeft">previous</fa-icon>
+                </span>
+            </button>
         </div>
-    </div>
-    <div class="panel-block">
-        <div class="field">
-            <label class="label">
-                Year
-            </label>
-            <div class="control">
-                <p-slider [range]="true" [min]="minYear" [max]="maxYear"
-                [(ngModel)]="selectedDateRange" (onSlideEnd)="updateFilteredData()"></p-slider>
-            </div>
+        <div class="column is-narrow checkboxes-column" pTooltip="Filter the events by their type" tooltipPosition="top">
+            <da-checkboxes [options]="categories" [icons]="eventIcons"
+                (selection)="selectedCategories = $event; updateFilteredData()">
+            </da-checkboxes>
         </div>
 
-        <div class="columns">
-            <div class="column">{{selectedDateRange[0]}}</div>
-            <div class="column" style="text-align: right;">{{selectedDateRange[1]}}</div>
+        <div class="column years-column" pTooltip="Filter the events by year" tooltipPosition="top">
+            <div class="field">
+                <div class="control">
+                    <p-slider [range]="true" [min]="minYear" [max]="maxYear" [(ngModel)]="selectedDateRange"
+                        (onSlideEnd)="updateFilteredData()"></p-slider>
+                </div>
+            </div>
+
+            <div class="columns has-text-weight-bold">
+                <div class="column">{{selectedDateRange[0]}}</div>
+                <div class="column" style="text-align: right;">{{selectedDateRange[1]}}</div>
+            </div>
+        </div>
+        <div class="column next-column is-narrow">
+            <button class="button button-next is-rounded is-dark" [ngClass]="{'is-invisible': !showNextButton}" pTooltip="go to next event" (click)="next()">
+                <span class="icon">
+                    <fa-icon [icon]="faArrowRight">next</fa-icon>
+                </span>
+            </button>
         </div>
     </div>
 </div>
 
-<da-map [data]="filteredData"></da-map>
+<da-map [data]="filteredData" #map (showPrevButton)="showPrevButton=$event" (showNextButton)="showNextButton=$event"></da-map>

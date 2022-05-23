@@ -37,6 +37,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     faArrowLeft = faArrowLeft;
     faArrowRight = faArrowRight;
 
+    @Input() canJump: boolean;
     @Input() isFirst: boolean;
     @Input() isLast: boolean;
 

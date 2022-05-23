@@ -1,29 +1,42 @@
-@import '../../variables';
+@import "../../variables";
 @import "../../colors";
 
-
 .filter-menu {
-    background-color: white;
     position: absolute;
-    min-width: 25%;
-    margin: 1em;
+    bottom: 5em;
+    width: 100vw;
 
     .panel-block {
         display: block;
     }
+
+    .column {
+        .label {
+            visibility: hidden;
+        }
+
+        &:hover .label {
+            visibility: visible;
+        }
+    }
 }
 
-.filter-menu.is-collapsed {
-    .panel-heading {
-        border-radius: 6px;
-    }
+.prev-column {
+    padding-left: 2em;
+}
 
-    .panel-block {
-        display: none;
+.checkboxes-column {
+    padding-top: 1.2em;
+}
+
+.years-column {
+    padding-bottom: 0em;
+
+    .columns .column {
+        padding-bottom: 0;
     }
 }
 
-.field-checkbox>label {
-    margin-left: .5rem;
-    line-height: 1;
+.next-column {
+    padding-right: 2em;
 }

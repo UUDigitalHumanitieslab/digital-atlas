@@ -4,10 +4,10 @@
 </div>
 
 <div *ngIf="selectedEvent" class="event-card-container">
-    <da-event-card [event]="selectedEvent" [selected]="!!mergedEvents" (goBack)="selectedEvent = undefined" (jump)="jumpEvent($event)"></da-event-card>
+    <da-event-card [event]="selectedEvent" [selected]="!!mergedEvents" (goBack)="backToMix()"></da-event-card>
 </div>
 <div *ngIf="!selectedEvent && mergedEvents" class="event-card-container">
-    <da-event-card-selector [events]="mergedEvents.events" (selected)="selectedEvent = $event"></da-event-card-selector>
+    <da-event-card-selector [events]="mergedEvents.events" (selected)="selectEventFromMix($event)"></da-event-card-selector>
 </div>
 
 <ng-container *ngFor="let icon of iconList">

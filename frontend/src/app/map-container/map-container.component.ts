@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { faArrowLeft, faArrowRight, faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
+import { MapComponent } from '../map/map.component';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
@@ -12,6 +13,8 @@ import { VisualService } from '../services/visual.service';
     styleUrls: ['./map-container.component.scss']
 })
 export class MapContainerComponent implements OnInit {
+    faArrowLeft = faArrowLeft;
+    faArrowRight = faArrowRight;
     faFilter = faFilter;
 
     hideFilterMenu = true;
@@ -29,9 +32,15 @@ export class MapContainerComponent implements OnInit {
     selectedAuthors: Author[] = [];
     selectedDateRange: number[] = [];
 
+    showPrevButton = false;
+    showNextButton = false;
+
     eventIcons: VisualService['icons'][keyof VisualService['icons']][];
 
     pictures: { [authorId: number]: string };
+
+    @ViewChild(MapComponent)
+    map!: MapComponent;
 
     constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
         this.eventIcons = [
@@ -82,4 +91,11 @@ export class MapContainerComponent implements OnInit {
         }
     }
 
+    previous(): void {
+        this.map.jumpEvent('previous');
+    }
+
+    next(): void {
+        this.map.jumpEvent('next');
+    }
 }

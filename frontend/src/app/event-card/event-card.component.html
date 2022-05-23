@@ -27,7 +27,7 @@
             <img [src]="picture" alt="" class="is-radiusless">
         </figure>
     </div>
-    <div class="panel-block" *ngIf="event.description">
+    <div class="panel-block description" *ngIf="event.description">
         <div class="content">
             <p>{{event.description}}</p>
         </div>
@@ -50,7 +50,7 @@
         </span>
         {{event.where?.name}}
     </p>
-    <div class="panel-block is-justify-content-space-between">
+    <div class="panel-block is-justify-content-space-between" *ngIf="canJump">
         <div>
             <button class="button is-small is-light" pTooltip="go to previous event"
             (click)="triggerJump('previous')" *ngIf="!isFirst">

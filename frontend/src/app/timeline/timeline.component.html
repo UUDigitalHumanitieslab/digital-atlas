@@ -34,7 +34,7 @@
         <div [style.height.em]="selectedEventPosition"></div>
         <div class="block" *ngIf="selectedEvent"  #eventCard>
             <da-event-card [event]="selectedEvent.data" [includeAuthor]="authors?.length > 1"
-                (ready)="scrollToEventCard()" (jump)="jumpEvent($event)"
+                (ready)="scrollToEventCard()" (jump)="jumpEvent($event)" [canJump]="true"
                 [isFirst]="selectedEvent.index == 0" [isLast]="selectedEvent.index == events.length - 1">
             </da-event-card>
         </div>
