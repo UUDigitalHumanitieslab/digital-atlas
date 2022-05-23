@@ -79,6 +79,7 @@ export class DataService {
     // LINKED DATA LOOKUPS
 
     private matchNames(a: string, b: string): boolean {
+        if (a == null || b == null) { return false; }
         const process = (name: string) => name.trim().toLowerCase();
         return process(a) === process(b);
     }
