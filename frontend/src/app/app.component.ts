@@ -8,7 +8,7 @@ import { VisualService } from './services/visual.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit,OnDestroy {
+export class AppComponent implements AfterViewInit, OnDestroy {
     private subscription = new Subscription();
     title = 'digital-atlas';
     compactFooter = false;
