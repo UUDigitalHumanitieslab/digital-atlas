@@ -1,8 +1,7 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Author, CollectedData, Legacy, LifeEvent, Picture, Work } from '../models/data';
-import { TimelineEvent } from '../models/timeline';
+import { Author, CollectedData, LifeEvent, Picture, } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
 import { VisualService } from '../services/visual.service';
@@ -20,12 +19,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
     picture: Picture;
     subscription = new Subscription();
 
-    selectedEvent: LifeEvent|Work|Legacy;
-    selectedEventPosition: number;
-
     icons: any;
-
-    @ViewChild('eventCard') eventCard: ElementRef;
 
     constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService,
                 private visualService: VisualService) {
@@ -49,25 +43,4 @@ export class IntellectualComponent implements OnInit, OnDestroy {
         this.pictureFile = this.visualService.pictureSource(this.picture);
     }
 
-    onEventSelect(event: {event: LifeEvent|Work|Legacy, y: number}): void {
-        this.selectedEvent = event.event;
-        this.selectedEventPosition = event.y;
-    }
-
-    scrollToEventCard(): void {
-        const windowTop = window.scrollY;
-        const windowBottom = windowTop + window.innerHeight;
-
-        const cardTop = this.eventCard.nativeElement.offsetTop;
-        const cardBottom = cardTop +  this.eventCard.nativeElement.offsetHeight;
-
-        const cardFits = this.eventCard.nativeElement.offsetHeight <= window.innerHeight;
-
-        if (windowTop > cardTop || (cardFits && windowBottom < cardBottom)) {
-            window.scrollTo({
-                behavior: 'smooth',
-                top: cardTop,
-            });
-        }
-    }
 }

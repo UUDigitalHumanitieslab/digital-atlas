@@ -1,0 +1,23 @@
+<div class="section">
+    <div class="block">
+        <h1 class="title">Timeline</h1>
+        <p class="has-text-grey">
+            <span class="icon">
+                <fa-icon [icon]="icons['life event']"></fa-icon>
+            </span>
+            life event
+            <span class="icon">
+                <fa-icon [icon]="icons['work']"></fa-icon>
+            </span>
+            work
+            <span class="icon">
+                <fa-icon [icon]="icons['legacy']"></fa-icon>
+            </span>
+            legacy
+        </p>
+    </div>
+
+    <div *ngIf="data">
+        <da-timeline [authors]="data.authors" [narrowCardColumn]="true"></da-timeline>
+    </div>
+</div>
