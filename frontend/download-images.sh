@@ -6,6 +6,7 @@ IMAGES ARE NOT FOR REDISTRIBUTION
 """
 
 export STATIC_URL=https://dhstatic.hum.uu.nl/
+mkdir -p src/assets/img
 cd src/assets/img
 rm *
 curl "$STATIC_URL/2022_04_22 Yale FAS Fatima El-Tayeb_Lavitt_1874_R.jpg" -O
