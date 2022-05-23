@@ -376,12 +376,14 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
+            this.mergedEvents = undefined
         }
     }
 
     hideEventCard(): void {
         this.selectedPoint = undefined;
         this.selectedEvent = undefined;
+        this.mergedEvents = undefined;
     }
 
     showEventPreview(e: MouseEvent, obj: PointLocation): void {
