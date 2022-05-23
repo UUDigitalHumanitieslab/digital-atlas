@@ -42,22 +42,30 @@
     </div>
 </footer>
 <footer class="footer is-hidden-print is-compact" *ngIf="compact">
-    <div class="level">
-        <div class="level-item">
-            <a [routerLink]="['/', 'about']">about the project</a>
-        </div>
-        <div class="level-item">
-            <a class="nwo-logo image" href="https://www.nwo.nl/en/projects/ig18014" target="_blank">
-                <img src="{{environment.assets}}/nwo.svg" alt="NWO logo" i18n-alt width="53" height="90" />
-            </a>
-        </div>
-        <div class="level-item">
-            <a class="university-logo image" href="https://uu.nl" target="_blank">
-                <img src="{{environment.assets}}/utrecht-university.svg" alt="Utrecht University logo" i18n-alt />
-            </a>
-            <a class="lab-logo image" href="https://dig.hum.uu.nl" target="_blank">
-                <img src="{{environment.assets}}/dhlab.svg" alt="Digital Humanities Lab logo" i18n-alt />
-            </a>
+    <div class="container">
+        <div class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <a [routerLink]="['/', 'about']">about the project</a>
+                </div>
+            </div>
+    
+            <div class="level-right">
+                <div class="level-item">
+                    <a class="nwo-logo image" href="https://www.nwo.nl/en/projects/ig18014" target="_blank">
+                        <img src="{{environment.assets}}/nwo.svg" alt="NWO logo" i18n-alt width="53" height="90" />
+                    </a>
+                </div>
+                <div class="level-item">
+                    <a class="university-logo image" href="https://uu.nl" target="_blank">
+                        <img src="{{environment.assets}}/utrecht-university.svg" alt="Utrecht University logo" i18n-alt />
+                    </a>
+                    <a class="lab-logo image" href="https://dig.hum.uu.nl" target="_blank">
+                        <img src="{{environment.assets}}/dhlab.svg" alt="Digital Humanities Lab logo" i18n-alt />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
+
 </footer>
