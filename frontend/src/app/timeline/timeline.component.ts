@@ -274,17 +274,14 @@ export class TimelineComponent implements OnInit, OnChanges {
         const windowTop = window.scrollY;
         const windowBottom = windowTop + window.innerHeight;
 
-        const cardTop = this.eventCard.nativeElement.offsetTop;
-        const cardBottom = cardTop +  this.eventCard.nativeElement.offsetHeight;
+        const eventTop = this.eventCard.nativeElement.offsetTop;
 
-        const cardFits = this.eventCard.nativeElement.offsetHeight <= window.innerHeight;
+        const newPosition = _.max([0, eventTop - window.innerHeight / 3]);
 
-        if (windowTop > cardTop || (cardFits && windowBottom < cardBottom)) {
-            window.scrollTo({
-                behavior: 'smooth',
-                top: cardTop,
-            });
-        }
+        window.scrollTo({
+            behavior: 'smooth',
+            top: newPosition,
+        });
     }
 
     jumpEvent(direction: 'previous'|'next'): void {
