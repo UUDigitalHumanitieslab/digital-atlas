@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import * as _ from 'underscore';
@@ -21,7 +21,11 @@ export class TimelineComponent implements OnInit, OnChanges {
     minYear: number;
     maxYear: number;
     timeRange: number[];
+
+    @Input() narrowCardColumn: boolean;
+
     selectedEvent: TimelineEvent;
+    selectedEventPosition: number;
 
     icons: VisualService['icons'];
 
@@ -30,6 +34,8 @@ export class TimelineComponent implements OnInit, OnChanges {
     previewEvent: TimelineEvent;
     mouseX: number;
     mouseY: number;
+
+    @ViewChild('eventCard') eventCard: ElementRef;
 
     @Output() eventSelect = new EventEmitter<{event: LifeEvent|Work|Legacy, y: number}>();
 
@@ -57,6 +63,7 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.maxYear = timeDomain[1];
         this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
         this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
+        this.setEventIndices();
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -84,6 +91,7 @@ export class TimelineComponent implements OnInit, OnChanges {
                 authorId: event.authorId,
                 type: 'life event' as EventType,
                 data: event,
+                index: -1, // temporary index, will be set when we have figured out layout
             }
         ));
     }
@@ -98,6 +106,7 @@ export class TimelineComponent implements OnInit, OnChanges {
                 authorId: work.authorId,
                 type: 'work' as EventType,
                 data: work,
+                index: -1,
             }
         ));
     }
@@ -112,7 +121,8 @@ export class TimelineComponent implements OnInit, OnChanges {
                 author: legacy.about[index],
                 authorId: id,
                 type: 'legacy' as EventType,
-                data: legacy
+                data: legacy,
+                index: -1,
             }));
         });
         return _.flatten(legacyTimelineEvents);
@@ -203,6 +213,21 @@ export class TimelineComponent implements OnInit, OnChanges {
         return tiles.length ? _.last(tiles).endYear : minYear - 1;
     }
 
+    private setEventIndices(): void {
+        let index = 0;
+        _.range(this.minYear, this.maxYear).forEach(year =>
+            this.columns.forEach(column => {
+                const tile = column.find(t =>
+                    t.event && (t.startYear === year || (year === this.minYear && t.startYear === undefined))
+                );
+                if (tile) {
+                    tile.event.index = index;
+                    index += 1;
+                }
+            })
+        );
+    }
+
     showYear(year: number): boolean {
         return year % 5 === 0;
     }
@@ -219,18 +244,17 @@ export class TimelineComponent implements OnInit, OnChanges {
         }
     }
 
+    getPosition(event: TimelineEvent): number {
+        return (event.startYear - this.minYear) * this.tickHeight || 0;
+    }
+
     getColor(event: TimelineEvent): string {
         return this.visualService.getColor(event.data, this.data);
     }
 
     selectEvent(event: TimelineEvent): void {
         this.selectedEvent = event;
-
-        // emit event an location
-        const y = (event.startYear - this.minYear) * this.tickHeight || 0;
-        this.eventSelect.emit({
-            event: event.data, y,
-        });
+        this.selectedEventPosition = this.getPosition(event);
     }
 
     showEventPreview(timelineEvent: TimelineEvent): void {
@@ -244,5 +268,30 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     hideEventPreview(): void {
         this.previewEvent = undefined;
+    }
+
+    scrollToEventCard(): void {
+        const windowTop = window.scrollY;
+        const windowBottom = windowTop + window.innerHeight;
+
+        const cardTop = this.eventCard.nativeElement.offsetTop;
+        const cardBottom = cardTop +  this.eventCard.nativeElement.offsetHeight;
+
+        const cardFits = this.eventCard.nativeElement.offsetHeight <= window.innerHeight;
+
+        if (windowTop > cardTop || (cardFits && windowBottom < cardBottom)) {
+            window.scrollTo({
+                behavior: 'smooth',
+                top: cardTop,
+            });
+        }
+    }
+
+    jumpEvent(direction: 'previous'|'next'): void {
+        const index = this.selectedEvent.index;
+        const delta = direction === 'previous' ? - 1 : 1;
+        const newIndex = index + delta;
+        this.selectedEvent = this.events.find(event => event.index === newIndex);
+        this.selectedEventPosition = this.getPosition(this.selectedEvent);
     }
 }

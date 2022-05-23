@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'underscore';
-import { CollectedData, Legacy, LifeEvent, PartialDate, Work } from '../models/data';
+import { Legacy, LifeEvent, PartialDate, Work } from '../models/data';
 
 @Injectable({
     providedIn: 'root'
@@ -50,4 +50,5 @@ export class DatesService {
         const endYear = this.getEndYear(event);
         return startYear <= maxYear && endYear >= minYear;
     }
+
 }

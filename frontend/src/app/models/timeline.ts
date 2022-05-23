@@ -12,6 +12,7 @@ export type TimelineEvent = {
     author: string,
     type: EventType,
     data: TimelineData,
+    index: number,
 };
 
 /** element in the timeline layout - either the container for an event or empty filling */

@@ -40,4 +40,22 @@
         </span>
         {{event.where?.name}}
     </p>
+    <div class="panel-block is-justify-content-space-between">
+        <div>
+            <button class="button is-small is-light" pTooltip="go to previous event"
+            (click)="triggerJump('previous')" *ngIf="!isFirst">
+                <span class="icon">
+                    <fa-icon [icon]="faArrowLeft">previous</fa-icon>
+                </span>
+            </button>
+        </div>
+        <div>
+            <button class="button is-small is-light" pTooltip="go to next event"
+            (click)="triggerJump('next')" *ngIf="!isLast">
+                <span class="icon">
+                    <fa-icon [icon]="faArrowRight">next</fa-icon>
+                </span>
+            </button>
+        </div>
+    </div>
 </div>

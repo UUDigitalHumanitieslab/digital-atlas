@@ -10,6 +10,7 @@ import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data
 import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
 import { TimelineEvent } from '../models/timeline';
+import { DatesService } from '../services/dates.service';
 
 const worldPath = '/assets/data/world-atlas-110m.json';
 
@@ -44,7 +45,8 @@ type PointLocation = {
     where: Location,
     stackSize: number,
     color: string,
-    event: LifeEvent | Work | Legacy | MixedEvent
+    event: LifeEvent | Work | Legacy | MixedEvent,
+    indices: number[],
 };
 
 
@@ -75,6 +77,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     target: ElementRef<SVGElement>;
 
     unfoldedEvent: MixedEvent;
+    selectedPoint: PointLocation;
     selectedEvent: LifeEvent | Work | Legacy;
     previewEventTitle?: string;
 
@@ -87,7 +90,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     allPoints: PointLocation[];
     pointLocations: PointLocation[];
 
-    constructor(private visualService: VisualService) {
+    constructor(private visualService: VisualService, private datesService: DatesService) {
         this.icons = visualService.icons;
         this.iconList = Object.values(visualService.icons);
 
@@ -114,9 +117,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
                 _.map(this.data.works, this.locationFromEvent, this),
                 _.map(this.data.legacies, this.locationFromEvent, this)
             ]);
-            this.allPoints = allEvents.filter(event => event.where);
-            this.pointLocations = this.collapseOverlappingPoints(this.allPoints);
-            this.drawPoints();
+            const points = allEvents.filter(event => event.where);
+            this.allPoints = this.setPointIndices(points);
+            this.updatePoints();
         }
     }
 
@@ -126,8 +129,19 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             color: this.visualService.getColor(event, this.data),
             event,
             stackSize: 1,
+            indices: [-1], // temprorary index, wi
         };
     }
+
+    private setPointIndices(points: PointLocation []): PointLocation[] {
+        const sorted = _.sortBy(points,
+            point => this.datesService.getStartYear(point.event as LifeEvent | Work | Legacy)
+        );
+        sorted.forEach((point, index) => point.indices = [index]);
+
+        return sorted;
+    }
+
 
     /** take an array of points and merge all overlapping ones */
     private collapseOverlappingPoints(points: PointLocation[]): PointLocation[] {
@@ -152,12 +166,14 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         const color = point1.color === point2.color ? point1.color : 'blank';
         const event = this.mergeEvents(point1, point2);
         const stackSize = point1.stackSize + point2.stackSize;
+        const indices = _.flatten([point1.indices, point2.indices]);
 
         return {
             where: event.where,
             stackSize,
             color,
             event,
+            indices,
         };
     }
 
@@ -263,8 +279,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             // update points overlap and size
             this.zoomFactor = e.transform.k;
 
-            this.pointLocations = this.collapseOverlappingPoints(this.allPoints);
-            this.drawPoints();
+            this.updatePoints();
 
         };
 
@@ -284,6 +299,11 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
         d3.select(this.target.nativeElement)
             .call(this.zoom);
+    }
+
+    private updatePoints(): void {
+        this.pointLocations = this.collapseOverlappingPoints(this.allPoints);
+        this.drawPoints();
     }
 
     private async drawPoints(): Promise<void> {
@@ -337,8 +357,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.unfoldedEvent = obj;
     }
 
-    selectEvent(clickEvent: MouseEvent, obj: { event: LifeEvent | Work | Legacy | MixedEvent }): void {
+    selectEvent(clickEvent: MouseEvent|null, obj: PointLocation): void {
         this.moveToPoint(obj.event);
+        this.selectedPoint = obj;
 
         if (obj.event.type === 'mixed') {
             this.selectedEvent = undefined;
@@ -349,6 +370,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     hideEventCard(): void {
+        this.selectedPoint = undefined;
         this.selectedEvent = undefined;
     }
 
@@ -371,6 +393,34 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     hideEventPreview(): void {
         this.previewEventTitle = undefined;
+    }
+
+    jumpEvent(direction: 'previous'|'next'): void {
+        let index: number;
+        if (this.selectedPoint.event.type === 'mixed') {
+            const eventIndex = this.selectedPoint.event.events.findIndex(event =>
+                _.isEqual(event, this.selectedEvent)
+            );
+            index = this.selectedPoint.indices[eventIndex];
+        } else {
+            index = this.selectedPoint.indices[0];
+        }
+
+        const delta = direction === 'previous' ? -1 : 1;
+        const newIndex = index + delta;
+
+        const newPoint = this.pointLocations.find(point => point.indices.includes(newIndex));
+        let newEvent: LifeEvent|Work|Legacy;
+
+        if (newPoint.event.type === 'mixed') {
+            const eventIndex = newPoint.indices.findIndex(i => i === newIndex);
+            newEvent = newPoint.event.events[eventIndex];
+        } else {
+            newEvent = newPoint.event;
+        }
+
+        this.selectEvent(null, newPoint);
+        this.selectedEvent = newEvent;
     }
 
     get stackSizes(): number[] {
