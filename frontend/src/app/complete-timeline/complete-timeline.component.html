@@ -1,3 +1,5 @@
+<da-intellectual-menu (selectedAuthors)="updateAuthors($event)"></da-intellectual-menu>
+
 <div class="section">
     <div class="block">
         <h1 class="title">Timeline</h1>
@@ -17,7 +19,7 @@
         </p>
     </div>
 
-    <div *ngIf="data">
-        <da-timeline [authors]="data.authors" [narrowCardColumn]="true"></da-timeline>
+    <div *ngIf="filteredData">
+        <da-timeline [authors]="filteredData.authors" [narrowCardColumn]="true"></da-timeline>
     </div>
 </div>

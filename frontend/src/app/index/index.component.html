@@ -2,7 +2,7 @@
 <div class="container">
 <div class="columns is-multiline is-centered" *ngIf="authors">
     <div class="column is-2" *ngFor="let author of authors">
-        <div class="card is-radiusless is-{{author.color}}" [routerLink]="['/intellectual', author.id]">
+        <div class="card is-radiusless is-{{author.color || 'blank'}}" [routerLink]="['/intellectual', author.id]">
             <header class="card-header">
                 <p class="card-header-title">
                     {{author.name}}
