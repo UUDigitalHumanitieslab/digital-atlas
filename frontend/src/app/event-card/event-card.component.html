@@ -5,7 +5,7 @@
                 {{event.title || '...'}}
             </div>
             <div class="column is-narrow">
-                <span class="icon back-button" *ngIf="selected">
+                <span class="icon back-button" pTooltip="go back" *ngIf="selected">
                     <fa-icon [icon]="faEllipsisV"></fa-icon>
                 </span>
             </div>
