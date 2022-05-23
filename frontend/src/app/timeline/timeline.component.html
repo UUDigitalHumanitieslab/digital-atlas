@@ -30,7 +30,7 @@
             </div>    
         </div>        
     </div>
-    <div class="column event-column" [ngClass]="{'is-one-third': narrowCardColumn}">
+    <div class="column event-column">
         <div [style.height.em]="selectedEventPosition"></div>
         <div class="block" *ngIf="selectedEvent"  #eventCard>
             <da-event-card [event]="selectedEvent.data" [includeAuthor]="authors?.length > 1"
