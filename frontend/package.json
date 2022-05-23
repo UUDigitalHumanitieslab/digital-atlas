@@ -2,7 +2,7 @@
     "name": "digital-atlas",
     "scripts": {
         "start": "yarn serve",
-        "build": "yarn build:colors && ng build --deploy-url='/static/'",
+        "build": "./download-images.sh && yarn build:colors && ng build --deploy-url='/static/'",
         "test": "yarn build:colors && ng test --watch=true",
         "lint": "ng lint",
         "build:colors": "cd src && node build-colors.js",

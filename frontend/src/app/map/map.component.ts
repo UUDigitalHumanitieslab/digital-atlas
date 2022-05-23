@@ -6,13 +6,13 @@ import * as _ from 'underscore';
 
 import { faSquare } from '@fortawesome/free-solid-svg-icons';
 
+import { environment } from '../../environments/environment';
 import { CollectedData, Legacy, LifeEvent, Location, Work } from '../models/data';
 import { colors } from '../../colors';
 import { VisualService } from '../services/visual.service';
-import { TimelineEvent } from '../models/timeline';
 import { DatesService } from '../services/dates.service';
 
-const worldPath = '/assets/data/world-atlas-110m.json';
+const worldPath = '/data/world-atlas-110m.json';
 
 const mapWidth = 962;
 const mapHeight = 550;
@@ -225,7 +225,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     private async drawMap(): Promise<void> {
-        const world = await d3.json<any>(worldPath);
+        const world = await d3.json<any>(environment.assets + worldPath);
 
         const projection = d3.geoMercator()
             .scale(400);
