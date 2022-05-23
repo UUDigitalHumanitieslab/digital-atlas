@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import * as _ from 'underscore';
 import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Picture, CollectedData, PartialDate } from '../models/data';
+import { DatesService } from './dates.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +11,7 @@ export class DataService {
 
     private data: CollectedData;
 
-    constructor() { }
+    constructor(private datesService: DatesService) { }
 
     /**
      * load all data
@@ -25,6 +27,52 @@ export class DataService {
                 resolve(this.data);
             }
         });
+    }
+
+    filterData(data, authors: Author[], categories: string[], dateRange: number[]): CollectedData {
+        const authorIds = authors.map(author => author.id);
+
+        let lifeEvents: LifeEvent[];
+        if (categories.includes('Life')) {
+            lifeEvents = data.lifeEvents.filter(event =>
+                authorIds.includes(event.authorId)
+                &&
+                this.datesService.eventInDateRange(event, dateRange)
+            );
+        } else {
+            lifeEvents = [];
+        }
+
+        let works: Work[];
+        if (categories.includes('Work')) {
+            works = data.works.filter(event =>
+                authorIds.includes(event.authorId)
+                &&
+                this.datesService.eventInDateRange(event, dateRange)
+            );
+        } else {
+            works = [];
+        }
+
+        let legacies: Legacy[];
+        if (categories.includes('Legacy')) {
+            legacies = data.legacies.filter(event =>
+                _.any(event.aboutIds, id => authorIds.includes(id))
+                &&
+                this.datesService.eventInDateRange(event, dateRange)
+            );
+        } else {
+            legacies = [];
+        }
+
+        return {
+            authors,
+            lifeEvents,
+            works,
+            legacies,
+            pictures: data.pictures,
+            locations: data.locations,
+        };
     }
 
     parseData(data: any): CollectedData {

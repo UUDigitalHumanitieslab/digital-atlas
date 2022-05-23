@@ -43,12 +43,14 @@ export class DatesService {
         }
     }
 
-    eventInDateRange(event: LifeEvent|Work|Legacy, dateRange: number[]): boolean {
-        const minYear = dateRange[0];
-        const maxYear = dateRange[1];
-        const startYear = this.getStartYear(event);
-        const endYear = this.getEndYear(event);
-        return startYear <= maxYear && endYear >= minYear;
+    eventInDateRange(event: LifeEvent|Work|Legacy, dateRange: number[]|undefined): boolean {
+        if (dateRange !== undefined) {
+            const [minYear, maxYear] = dateRange;
+            const startYear = this.getStartYear(event);
+            const endYear = this.getEndYear(event);
+            return startYear <= maxYear && endYear >= minYear;
+        }
+        return true;
     }
 
 }
