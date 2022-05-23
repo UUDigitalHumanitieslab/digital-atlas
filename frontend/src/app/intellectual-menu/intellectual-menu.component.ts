@@ -52,7 +52,7 @@ export class IntellectualMenuComponent implements OnInit {
 
         if (exclusive) {
             const current = this.authorSelections[author.id];
-            for (let id of Object.keys(this.authorSelections)) {
+            for (const id of Object.keys(this.authorSelections)) {
                 this.authorSelections[id] = current;
             }
             this.authorSelections[author.id] = !current;
