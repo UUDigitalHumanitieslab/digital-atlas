@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { faBook, faLandmark, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as _ from 'underscore';
+import { environment } from '../../environments/environment';
 import { Author, CollectedData, Legacy, LifeEvent, Picture, Work } from '../models/data';
 
 @Injectable({
@@ -68,7 +69,7 @@ export class VisualService {
 
     pictureSource(picture?: Picture): string {
         if (picture) {
-            return `/assets/img/${picture.filename}`;
+            return environment.assets + `/img/${picture.filename}`;
         }
     }
 }

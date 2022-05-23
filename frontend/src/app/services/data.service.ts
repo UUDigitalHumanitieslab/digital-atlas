@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'underscore';
+import { environment } from '../../environments/environment';
 import { Author, Work, Location, Legacy, LifeEvent, Categories, Category, Picture, CollectedData, PartialDate } from '../models/data';
 import { DatesService } from './dates.service';
 
@@ -7,7 +8,7 @@ import { DatesService } from './dates.service';
     providedIn: 'root'
 })
 export class DataService {
-    private dataPath = '/assets/data/data.json';
+    private dataPath = '/data/data.json';
 
     private data: CollectedData;
 
@@ -92,7 +93,7 @@ export class DataService {
     }
 
     loadDataFile(): Promise<any> {
-        return fetch(this.dataPath).then(response => {
+        return fetch(environment.assets + this.dataPath).then(response => {
             return response.json();
         });
     }
