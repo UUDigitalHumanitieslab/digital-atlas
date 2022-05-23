@@ -6,10 +6,10 @@ import { EventCard, EventCardService } from '../services/event-card.service';
 import { VisualService } from '../services/visual.service';
 
 interface CardAuthor {
-    info: Author,
-    picture: string,
-    events: EventCard[],
-    show: boolean
+    info: Author;
+    picture: string;
+    events: EventCard[];
+    show: boolean;
 }
 
 @Component({
@@ -68,7 +68,7 @@ export class EventCardSelectorComponent implements OnChanges, OnInit {
         this.authors = update;
     }
 
-    toggleAuthor(author: CardAuthor) {
+    toggleAuthor(author: CardAuthor): void {
         if (this.authors.length > 1) {
             author.show = !author.show;
         }

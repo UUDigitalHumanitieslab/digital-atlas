@@ -1,25 +1,69 @@
-@import '../../variables';
+@import "../../variables";
+
+$nwoLogoHeight: 90px;
+$nowLogoWidth: 53px;
+$universityLogoHeight: 50px;
+$universityLogoWidth: 200px;
+$labLogoWidth: 210px;
+$labLogoHeight: 40px;
+$labLogoPadding: 5px;
+
+$compactScale: 0.7;
+
+a {
+    color: $lab-color;
+}
 
 .nwo-logo,
 .university-logo,
 .lab-logo {
     display: inline-block;
-    height: 50px;
 }
 
 .nwo-logo {
-    height: 90px;
-    width: 53px;
+    height: $nwoLogoHeight;
+    width: $nowLogoWidth;
 }
 
 .university-logo {
-    padding-right: 10px;
-    width: 200px;
+    padding-right: $labLogoPadding * 2;
+    width: $universityLogoWidth;
+    height: $universityLogoHeight;
 }
 
 .lab-logo {
     // add padding to give it the same size as the university logo (LAB logo is 10px lower)
     background: $lab-color;
-    padding: 5px;
-    width: 210px;
+    padding: $labLogoPadding;
+    width: $labLogoWidth;
+    img {
+        height: $labLogoHeight;
+    }
+}
+
+.footer.is-compact {
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+
+    .nwo-logo {
+        height: $nwoLogoHeight * $compactScale;
+        width: $nowLogoWidth * $compactScale;
+    }
+
+    .university-logo {
+        padding-right: $labLogoPadding * 2 * $compactScale;
+        width: $universityLogoWidth * $compactScale;
+        height: $universityLogoHeight * $compactScale;
+    }
+
+    .lab-logo {
+        padding: $labLogoPadding * $compactScale;
+        width: $labLogoWidth * $compactScale;
+
+        img {
+            height: $labLogoHeight * $compactScale;
+        }
+    }
 }

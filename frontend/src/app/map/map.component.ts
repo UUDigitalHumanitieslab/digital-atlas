@@ -376,7 +376,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
             this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
-            this.mergedEvents = undefined
+            this.mergedEvents = undefined;
         }
     }
 
