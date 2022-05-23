@@ -133,7 +133,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         };
     }
 
-    private setPointIndices(points: PointLocation []): PointLocation[] {
+    private setPointIndices(points: PointLocation[]): PointLocation[] {
         const sorted = _.sortBy(points,
             point => this.datesService.getStartYear(point.event as LifeEvent | Work | Legacy)
         );
@@ -326,10 +326,20 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     private pointHref(point: PointLocation): string {
-        if (point.stackSize > 1) {
-            return '#stack_' + point.stackSize;
-        } else {
-            return '#' + this.icons[point.event.type].iconName;
+        if (point.where.lat === this.selectedPoint?.where.lat &&
+            point.where.long === this.selectedPoint?.where.long) {
+            if (point.stackSize > 1) {
+                return '#stack_selected_' + point.stackSize;
+            } else {
+                return '#selected_' + this.icons[point.event.type].iconName;
+            }
+        }
+        else {
+            if (point.stackSize > 1) {
+                return '#stack_' + point.stackSize;
+            } else {
+                return '#' + this.icons[point.event.type].iconName;
+            }
         }
     }
 
@@ -395,7 +405,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.previewEventTitle = undefined;
     }
 
-    jumpEvent(direction: 'previous'|'next'): void {
+    jumpEvent(direction: 'previous' | 'next'): void {
         let index: number;
         if (this.selectedPoint.event.type === 'mixed') {
             const eventIndex = this.selectedPoint.event.events.findIndex(event =>
@@ -410,7 +420,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         const newIndex = index + delta;
 
         const newPoint = this.pointLocations.find(point => point.indices.includes(newIndex));
-        let newEvent: LifeEvent|Work|Legacy;
+        let newEvent: LifeEvent | Work | Legacy;
 
         if (newPoint.event.type === 'mixed') {
             const eventIndex = newPoint.indices.findIndex(i => i === newIndex);

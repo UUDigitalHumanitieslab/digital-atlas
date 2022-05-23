@@ -18,6 +18,12 @@
             <use [attr.href]="'#' + icon.iconName + '_figure'" transform="translate(-24, 65) scale(0.6)" />
         </symbol>
     </svg>
+    <svg viewBox="0 0 512 512" style="display:none">
+        <symbol [attr.id]="'selected_' + icon.iconName">
+            <circle cx="256" cy="256" r="256"></circle>
+            <use [attr.href]="'#' + icon.iconName + '_figure'" transform="translate(-24, 65) scale(0.6)" color="rgba(230,230,230)" />
+        </symbol>
+    </svg>
 </ng-container>
 
 <ng-container *ngFor="let size of stackSizes">
@@ -26,6 +32,13 @@
             <circle cx="256" cy="256" r="256" fill="rgba(230,230,230,0.8)"></circle>
             <text [attr.id]="'stack_' + size" class="stack-size" [ngClass]="{'is-small': size > 100}"
                 x="256" [attr.y]="size > 100 ? 310 : 350" text-anchor="middle">{{size}}</text>
+        </symbol>
+    </svg>
+    <svg viewBox="0 0 512 512" style="display:none">
+        <symbol [attr.id]="'stack_selected_' + size">
+            <circle cx="256" cy="256" r="256"></circle>
+            <text [attr.id]="'stack_' + size" class="stack-size" [ngClass]="{'is-small': size > 100}"
+                x="256" [attr.y]="size > 100 ? 310 : 350" text-anchor="middle" fill="rgba(230,230,230)" >{{size}}</text>
         </symbol>
     </svg>
 </ng-container>
