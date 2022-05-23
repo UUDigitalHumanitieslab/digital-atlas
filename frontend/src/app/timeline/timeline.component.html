@@ -4,30 +4,31 @@
 </div>
 
 <div class="columns is-mobile">
-    <div class="column" [class]="narrowCardColumn ? 'is-two-thirds' : 'is-half'">
-        <div class="timeline-body">
-            <div class="columns is-mobile">
-                <div class="column is-narrow timeline-scale">
-                    <div class="timeline-tick" *ngFor="let year of timeRange"
-                        [style.height.em]="tickHeight">
-                        {{showYear(year) ? year : '·'}}
-                    </div>
-                </div>
-                <div class="column" *ngFor="let col of columns">
-                    <div class="timeline-event-container" *ngFor="let tile of col"
-                    [style.height.em]="getHeight(tile)">
-                        <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
-                            (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent"
-                            (mouseover)="showEventPreview(tile.event)" (mouseleave)="hideEventPreview()">
-                            <span class="icon is-medium">
-                                <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <div class="column is-narrow timeline-scale">
+        <div class="timeline-tick" *ngFor="let year of timeRange"
+            [style.height.em]="tickHeight">
+            {{showYear(year) ? year : '·'}}
         </div>
-        
+    </div>
+    <div class="column timeline" [class]="narrowCardColumn ? 'is-two-thirds' : 'is-half'">
+        <div class="timeline-container">
+            <div class="timeline-body">
+                <div class="columns is-mobile">
+                    <div class="column" *ngFor="let col of columns">
+                        <div class="timeline-event-container" *ngFor="let tile of col"
+                        [style.height.em]="getHeight(tile)">
+                            <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
+                                (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent"
+                                (mouseover)="showEventPreview(tile.event)" (mouseleave)="hideEventPreview()">
+                                <span class="icon is-medium">
+                                    <fa-icon [icon]="icons[tile.event.type]"></fa-icon>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>        
     </div>
     <div class="column" [ngClass]="{'is-one-third': narrowCardColumn}">
         <div [style.height.em]="selectedEventPosition"></div>
