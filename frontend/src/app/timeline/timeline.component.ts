@@ -167,7 +167,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     setTimeRange(minYear, maxYear): number[] {
         if (minYear && maxYear) {
-            return _.range(this.minYear, this.maxYear);
+            return _.range(this.minYear, this.maxYear + 1);
         }
         return [];
     }
