@@ -1,6 +1,8 @@
 @use '~bulma/sass/utilities/_all' as bulma;
 @use "../../colors";
 
+@import '../../variables';
+
 .event-preview {
     position: fixed;
     z-index: 2;
@@ -31,8 +33,13 @@
 
     .columns {
         width: 100%;
+
+        .column {
+            padding-right: 0rem;
+        }
     }
 }
+
 
 .timeline-event-container {
     padding: 2px 0px;
