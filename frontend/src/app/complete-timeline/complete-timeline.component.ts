@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CollectedData } from '../models/data';
+import { Author, CollectedData } from '../models/data';
 import { DataService } from '../services/data.service';
 import { VisualService } from '../services/visual.service';
 
@@ -12,11 +12,25 @@ export class CompleteTimelineComponent implements OnInit {
     data: CollectedData;
     icons: any;
 
+    filteredData: CollectedData;
+
     constructor(private dataService: DataService, private visualService: VisualService) { }
 
     ngOnInit(): void {
-        this.dataService.getData().then(data => this.data = data);
+        this.dataService.getData().then(data => {
+            this.data = data;
+            this.filteredData = data;
+        });
         this.icons = this.visualService.icons;
+    }
+
+    updateAuthors(authors: Author[]): void {
+        this.filteredData = this.dataService.filterData(
+            this.data,
+            authors,
+            ['Life', 'Work', 'Legacy'],
+            undefined,
+        );
     }
 
 }

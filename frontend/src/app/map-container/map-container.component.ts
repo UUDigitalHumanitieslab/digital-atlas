@@ -31,11 +31,6 @@ export class MapContainerComponent implements OnInit {
 
     eventIcons: VisualService['icons'][keyof VisualService['icons']][];
 
-    icons = {
-        hide: faEyeSlash,
-        show: faEye,
-    };
-
     pictures: { [authorId: number]: string };
 
     constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
@@ -54,11 +49,6 @@ export class MapContainerComponent implements OnInit {
         const dateRange = this.dateRange(this.data);
         this.minYear = dateRange[0];
         this.maxYear = dateRange[1];
-        this.pictures = this.getPictures(this.data);
-
-        this.authorSelections = {};
-        this.data.authors.forEach(author => this.authorSelections[author.id] = true);
-        this.updateAuthorSelection();
 
         this.selectedCategories = this.categories;
         this.selectedDateRange = dateRange;
@@ -81,81 +71,15 @@ export class MapContainerComponent implements OnInit {
         return [minYear, maxYear];
     }
 
-    getPictures(data: CollectedData): { [authorId: number]: string } {
-        const authors = data.authors;
-        const authorsById = _.indexBy(authors, author => author.id);
-        const picturesById = _.mapObject(authorsById, author => this.visualService.getPictureSource(author, data));
-        return picturesById;
-    }
-
     updateFilteredData(): void {
         if (this.data) {
-            const authorIds = this.selectedAuthors.map(author => author.id);
-
-            let lifeEvents: LifeEvent[];
-            if (this.selectedCategories.includes('Life')) {
-                lifeEvents = this.data.lifeEvents.filter(event =>
-                    authorIds.includes(event.authorId)
-                    &&
-                    this.datesService.eventInDateRange(event, this.selectedDateRange)
-                );
-            } else {
-                lifeEvents = [];
-            }
-
-            let works: Work[];
-            if (this.selectedCategories.includes('Work')) {
-                works = this.data.works.filter(event =>
-                    authorIds.includes(event.authorId)
-                    &&
-                    this.datesService.eventInDateRange(event, this.selectedDateRange)
-                );
-            } else {
-                works = [];
-            }
-
-            let legacies: Legacy[];
-            if (this.selectedCategories.includes('Legacy')) {
-                legacies = this.data.legacies.filter(event =>
-                    _.any(event.aboutIds, id => authorIds.includes(id))
-                    &&
-                    this.datesService.eventInDateRange(event, this.selectedDateRange)
-                );
-            } else {
-                legacies = [];
-            }
-
-            this.filteredData = {
-                authors: this.selectedAuthors,
-                lifeEvents,
-                works,
-                legacies,
-                pictures: this.data.pictures,
-                locations: this.data.locations,
-            };
+            this.filteredData = this.dataService.filterData(
+                this.data,
+                this.selectedAuthors,
+                this.selectedCategories,
+                this.selectedDateRange,
+            );
         }
     }
 
-    toggleAuthor(author: Author): void {
-        this.authorSelections[author.id] = !this.authorSelections[author.id];
-        this.updateAuthorSelection();
-        this.updateFilteredData();
-    }
-
-    updateAuthorSelection(): void {
-        this.selectedAuthors = this.data.authors.filter(author =>
-            this.authorSelections[author.id]);
-    }
-
-    isActive(author: Author): boolean {
-        return this.selectedAuthors.includes(author);
-    }
-
-    tooltipMessage(author: Author): string {
-        if (this.isActive(author)) {
-            return `click to hide ${author.name} from the map`;
-        } else {
-            return `click to include ${author.name} in the map`;
-        }
-    }
 }
