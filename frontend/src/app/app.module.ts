@@ -29,6 +29,7 @@ import { ContributorsComponent } from './about/contributors/contributors.compone
 import { PinComponent } from './about/pin/pin.component';
 import { CompleteTimelineComponent } from './complete-timeline/complete-timeline.component';
 import { IntellectualMenuComponent } from './intellectual-menu/intellectual-menu.component';
+import { FilterMenuComponent } from './filter-menu/filter-menu.component';
 
 @NgModule({
     declarations: [
@@ -49,6 +50,7 @@ import { IntellectualMenuComponent } from './intellectual-menu/intellectual-menu
         PinComponent,
         CompleteTimelineComponent,
         IntellectualMenuComponent,
+        FilterMenuComponent,
     ],
     imports: [
         AppRoutingModule,

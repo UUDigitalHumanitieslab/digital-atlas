@@ -17,8 +17,6 @@ export class MapContainerComponent implements OnInit {
     faArrowRight = faArrowRight;
     faFilter = faFilter;
 
-    hideFilterMenu = true;
-
     data: CollectedData;
     filteredData: CollectedData;
 
@@ -35,18 +33,12 @@ export class MapContainerComponent implements OnInit {
     showPrevButton = false;
     showNextButton = false;
 
-    eventIcons: VisualService['icons'][keyof VisualService['icons']][];
-
     pictures: { [authorId: number]: string };
 
     @ViewChild(MapComponent)
     map!: MapComponent;
 
-    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
-        this.eventIcons = [
-            visualService.icons['life event'],
-            visualService.icons.work,
-            visualService.icons.legacy];
+    constructor(private dataService: DataService, private datesService: DatesService) {
     }
 
     ngOnInit(): void {
@@ -91,11 +83,19 @@ export class MapContainerComponent implements OnInit {
         }
     }
 
-    previous(): void {
-        this.map.jumpEvent('previous');
+    setFilter(filters: {
+        categories: string[],
+        dateRange?: [number, number],
+    }): void {
+        this.selectedCategories = filters.categories;
+        if (filters.dateRange) {
+            this.selectedDateRange = filters.dateRange;
+        }
+        this.updateFilteredData();
     }
 
-    next(): void {
-        this.map.jumpEvent('next');
+    jump(direction: 'previous'|'next'): void {
+        this.map.jumpEvent(direction);
     }
+
 }

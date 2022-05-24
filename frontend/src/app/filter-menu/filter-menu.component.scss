@@ -1,0 +1,25 @@
+@import "../../variables";
+
+.filter-menu {
+    position: absolute;
+    bottom: 0em;
+    width: 101vw;
+
+    padding: 2em 1em 5em 1em;
+
+    background-color: transparentize($color: $light, $amount: 0.5);
+
+    .panel-block {
+        display: block;
+    }
+
+    .column {
+        .label {
+            visibility: hidden;
+        }
+
+        &:hover .label {
+            visibility: visible;
+        }
+    }
+}

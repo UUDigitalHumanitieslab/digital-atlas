@@ -1,25 +1,6 @@
 @import "../../variables";
 @import "../../colors";
 
-.filter-menu {
-    position: absolute;
-    bottom: 5em;
-    width: 100vw;
-
-    .panel-block {
-        display: block;
-    }
-
-    .column {
-        .label {
-            visibility: hidden;
-        }
-
-        &:hover .label {
-            visibility: visible;
-        }
-    }
-}
 
 .prev-column {
     padding-left: 2em;
