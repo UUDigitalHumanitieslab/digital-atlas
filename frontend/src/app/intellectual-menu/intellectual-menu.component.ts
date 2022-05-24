@@ -6,12 +6,17 @@ import { Author, CollectedData } from '../models/data';
 import { DataService } from '../services/data.service';
 import { VisualService } from '../services/visual.service';
 
+const doubleClickTimeout = 500;
+
 @Component({
     selector: 'da-intellectual-menu',
     templateUrl: './intellectual-menu.component.html',
     styleUrls: ['./intellectual-menu.component.scss']
 })
 export class IntellectualMenuComponent implements OnInit {
+    private lastClick = new Date().getTime();
+    private lastAuthorClick = -1;
+
     data: CollectedData;
 
     icons = {
@@ -41,7 +46,22 @@ export class IntellectualMenuComponent implements OnInit {
     }
 
     toggleAuthor(author: Author): void {
-        this.authorSelections[author.id] = !this.authorSelections[author.id];
+        const now = new Date().getTime();
+        const exclusive = this.lastAuthorClick === author.id &&
+            (now - this.lastClick) < doubleClickTimeout;
+
+        if (exclusive) {
+            const current = this.authorSelections[author.id];
+            for (const id of Object.keys(this.authorSelections)) {
+                this.authorSelections[id] = current;
+            }
+            this.authorSelections[author.id] = !current;
+            this.lastAuthorClick = -1;
+        } else {
+            this.authorSelections[author.id] = !this.authorSelections[author.id];
+            this.lastAuthorClick = author.id;
+            this.lastClick = now;
+        }
         this.updateAuthorSelection();
     }
 
@@ -57,9 +77,9 @@ export class IntellectualMenuComponent implements OnInit {
 
     tooltipMessage(author: Author): string {
         if (this.isActive(author)) {
-            return `click to hide ${author.name} from the map`;
+            return `click to hide ${author.name} from the map; double click to hide all others`;
         } else {
-            return `click to include ${author.name} in the map`;
+            return `click to include ${author.name} in the map; double click to only show others`;
         }
     }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, EventEmitter, ElementRef, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
@@ -71,6 +71,8 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
     zoomFactor = 1;
 
     @Input() data: CollectedData;
+    @Output() showNextButton = new EventEmitter<boolean>();
+    @Output() showPrevButton = new EventEmitter<boolean>();
     points: any = undefined;
 
     @ViewChild('target')
@@ -367,15 +369,31 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.mergedEvents = obj;
     }
 
+    selectEventFromMix(event: MapComponent['selectedEvent']): void {
+        this.selectedEvent = event;
+        this.showNextButton.next(true);
+        this.showPrevButton.next(true);
+    }
+
+    backToMix(): void {
+        this.selectedEvent = undefined;
+        this.showNextButton.next(false);
+        this.showPrevButton.next(false);
+    }
+
     selectEvent(clickEvent: MouseEvent, obj: PointLocation): void {
         this.moveToPoint(obj.event);
         this.selectedPoint = obj;
 
         if (obj.event.type === 'mixed') {
             this.selectedEvent = undefined;
+            this.showNextButton.next(false);
+            this.showPrevButton.next(false);
             this.openMixedEvent(obj.event);
         } else {
             this.selectedEvent = obj.event;
+            this.showNextButton.next(true);
+            this.showPrevButton.next(true);
             this.mergedEvents = undefined;
         }
     }
@@ -384,6 +402,9 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         this.selectedPoint = undefined;
         this.selectedEvent = undefined;
         this.mergedEvents = undefined;
+        this.showNextButton.next(false);
+        this.showPrevButton.next(false);
+        this.updatePoints();
     }
 
     showEventPreview(e: MouseEvent, obj: PointLocation): void {
@@ -432,7 +453,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
         }
 
         this.selectEvent(null, newPoint);
-        this.selectedEvent = newEvent;
+        this.selectEventFromMix(newEvent);
     }
 
     get stackSizes(): number[] {

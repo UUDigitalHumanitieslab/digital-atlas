@@ -16,7 +16,7 @@ $navbar-height: 3.25rem; // default height in Bulma
         right: 0;
         margin: 1em;
         width: 25%;
-        max-height: calc(100vh - #{$navbar-height * 2} - #{$intellectual-list-height} - 2em);
+        max-height: calc(100vh - #{$navbar-height * 2} - #{$intellectual-list-height} - 7em);
         overflow: visible auto;
     }
 }

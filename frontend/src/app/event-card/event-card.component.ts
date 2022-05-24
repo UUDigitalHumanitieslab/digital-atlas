@@ -37,11 +37,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     faArrowLeft = faArrowLeft;
     faArrowRight = faArrowRight;
 
-    @Input() isFirst: boolean;
-    @Input() isLast: boolean;
-
     @Output() ready = new EventEmitter<void>();
-    @Output() jump = new EventEmitter<'previous'|'next'>();
 
     constructor(private dataService: DataService, private eventCardService: EventCardService, private visualService: VisualService) {
         this.data = this.dataService.getData();
@@ -73,10 +69,6 @@ export class EventCardComponent implements OnInit, OnChanges {
 
     getPicture(author: Author, data: CollectedData): string {
         return this.visualService.getPictureSource(author, data);
-    }
-
-    triggerJump(direction: 'previous'|'next'): void {
-        this.jump.emit(direction);
     }
 
 }

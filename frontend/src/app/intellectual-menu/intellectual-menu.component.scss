@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 @import "../../colors";
 
 $inactive: $dark;
@@ -15,9 +15,9 @@ $inactive: $dark;
         overflow-y: hidden;
         padding: 0;
         transition: all 0.4s;
+        user-select: none;
 
-        @each $name,
-        $color in $colors {
+        @each $name, $color in $colors {
             &.is-#{$name} {
                 &:not(&.is-active) {
                     .author-overlay {
@@ -71,6 +71,10 @@ $inactive: $dark;
 
             .author-image {
                 opacity: 0.5;
+
+                img {
+                    filter: grayscale(0.8) blur(5px) contrast(150%);
+                }
             }
         }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { faArrowLeft, faArrowRight, faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
+import { MapComponent } from '../map/map.component';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
@@ -12,9 +13,9 @@ import { VisualService } from '../services/visual.service';
     styleUrls: ['./map-container.component.scss']
 })
 export class MapContainerComponent implements OnInit {
+    faArrowLeft = faArrowLeft;
+    faArrowRight = faArrowRight;
     faFilter = faFilter;
-
-    hideFilterMenu = true;
 
     data: CollectedData;
     filteredData: CollectedData;
@@ -29,15 +30,15 @@ export class MapContainerComponent implements OnInit {
     selectedAuthors: Author[] = [];
     selectedDateRange: number[] = [];
 
-    eventIcons: VisualService['icons'][keyof VisualService['icons']][];
+    showPrevButton = false;
+    showNextButton = false;
 
     pictures: { [authorId: number]: string };
 
-    constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
-        this.eventIcons = [
-            visualService.icons['life event'],
-            visualService.icons.work,
-            visualService.icons.legacy];
+    @ViewChild(MapComponent)
+    map!: MapComponent;
+
+    constructor(private dataService: DataService, private datesService: DatesService) {
     }
 
     ngOnInit(): void {
@@ -80,6 +81,21 @@ export class MapContainerComponent implements OnInit {
                 this.selectedDateRange,
             );
         }
+    }
+
+    setFilter(filters: {
+        categories: string[],
+        dateRange?: [number, number],
+    }): void {
+        this.selectedCategories = filters.categories;
+        if (filters.dateRange) {
+            this.selectedDateRange = filters.dateRange;
+        }
+        this.updateFilteredData();
+    }
+
+    jump(direction: 'previous'|'next'): void {
+        this.map.jumpEvent(direction);
     }
 
 }
