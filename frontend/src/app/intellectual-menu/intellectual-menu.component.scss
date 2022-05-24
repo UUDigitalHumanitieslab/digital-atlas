@@ -73,7 +73,7 @@ $inactive: $dark;
                 opacity: 0.5;
 
                 img {
-                    filter: sepia(0.8) blur(5px) contrast(150%);
+                    filter: grayscale(0.8) blur(5px) contrast(150%);
                 }
             }
         }

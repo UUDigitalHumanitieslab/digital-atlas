@@ -1,23 +1,2 @@
 @import "../../variables";
 @import "../../colors";
-
-
-.prev-column {
-    padding-left: 2em;
-}
-
-.checkboxes-column {
-    padding-top: 1.2em;
-}
-
-.years-column {
-    padding-bottom: 0em;
-
-    .columns .column {
-        padding-bottom: 0;
-    }
-}
-
-.next-column {
-    padding-right: 2em;
-}

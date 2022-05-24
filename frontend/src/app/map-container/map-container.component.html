@@ -1,8 +1,8 @@
 <da-intellectual-menu (selectedAuthors)="selectedAuthors = $event; updateFilteredData();"></da-intellectual-menu>
 
-<da-filter-menu [dateRange]="[minYear, maxYear]" [showPrevButton]="showPrevButton" [showNextButton]="showNextButton"
-    [aboveFooter]="true"
-    (jump)="jump($event)" (filter)="setFilter($event)">
-</da-filter-menu>
+<da-map [data]="filteredData" #map (showPrevButton)="showPrevButton=$event" (showNextButton)="showNextButton=$event">
+</da-map>
 
-<da-map [data]="filteredData" #map (showPrevButton)="showPrevButton=$event" (showNextButton)="showNextButton=$event"></da-map>
+<da-filter-menu [dateRange]="[minYear, maxYear]" [showPrevButton]="showPrevButton" [showNextButton]="showNextButton"
+    [aboveFooter]="true" (jump)="jump($event)" (filter)="setFilter($event)">
+</da-filter-menu>

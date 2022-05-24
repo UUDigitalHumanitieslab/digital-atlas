@@ -1,18 +1,9 @@
-<div class="box event-preview" *ngIf="previewEvent"
-    [style.top.px]="mouseY - 20" [style.left.px]="mouseX + 20">
+<div class="box event-preview" *ngIf="previewEvent" [style.top.px]="mouseY - 20" [style.left.px]="mouseX + 20">
     {{previewEvent.data.title}}
 </div>
-
-<da-filter-menu
-    [showPrevButton]="selectedEvent !== undefined && selectedEvent.index > 0"
-    [showNextButton]="selectedEvent !== undefined && selectedEvent.index < filteredEvents.length - 1"
-    (jump)="jumpEvent($event)" (filter)="setCategoryFilter($event.categories)">
-</da-filter-menu>
-
 <div class="columns is-mobile">
     <div class="column is-narrow timeline-scale">
-        <div class="timeline-tick" *ngFor="let year of timeRange"
-            [style.height.em]="tickHeight">
+        <div class="timeline-tick" *ngFor="let year of timeRange" [style.height.em]="tickHeight">
             {{showYear(year) ? year : '·'}}
         </div>
     </div>
@@ -22,7 +13,7 @@
                 <div class="columns is-mobile">
                     <div class="column" *ngFor="let col of columns">
                         <div class="timeline-event-container" *ngFor="let tile of col"
-                        [style.height.em]="getHeight(tile)">
+                            [style.height.em]="getHeight(tile)">
                             <button *ngIf="tile.event" class="timeline-event button is-{{getColor(tile.event)}}"
                                 (click)=selectEvent(tile.event) [class.is-active]="tile.event == selectedEvent"
                                 (mouseover)="showEventPreview(tile.event)" (mouseleave)="hideEventPreview()">
@@ -33,12 +24,12 @@
                         </div>
                     </div>
                 </div>
-            </div>    
-        </div>        
+            </div>
+        </div>
     </div>
     <div class="column event-column">
         <div [style.height.em]="selectedEventPosition"></div>
-        <div class="block" *ngIf="selectedEvent"  #eventCard>
+        <div class="block" *ngIf="selectedEvent" #eventCard>
             <da-event-card [event]="selectedEvent.data" [includeAuthor]="authors?.length > 1"
                 (ready)="scrollToEventCard()" (jump)="jumpEvent($event)" [canJump]="true"
                 [isFirst]="selectedEvent.index == 0" [isLast]="selectedEvent.index == events.length - 1">
@@ -46,3 +37,8 @@
         </div>
     </div>
 </div>
+
+<da-filter-menu [showPrevButton]="selectedEvent !== undefined && selectedEvent.index > 0"
+    [showNextButton]="selectedEvent !== undefined && selectedEvent.index < filteredEvents.length - 1"
+    (jump)="jumpEvent($event)" (filter)="setCategoryFilter($event.categories)">
+</da-filter-menu>

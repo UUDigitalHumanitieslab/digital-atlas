@@ -23,7 +23,7 @@ export class TimelineComponent implements OnChanges {
     maxYear: number;
     timeRange: number[];
 
-    categories: ('life event'|'work'|'legacy')[] = ['life event', 'work', 'legacy'];
+    categories: ('life event' | 'work' | 'legacy')[] = ['life event', 'work', 'legacy'];
 
     @Input() narrowCardColumn: boolean;
 
@@ -40,7 +40,7 @@ export class TimelineComponent implements OnChanges {
 
     @ViewChild('eventCard') eventCard: ElementRef;
 
-    @Output() eventSelect = new EventEmitter<{event: LifeEvent|Work|Legacy, y: number}>();
+    @Output() eventSelect = new EventEmitter<{ event: LifeEvent | Work | Legacy, y: number }>();
 
     constructor(private dataService: DataService, private datesService: DatesService, private visualService: VisualService) {
         this.icons = this.visualService.icons;
@@ -84,14 +84,14 @@ export class TimelineComponent implements OnChanges {
         );
     }
 
-    setCategoryFilter(categories: ('Life'|'Work'|'Legacy')[]): void {
+    setCategoryFilter(categories: ('Life' | 'Work' | 'Legacy')[]): void {
         const categoryKeys = {
             Life: 'life event',
             Work: 'work',
             Legacy: 'legacy'
         };
         this.categories = categories.map(category =>
-            categoryKeys[category] as 'life event'|'work'|'legacy'
+            categoryKeys[category] as 'life event' | 'work' | 'legacy'
         );
         this.selectedEvent = undefined;
         this.processData();
@@ -148,7 +148,7 @@ export class TimelineComponent implements OnChanges {
      * splits a list of events into columns, where each column
      * has no overlap in dates
      */
-     private splitEventsIntoColumns(events: TimelineEvent[]): TimelineEvent[][] {
+    private splitEventsIntoColumns(events: TimelineEvent[]): TimelineEvent[][] {
         const allRows = _.reduce(_.shuffle(events), this.addEventToColumns.bind(this), []);
         const sortedRows = allRows.map(row => _.sortBy(row, event => event.startYear));
         return _.shuffle(sortedRows);
@@ -197,7 +197,7 @@ export class TimelineComponent implements OnChanges {
             tiles.push({
                 startYear: prevYear + 1,
                 endYear: this.maxYear,
-                span:  this.maxYear - prevYear,
+                span: this.maxYear - prevYear,
             });
         }
 
@@ -301,7 +301,7 @@ export class TimelineComponent implements OnChanges {
         });
     }
 
-    jumpEvent(direction: 'previous'|'next'): void {
+    jumpEvent(direction: 'previous' | 'next'): void {
         const index = this.selectedEvent.index;
         const delta = direction === 'previous' ? - 1 : 1;
         const newIndex = index + delta;
