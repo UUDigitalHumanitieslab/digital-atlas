@@ -30,6 +30,8 @@ import { PinComponent } from './about/pin/pin.component';
 import { CompleteTimelineComponent } from './complete-timeline/complete-timeline.component';
 import { IntellectualMenuComponent } from './intellectual-menu/intellectual-menu.component';
 import { FilterMenuComponent } from './filter-menu/filter-menu.component';
+import { HighlightPipe } from './highlight.pipe';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
     declarations: [
@@ -51,6 +53,8 @@ import { FilterMenuComponent } from './filter-menu/filter-menu.component';
         CompleteTimelineComponent,
         IntellectualMenuComponent,
         FilterMenuComponent,
+        HighlightPipe,
+        SearchComponent,
     ],
     imports: [
         AppRoutingModule,

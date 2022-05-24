@@ -22,6 +22,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Input() selected = false;
     @Input() event: LifeEvent | Work | Legacy;
     @Input() includeAuthor = true;
+    @Input() searchText: string;
 
     @Output() goBack = new EventEmitter<{}>();
 
