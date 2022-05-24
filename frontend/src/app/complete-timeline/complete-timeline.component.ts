@@ -25,12 +25,14 @@ export class CompleteTimelineComponent implements OnInit {
     }
 
     updateAuthors(authors: Author[]): void {
-        this.filteredData = this.dataService.filterData(
-            this.data,
-            authors,
-            ['Life', 'Work', 'Legacy'],
-            undefined,
-        );
+        if (this.data) {
+            this.filteredData = this.dataService.filterData(
+                this.data,
+                authors,
+                ['Life', 'Work', 'Legacy'],
+                undefined,
+            );
+        }
     }
 
 }

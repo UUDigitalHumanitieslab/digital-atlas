@@ -1,36 +1,39 @@
-<div class="columns filter-menu">
-    <div class="column is-narrow prev-column">
-        <button class="button is-rounded is-dark" [ngClass]="{'is-invisible': !showPrevButton}" pTooltip="go to previous event" (click)="triggerJump('previous')">
-            <span class="icon">
-                <fa-icon [icon]="faArrowLeft">previous</fa-icon>
-            </span>
-        </button>
-    </div>
-    <div class="column is-narrow checkboxes-column" pTooltip="Filter the events by their type" tooltipPosition="top">
-        <da-checkboxes [options]="categories" [icons]="eventIcons"
-            (selection)="selectedCategories = $event; emitFilters()">
-        </da-checkboxes>
-    </div>
-
-    <div class="column years-column" pTooltip="Filter the events by year" tooltipPosition="top">
-        <div class="field">
-            <div class="control">
-                <p-slider [range]="true" [min]="minYear" [max]="maxYear" [(ngModel)]="selectedDateRange"
-                    (onSlideEnd)="emitFilters()"></p-slider>
+<div class="filter-menu" [ngClass]="{'above-footer': aboveFooter}">
+    <div class="columns">
+        <div class="column is-narrow prev-column">
+            <button class="button is-rounded is-dark" [ngClass]="{'is-invisible': !showPrevButton}" pTooltip="go to previous event" (click)="triggerJump('previous')">
+                <span class="icon">
+                    <fa-icon [icon]="faArrowLeft">previous</fa-icon>
+                </span>
+            </button>
+        </div>
+        <div class="column checkboxes-column" [ngClass]="{ 'is-narrow': dateRange }"
+            pTooltip="Filter the events by their type" tooltipPosition="top">
+            <da-checkboxes [options]="categories" [icons]="eventIcons"
+                (selection)="selectedCategories = $event; emitFilters()">
+            </da-checkboxes>
+        </div>
+    
+        <div class="column years-column" *ngIf="dateRange" pTooltip="Filter the events by year" tooltipPosition="top">
+            <div class="field">
+                <div class="control">
+                    <p-slider [range]="true" [min]="minYear" [max]="maxYear" [(ngModel)]="selectedDateRange"
+                        (onSlideEnd)="emitFilters()"></p-slider>
+                </div>
+            </div>
+    
+            <div class="columns has-text-weight-bold">
+                <div class="column">{{selectedDateRange[0]}}</div>
+                <div class="column" style="text-align: right;">{{selectedDateRange[1]}}</div>
             </div>
         </div>
-
-        <div class="columns has-text-weight-bold">
-            <div class="column">{{selectedDateRange[0]}}</div>
-            <div class="column" style="text-align: right;">{{selectedDateRange[1]}}</div>
+        <div class="column next-column is-narrow">
+            <button class="button button-next is-rounded is-dark" [ngClass]="{'is-invisible': !showNextButton}" pTooltip="go to next event"
+            (click)="triggerJump('next')">
+                <span class="icon">
+                    <fa-icon [icon]="faArrowRight">next</fa-icon>
+                </span>
+            </button>
         </div>
-    </div>
-    <div class="column next-column is-narrow">
-        <button class="button button-next is-rounded is-dark" [ngClass]="{'is-invisible': !showNextButton}" pTooltip="go to next event"
-        (click)="triggerJump('next')">
-            <span class="icon">
-                <fa-icon [icon]="faArrowRight">next</fa-icon>
-            </span>
-        </button>
     </div>
 </div>

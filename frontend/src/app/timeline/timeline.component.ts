@@ -12,15 +12,18 @@ import { VisualService } from '../services/visual.service';
     templateUrl: './timeline.component.html',
     styleUrls: ['./timeline.component.scss']
 })
-export class TimelineComponent implements OnInit, OnChanges {
+export class TimelineComponent implements OnChanges {
     data: CollectedData;
     @Input() authors: Author[];
     events: TimelineEvent[];
+    filteredEvents: TimelineEvent[];
     eventsByColumn: TimelineEvent[][];
     columns: TimelineTile[][];
     minYear: number;
     maxYear: number;
     timeRange: number[];
+
+    categories: ('life event'|'work'|'legacy')[] = ['life event', 'work', 'legacy'];
 
     @Input() narrowCardColumn: boolean;
 
@@ -43,9 +46,6 @@ export class TimelineComponent implements OnInit, OnChanges {
         this.icons = this.visualService.icons;
     }
 
-    ngOnInit(): void {
-    }
-
     ngOnChanges(changes: SimpleChanges): void {
         if (this.authors) {
             this.dataService.getData().then(data => {
@@ -56,14 +56,17 @@ export class TimelineComponent implements OnInit, OnChanges {
     }
 
     processData(): void {
-        this.events = this.filterAuthors(this.getEvents(this.data));
-        this.eventsByColumn = this.splitEventsIntoColumns(this.events);
-        const timeDomain = this.getTimeDomain(this.events);
-        this.minYear = timeDomain[0];
-        this.maxYear = timeDomain[1];
-        this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
-        this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
-        this.setEventIndices();
+        if (this.data) {
+            this.events = this.getEvents(this.data);
+            this.filteredEvents = this.filterData(this.events);
+            this.eventsByColumn = this.splitEventsIntoColumns(this.filteredEvents);
+            const timeDomain = this.getTimeDomain(this.filteredEvents);
+            this.minYear = timeDomain[0];
+            this.maxYear = timeDomain[1];
+            this.timeRange = this.setTimeRange(this.minYear, this.maxYear);
+            this.columns = this.eventsByColumn.map(col => this.makeTimelineColumn(col));
+            this.setEventIndices();
+        }
     }
 
     getEvents(data: CollectedData): TimelineEvent[] {
@@ -74,11 +77,24 @@ export class TimelineComponent implements OnInit, OnChanges {
         return _.flatten([lifeEvents, works, legacies]);
     }
 
-    filterAuthors(events: TimelineEvent[]): TimelineEvent[] {
-        const ids = this.authors.map(author => author.id);
+    filterData(events: TimelineEvent[]): TimelineEvent[] {
+        const authorIds = this.authors.map(author => author.id);
         return events.filter(event =>
-            ids.includes(event.authorId)
+            authorIds.includes(event.authorId) && this.categories.includes(event.type)
         );
+    }
+
+    setCategoryFilter(categories: ('Life'|'Work'|'Legacy')[]): void {
+        const categoryKeys = {
+            Life: 'life event',
+            Work: 'work',
+            Legacy: 'legacy'
+        };
+        this.categories = categories.map(category =>
+            categoryKeys[category] as 'life event'|'work'|'legacy'
+        );
+        this.selectedEvent = undefined;
+        this.processData();
     }
 
     convertLifeEvents(lifeEvents: LifeEvent[]): TimelineEvent[] {
@@ -289,7 +305,7 @@ export class TimelineComponent implements OnInit, OnChanges {
         const index = this.selectedEvent.index;
         const delta = direction === 'previous' ? - 1 : 1;
         const newIndex = index + delta;
-        this.selectedEvent = this.events.find(event => event.index === newIndex);
+        this.selectedEvent = this.filteredEvents.find(event => event.index === newIndex);
         this.selectedEventPosition = this.getPosition(this.selectedEvent);
     }
 }

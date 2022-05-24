@@ -3,6 +3,12 @@
     {{previewEvent.data.title}}
 </div>
 
+<da-filter-menu
+    [showPrevButton]="selectedEvent !== undefined && selectedEvent.index > 0"
+    [showNextButton]="selectedEvent !== undefined && selectedEvent.index < filteredEvents.length - 1"
+    (jump)="jumpEvent($event)" (filter)="setCategoryFilter($event.categories)">
+</da-filter-menu>
+
 <div class="columns is-mobile">
     <div class="column is-narrow timeline-scale">
         <div class="timeline-tick" *ngFor="let year of timeRange"

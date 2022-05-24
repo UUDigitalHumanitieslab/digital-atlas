@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { VisualService } from '../services/visual.service';
 
@@ -10,6 +10,8 @@ import { VisualService } from '../services/visual.service';
 export class FilterMenuComponent implements OnChanges {
     faArrowLeft = faArrowLeft;
     faArrowRight = faArrowRight;
+
+    @Input() aboveFooter = false;
 
     categories = ['Life', 'Work', 'Legacy'];
     eventIcons: VisualService['icons'][keyof VisualService['icons']][];
