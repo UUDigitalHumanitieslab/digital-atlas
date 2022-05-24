@@ -275,6 +275,7 @@ export class MapComponent implements OnInit, OnDestroy, OnChanges {
 
     private setZoom(): void {
         const handleZoom = (e: any) => {
+            this.hideEventPreview();
             d3.select('svg g')
                 .attr('transform', e.transform);
 
