@@ -23,6 +23,8 @@ export class EventCardSelectorComponent implements OnChanges, OnInit {
 
     @Input()
     events: (LifeEvent | Work | Legacy)[];
+    @Input()
+    searchText: string;
 
     @Output()
     selected = new EventEmitter<LifeEvent | Work | Legacy>();

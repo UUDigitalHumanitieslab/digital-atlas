@@ -1,8 +1,8 @@
 <ng-container *ngIf="authors">
     <div class="panel is-{{author.info.color}}" *ngFor="let author of authors">
-        <div class="panel-block author-link" [ngClass]="{'is-clickable': authors.length > 1}" (click)="toggleAuthor(author)">
-            <div class="column author-name has-text-right">
-                {{author.info.name}}
+        <div class="panel-block author-link" [ngClass]="{'is-clickable': authors.length > 1}"
+            (click)="toggleAuthor(author)">
+            <div class="column author-name has-text-right" [innerHtml]="author.info.name | highlight:searchText">
             </div>
             <div class="column is-narrow" *ngIf="author.picture">
                 <figure class="image is-square is-32x32 author-image">
@@ -16,12 +16,10 @@
                     <fa-icon [icon]="event.categoryIcon"></fa-icon>
                 </span>
                 <div class="columns event-item">
-                    <div class="column">
-                        {{event.title}}
+                    <div class="column" [innerHtml]="event.title | highlight:searchText">
                     </div>
                     <div class="column is-narrow has-text-right">
-                        <span class="tag date-tag">
-                            {{event.date}}
+                        <span class="tag date-tag" [innerHtml]="event.date | highlight:searchText">
                         </span>
                     </div>
                 </div>

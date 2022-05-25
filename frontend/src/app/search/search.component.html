@@ -1,0 +1,32 @@
+<!-- <da-intellectual-menu (selectedAuthors)="updateAuthors($event)"></da-intellectual-menu> -->
+
+<div class="section">
+    <p class="control has-icons-left">
+        <input [(ngModel)]="searchText" class="input is-rounded ds-input" type="text" autofocus
+            placeholder="Search the events" autocomplete="off" spellcheck="false" role="combobox"
+            aria-autocomplete="list" aria-expanded="false" aria-label="search input">
+        <span class="icon is-small is-left">
+            <fa-icon [icon]="faSearch"></fa-icon>
+        </span>
+    </p>
+    <br />
+    <div class="notification is-danger" *ngIf="searchTextDebounced.length && events.length === 0">
+        No data found!
+    </div>
+    <ng-container *ngIf="events.length">
+        <div class="columns">
+            <div class="column">
+                <da-event-card-selector [events]="events" [searchText]="searchTextDebounced"
+                    (selected)="selectedEvent = $event"></da-event-card-selector>
+            </div>
+            <div class="column">
+                <da-event-card *ngIf="selectedEvent" [event]="selectedEvent" [includeAuthor]="true"
+                    [canJump]="false" [searchText]="searchTextDebounced">
+                </da-event-card>
+                <div class="box" *ngIf="!selectedEvent">
+                    Select an event for more information
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

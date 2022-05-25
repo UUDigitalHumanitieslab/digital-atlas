@@ -7,6 +7,7 @@ import { CompleteTimelineComponent } from './complete-timeline/complete-timeline
 import { IndexComponent } from './index/index.component';
 import { IntellectualComponent } from './intellectual/intellectual.component';
 import { MapContainerComponent } from './map-container/map-container.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
     {
@@ -24,6 +25,10 @@ const routes: Routes = [
     {
         path: 'timeline',
         component: CompleteTimelineComponent,
+    },
+    {
+        path: 'search',
+        component: SearchComponent,
     },
     {
         path: 'about',

@@ -1,8 +1,7 @@
 <div class="panel is-{{color}}" *ngIf="event">
     <div class="panel-heading" [ngClass]="{'is-clickable': selected}" (click)="selected && goBack.next()">
         <div class="columns">
-            <div class="column">
-                {{event.title || '...'}}
+            <div class="column" [innerHtml]="event.title || '...' | highlight:searchText">
             </div>
             <div class="column is-narrow">
                 <span class="icon back-button" pTooltip="go back" *ngIf="selected">
@@ -13,8 +12,7 @@
     </div>
     <div class="panel-block author-link is-clickable" *ngFor="let author of authors"
         [routerLink]="['/intellectual', author.info.id]">
-        <div class="column author-name has-text-right">
-            {{author.info.name}}
+        <div class="column author-name has-text-right" [innerHtml]="author.info.name | highlight:searchText">
         </div>
         <div class="column is-narrow">
             <figure class="image is-square is-32x32 author-image" *ngIf="author.picture">
@@ -29,25 +27,25 @@
     </div>
     <div class="panel-block description" *ngIf="event.description">
         <div class="content">
-            <p>{{event.description}}</p>
+            <p [innerHtml]="event.description | highlight:searchText"></p>
         </div>
     </div>
     <p class="panel-block" *ngIf="categoryIcon">
         <span class="panel-icon">
             <fa-icon [icon]="categoryIcon"></fa-icon>
         </span>
-        {{event.type | titlecase}}
+        <span [innerHtml]="event.type | titlecase | highlight:searchText"></span>
     </p>
     <p class="panel-block" *ngIf="formattedDate">
         <span class="panel-icon">
             <fa-icon [icon]="faCalendar"></fa-icon>
         </span>
-        {{formattedDate}}
+        <span [innerHtml]="formattedDate | highlight:searchText"></span>
     </p>
     <p class="panel-block" *ngIf="event.where">
         <span class="panel-icon">
             <fa-icon [icon]="faMapMarker"></fa-icon>
         </span>
-        {{event.where?.name}}
+        <span [innerHtml]="event.where?.name | highlight:searchText"></span>
     </p>
 </div>
