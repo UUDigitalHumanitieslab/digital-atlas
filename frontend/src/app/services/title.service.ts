@@ -8,7 +8,7 @@ export class TitleService {
 
     constructor(private title: Title) { }
 
-    setTitle(newTitle: string) {
+    setTitle(newTitle: string): void {
         this.title.setTitle(`${newTitle} - Digital Atlas`);
     }
 }
