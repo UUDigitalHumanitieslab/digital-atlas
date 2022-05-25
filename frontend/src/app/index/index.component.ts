@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as _ from 'underscore';
 import { Author, CollectedData } from '../models/data';
 import { DataService } from '../services/data.service';
+import { TitleService } from '../services/title.service';
 import { VisualService } from '../services/visual.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class IndexComponent implements OnInit {
 
     pictures: { [name: string]: string };
 
-    constructor(private dataService: DataService, private visualService: VisualService) { }
+    constructor(private dataService: DataService, private visualService: VisualService, titleService: TitleService) {
+        titleService.setTitle('Intellectuals');
+    }
 
     async ngOnInit(): Promise<void> {
         const data = await this.dataService.getData();
@@ -22,7 +25,7 @@ export class IndexComponent implements OnInit {
         this.pictures = this.getPictures(data, this.authors);
     }
 
-    getPictures(data: CollectedData, authors: Author[]): {[name: string]: string} {
+    getPictures(data: CollectedData, authors: Author[]): { [name: string]: string } {
         const pictures = {};
         authors.forEach(author => {
             const picture = this.visualService.getPictureSource(author, data);

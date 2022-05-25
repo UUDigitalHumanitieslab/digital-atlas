@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 import { IntellectualMenuComponent } from './intellectual-menu.component';
 
@@ -8,9 +10,16 @@ describe('IntellectualMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IntellectualMenuComponent ]
+      declarations: [IntellectualMenuComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: new BehaviorSubject({ id: 1 })
+          }
+        }],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

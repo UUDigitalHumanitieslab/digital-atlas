@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { faArrowLeft, faArrowRight, faEye, faEyeSlash, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faFilter } from '@fortawesome/free-solid-svg-icons';
 import * as _ from 'underscore';
 import { MapComponent } from '../map/map.component';
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
 import { DatesService } from '../services/dates.service';
-import { VisualService } from '../services/visual.service';
+import { TitleService } from '../services/title.service';
 
 @Component({
     selector: 'da-map-container',
@@ -38,7 +38,8 @@ export class MapContainerComponent implements OnInit {
     @ViewChild(MapComponent)
     map!: MapComponent;
 
-    constructor(private dataService: DataService, private datesService: DatesService) {
+    constructor(private dataService: DataService, private datesService: DatesService, titleService: TitleService) {
+        titleService.setTitle('Map');
     }
 
     ngOnInit(): void {
