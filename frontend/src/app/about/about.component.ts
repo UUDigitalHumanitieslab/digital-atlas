@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '../services/title.service';
 
 @Component({
-  selector: 'da-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+    selector: 'da-about',
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+    constructor(titleService: TitleService) {
+        titleService.setTitle('About');
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

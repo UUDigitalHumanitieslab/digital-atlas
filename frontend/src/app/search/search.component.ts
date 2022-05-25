@@ -6,6 +6,7 @@ import { LifeEvent, Work, Legacy } from '../models/data';
 import { DataService } from '../services/data.service';
 import { EventCard, EventCardService } from '../services/event-card.service';
 import { HighlightService } from '../services/highlight.service';
+import { TitleService } from '../services/title.service';
 
 @Component({
     selector: 'da-search',
@@ -33,7 +34,10 @@ export class SearchComponent implements OnInit {
     constructor(
         private dataService: DataService,
         private eventCardService: EventCardService,
-        private highlightService: HighlightService) { }
+        private highlightService: HighlightService,
+        titleService: TitleService) {
+        titleService.setTitle('Search');
+    }
 
     ngOnInit(): void {
         this.subscription.add(

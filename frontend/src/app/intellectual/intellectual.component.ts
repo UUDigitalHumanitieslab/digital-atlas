@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Author, CollectedData, LifeEvent, Picture, } from '../models/data';
 import { DataService } from '../services/data.service';
-import { DatesService } from '../services/dates.service';
+import { TitleService } from '../services/title.service';
 import { VisualService } from '../services/visual.service';
 
 @Component({
@@ -21,8 +21,11 @@ export class IntellectualComponent implements OnInit, OnDestroy {
 
     icons: any;
 
-    constructor(private route: ActivatedRoute, private dataService: DataService, private datesService: DatesService,
-                private visualService: VisualService) {
+    constructor(
+        private route: ActivatedRoute,
+        private dataService: DataService,
+        private visualService: VisualService,
+        private titleService: TitleService) {
         this.icons = this.visualService.icons;
     }
 
@@ -41,6 +44,7 @@ export class IntellectualComponent implements OnInit, OnDestroy {
         this.author = this.dataService.findAuthorById(id, this.data.authors);
         this.picture = this.visualService.getPicture(this.author, this.data);
         this.pictureFile = this.visualService.pictureSource(this.picture);
+        this.titleService.setTitle(this.author.name);
     }
 
 }

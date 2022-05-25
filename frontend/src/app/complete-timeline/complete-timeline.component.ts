@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Author, CollectedData } from '../models/data';
 import { DataService } from '../services/data.service';
+import { TitleService } from '../services/title.service';
 import { VisualService } from '../services/visual.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class CompleteTimelineComponent implements OnInit {
 
     filteredData: CollectedData;
 
-    constructor(private dataService: DataService, private visualService: VisualService) { }
+    constructor(private dataService: DataService, private visualService: VisualService, titleService: TitleService) {
+        titleService.setTitle('Timeline');
+    }
 
     ngOnInit(): void {
         this.dataService.getData().then(data => {
