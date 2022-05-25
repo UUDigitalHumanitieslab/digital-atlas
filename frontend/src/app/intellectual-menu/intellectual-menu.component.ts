@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject } from 'rxjs';
 import * as _ from 'underscore';
@@ -25,12 +26,15 @@ export class IntellectualMenuComponent implements OnInit {
     };
     pictures: { [authorId: number]: string };
 
+    context: string;
+
     authorSelections: { [index: number]: boolean } = {};
     @Output() selectedAuthors = new BehaviorSubject<Author[]>([]);
 
-    constructor(private dataService: DataService, private visualService: VisualService) { }
+    constructor(private dataService: DataService, private visualService: VisualService, private route: ActivatedRoute) { }
 
     async ngOnInit(): Promise<void> {
+        this.context = this.route.snapshot.url[0].path;
         this.data = await this.dataService.getData();
         this.data.authors.forEach(author => this.authorSelections[author.id] = true);
         this.updateAuthorSelection();
@@ -77,9 +81,9 @@ export class IntellectualMenuComponent implements OnInit {
 
     tooltipMessage(author: Author): string {
         if (this.isActive(author)) {
-            return `click to hide ${author.name} from the map; double click to hide all others`;
+            return `click to hide ${author.name} from the ${this.context}; double click to hide all others`;
         } else {
-            return `click to include ${author.name} in the map; double click to only show others`;
+            return `click to include ${author.name} in the ${this.context}; double click to only show others`;
         }
     }
 }
