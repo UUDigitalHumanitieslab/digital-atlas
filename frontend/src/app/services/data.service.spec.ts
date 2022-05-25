@@ -232,6 +232,7 @@ describe('DataService', () => {
                 where: locations[3],
                 title: '',
                 description: 'Capécia, Mayotte, 1948, Je suis Martiniquaise, Paris: Corrêa. Translated as I Am a Martinican Woman in I Am a Martinican Woman/The White Negress: Two Novelettes, Beatrice Stith Clark (trans.), Pueblo, CO: Passeggiata Press, 1997.',
+                url: undefined,
                 type: 'work'
             } as Work
         ];
@@ -300,6 +301,7 @@ describe('DataService', () => {
                 where: locations[1],
                 title: 'Resistance',
                 description: 'Fled Martinique as a dissident and tried to enlist in the Free French Forces in Dominica',
+                url: undefined,
                 type: 'life event'
             } as LifeEvent
         ];

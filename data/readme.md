@@ -21,3 +21,9 @@ Tests are run with
 ```bash
 pytest
 ```
+
+Update test output using:
+
+```
+python -m convert example/example.xlsx example/example_target.json
+```
