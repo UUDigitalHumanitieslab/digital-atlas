@@ -50,7 +50,14 @@ export class EventCardService {
             return undefined;
         }
 
-        const parsed = new URL(url.trim());
+        let parsed: URL;
+        try {
+            parsed = new URL(url.trim());
+        }
+        catch {
+            return url;
+        }
+
         const paths = parsed.pathname.split('/').filter(path => !!path.trim());
         const hostname = parsed.hostname.replace(/^www\./i, '');
         if (paths.length) {

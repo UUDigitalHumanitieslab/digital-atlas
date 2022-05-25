@@ -46,16 +46,19 @@ def check_relations(data):
     for work in data['works']:
         check_dependency(data, 'authors', work['author_name'])
         check_dependency(data, 'locations', work['where'])
+        check_required(work, 'author_name')
 
     print("Checking legacy:")
     for legacy in data['legacy']:
         check_dependency(data, 'authors', legacy['about'])
         check_dependency(data, 'locations', legacy['where'])
+        check_required(legacy, 'about')
 
     print("Checking events:")
     for event in data['events']:
         check_dependency(data, 'authors', event['author'])
         check_dependency(data, 'locations', event['where'])
+        check_required(event, 'author')
 
 
 def check_dependency(data, sheet, name):
@@ -67,6 +70,9 @@ def check_dependency(data, sheet, name):
 
     print(f"! {name} does not exist in {sheet}")
 
+def check_required(item, name):
+    if not item[name]:
+        print(f'{name} missing for {item}')
 
 def check_dates(data):
     "For events with start + end date, check that end > start"

@@ -21,7 +21,7 @@
             </div>
             <div class="column">
                 <da-event-card *ngIf="selectedEvent" [event]="selectedEvent" [includeAuthor]="true"
-                    [canJump]="false" [searchText]="searchTextDebounced">
+                    [canJump]="false" [searchText]="searchText">
                 </da-event-card>
                 <div class="box" *ngIf="!selectedEvent">
                     Select an event for more information
