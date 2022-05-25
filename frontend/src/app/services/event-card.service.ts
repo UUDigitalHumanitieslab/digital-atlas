@@ -46,7 +46,7 @@ export class EventCardService {
     }
 
     private formatUrl(url?: string): string | undefined {
-        if (!url) {
+        if (!url?.trim()) {
             return undefined;
         }
 
