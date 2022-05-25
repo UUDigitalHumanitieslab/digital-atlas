@@ -5,7 +5,7 @@ import { Author, Categories, CollectedData, Legacy, LifeEvent, Work } from '../m
 import { DatesService } from './dates.service';
 import { VisualService } from './visual.service';
 
-export interface EventCard  {
+export interface EventCard {
     title: string;
     description: string;
     category: Categories;
@@ -14,6 +14,7 @@ export interface EventCard  {
     picture: string;
     categoryIcon: IconDefinition;
     authors: Author[];
+    formattedUrl?: string;
     info: LifeEvent | Work | Legacy;
 }
 
@@ -34,6 +35,7 @@ export class EventCardService {
             category: event.category,
             categoryIcon: this.visualService.icons[event.type],
             authors: includeAuthors ? this.getAuthors(event, data) : [],
+            formattedUrl: this.formatUrl(event.url),
             info: event
         };
     }
@@ -41,5 +43,20 @@ export class EventCardService {
     private getAuthors(event: LifeEvent | Work | Legacy, data: CollectedData): Author[] {
         const authorIds = (event as Legacy).aboutIds || [(event as LifeEvent | Work).authorId];
         return authorIds.map(id => data.authors.find(author => author.id === id));
+    }
+
+    private formatUrl(url?: string): string | undefined {
+        if (!url) {
+            return undefined;
+        }
+
+        const parsed = new URL(url.trim());
+        const paths = parsed.pathname.split('/').filter(path => !!path.trim());
+        const hostname = parsed.hostname.replace(/^www\./i, '');
+        if (paths.length) {
+            return `${hostname}/${paths[paths.length - 1]}`;
+        } else {
+            return hostname;
+        }
     }
 }

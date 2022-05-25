@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
-import { faArrowLeft, faArrowRight, faCalendar, faEllipsisV, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faCalendar, faEllipsisV, faLink, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { Author, CollectedData, Legacy, LifeEvent, Work } from '../models/data';
 import { DataService } from '../services/data.service';
@@ -28,6 +28,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     authors: { info: Author, picture: string }[];
     picture: string;
     formattedDate: string;
+    formattedUrl: string;
     color: string;
 
     categoryIcon: IconDefinition;
@@ -36,6 +37,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     faMapMarker = faMapMarkerAlt;
     faArrowLeft = faArrowLeft;
     faArrowRight = faArrowRight;
+    faLink = faLink;
 
     @Output() ready = new EventEmitter<void>();
 
@@ -52,6 +54,7 @@ export class EventCardComponent implements OnInit, OnChanges {
             const card = this.eventCardService.get(this.event, data, this.includeAuthor);
 
             this.formattedDate = card.date;
+            this.formattedUrl = card.formattedUrl;
 
             this.picture = card.picture;
             this.color = card.color;
