@@ -15,11 +15,14 @@
 }
 
 .panel-block {
-    &.author-link {
+    &.author-link,
+    &.link {
         &:hover {
             background-color: $grey-lightest;
         }
+    }
 
+    &.author-link {
         .column {
             padding: 0px;
 
@@ -33,6 +36,13 @@
     &.description {
         max-height: 30vh;
         overflow: auto;
+    }
+
+    &.link {
+        &,
+        .panel-icon {
+            color: $link;
+        }
     }
 }
 

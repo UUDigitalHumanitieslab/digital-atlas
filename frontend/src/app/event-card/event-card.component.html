@@ -30,6 +30,12 @@
             <p [innerHtml]="event.description | highlight:searchText"></p>
         </div>
     </div>
+    <a class="panel-block link" *ngIf="formattedUrl" [href]="event.url" target="_blank">
+        <span class="panel-icon">
+            <fa-icon [icon]="faLink"></fa-icon>
+        </span>
+        {{formattedUrl}}
+    </a>
     <p class="panel-block" *ngIf="categoryIcon">
         <span class="panel-icon">
             <fa-icon [icon]="categoryIcon"></fa-icon>

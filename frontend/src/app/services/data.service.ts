@@ -179,6 +179,7 @@ export class DataService {
                 endDate: this.parseDate(item.end_date),
                 title: item.title,
                 description: item.description,
+                url: this.parseOptionalString(item.url),
                 pictures: this.parseStringList(item.pictures),
                 where: this.findLocation(item.where, locations),
                 type: 'work'
@@ -221,6 +222,7 @@ export class DataService {
                 where: this.findLocation(item.where, locations),
                 title: item.title,
                 description: item.description,
+                url: this.parseOptionalString(item.url),
                 type: 'life event'
             };
         });

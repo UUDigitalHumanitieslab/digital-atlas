@@ -123,6 +123,7 @@ export interface Work {
     where?: Location;
     title: string;
     description: string;
+    url?: string;
     type: 'work';
 }
 
@@ -153,6 +154,7 @@ export interface LifeEvent {
     where?: Location;
     title: string;
     description: string;
+    url?: string;
     type: 'life event';
 }
 
