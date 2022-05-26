@@ -4,19 +4,23 @@
 
 The Digital ATLAS of postcolonial Europe visualizes the sites, archives, galleries, museums, monuments, organizations and events, collecting information on postcolonial intellectuals and the main migrant organizations/manifestations in Europe.
 
+Presented at [Postcolonial Publics: Art and Citizen Media in Europe
+Ca' Foscari University of Venice, VIU (May 26th, 2022)](https://www.unive.it/data/33113/1/60248).
+
 
 ## Before you start
 
 You need to install the following software:
 
- - PostgreSQL >= 10, client, server and C libraries
  - Python >= 3.8, <= 3.10
  - virtualenv
- - WSGI-compatible webserver (deployment only)
  - [Visual C++ for Python][1] (Windows only)
  - Node.js >= 8
  - Yarn
  - [WebDriver][2] for at least one browser (only for functional testing)
+ - WSGI-compatible webserver (deployment only)
+ - PostgreSQL >= 10, client, server and C libraries (not used yet)
+ 
 
 [1]: https://wiki.python.org/moin/WindowsCompilers
 [2]: https://pypi.org/project/selenium/#drivers
@@ -24,9 +28,11 @@ You need to install the following software:
 
 ## How it works
 
-This project integrates three isolated subprojects, each inside its own subdirectory with its own code, package dependencies and tests:
+This project integrates four isolated subprojects, each inside its own subdirectory with its own code, package dependencies and tests:
 
- - **backend**: the server side web application based on [Django][3] and [DRF][4]
+- **backend**: the server side web application based on [Django][3] and [DRF][4]. Within this project this only serves the Angular frontend
+
+- **data**: reads the Excel sheet with all the collected data and exports it to a format which can be used by the frontend
 
  - **frontend**: the client side web application based on [Angular](https://angular.io)
 
@@ -49,7 +55,9 @@ If you are reading this README, you'll likely be working with the integrated pro
 First time after cloning this project:
 
 ```console
-$ python bootstrap.py
+$ cd frontend
+$ yarn
+$ yarn build
 ```
 
 Running the application in [development mode][8] (hit ctrl-C to stop):
@@ -58,37 +66,7 @@ Running the application in [development mode][8] (hit ctrl-C to stop):
 $ yarn start
 ```
 
-This will run the backend and frontend applications, as well as their unittests, and watch all source files for changes. You can visit the frontend on http://localhost:8000/, the browsable backend API on http://localhost:8000/api/ and the backend admin on http://localhost:8000/admin/. On every change, unittests rerun, frontend code rebuilds and open browser tabs refresh automatically (livereload).
-
-[8]: #development-mode-vs-production-mode
-
-
-### Recommended order of development
-
-For each new feature, we suggested that you work through the steps listed below. This could be called a back-to-front or "bottom up" order. Of course, you may have reasons to choose otherwise. For example, if very precise specifications are provided, you could move step 8 to the front for a more test-driven approach.
-
-Steps 1–5 also include updating the unittests. Only functions should be tested, especially critical and nontrivial ones.
-
- 1. Backend model changes including migrations.
- 2. Backend serializer changes and backend admin changes.
- 3. Backend API endpoint changes.
- 4. Frontend model changes.
- 5. Other frontend unit changes (templates, views, routers, FSMs).
- 6. Frontend integration (globals, event bindings).
- 7. Run functional tests, repair broken functionality and broken tests.
- 8. [Add functional tests][9] for the new feature.
- 9. Update technical documentation.
-
-[9]: functional-tests/README.md#writing-tests
-
-For release branches, we suggest the following checklist.
-
- 1. Bump the version number in the `package.json` next to this README.
- 2. Run the functional tests in production mode, fix bugs if necessary.
- 3. Try using the application in production mode, look for problems that may have escaped the tests.
- 4. Add regression tests (unit or functional) that detect problems from step 3.
- 5. Work on the code until new regression tests from step 4 pass.
- 6. Optionally, repeat steps 2–5 with the application running in a real deployment setup (see [Deployment](#deployment)).
+This will run the frontend and watch all source files for changes. You can visit the frontend on http://localhost:4200/.
 
 
 ### Commands for common tasks
