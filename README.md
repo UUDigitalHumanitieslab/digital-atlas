@@ -1,6 +1,7 @@
 # Digital Atlas
 
 [![Actions Status](https://github.com/UUDigitalHumanitieslab/digital-atlas/workflows/Unit%20tests/badge.svg)](https://github.com/UUDigitalHumanitieslab/digital-atlas/actions)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10607128.svg)](https://doi.org/10.5281/zenodo.10607128)
 
 The [Digital ATLAS of postcolonial Europe](https://atlast.hum.uu.nl) visualizes the sites, archives, galleries, museums, monuments, organizations and events, collecting information on postcolonial intellectuals and the main migrant organizations/manifestations in Europe.
 

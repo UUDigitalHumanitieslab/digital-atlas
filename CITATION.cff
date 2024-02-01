@@ -16,8 +16,11 @@ authors:
     name-particle: de
     given-names: Julia
     affiliation: 'Utrecht University'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.10607128
 repository-code: 'https://github.com/UUDigitalHumanitieslab/digital-atlas'
 url: 'https://atlas.hum.uu.nl/'
 license: BSD-3-Clause
-version: 0.0.0
+version: 0.0.2
 date-released: '2024-02-01'
