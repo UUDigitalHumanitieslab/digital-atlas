@@ -17,7 +17,7 @@ See [CONTRIBUTING](/CONTRIBUTING.md) for details on the setup of the application
 
 ## Usage
 
-Digital ATLAS is a web application. You can view the deployed version as [atlast.hum.uu.nl](https://atlas.hum.uu.nl).
+Digital ATLAS is a web application. You can view the deployed version as [atlas.hum.uu.nl](https://atlas.hum.uu.nl).
 
 ## Licence
 
