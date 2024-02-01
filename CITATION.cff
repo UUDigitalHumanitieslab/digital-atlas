@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: I-Analyzer
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - name: 'Research Software Lab, Centre for Digital Humanities, Utrecht University'
+    website: 'https://cdh.uu.nl/centre-for-digital-humanities/research-software-lab/'
+    city: Utrecht
+    country: NL
+  - family-names: Ponzanesi
+    given-names: Sandra
+    affiliation: Utrecht University
+  - family-names: Lange
+    name-particle: de
+    given-names: Julia
+    affiliation: Utrecht University
+repository-code: 'https://github.com/UUDigitalHumanitieslab/digital-atlas'
+url: 'https://atlas.hum.uu.nl/'
+license: BSD-3
+version: 0.0.0
+date-released: '2024-02-01'
