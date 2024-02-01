@@ -11,13 +11,13 @@ authors:
     country: NL
   - family-names: Ponzanesi
     given-names: Sandra
-    affiliation: Utrecht University
+    affiliation: 'Utrecht University'
   - family-names: Lange
     name-particle: de
     given-names: Julia
-    affiliation: Utrecht University
+    affiliation: 'Utrecht University'
 repository-code: 'https://github.com/UUDigitalHumanitieslab/digital-atlas'
 url: 'https://atlas.hum.uu.nl/'
-license: BSD-3
+license: BSD-3-Clause
 version: 0.0.0
 date-released: '2024-02-01'
